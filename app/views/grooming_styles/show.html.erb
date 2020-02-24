@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Style:</strong>
+  <%= @grooming_style.style_id %>
+</p>
+
+<p>
+  <strong>Grooming appointment:</strong>
+  <%= @grooming_style.grooming_appointment_id %>
+</p>
+
+<p>
+  <strong>Groom style notes:</strong>
+  <%= @grooming_style.groom_style_notes %>
+</p>
+
+<%= link_to 'Edit', edit_grooming_style_path(@grooming_style) %> |
+<%= link_to 'Back', grooming_styles_path %>

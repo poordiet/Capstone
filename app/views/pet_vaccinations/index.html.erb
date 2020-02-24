@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pet Vaccinations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Vaccine</th>
+      <th>Pet</th>
+      <th>Date given</th>
+      <th>Date expire</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pet_vaccinations.each do |pet_vaccination| %>
+      <tr>
+        <td><%= pet_vaccination.vaccine_id %></td>
+        <td><%= pet_vaccination.pet_id %></td>
+        <td><%= pet_vaccination.date_given %></td>
+        <td><%= pet_vaccination.date_expire %></td>
+        <td><%= link_to 'Show', pet_vaccination %></td>
+        <td><%= link_to 'Edit', edit_pet_vaccination_path(pet_vaccination) %></td>
+        <td><%= link_to 'Destroy', pet_vaccination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pet Vaccination', new_pet_vaccination_path %>

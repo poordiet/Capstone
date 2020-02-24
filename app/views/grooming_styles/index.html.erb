@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Grooming Styles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Style</th>
+      <th>Grooming appointment</th>
+      <th>Groom style notes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @grooming_styles.each do |grooming_style| %>
+      <tr>
+        <td><%= grooming_style.style_id %></td>
+        <td><%= grooming_style.grooming_appointment_id %></td>
+        <td><%= grooming_style.groom_style_notes %></td>
+        <td><%= link_to 'Show', grooming_style %></td>
+        <td><%= link_to 'Edit', edit_grooming_style_path(grooming_style) %></td>
+        <td><%= link_to 'Destroy', grooming_style, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Grooming Style', new_grooming_style_path %>

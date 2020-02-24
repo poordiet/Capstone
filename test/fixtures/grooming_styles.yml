@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  style: one
+  grooming_appointment: one
+  groom_style_notes: MyString
+
+two:
+  style: two
+  grooming_appointment: two
+  groom_style_notes: MyString

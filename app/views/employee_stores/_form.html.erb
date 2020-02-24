@@ -1,0 +1,27 @@
+<%= form_with(model: employee_store, local: true) do |form| %>
+  <% if employee_store.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee_store.errors.count, "error") %> prohibited this employee_store from being saved:</h2>
+
+      <ul>
+        <% employee_store.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :store_id %>
+    <%= form.text_field :store_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :employee_id %>
+    <%= form.text_field :employee_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

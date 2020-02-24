@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service_status: one
+  service_name: MyString
+  service_description: MyString
+
+two:
+  service_status: two
+  service_name: MyString
+  service_description: MyString

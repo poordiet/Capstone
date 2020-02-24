@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @grooming_service.service_id %>
+</p>
+
+<p>
+  <strong>Grooming appointment:</strong>
+  <%= @grooming_service.grooming_appointment_id %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @grooming_service.employee_id %>
+</p>
+
+<p>
+  <strong>Service amount:</strong>
+  <%= @grooming_service.service_amount %>
+</p>
+
+<p>
+  <strong>Service amount:</strong>
+  <%= @grooming_service.service_amount %>
+</p>
+
+<p>
+  <strong>Service amount notes:</strong>
+  <%= @grooming_service.service_amount_notes %>
+</p>
+
+<%= link_to 'Edit', edit_grooming_service_path(@grooming_service) %> |
+<%= link_to 'Back', grooming_services_path %>

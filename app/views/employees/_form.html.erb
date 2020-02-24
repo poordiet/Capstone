@@ -1,0 +1,67 @@
+<%= form_with(model: employee, local: true) do |form| %>
+  <% if employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+        <% employee.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :state_id %>
+    <%= form.text_field :state_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :emp_first_name %>
+    <%= form.text_field :emp_first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :emp_last_name %>
+    <%= form.text_field :emp_last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :emp_primary_phone %>
+    <%= form.text_field :emp_primary_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :emp_secondary_phone %>
+    <%= form.text_field :emp_secondary_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :emp_email %>
+    <%= form.text_field :emp_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :emp_hire_date %>
+    <%= form.date_select :emp_hire_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :emp_address %>
+    <%= form.text_field :emp_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :emp_city %>
+    <%= form.text_field :emp_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :emp_zip %>
+    <%= form.text_field :emp_zip %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

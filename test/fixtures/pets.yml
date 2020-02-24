@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: one
+  pet_gender: MyString
+  pet_birthdate: 2020-02-24
+  pet_allergies: MyString
+  spayed_neutered: MyString
+  pet_treat: MyString
+  vet_name: MyString
+  vet_phone: MyString
+  pet_medical_issues: MyString
+  pet_notes: MyString
+  pet_color: MyString
+  pet_weight: 
+  pet_weight: 
+
+two:
+  customer: two
+  pet_gender: MyString
+  pet_birthdate: 2020-02-24
+  pet_allergies: MyString
+  spayed_neutered: MyString
+  pet_treat: MyString
+  vet_name: MyString
+  vet_phone: MyString
+  pet_medical_issues: MyString
+  pet_notes: MyString
+  pet_color: MyString
+  pet_weight: 
+  pet_weight: 

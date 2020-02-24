@@ -1,0 +1,47 @@
+<%= form_with(model: grooming_service, local: true) do |form| %>
+  <% if grooming_service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(grooming_service.errors.count, "error") %> prohibited this grooming_service from being saved:</h2>
+
+      <ul>
+        <% grooming_service.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :service_id %>
+    <%= form.text_field :service_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :grooming_appointment_id %>
+    <%= form.text_field :grooming_appointment_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :employee_id %>
+    <%= form.text_field :employee_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :service_amount %>
+    <%= form.text_field :service_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :service_amount %>
+    <%= form.text_field :service_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :service_amount_notes %>
+    <%= form.text_field :service_amount_notes %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

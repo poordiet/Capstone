@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  grooming_appointment: one
+  incident_notes: MyString
+  incident_cost: 
+  incident_cost: 
+
+two:
+  grooming_appointment: two
+  incident_notes: MyString
+  incident_cost: 
+  incident_cost: 

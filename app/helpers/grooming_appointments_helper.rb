@@ -1,0 +1,2 @@
+module GroomingAppointmentsHelper
+end

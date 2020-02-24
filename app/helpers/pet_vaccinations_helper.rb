@@ -1,0 +1,2 @@
+module PetVaccinationsHelper
+end

@@ -1,0 +1,82 @@
+<%= form_with(model: pet, local: true) do |form| %>
+  <% if pet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+
+      <ul>
+        <% pet.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :customer_id %>
+    <%= form.text_field :customer_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pet_gender %>
+    <%= form.text_field :pet_gender %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pet_birthdate %>
+    <%= form.date_select :pet_birthdate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pet_allergies %>
+    <%= form.text_field :pet_allergies %>
+  </div>
+
+  <div class="field">
+    <%= form.label :spayed_neutered %>
+    <%= form.text_field :spayed_neutered %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pet_treat %>
+    <%= form.text_field :pet_treat %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vet_name %>
+    <%= form.text_field :vet_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vet_phone %>
+    <%= form.text_field :vet_phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pet_medical_issues %>
+    <%= form.text_field :pet_medical_issues %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pet_notes %>
+    <%= form.text_field :pet_notes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pet_color %>
+    <%= form.text_field :pet_color %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pet_weight %>
+    <%= form.text_field :pet_weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pet_weight %>
+    <%= form.text_field :pet_weight %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

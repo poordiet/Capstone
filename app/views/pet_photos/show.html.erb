@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pet:</strong>
+  <%= @pet_photo.pet_id %>
+</p>
+
+<p>
+  <strong>Photo type:</strong>
+  <%= @pet_photo.photo_type_id %>
+</p>
+
+<p>
+  <strong>Grooming appointment:</strong>
+  <%= @pet_photo.grooming_appointment_id %>
+</p>
+
+<p>
+  <strong>Photo link:</strong>
+  <%= @pet_photo.photo_link %>
+</p>
+
+<p>
+  <strong>Photo description:</strong>
+  <%= @pet_photo.photo_description %>
+</p>
+
+<%= link_to 'Edit', edit_pet_photo_path(@pet_photo) %> |
+<%= link_to 'Back', pet_photos_path %>

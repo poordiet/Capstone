@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pet: one
+  store: one
+  payment_type: one
+  appt_date: 2020-02-24
+  appt_blades: MyString
+  appt_total: 
+  appt_total: 
+  appt_notes: MyString
+  customer_feedback: MyString
+  vac_current: MyString
+  vac_current_date: 2020-02-24
+
+two:
+  pet: two
+  store: two
+  payment_type: two
+  appt_date: 2020-02-24
+  appt_blades: MyString
+  appt_total: 
+  appt_total: 
+  appt_notes: MyString
+  customer_feedback: MyString
+  vac_current: MyString
+  vac_current_date: 2020-02-24

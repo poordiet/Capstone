@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service: one
+  grooming_appointment: one
+  employee: one
+  service_amount: 
+  service_amount: 
+  service_amount_notes: MyString
+
+two:
+  service: two
+  grooming_appointment: two
+  employee: two
+  service_amount: 
+  service_amount: 
+  service_amount_notes: MyString

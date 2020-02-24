@@ -1,0 +1,42 @@
+<%= form_with(model: pet_photo, local: true) do |form| %>
+  <% if pet_photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pet_photo.errors.count, "error") %> prohibited this pet_photo from being saved:</h2>
+
+      <ul>
+        <% pet_photo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :pet_id %>
+    <%= form.text_field :pet_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :photo_type_id %>
+    <%= form.text_field :photo_type_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :grooming_appointment_id %>
+    <%= form.text_field :grooming_appointment_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :photo_link %>
+    <%= form.text_area :photo_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :photo_description %>
+    <%= form.text_field :photo_description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module PetPhotosHelper
+end

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Vaccine:</strong>
+  <%= @pet_vaccination.vaccine_id %>
+</p>
+
+<p>
+  <strong>Pet:</strong>
+  <%= @pet_vaccination.pet_id %>
+</p>
+
+<p>
+  <strong>Date given:</strong>
+  <%= @pet_vaccination.date_given %>
+</p>
+
+<p>
+  <strong>Date expire:</strong>
+  <%= @pet_vaccination.date_expire %>
+</p>
+
+<%= link_to 'Edit', edit_pet_vaccination_path(@pet_vaccination) %> |
+<%= link_to 'Back', pet_vaccinations_path %>

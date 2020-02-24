@@ -1,0 +1,32 @@
+<%= form_with(model: grooming_style, local: true) do |form| %>
+  <% if grooming_style.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(grooming_style.errors.count, "error") %> prohibited this grooming_style from being saved:</h2>
+
+      <ul>
+        <% grooming_style.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :style_id %>
+    <%= form.text_field :style_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :grooming_appointment_id %>
+    <%= form.text_field :grooming_appointment_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :groom_style_notes %>
+    <%= form.text_field :groom_style_notes %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

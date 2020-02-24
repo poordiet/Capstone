@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pet:</strong>
+  <%= @grooming_appointment.pet_id %>
+</p>
+
+<p>
+  <strong>Store:</strong>
+  <%= @grooming_appointment.store_id %>
+</p>
+
+<p>
+  <strong>Payment type:</strong>
+  <%= @grooming_appointment.payment_type_id %>
+</p>
+
+<p>
+  <strong>Appt date:</strong>
+  <%= @grooming_appointment.appt_date %>
+</p>
+
+<p>
+  <strong>Appt blades:</strong>
+  <%= @grooming_appointment.appt_blades %>
+</p>
+
+<p>
+  <strong>Appt total:</strong>
+  <%= @grooming_appointment.appt_total %>
+</p>
+
+<p>
+  <strong>Appt total:</strong>
+  <%= @grooming_appointment.appt_total %>
+</p>
+
+<p>
+  <strong>Appt notes:</strong>
+  <%= @grooming_appointment.appt_notes %>
+</p>
+
+<p>
+  <strong>Customer feedback:</strong>
+  <%= @grooming_appointment.customer_feedback %>
+</p>
+
+<p>
+  <strong>Vac current:</strong>
+  <%= @grooming_appointment.vac_current %>
+</p>
+
+<p>
+  <strong>Vac current date:</strong>
+  <%= @grooming_appointment.vac_current_date %>
+</p>
+
+<%= link_to 'Edit', edit_grooming_appointment_path(@grooming_appointment) %> |
+<%= link_to 'Back', grooming_appointments_path %>
