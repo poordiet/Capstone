@@ -1,22 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Grooming appointment:</strong>
-  <%= @incident.grooming_appointment_id %>
+  <strong>Grooming Appointment:</strong>
+  <%= @incident.grooming_appointment.appt_date %>
 </p>
 
 <p>
-  <strong>Incident notes:</strong>
+  <strong>Incident Notes:</strong>
   <%= @incident.incident_notes %>
 </p>
 
 <p>
-  <strong>Incident cost:</strong>
-  <%= @incident.incident_cost %>
-</p>
-
-<p>
-  <strong>Incident cost:</strong>
+  <strong>Incident Cost:</strong>
   <%= @incident.incident_cost %>
 </p>
 

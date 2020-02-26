@@ -5,17 +5,17 @@
 <table>
   <thead>
     <tr>
-      <th>State</th>
-      <th>Customer first name</th>
-      <th>Customer last name</th>
-      <th>Customer address</th>
-      <th>Customer city</th>
-      <th>Customer zip</th>
-      <th>Customer primary phone</th>
-      <th>Customer secondary phone</th>
-      <th>Customer email</th>
-      <th>Date obtained</th>
-      <th>Customer notes</th>
+      <!--<th>State</th>-->
+      <th>First Name</th>
+      <th>Last Name</th>
+      <!--<th>Customer city</th>
+      <th>Customer zip</th>-->
+      <th>Phone Number</th>
+      <!--<th>Customer secondary phone</th>-->
+      <th>Email</th>
+      <th>Date Obtained</th>
+      <th>Address</th>
+      <!--<th>Customer notes</th>-->
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,20 +23,20 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= customer.state_id %></td>
+        <!--<td><%= customer.state.state_abbreviation %></td>-->
         <td><%= customer.customer_first_name %></td>
         <td><%= customer.customer_last_name %></td>
-        <td><%= customer.customer_address %></td>
-        <td><%= customer.customer_city %></td>
-        <td><%= customer.customer_zip %></td>
+        <!--<td><%= customer.customer_city %></td>
+        <td><%= customer.customer_zip %></td>-->
         <td><%= customer.customer_primary_phone %></td>
-        <td><%= customer.customer_secondary_phone %></td>
+        <!--<td><%= customer.customer_secondary_phone %></td>-->
         <td><%= customer.customer_email %></td>
         <td><%= customer.date_obtained %></td>
-        <td><%= customer.customer_notes %></td>
+        <td><%= customer.customer_address %></td>
+        <!--<td><%= customer.customer_notes %></td>-->
         <td><%= link_to 'Show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

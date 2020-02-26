@@ -5,17 +5,16 @@
 <table>
   <thead>
     <tr>
-      <th>Pet</th>
+      <th>Pet Name</th>
       <th>Store</th>
-      <th>Payment type</th>
-      <th>Appt date</th>
-      <th>Appt blades</th>
-      <th>Appt total</th>
-      <th>Appt total</th>
-      <th>Appt notes</th>
-      <th>Customer feedback</th>
-      <th>Vac current</th>
-      <th>Vac current date</th>
+      <th>Payment Type</th>
+      <th>Appt Date</th>
+      <th>Blades</th>
+      <th>Total</th>
+      <th>Appt Notes</th>
+      <th>Customer Feedback</th>
+      <th>Vaccine Current</th>
+      <th>Vaccine Date</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,12 +22,11 @@
   <tbody>
     <% @grooming_appointments.each do |grooming_appointment| %>
       <tr>
-        <td><%= grooming_appointment.pet_id %></td>
-        <td><%= grooming_appointment.store_id %></td>
-        <td><%= grooming_appointment.payment_type_id %></td>
+        <td><%= grooming_appointment.pet.pet_name %></td>
+        <td><%= grooming_appointment.store.store_address %></td>
+        <td><%= grooming_appointment.payment_type.payment_type %></td>
         <td><%= grooming_appointment.appt_date %></td>
         <td><%= grooming_appointment.appt_blades %></td>
-        <td><%= grooming_appointment.appt_total %></td>
         <td><%= grooming_appointment.appt_total %></td>
         <td><%= grooming_appointment.appt_notes %></td>
         <td><%= grooming_appointment.customer_feedback %></td>
@@ -36,7 +34,7 @@
         <td><%= grooming_appointment.vac_current_date %></td>
         <td><%= link_to 'Show', grooming_appointment %></td>
         <td><%= link_to 'Edit', edit_grooming_appointment_path(grooming_appointment) %></td>
-        <td><%= link_to 'Destroy', grooming_appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', grooming_appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

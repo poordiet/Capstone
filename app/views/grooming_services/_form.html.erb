@@ -12,36 +12,31 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :service_id %>
-    <%= form.text_field :service_id %>
+    <%= form.label :service_id, 'Service Name' %>
+    <%= form.collection_select :service_id, Service.all, :id, :service_name %>
   </div>
 
   <div class="field">
-    <%= form.label :grooming_appointment_id %>
-    <%= form.text_field :grooming_appointment_id %>
+    <%= form.label :grooming_appointment_id, 'Grooming Appointment' %>
+    <%= form.collection_select :grooming_appointment_id, GroomingAppointment.all, :id, :appt_date %>
   </div>
 
   <div class="field">
-    <%= form.label :employee_id %>
-    <%= form.text_field :employee_id %>
+    <%= form.label :employee_id, 'Employee' %>
+    <%= form.collection_select :employee_id, Employee.all, :id, :emp_first_name %>
   </div>
 
   <div class="field">
-    <%= form.label :service_amount %>
+    <%= form.label :service_amount, 'Service Amount' %>
     <%= form.text_field :service_amount %>
   </div>
 
   <div class="field">
-    <%= form.label :service_amount %>
-    <%= form.text_field :service_amount %>
-  </div>
-
-  <div class="field">
-    <%= form.label :service_amount_notes %>
+    <%= form.label :service_amount_notes, 'Service Amount Notes' %>
     <%= form.text_field :service_amount_notes %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Create Grooming Service' %>
   </div>
 <% end %>

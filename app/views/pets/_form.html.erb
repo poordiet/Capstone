@@ -13,66 +13,66 @@
 
   <div class="field">
     <%= form.label :customer_id %>
-    <%= form.text_field :customer_id %>
+    <%= form.collection_select :customer_id, Customer.all, :id, :customer_first_name %>
   </div>
 
   <div class="field">
-    <%= form.label :pet_gender %>
-    <%= form.text_field :pet_gender %>
+    <%= form.label :pet_name, 'Pet Name' %>
+    <%= form.text_field :pet_name %>
   </div>
 
   <div class="field">
-    <%= form.label :pet_birthdate %>
+    <%= form.label :pet_gender, 'Pet Gender' %>
+    <%= form.select :pet_gender, ['M', 'F'] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pet_birthdate, 'Birthdate' %>
     <%= form.date_select :pet_birthdate %>
   </div>
 
   <div class="field">
-    <%= form.label :pet_allergies %>
+    <%= form.label :pet_allergies, 'Allergies' %>
     <%= form.text_field :pet_allergies %>
   </div>
 
   <div class="field">
-    <%= form.label :spayed_neutered %>
-    <%= form.text_field :spayed_neutered %>
+    <%= form.label :spayed_neutered, 'Spayed/Neutered' %>
+    <%= form.select :spayed_neutered, ['Y', 'N'] %>
   </div>
 
   <div class="field">
-    <%= form.label :pet_treat %>
-    <%= form.text_field :pet_treat %>
+    <%= form.label :pet_treat, 'Treats' %>
+    <%= form.select :pet_treat, ['Y', 'N'] %>
   </div>
 
   <div class="field">
-    <%= form.label :vet_name %>
+    <%= form.label :vet_name, 'Vet Name' %>
     <%= form.text_field :vet_name %>
   </div>
 
   <div class="field">
-    <%= form.label :vet_phone %>
+    <%= form.label :vet_phone, 'Vet Phone' %>
     <%= form.text_field :vet_phone %>
   </div>
 
   <div class="field">
-    <%= form.label :pet_medical_issues %>
+    <%= form.label :pet_medical_issues, 'Medical Issues' %>
     <%= form.text_field :pet_medical_issues %>
   </div>
 
   <div class="field">
-    <%= form.label :pet_notes %>
+    <%= form.label :pet_notes, 'Pet Notes' %>
     <%= form.text_field :pet_notes %>
   </div>
 
   <div class="field">
-    <%= form.label :pet_color %>
+    <%= form.label :pet_color, 'Pet Color' %>
     <%= form.text_field :pet_color %>
   </div>
 
   <div class="field">
-    <%= form.label :pet_weight %>
-    <%= form.text_field :pet_weight %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pet_weight %>
+    <%= form.label :pet_weight, 'Pet Weight' %>
     <%= form.text_field :pet_weight %>
   </div>
 

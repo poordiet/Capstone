@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Store</th>
+      <th>Store Address</th>
       <th>Employee</th>
       <th colspan="3"></th>
     </tr>
@@ -14,11 +14,11 @@
   <tbody>
     <% @employee_stores.each do |employee_store| %>
       <tr>
-        <td><%= employee_store.store_id %></td>
-        <td><%= employee_store.employee_id %></td>
+        <td><%= employee_store.store.store_address %></td>
+        <td><%= employee_store.employee.emp_first_name %></td>
         <td><%= link_to 'Show', employee_store %></td>
         <td><%= link_to 'Edit', edit_employee_store_path(employee_store) %></td>
-        <td><%= link_to 'Destroy', employee_store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', employee_store, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

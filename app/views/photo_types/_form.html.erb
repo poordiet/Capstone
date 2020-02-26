@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :photo_type %>
-    <%= form.text_field :photo_type %>
+    <%= form.label :photo_type, 'Photo Types' %>
+    <%= form.select :photo_type, ['Before', 'After'] %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Create Photo Type' %>
   </div>
 <% end %>
