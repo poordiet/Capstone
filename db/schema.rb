@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_24_185545) do
+ActiveRecord::Schema.define(version: 2020_02_25_003648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -152,6 +152,7 @@ ActiveRecord::Schema.define(version: 2020_02_24_185545) do
     t.decimal "pet_weight"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "pet_name"
     t.index ["customer_id"], name: "index_pets_on_customer_id"
   end
 
@@ -177,8 +178,8 @@ ActiveRecord::Schema.define(version: 2020_02_24_185545) do
   end
 
   create_table "states", force: :cascade do |t|
-    t.string "state_name"
-    t.string "state_abbreviation", limit: 2
+    t.string "state_name", null: false
+    t.string "state_abbreviation", limit: 2, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

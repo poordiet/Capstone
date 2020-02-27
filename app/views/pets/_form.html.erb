@@ -76,6 +76,10 @@
     <%= form.text_field :pet_weight %>
   </div>
 
+  <div class="pet_vaccines">
+    <%= link_to_add_association 'Add Vaccine', form, :pet_vaccinations %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
