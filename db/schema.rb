@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_003648) do
+ActiveRecord::Schema.define(version: 2020_02_24_185545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 2020_02_25_003648) do
 
   create_table "employees", force: :cascade do |t|
     t.bigint "state_id", null: false
-    t.string "emp_first_name"
-    t.string "emp_last_name"
+    t.string "emp_first_name", null: false
+    t.string "emp_last_name", null: false
     t.string "emp_primary_phone"
     t.string "emp_secondary_phone"
     t.string "emp_email"
@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_003648) do
 
   create_table "pets", force: :cascade do |t|
     t.bigint "customer_id", null: false
+    t.string "pet_name"
     t.string "pet_gender", limit: 1
     t.date "pet_birthdate"
     t.string "pet_allergies"
@@ -152,7 +153,6 @@ ActiveRecord::Schema.define(version: 2020_02_25_003648) do
     t.decimal "pet_weight"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "pet_name"
     t.index ["customer_id"], name: "index_pets_on_customer_id"
   end
 

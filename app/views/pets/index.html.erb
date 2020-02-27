@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Customer</th>
+      <th>Pet name</th>
       <th>Pet gender</th>
       <th>Pet birthdate</th>
       <th>Pet allergies</th>
@@ -26,6 +27,7 @@
     <% @pets.each do |pet| %>
       <tr>
         <td><%= pet.customer_id %></td>
+        <td><%= pet.pet_name %></td>
         <td><%= pet.pet_gender %></td>
         <td><%= pet.pet_birthdate %></td>
         <td><%= pet.pet_allergies %></td>
