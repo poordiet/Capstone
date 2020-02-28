@@ -74,9 +74,7 @@
 <div>
 <%@pet.pet_photos.each do |photo|
    if photo.photo_type_id == 1 %>
-    <%= photo.photo_description%>
-    <%= image_tag(photo.image) if photo.image.attached? %>
-    <%=photo.photo_type_id%>
+    <%= image_tag photo.image.variant(resize:"400x400") if photo.image.attached? %>
     <%end%>
 <%end%>
 </div>
