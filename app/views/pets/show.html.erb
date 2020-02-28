@@ -70,5 +70,18 @@
   <%= @pet.pet_weight %>
 </p>
 
+<!-- Shows the profile photos for each pet -->
+<div>
+<%@pet.pet_photos.each do |photo|
+   if photo.photo_type_id == 1 %>
+    <%= photo.photo_description%>
+    <%= image_tag(photo.image) if photo.image.attached? %>
+    <%=photo.photo_type_id%>
+    <%end%>
+<%end%>
+</div>
+
+
+
 <%= link_to 'Edit', edit_pet_path(@pet) %> |
 <%= link_to 'Back', pets_path %>

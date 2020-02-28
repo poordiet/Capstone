@@ -1,0 +1,19 @@
+<div class="nested-fields">
+
+    <div class="field">
+        <%= f.label :photo_type_id %>
+        <%= f.text_field :photo_type_id %>
+    </div>
+
+    <div class="field">
+        <%= f.label :photo_link%>
+        <%= f.file_field :photo_link %>
+    </div>
+
+    <div class="field">
+        <%= f.label :photo_description %>
+        <%= f.text_area :photo_description %>
+    </div>
+
+    <%= link_to_remove_association "Remove Photo", f %>
+</div>
