@@ -137,7 +137,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
   create_table "pet_photos", force: :cascade do |t|
     t.bigint "pet_id", null: false
     t.bigint "photo_type_id", null: false
-    t.bigint "grooming_appointment_id", null: false
+    t.bigint "grooming_appointment_id"
     t.text "photo_link"
     t.string "photo_description"
     t.datetime "created_at", precision: 6, null: false
