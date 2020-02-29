@@ -5,9 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Service status</th>
-      <th>Service name</th>
-      <th>Service description</th>
+      <th>Service Status</th>
+      <th>Service Name</th>
+      <th>Service Description</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,12 +15,12 @@
   <tbody>
     <% @services.each do |service| %>
       <tr>
-        <td><%= service.service_status_id %></td>
+        <td><%= service.service_status.service_status %></td>
         <td><%= service.service_name %></td>
         <td><%= service.service_description %></td>
         <td><%= link_to 'Show', service %></td>
         <td><%= link_to 'Edit', edit_service_path(service) %></td>
-        <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

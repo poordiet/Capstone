@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :state_id %>
-    <%= form.text_field :state_id %>
+    <%= form.label :state_id, 'State' %>
+    <%= form.collection_select :state_id, State.all, :id, :state_abbreviation %>
   </div>
 
   <div class="field">

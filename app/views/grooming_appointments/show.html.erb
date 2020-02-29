@@ -2,56 +2,51 @@
 
 <p>
   <strong>Pet:</strong>
-  <%= @grooming_appointment.pet_id %>
+  <%= @grooming_appointment.pet.pet_name %>
 </p>
 
 <p>
   <strong>Store:</strong>
-  <%= @grooming_appointment.store_id %>
+  <%= @grooming_appointment.store.store_address %>
 </p>
 
 <p>
-  <strong>Payment type:</strong>
-  <%= @grooming_appointment.payment_type_id %>
+  <strong>Payment Type:</strong>
+  <%= @grooming_appointment.payment_type.payment_type %>
 </p>
 
 <p>
-  <strong>Appt date:</strong>
+  <strong>Appt Date:</strong>
   <%= @grooming_appointment.appt_date %>
 </p>
 
 <p>
-  <strong>Appt blades:</strong>
+  <strong>Appt Blades:</strong>
   <%= @grooming_appointment.appt_blades %>
 </p>
 
 <p>
-  <strong>Appt total:</strong>
+  <strong>Total:</strong>
   <%= @grooming_appointment.appt_total %>
 </p>
 
 <p>
-  <strong>Appt total:</strong>
-  <%= @grooming_appointment.appt_total %>
-</p>
-
-<p>
-  <strong>Appt notes:</strong>
+  <strong>Appt Notes:</strong>
   <%= @grooming_appointment.appt_notes %>
 </p>
 
 <p>
-  <strong>Customer feedback:</strong>
+  <strong>Customer Feedback:</strong>
   <%= @grooming_appointment.customer_feedback %>
 </p>
 
 <p>
-  <strong>Vac current:</strong>
+  <strong>Vac Current:</strong>
   <%= @grooming_appointment.vac_current %>
 </p>
 
 <p>
-  <strong>Vac current date:</strong>
+  <strong>Vac Current Date:</strong>
   <%= @grooming_appointment.vac_current_date %>
 </p>
 

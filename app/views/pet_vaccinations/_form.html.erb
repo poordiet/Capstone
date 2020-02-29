@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :vaccine_id %>
-    <%= form.text_field :vaccine_id %>
+    <%= form.label :vaccine_id, 'Vaccine' %>
+    <%= form.collection_select :vaccine_id, Vaccine.all, :id, :vaccine_name %>
   </div>
 
   <div class="field">
-    <%= form.label :pet_id %>
-    <%= form.text_field :pet_id %>
+    <%= form.label :pet_id, 'Pet Name' %>
+    <%= form.collection_select :pet_id, Pet.all, :id, :pet_name %>
   </div>
 
   <div class="field">
-    <%= form.label :date_given %>
+    <%= form.label :date_given, 'Date Given' %>
     <%= form.date_select :date_given %>
   </div>
 
   <div class="field">
-    <%= form.label :date_expire %>
+    <%= form.label :date_expire, 'Expiration Date' %>
     <%= form.date_select :date_expire %>
   </div>
 

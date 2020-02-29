@@ -13,15 +13,15 @@
 
   <div class="field">
     <%= form.label :store_id %>
-    <%= form.text_field :store_id %>
+    <%= form.collection_select :store_id, Store.all, :id, :store_address %>
   </div>
 
   <div class="field">
     <%= form.label :employee_id %>
-    <%= form.text_field :employee_id %>
+    <%= form.collection_select :employee_id, Employee.all, :id, :emp_first_name %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Create Employee Store' %>
   </div>
 <% end %>

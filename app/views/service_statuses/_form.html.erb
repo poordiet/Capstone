@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :service_status %>
-    <%= form.text_field :service_status %>
+    <%= form.label :service_status, 'Service Status' %>
+    <%= form.select :service_status, ['Complete', 'Incomplete'] %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Create Service Status' %>
   </div>
 <% end %>

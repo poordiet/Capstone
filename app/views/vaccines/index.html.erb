@@ -5,9 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Vaccine name</th>
-      <th>Vaccine description</th>
-      <th>Vaccine required</th>
+      <th>Vaccine Name</th>
+      <th>Vaccine Description</th>
+      <th>Vaccine Required</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,7 +20,7 @@
         <td><%= vaccine.vaccine_required %></td>
         <td><%= link_to 'Show', vaccine %></td>
         <td><%= link_to 'Edit', edit_vaccine_path(vaccine) %></td>
-        <td><%= link_to 'Destroy', vaccine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', vaccine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

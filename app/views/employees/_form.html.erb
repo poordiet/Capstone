@@ -12,52 +12,52 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :state_id %>
-    <%= form.text_field :state_id %>
+    <%= form.label :state_id, 'State' %>
+    <%= form.collection_select :state_id, State.all, :id, :state_abbreviation %>
   </div>
 
   <div class="field">
-    <%= form.label :emp_first_name %>
+    <%= form.label :emp_first_name, 'First Name' %>
     <%= form.text_field :emp_first_name %>
   </div>
 
   <div class="field">
-    <%= form.label :emp_last_name %>
+    <%= form.label :emp_last_name, 'Last Name' %>
     <%= form.text_field :emp_last_name %>
   </div>
 
   <div class="field">
-    <%= form.label :emp_primary_phone %>
+    <%= form.label :emp_primary_phone, 'Primary Phone' %>
     <%= form.text_field :emp_primary_phone %>
   </div>
 
   <div class="field">
-    <%= form.label :emp_secondary_phone %>
+    <%= form.label :emp_secondary_phone, 'Secondary Phone' %>
     <%= form.text_field :emp_secondary_phone %>
   </div>
 
   <div class="field">
-    <%= form.label :emp_email %>
+    <%= form.label :emp_email, 'Email' %>
     <%= form.text_field :emp_email %>
   </div>
 
   <div class="field">
-    <%= form.label :emp_hire_date %>
+    <%= form.label :emp_hire_date, 'Hire Date' %>
     <%= form.date_select :emp_hire_date %>
   </div>
 
   <div class="field">
-    <%= form.label :emp_address %>
+    <%= form.label :emp_address, 'Address' %>
     <%= form.text_field :emp_address %>
   </div>
 
   <div class="field">
-    <%= form.label :emp_city %>
+    <%= form.label :emp_city, 'City' %>
     <%= form.text_field :emp_city %>
   </div>
 
   <div class="field">
-    <%= form.label :emp_zip %>
+    <%= form.label :emp_zip, 'Zip Code' %>
     <%= form.text_field :emp_zip %>
   </div>
 

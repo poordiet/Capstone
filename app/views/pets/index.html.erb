@@ -5,6 +5,21 @@
 <table>
   <thead>
     <tr>
+<<<<<<< HEAD
+      <th>Owner</th>
+      <th>Pet Name</th>
+      <th>Pet Gender</th>
+      <th>Birthdate</th>
+      <th>Allergies</th>
+      <th>Spayed/Neutered</th>
+      <th>Treats</th>
+      <th>Vet Name</th>
+      <th>Vet Phone</th>
+      <th>Medical Issues</th>
+      <th>Pet Notes</th>
+      <th>Pet Color</th>
+      <th>Pet Weight</th>
+=======
       <th>Customer</th>
       <th>Pet name</th>
       <th>Pet gender</th>
@@ -19,6 +34,7 @@
       <th>Pet color</th>
       <th>Pet weight</th>
       <th>Pet weight</th>
+>>>>>>> 61d275b2be7f40da1f045fc0a68e11429d0c9077
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,7 +42,11 @@
   <tbody>
     <% @pets.each do |pet| %>
       <tr>
+<<<<<<< HEAD
+        <td><%= pet.customer.customer_first_name %></td>
+=======
         <td><%= pet.customer_id %></td>
+>>>>>>> 61d275b2be7f40da1f045fc0a68e11429d0c9077
         <td><%= pet.pet_name %></td>
         <td><%= pet.pet_gender %></td>
         <td><%= pet.pet_birthdate %></td>
@@ -39,10 +59,9 @@
         <td><%= pet.pet_notes %></td>
         <td><%= pet.pet_color %></td>
         <td><%= pet.pet_weight %></td>
-        <td><%= pet.pet_weight %></td>
         <td><%= link_to 'Show', pet %></td>
         <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
-        <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
