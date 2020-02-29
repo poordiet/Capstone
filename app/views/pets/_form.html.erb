@@ -22,6 +22,12 @@
   </div>
 
   <div class="field">
+    <%= form.label :pet_gender %>
+    <%= form.text_field :pet_gender %>
+
+  </div>
+
+  <div class="field">
     <%= form.label :pet_gender, 'Pet Gender' %>
     <%= form.select :pet_gender, ['M', 'F'] %>
   </div>

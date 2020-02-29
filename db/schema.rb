@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_26_063419) do
+ActiveRecord::Schema.define(version: 2020_02_28_012439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,7 +137,7 @@ ActiveRecord::Schema.define(version: 2020_02_26_063419) do
   create_table "pet_photos", force: :cascade do |t|
     t.bigint "pet_id", null: false
     t.bigint "photo_type_id", null: false
-    t.bigint "grooming_appointment_id"
+    t.bigint "grooming_appointment_id", null: false
     t.text "photo_link"
     t.string "photo_description"
     t.datetime "created_at", precision: 6, null: false
@@ -174,7 +174,6 @@ ActiveRecord::Schema.define(version: 2020_02_26_063419) do
     t.decimal "pet_weight"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "pet_name"
     t.index ["customer_id"], name: "index_pets_on_customer_id"
   end
 

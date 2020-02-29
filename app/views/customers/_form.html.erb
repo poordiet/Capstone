@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+  
   <div class="field">
     <%= form.label :state_id, 'State' %>
     <%= form.collection_select :state_id, State.all, :id, :state_abbreviation %>
