@@ -7,5 +7,7 @@ class GroomingAppointment < ApplicationRecord
   has_many :pet_photos
   has_many :incidents
 
+  
+
 
 end

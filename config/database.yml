@@ -84,5 +84,7 @@ test:
 production:
   <<: *default
   database: capstone_production
+  host: localhost
+  port: 5432
   username: rails_dev
   password: middleout
