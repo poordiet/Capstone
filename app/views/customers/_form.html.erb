@@ -66,6 +66,10 @@
     <%= form.text_field :customer_notes %>
   </div>
 
+  <div class="pets">
+    <%= link_to_add_association 'Add Pet', form, :pets %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

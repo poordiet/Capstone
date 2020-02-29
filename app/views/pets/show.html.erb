@@ -65,5 +65,16 @@
   <%= @pet.pet_weight %>
 </p>
 
+<!-- Shows the profile photos for each pet -->
+<div>
+<%@pet.pet_photos.each do |photo|
+   if photo.photo_type_id == 1 %>
+    <%= image_tag photo.image.variant(resize:"400x400") if photo.image.attached? %>
+    <%end%>
+<%end%>
+</div>
+
+
+
 <%= link_to 'Edit', edit_pet_path(@pet) %> |
 <%= link_to 'Back', pets_path %>

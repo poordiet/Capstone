@@ -76,6 +76,14 @@
     <%= form.text_field :pet_weight %>
   </div>
 
+  <%= form.fields_for :pet_photos do |builder| %>
+    <%= render "pet_photo_fields", :f => builder %>
+  <% end %>
+
+  <div class="pet_vaccines">
+    <%= link_to_add_association 'Add Vaccine', form, :pet_vaccinations %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
