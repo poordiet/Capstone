@@ -6,14 +6,13 @@
     </div>
 
     <div class="field">
-        <%= f.label :photo_link%>
-        <%= f.file_field :photo_link %>
+        <%= f.label :"Profile Photo" %>
+        <%= f.file_field :image, direct_upload: true, accept: "image/png,image/gif,image/jpeg"%>
     </div>
 
-    <div class="field">
+     <div class="field">
         <%= f.label :photo_description %>
-        <%= f.text_area :photo_description %>
+        <%= f.text_field :photo_description %>
     </div>
 
-    <%= link_to_remove_association "Remove Photo", f %>
 </div>
