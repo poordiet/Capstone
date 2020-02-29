@@ -5,10 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Grooming appointment</th>
-      <th>Incident notes</th>
-      <th>Incident cost</th>
-      <th>Incident cost</th>
+      <th>Grooming Appointment</th>
+      <th>Incident Notes</th>
+      <th>Incident Cost</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,13 +15,12 @@
   <tbody>
     <% @incidents.each do |incident| %>
       <tr>
-        <td><%= incident.grooming_appointment_id %></td>
+        <td><%= incident.grooming_appointment.appt_date %></td>
         <td><%= incident.incident_notes %></td>
-        <td><%= incident.incident_cost %></td>
         <td><%= incident.incident_cost %></td>
         <td><%= link_to 'Show', incident %></td>
         <td><%= link_to 'Edit', edit_incident_path(incident) %></td>
-        <td><%= link_to 'Destroy', incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

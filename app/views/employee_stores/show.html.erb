@@ -2,12 +2,12 @@
 
 <p>
   <strong>Store:</strong>
-  <%= @employee_store.store_id %>
+  <%= @employee_store.store.store_address %>
 </p>
 
 <p>
   <strong>Employee:</strong>
-  <%= @employee_store.employee_id %>
+  <%= @employee_store.employee.emp_first_name %>
 </p>
 
 <%= link_to 'Edit', edit_employee_store_path(@employee_store) %> |

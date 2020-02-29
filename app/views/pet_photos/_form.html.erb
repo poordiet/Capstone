@@ -12,31 +12,39 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :pet_id %>
-    <%= form.text_field :pet_id %>
+    <%= form.label :pet_id, 'Pet Name' %>
+    <%= form.collection_select :pet_id, Pet.all, :id, :pet_name %>
+
   </div>
 
   <div class="field">
-    <%= form.label :photo_type_id %>
-    <%= form.text_field :photo_type_id %>
+    <%= form.label :photo_type_id, 'Photo Type' %>
+    <%= form.collection_select :photo_type_id, PhotoType.all, :id, :photo_type %>
+
   </div>
 
   <div class="field">
-    <%= form.label :grooming_appointment_id %>
-    <%= form.text_field :grooming_appointment_id %>
+    <%= form.label :grooming_appointment_id, "Appt Date" %>
+    <%= form.collection_select :grooming_appointment_id, GroomingAppointment.all, :id, :appt_date %>
+
   </div>
 
   <div class="field">
+<<<<<<< HEAD
+    <%= form.label :photo_link, 'Photo Link' %>
+    <%= form.text_area :photo_link %>
+=======
     <%= form.label :image %>
     <%= form.file_field :image%>
+>>>>>>> 61d275b2be7f40da1f045fc0a68e11429d0c9077
   </div>
 
   <div class="field">
-    <%= form.label :photo_description %>
+    <%= form.label :photo_description, "Photo Description" %>
     <%= form.text_field :photo_description %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Create Pet Photo' %>
   </div>
 <% end %>

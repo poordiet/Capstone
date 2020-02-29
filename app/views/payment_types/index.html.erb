@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Payment type</th>
+      <th>Payment Type</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,7 +16,7 @@
         <td><%= payment_type.payment_type %></td>
         <td><%= link_to 'Show', payment_type %></td>
         <td><%= link_to 'Edit', edit_payment_type_path(payment_type) %></td>
-        <td><%= link_to 'Destroy', payment_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', payment_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

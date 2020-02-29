@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Photo type</th>
+      <th>Photo Type</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,7 +16,7 @@
         <td><%= photo_type.photo_type %></td>
         <td><%= link_to 'Show', photo_type %></td>
         <td><%= link_to 'Edit', edit_photo_type_path(photo_type) %></td>
-        <td><%= link_to 'Destroy', photo_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', photo_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

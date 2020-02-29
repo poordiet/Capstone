@@ -12,18 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :vaccine_name %>
+    <%= form.label :vaccine_name, 'Vaccine Name' %>
     <%= form.text_field :vaccine_name %>
   </div>
 
   <div class="field">
-    <%= form.label :vaccine_description %>
+    <%= form.label :vaccine_description, 'Vaccine Description' %>
     <%= form.text_field :vaccine_description %>
   </div>
 
   <div class="field">
-    <%= form.label :vaccine_required %>
-    <%= form.text_field :vaccine_required %>
+    <%= form.label :vaccine_required, 'Vaccine Required' %>
+    <%= form.select :vaccine_required, ['Y', 'N'] %>
   </div>
 
   <div class="actions">

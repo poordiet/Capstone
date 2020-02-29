@@ -5,11 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>Pet</th>
-      <th>Photo type</th>
-      <th>Grooming appointment</th>
-      <th>Photo link</th>
-      <th>Photo description</th>
+      <th>Pet Name</th>
+      <th>Photo Type</th>
+      <th>Grooming Appointment</th>
+      <th>Photo Link</th>
+      <th>Photo Description</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,14 +17,14 @@
   <tbody>
     <% @pet_photos.each do |pet_photo| %>
       <tr>
-        <td><%= pet_photo.pet_id %></td>
-        <td><%= pet_photo.photo_type_id %></td>
-        <td><%= pet_photo.grooming_appointment_id %></td>
+        <td><%= pet_photo.pet.pet_name %></td>
+        <td><%= pet_photo.photo_type.photo_type %></td>
+        <td><%= pet_photo.grooming_appointment.appt_date %></td>
         <td><%= pet_photo.photo_link %></td>
         <td><%= pet_photo.photo_description %></td>
         <td><%= link_to 'Show', pet_photo %></td>
         <td><%= link_to 'Edit', edit_pet_photo_path(pet_photo) %></td>
-        <td><%= link_to 'Destroy', pet_photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', pet_photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

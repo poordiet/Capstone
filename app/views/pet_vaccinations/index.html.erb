@@ -6,9 +6,9 @@
   <thead>
     <tr>
       <th>Vaccine</th>
-      <th>Pet</th>
-      <th>Date given</th>
-      <th>Date expire</th>
+      <th>Pet Name</th>
+      <th>Date Given</th>
+      <th>Expiration Date</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,13 +16,13 @@
   <tbody>
     <% @pet_vaccinations.each do |pet_vaccination| %>
       <tr>
-        <td><%= pet_vaccination.vaccine_id %></td>
-        <td><%= pet_vaccination.pet_id %></td>
+        <td><%= pet_vaccination.vaccine.vaccine_name %></td>
+        <td><%= pet_vaccination.pet.pet_name %></td>
         <td><%= pet_vaccination.date_given %></td>
         <td><%= pet_vaccination.date_expire %></td>
         <td><%= link_to 'Show', pet_vaccination %></td>
         <td><%= link_to 'Edit', edit_pet_vaccination_path(pet_vaccination) %></td>
-        <td><%= link_to 'Destroy', pet_vaccination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', pet_vaccination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

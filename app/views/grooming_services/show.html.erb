@@ -2,31 +2,26 @@
 
 <p>
   <strong>Service:</strong>
-  <%= @grooming_service.service_id %>
+  <%= @grooming_service.service.service_name %>
 </p>
 
 <p>
-  <strong>Grooming appointment:</strong>
-  <%= @grooming_service.grooming_appointment_id %>
+  <strong>Grooming Appointment:</strong>
+  <%= @grooming_service.grooming_appointment.appt_date %>
 </p>
 
 <p>
   <strong>Employee:</strong>
-  <%= @grooming_service.employee_id %>
+  <%= @grooming_service.employee.emp_first_name %>
 </p>
 
 <p>
-  <strong>Service amount:</strong>
+  <strong>Service Amount:</strong>
   <%= @grooming_service.service_amount %>
 </p>
 
 <p>
-  <strong>Service amount:</strong>
-  <%= @grooming_service.service_amount %>
-</p>
-
-<p>
-  <strong>Service amount notes:</strong>
+  <strong>Service Amount Notes:</strong>
   <%= @grooming_service.service_amount_notes %>
 </p>
 
