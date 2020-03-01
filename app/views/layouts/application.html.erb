@@ -10,29 +10,38 @@
   </head>
 
   <body>
-    <div id="main">
-      <div id="header">
-          <h2>Quick Nav</h2>
-          <%= link_to 'Customers', customers_path %>
-          <%= link_to 'Employees', employees_path %>
-          <%= link_to 'Employee Stores', employee_stores_path %>
-          <%= link_to 'Grooming Appointments', grooming_appointments_path %>
-          <%= link_to 'Grooming Services', grooming_services_path %>
-          <%= link_to 'Grooming Styles', grooming_styles_path %>
-          <%= link_to 'Incidents', incidents_path %>
-          <%= link_to 'Payment Types', payment_types_path %>
-          <%= link_to 'Pet Photos', pet_photos_path %>
-          <%= link_to 'Pet Vaccinations', pet_vaccinations_path %>
-          <%= link_to 'Pets', pets_path %>
-          <%= link_to 'Photo Types', photo_types_path %>
-          <%= link_to 'Service Statuses', service_statuses_path %>
-          <%= link_to 'Services', services_path %>
-          <%= link_to 'States', states_path %>
-          <%= link_to 'Stores', stores_path %>
-          <%= link_to 'Styles', styles_path %>
-          <%= link_to 'Vaccines', vaccines_path %>
+    <nav class="navbar navbar-expand-lg navbar-dark bd-navbar bg-dark sticky-top" >
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/customers">Customer</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/grooming_appointments">Grooming</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/employees">Employee</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/"><%= image_tag "logo.png", size: "50x50"%></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Reports</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Manage</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/incidents">Incidents</a>
+        </li>
+        </ul>
       </div>
-    </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
