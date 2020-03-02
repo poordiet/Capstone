@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Customer Profile <a class="btn btn-warning active float-right mr-2">Update Customer</a></h1>
+<h1>Customer Profile <%= link_to 'Update Customer', edit_customer_path(@customer), class:'btn btn-warning active float-right mr-2' %>
+</h1>
 
 
 
@@ -96,5 +97,4 @@
   </table>
 <div>
 
-<!--<%= link_to 'Edit', edit_customer_path(@customer) %> |-->
 <%= link_to 'Back', customers_path, class: 'btn btn-danger btn-lg active float-left'%>
