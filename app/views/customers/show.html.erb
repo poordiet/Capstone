@@ -1,59 +1,100 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>State:</strong>
-  <%= @customer.state.state_name %>
-</p>
+<h1>Customer Profile <a class="btn btn-warning active float-right mr-2">Update Customer</a></h1>
 
-<p>
+
+
+
+<h5>
   <strong>First Name:</strong>
   <%= @customer.customer_first_name %>
-</p>
+</h5>
 
-<p>
+<h5>
   <strong>Last Name:</strong>
   <%= @customer.customer_last_name %>
-</p>
+</h5>
 
-<p>
-  <strong>Address:</strong>
-  <%= @customer.customer_address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @customer.customer_city %>
-</p>
-
-<p>
-  <strong>Zip Code:</strong>
-  <%= @customer.customer_zip %>
-</p>
-
-<p>
-  <strong>Primary Phone:</strong>
-  <%= @customer.customer_primary_phone %>
-</p>
-
-<p>
-  <strong>Secondary Phone:</strong>
-  <%= @customer.customer_secondary_phone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @customer.customer_email %>
-</p>
-
-<p>
+<h5>
   <strong>Date Obtained:</strong>
   <%= @customer.date_obtained %>
-</p>
+</h5>
 
-<p>
+<h5>
+  <strong>Email:</strong>
+  <%= @customer.customer_email %>
+</h5>
+
+<h5>
+  <strong>Primary Phone:</strong>
+  <%= @customer.customer_primary_phone %>
+</h5>
+
+<h5>
+  <strong>Secondary Phone:</strong>
+  <%= @customer.customer_secondary_phone %>
+</h5>
+
+<h5>
+  <strong>Address:</strong>
+  <%= @customer.customer_address %>
+</h5>
+
+<h5>
+  <strong>City:</strong>
+  <%= @customer.customer_city %>
+</h5>
+
+<h5>
+  <strong>State:</strong>
+  <%= @customer.state.state_name %>
+</h5>
+
+<h5>
+  <strong>Zip Code:</strong>
+  <%= @customer.customer_zip %>
+</h5>
+
+<h5>
   <strong>Customer Notes:</strong>
   <%= @customer.customer_notes %>
-</p>
+</h5>
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+<br>
+<div id="pets">
+  <h5><strong>Pets:</strong><h5>
+  <table class="table table-hover table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>Pet Name</th>
+        <th>Breed</th>
+        <th>Color</th>
+        <th>Weight</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Spayed/Nuetered?</th>
+        <th>Vaccines Current?</th>
+        <th colspan="2">Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%# <% @customers.each do |customer| fix to populate table with pets owned based off customer%> 
+        <tr>
+          <td>Pet Name</td>
+          <td>Breed></td>
+          <td>Color</td>
+          <td>Weight</td>
+          <td>Gender</td>
+          <td>Age</td>
+          <td>Spayed/Nuetered?</td>
+          <td>Vaccines Current?</td>
+          <td><a class="btn btn-warning active btn-block">Update</a></td>
+        </tr>
+        <%# <% end %>
+    </tbody>
+  </table>
+<div>
+
+<!--<%= link_to 'Edit', edit_customer_path(@customer) %> |-->
+<%= link_to 'Back', customers_path, class: 'btn btn-danger btn-lg active float-left'%>

@@ -7,6 +7,11 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require('datatables.net-bs4')
+
+// Used for data tables?
+import $ from 'jquery';
+global.$ = jQuery;
 
 //Used for nested forms
 import 'cocoon-js';

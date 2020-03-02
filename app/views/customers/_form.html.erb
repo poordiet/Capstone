@@ -10,67 +10,78 @@
       </ul>
     </div>
   <% end %>
+<form>
+  <div class="form-row">
+    <div class="field form-group col-md-4">
+      <%= form.label :customer_first_name, 'First Name' %>
+      <%= form.text_field :customer_first_name, class: 'form-control' %>
+    </div>
+
+    <div class="field form-group col-md-4">
+      <%= form.label :customer_last_name, 'Last Name' %>
+      <%= form.text_field :customer_last_name, class: 'form-control' %>
+    </div>
+
+     <div class="field form-group col-md-4">
+      <%= form.label :date_obtained, 'Date Obtained' %>
+      <%= form.date_select :date_obtained, class: 'form-control'%>
+    </div>
+  </div>
   
-  <div class="field">
-    <%= form.label :state_id, 'State' %>
-    <%= form.collection_select :state_id, State.all, :id, :state_abbreviation %>
-  </div>
+  <div class="form-row">
+    <div class="field form-group col-md-4">
+      <%= form.label :customer_email, 'Email' %>
+      <%= form.text_field :customer_email, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :customer_first_name, 'First Name' %>
-    <%= form.text_field :customer_first_name %>
-  </div>
+    <div class="field form-group col-md-4">
+      <%= form.label :customer_primary_phone, 'Primary Phone' %>
+      <%= form.text_field :customer_primary_phone, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :customer_last_name, 'Last Name' %>
-    <%= form.text_field :customer_last_name %>
+    <div class="field form-group col-md-4">
+      <%= form.label :customer_secondary_phone, 'Secondary Phone' %>
+      <%= form.text_field :customer_secondary_phone, class: 'form-control' %>
+    </div>
   </div>
+  <div class="form-row">
+    <div class="field form-group col-md-4">
+      <%= form.label :customer_address, 'Address' %>
+      <%= form.text_field :customer_address, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :customer_address, 'Address' %>
-    <%= form.text_field :customer_address %>
-  </div>
+    <div class="field form-group col-md-2">
+      <%= form.label :customer_city, 'City' %>
+      <%= form.text_field :customer_city, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :customer_city, 'City' %>
-    <%= form.text_field :customer_city %>
-  </div>
+   <div class="field form-group col-md-1">
+      <%= form.label :state_id, 'State' %>
+      <%= form.collection_select :state_id, State.all, :id, :state_abbreviation, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :customer_zip, 'Zip Code' %>
-    <%= form.text_field :customer_zip %>
+    <div class="field form-group col-md-1">
+      <%= form.label :customer_zip, 'Zip Code' %>
+      <%= form.text_field :customer_zip, class: 'form-control', type: 'select' %>
+    </div>
   </div>
+  
+    <div class="field form-group">
+      <%= form.label :customer_notes, 'Customer Notes' %>
+      <%= form.text_area :customer_notes, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :customer_primary_phone, 'Primary Phone' %>
-    <%= form.text_field :customer_primary_phone %>
+    <div class="pets">
+      <%= link_to_add_association 'Add Pet', form, :pets, class: 'btn btn-success active btn-lg float-left mx-auto' %>
+    </div>
+<br>
+<br>
+<br>
+ <div class="actions">
+    <button type="submit" class="btn btn-primary btn-lg active float-right ">Submit</button>
+    <a class="btn btn-danger btn-lg active float-left" href="/customers" role="button">Cancel</a>
   </div>
-
-  <div class="field">
-    <%= form.label :customer_secondary_phone, 'Secondary Phone' %>
-    <%= form.text_field :customer_secondary_phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :customer_email, 'Email' %>
-    <%= form.text_field :customer_email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date_obtained, 'Date Obtained' %>
-    <%= form.date_select :date_obtained %>
-  </div>
-
-  <div class="field">
-    <%= form.label :customer_notes, 'Customer Notes' %>
-    <%= form.text_field :customer_notes %>
-  </div>
-
-  <div class="pets">
-    <%= link_to_add_association 'Add Pet', form, :pets %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+</form>
 <% end %>
+
+

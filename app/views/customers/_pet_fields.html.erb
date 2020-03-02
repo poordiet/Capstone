@@ -1,64 +1,71 @@
 <div class="nested-fields">
+<form>
+<h1>Pet:</h1>
+  <div class="form-row">
+        <div class="field form-group col-md-4">
+            <%= f.label :pet_name, 'Pet Name' %>
+            <%= f.text_field :pet_name, class: 'form-control' %>
+        </div>
 
-    <div class="field">
-        <%= f.label :pet_name %>
-        <%= f.text_field :pet_name %>
+        <div class="field form-group col-md-4">
+            <%= f.label :pet_gender, 'Pet Gender' %>
+            <%= f.text_field :pet_gender, class: 'form-control' %>
+        </div>
+
+        <div class="field form-group col-md-4">
+            <%= f.label :pet_birthdate, 'Pet Birthdate' %>
+            <%= f.date_select :pet_birthdate, class: 'form-control' %>
+        </div>
     </div>
+    <div class="form-row">
+        <div class="field form-group col-md-4">
+            <%= f.label :pet_allergies, 'Pet Allergies' %>
+            <%= f.text_field :pet_allergies, class: 'form-control' %>
+        </div>
 
-     <div class="field">
-        <%= f.label :pet_gender %>
-        <%= f.text_field :pet_gender %>
+        <div class="field form-group col-md-4">
+            <%= f.label :spayed_neutered, 'Spayed/Neutered' %>
+            <%= f.check_box :spayed_neutered, class: 'form-control' %>
+        </div>
+
+        <div class="field form-group col-md-4">
+            <%= f.label :pet_treat, 'Pet Treat' %>
+            <%= f.text_field :pet_treat, class: 'form-control' %>
+        </div>
     </div>
+    <div class="form-row">
+        <div class="field form-group col-md-4">
+            <%= f.label :vet_name, 'Vet Name' %>
+            <%= f.text_field :vet_name, class: 'form-control' %>
+        </div>
 
-     <div class="field">
-        <%= f.label :pet_birthdate %>
-        <%= f.text_field :pet_birthdate %>
+        <div class="field form-group col-md-4">
+            <%= f.label :vet_phone, 'Vet Phone' %>
+            <%= f.text_field :vet_phone, class: 'form-control' %>
+        </div>
+
+        <div class="field form-group col-md-4">
+            <%= f.label :pet_medical_issues, 'Medical Issues' %>
+            <%= f.text_field :pet_medical_issues, class: 'form-control' %>
+        </div>
     </div>
+        <div class="field form-group">
+            <%= f.label :pet_notes, 'Pet Notes'%>
+            <%= f.text_area :pet_notes, class: 'form-control' %>
+        </div>
+    <div class="form-row">
+        <div class="field form-group col-md-4">
+            <%= f.label :pet_color, 'Color' %>
+            <%= f.text_field :pet_color, class: 'form-control' %>
+        </div>
 
-     <div class="field">
-        <%= f.label :pet_allergies %>
-        <%= f.text_field :pet_allergies %>
+        <div class="field form-group col-md-4">
+            <%= f.label :pet_weight, 'Weight' %>
+            <%= f.text_field :pet_weight, class: 'form-control' %>
+        </div>
     </div>
+</form>
 
-     <div class="field">
-        <%= f.label :spayed_neutered %>
-        <%= f.check_box :spayed_neutered %>
-    </div>
-
-     <div class="field">
-        <%= f.label :pet_treat %>
-        <%= f.text_field :pet_treat %>
-    </div>
-
-     <div class="field">
-        <%= f.label :vet_name %>
-        <%= f.text_field :vet_name %>
-    </div>
-
-     <div class="field">
-        <%= f.label :vet_phone %>
-        <%= f.text_field :vet_phone %>
-    </div>
-
-     <div class="field">
-        <%= f.label :pet_medical_issues %>
-        <%= f.text_field :pet_medical_issues %>
-    </div>
-
-    <div class="field">
-        <%= f.label :pet_notes%>
-        <%= f.text_field :pet_notes %>
-    </div>
-
-    <div class="field">
-        <%= f.label :pet_color %>
-        <%= f.text_field :pet_color %>
-    </div>
-
-    <div class="field">
-        <%= f.label :pet_weight %>
-        <%= f.text_field :pet_weight %>
-    </div>
-
-    <%= link_to_remove_association "Remove Pet", f %>
+    <%= link_to_remove_association "Remove Pet", f, class: 'btn btn-secondary btn-lg active float-left mx-auto' %> <br>
+<br> <br>
 </div>
