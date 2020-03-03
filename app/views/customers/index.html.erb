@@ -2,46 +2,43 @@
 
 <h1>Customers</h1>
 
-<table>
-  <thead>
-    <tr>
-      <!--<th>State</th>-->
+<%= link_to 'New Customer', new_customer_path %>
+
+<div class="container">
+	<table id="example" class="table table-striped table-bordered" style="width: 1000px;">
+		<thead>
       <th>First Name</th>
       <th>Last Name</th>
-      <!--<th>Customer city</th>
-      <th>Customer zip</th>-->
       <th>Phone Number</th>
-      <!--<th>Customer secondary phone</th>-->
       <th>Email</th>
       <th>Date Obtained</th>
       <th>Address</th>
-      <!--<th>Customer notes</th>-->
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @customers.each do |customer| %>
-      <tr>
-        <!--<td><%= customer.state.state_abbreviation %></td>-->
-        <td><%= customer.customer_first_name %></td>
-        <td><%= customer.customer_last_name %></td>
-        <!--<td><%= customer.customer_city %></td>
-        <td><%= customer.customer_zip %></td>-->
-        <td><%= customer.customer_primary_phone %></td>
-        <!--<td><%= customer.customer_secondary_phone %></td>-->
-        <td><%= customer.customer_email %></td>
-        <td><%= customer.date_obtained %></td>
-        <td><%= customer.customer_address %></td>
-        <!--<td><%= customer.customer_notes %></td>-->
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
+		</thead>
+		<tbody>
+     <% @customers.each do |customer| %>
+			<tr>
+				<td><%= customer.customer_first_name %></td>
+				<td><%= customer.customer_last_name %></td>
+				<td><%= customer.customer_primary_phone %></td>
+				<td><%= customer.customer_email %></td>
+				<td><%= customer.date_obtained %></td>
+				<td><%= customer.customer_address %></td>
         <td><%= link_to 'Show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
         <td><%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+			</tr>
+       <% end %>
+		</tbody>
+	</table>
+</div>
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable();
+  });
+</script>
 <br>
 
-<%= link_to 'New Customer', new_customer_path %>
