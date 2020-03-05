@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Status:</strong>
+  <%= @customer.customer_status.status %>
+</p>
+
+<p>
   <strong>First Name:</strong>
   <%= @customer.customer_first_name %>
 </p>
@@ -55,5 +60,49 @@
   <%= @customer.customer_notes %>
 </p>
 
+
+
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>
+
+<h1>Pets</h1>
+
+<div class="container">
+	<table id="example" class="table table-striped table-bordered" style="width: 1000px;">
+		<thead>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Color</th>
+      <th>Breed</th>
+      <th>Weight</th>
+      <th>Show</th>
+		</thead>
+		<tbody>
+     <% @customer.pets.each do |pet| %>
+			<tr>
+				<td><%= pet.pet_name %></td>
+        <td><%= pet.pet_gender %></td>
+        <td><%= pet.pet_color %></td>
+        <td><%= pet.pet_breed %></td>
+        <td><%= pet.pet_weight %></td>  
+        <td><%= link_to 'Show', pet %></td>
+			</tr>
+       <% end %>
+		</tbody>
+	</table>
+</div>
+
+  
+  
+ 
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable();
+  });
+</script>
+<br>
+
+
+
+

@@ -74,7 +74,7 @@ class PetsController < ApplicationController
     def pet_params
       params.require(:pet).permit(:customer_id, :pet_name, :pet_gender, :pet_birthdate, :pet_allergies,
                                   :spayed_neutered, :pet_treat, :vet_name, :vet_phone, :pet_medical_issues, 
-                                  :pet_notes, :pet_color, :pet_weight, :pet_weight, :customer_id,
+                                  :pet_notes, :pet_color, :pet_breed, :pet_weight, :customer_id,
                                   vaccines_attributes: [:id, :vaccine_name],
                                   pet_vaccinations_attributes: [:id, :vaccine_id, :date_given, :date_expire],
                                   pet_photos_attributes: [:id, :photo_type_id, :grooming_appt_id, :photo_link, :photo_description, :image],

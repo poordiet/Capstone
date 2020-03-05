@@ -7,12 +7,12 @@
 
      <div class="field">
         <%= f.label :pet_gender %>
-        <%= f.text_field :pet_gender %>
+        <%= f.select :pet_gender, ['M', 'F'] %>
     </div>
 
      <div class="field">
         <%= f.label :pet_birthdate %>
-        <%= f.text_field :pet_birthdate %>
+        <%= f.date_select :pet_birthdate %>
     </div>
 
      <div class="field">
@@ -27,7 +27,7 @@
 
      <div class="field">
         <%= f.label :pet_treat %>
-        <%= f.text_field :pet_treat %>
+        <%= f.check_box:pet_treat %>
     </div>
 
      <div class="field">
@@ -42,12 +42,12 @@
 
      <div class="field">
         <%= f.label :pet_medical_issues %>
-        <%= f.text_field :pet_medical_issues %>
+        <%= f.text_area :pet_medical_issues %>
     </div>
 
     <div class="field">
         <%= f.label :pet_notes%>
-        <%= f.text_field :pet_notes %>
+        <%= f.text_area :pet_notes %>
     </div>
 
     <div class="field">
@@ -56,9 +56,14 @@
     </div>
 
     <div class="field">
+        <%= f.label :pet_breed %>
+        <%= f.text_field :pet_breed %>
+    </div>
+
+    <div class="field">
         <%= f.label :pet_weight %>
         <%= f.text_field :pet_weight %>
     </div>
+    
 
-    <%= link_to_remove_association "Remove Pet", f %>
 </div>

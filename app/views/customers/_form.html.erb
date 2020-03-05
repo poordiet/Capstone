@@ -17,6 +17,10 @@
   </div>
 
   <div class="field">
+    <%= form.hidden_field :customer_status_id, value: 1 %>
+  </div>
+
+  <div class="field">
     <%= form.label :customer_first_name, 'First Name' %>
     <%= form.text_field :customer_first_name %>
   </div>
@@ -63,12 +67,16 @@
 
   <div class="field">
     <%= form.label :customer_notes, 'Customer Notes' %>
-    <%= form.text_field :customer_notes %>
+    <%= form.text_area :customer_notes %>
   </div>
+
+  
 
   <div class="pets">
     <%= link_to_add_association 'Add Pet', form, :pets %>
   </div>
+
+  
 
   <div class="actions">
     <%= form.submit %>
