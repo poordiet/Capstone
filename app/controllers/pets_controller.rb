@@ -20,6 +20,14 @@ class PetsController < ApplicationController
     end
   end
 
+    # GET /pets/newnew
+    def new
+      @pet = Pet.new
+      1.times do
+        pet_photo = @pet.pet_photos.build
+      end
+    end
+
   # GET /pets/1/edit
   def edit
   end

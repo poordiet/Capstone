@@ -55,5 +55,9 @@
   <%= @customer.customer_notes %>
 </p>
 
+<%= link_to "Add Pet", 
+new_pet_path({:id => @customer.id, :customer_first_name => @customer.customer_first_name}), 
+:class => "btn btn-primary" %>
+
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>
