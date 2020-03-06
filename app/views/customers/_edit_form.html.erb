@@ -17,7 +17,8 @@
   </div>
 
   <div class="field">
-    <%= form.hidden_field :customer_status_id, value: 1 %>
+    <%= form.label :customer_status_id, 'Status' %>
+    <%= form.collection_select :customer_status_id, CustomerStatus.all, :id, :status %>
   </div>
 
   <div class="field">

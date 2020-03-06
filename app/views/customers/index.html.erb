@@ -13,9 +13,9 @@
       <th>Email</th>
       <th>Date Obtained</th>
       <th>Address</th>
+      <th>City</th>
       <th>Show</th>
       <th>Edit</th>
-      <th>Delete</th>
 		</thead>
 		<tbody>
      <% @customers.each do |customer| %>
@@ -26,9 +26,9 @@
 				<td><%= customer.customer_email %></td>
 				<td><%= customer.date_obtained %></td>
 				<td><%= customer.customer_address %></td>
+        <td><%= customer.customer_city %></td>
         <td><%= link_to 'Show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			</tr>
        <% end %>
 		</tbody>

@@ -13,6 +13,7 @@ class CreatePets < ActiveRecord::Migration[6.0]
       t.string :pet_medical_issues
       t.string :pet_notes
       t.string :pet_color
+      t.string :pet_breed
       t.decimal :pet_weight
 
 
