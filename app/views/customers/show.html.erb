@@ -76,6 +76,7 @@
       <th>Breed</th>
       <th>Weight</th>
       <th>Show</th>
+      <th>Edit</th>
 		</thead>
 		<tbody>
      <% @customer.pets.each do |pet| %>
@@ -86,6 +87,7 @@
         <td><%= pet.pet_breed %></td>
         <td><%= pet.pet_weight %></td>  
         <td><%= link_to 'Show', pet %></td>
+        <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
 			</tr>
        <% end %>
 		</tbody>
