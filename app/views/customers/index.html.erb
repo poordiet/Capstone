@@ -1,12 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Customers</h1>
+<h1 style="margin-left: 130px;">Customers</h1>
+<br>
 
-<%= link_to 'New Customer', new_customer_path %>
 
 <div class="container">
-	<table id="example" class="table table-striped table-bordered" style="width: 1000px;">
-		<thead>
+  <a class="btn btn-success active float-right mt-4" href="customers/new" role="button" aria-pressed="true">New Customer</a>
+	<table id="example" class="table table-hover table-bordered">
+		<thead class="thead-dark">
       <th>First Name</th>
       <th>Last Name</th>
       <th>Phone Number</th>
@@ -27,8 +28,8 @@
 				<td><%= customer.date_obtained %></td>
 				<td><%= customer.customer_address %></td>
         <td><%= customer.customer_city %></td>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+        <td><a class="btn btn-primary active btn-block"<%= link_to 'Show', customer %></td>
+        <td><a class="btn btn-warning active btn-block"<%= link_to 'Edit', edit_customer_path(customer) %></td>
 			</tr>
        <% end %>
 		</tbody>
@@ -41,4 +42,3 @@
   });
 </script>
 <br>
-

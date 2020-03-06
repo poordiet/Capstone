@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Customer Profile <%= link_to 'Update Customer', edit_customer_path(@customer), class:'btn btn-warning active float-right mr-2' %>
+</h1>
+
+<p id="notice"><%= notice %></p>
+
 <p>
   <strong>State:</strong>
   <%= @customer.state.state_name %>
@@ -87,7 +92,7 @@
         <td><%= pet.pet_breed %></td>
         <td><%= pet.pet_weight %></td>  
         <td><%= link_to 'Show', pet %></td>
-        <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
+        <td><a class="btn btn-warning active btn-block">Update</a></td>
 			</tr>
        <% end %>
 		</tbody>
@@ -106,5 +111,8 @@
 <br>
 
 
+          
+    
 
+<%= link_to 'Back', customers_path, class: 'btn btn-danger btn-lg active float-left'%>
 
