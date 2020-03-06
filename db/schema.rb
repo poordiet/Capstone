@@ -36,8 +36,16 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "customer_statuses", force: :cascade do |t|
+    t.string "status"
+    t.string "definition"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "customers", force: :cascade do |t|
     t.bigint "state_id", null: false
+    t.bigint "customer_status_id", null: false
     t.string "customer_first_name"
     t.string "customer_last_name"
     t.string "customer_address"
@@ -50,6 +58,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
     t.string "customer_notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_status_id"], name: "index_customers_on_customer_status_id"
     t.index ["state_id"], name: "index_customers_on_state_id"
   end
 
@@ -170,6 +179,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
     t.string "pet_medical_issues"
     t.string "pet_notes"
     t.string "pet_color"
+    t.string "pet_breed"
     t.decimal "pet_weight"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -232,6 +242,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "customers", "customer_statuses"
   add_foreign_key "customers", "states"
   add_foreign_key "employee_stores", "employees"
   add_foreign_key "employee_stores", "stores"

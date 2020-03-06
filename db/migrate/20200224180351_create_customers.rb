@@ -2,6 +2,7 @@ class CreateCustomers < ActiveRecord::Migration[6.0]
   def change
     create_table :customers do |t|
       t.references :state, null: false, foreign_key: true
+      t.references :customer_status, null: false, foreign_key: true
       t.string :customer_first_name
       t.string :customer_last_name
       t.string :customer_address

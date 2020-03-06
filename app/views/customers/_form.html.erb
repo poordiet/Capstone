@@ -1,3 +1,4 @@
+
 <%= form_with(model: customer, local: true) do |form| %>
   <% if customer.errors.any? %>
     <div id="error_explanation">
@@ -15,6 +16,10 @@
     <div class="field form-group col-md-4">
       <%= form.label :customer_first_name, 'First Name' %>
       <%= form.text_field :customer_first_name, class: 'form-control' %>
+    </div>
+    
+    <div class="field">
+      <%= form.hidden_field :customer_status_id, value: 1 %>
     </div>
 
     <div class="field form-group col-md-4">
@@ -83,5 +88,3 @@
   </div>
 </form>
 <% end %>
-
-
