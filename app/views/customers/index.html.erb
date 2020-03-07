@@ -14,6 +14,7 @@
       <th>Date Obtained</th>
       <th>Address</th>
       <th>City</th>
+      <th>Status</th>
       <th>Show</th>
       <th>Edit</th>
 		</thead>
@@ -27,6 +28,7 @@
 				<td><%= customer.date_obtained %></td>
 				<td><%= customer.customer_address %></td>
         <td><%= customer.customer_city %></td>
+        <td><%= customer.customer_status.definition%></td>
         <td><%= link_to 'Show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
 			</tr>
