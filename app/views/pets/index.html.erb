@@ -44,7 +44,6 @@
         <td><%= pet.pet_weight %></td>
         <td><%= link_to 'Show', pet %></td>
         <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
-        <td><%= link_to 'Delete', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

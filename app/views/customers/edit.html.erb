@@ -1,7 +1,8 @@
+
 <h1>Editing Customer</h1>
 
 <%= render 'edit_form', customer: @customer %>
 
+<%= link_to 'Show', @customer, class: 'btn btn-warning active btn-lg', style: 'margin-left: 535px;' %>
+<!--<%= link_to 'Back', customers_path %>-->
 
-<%= link_to 'Show', @customer %> |
-<%= link_to 'Back', customers_path %>
