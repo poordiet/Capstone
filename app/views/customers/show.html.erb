@@ -92,7 +92,7 @@
         <td><%= pet.pet_breed %></td>
         <td><%= pet.pet_weight %></td>  
         <td><%= link_to 'Show', pet %></td>
-        <td><a class="btn btn-warning active btn-block">Update</a></td>
+        <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
 			</tr>
        <% end %>
 		</tbody>
