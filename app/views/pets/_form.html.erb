@@ -11,19 +11,10 @@
     </div>
   <% end %>
 
-<div class="field">
-  <%= form.label :customer_id, 'Customer: ' %>
-  <%= form.hidden_field :customer_id, :value => params[:id] %>
-  <%= form.label :customer_first_name, :value => params[:customer_first_name]%>
-  <%= form.label :customer_last_name, :value => params[:customer_last_name]%>
- <!--<%= form.select :customer_id, options_from_collection_for_select( Customer.order(:customer_first_name).all, "id", "customer_first_name", params[:id]), disabled: true %>-->
-</div>
-
-  <!--
   <div class="field">
     <%= form.label :customer_id %>
     <%= form.collection_select :customer_id, Customer.all, :id, :customer_first_name %>
-  </div> -->
+  </div>
 
   <div class="field">
     <%= form.label :pet_name, 'Pet Name' %>
