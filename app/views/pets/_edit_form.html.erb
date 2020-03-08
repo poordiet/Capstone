@@ -11,12 +11,11 @@
     </div>
   <% end %>
 
+<h1>This is the edit form </h1>
 <div class="field">
-  <%= form.label :customer_id, 'Customer: ' %>
-  <%= form.hidden_field :customer_id, :value => params[:id] %>
-  <%= form.label :customer_first_name, :value => params[:customer_first_name]%>
-  <%= form.label :customer_last_name, :value => params[:customer_last_name]%>
- <!--<%= form.select :customer_id, options_from_collection_for_select( Customer.order(:customer_first_name).all, "id", "customer_first_name", params[:id]), disabled: true %>-->
+  <%= form.label :customer_id %>
+  <%= form.text_field :customer_id, :value => params[:id] %>
+  <%= form.select :customer_id, options_from_collection_for_select(Customer.order(:customer_first_name).all, "id", "customer_first_name", params[:id]) %>
 </div>
 
   <!--
@@ -30,6 +29,11 @@
     <%= form.text_field :pet_name %>
   </div>
 
+  <div class="field">
+    <%= form.label :pet_gender %>
+    <%= form.text_field :pet_gender %>
+
+  </div>
 
   <div class="field">
     <%= form.label :pet_gender, 'Pet Gender' %>
@@ -80,11 +84,6 @@
     <%= form.label :pet_color, 'Pet Color' %>
     <%= form.text_field :pet_color %>
   </div>
-
-  <div class="field">
-    <%= form.label :pet_breed %>
-    <%= form.text_field :pet_breed %>
-    </div>
 
   <div class="field">
     <%= form.label :pet_weight, 'Pet Weight' %>
