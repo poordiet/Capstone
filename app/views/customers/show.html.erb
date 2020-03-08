@@ -1,29 +1,43 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Customer Profile <%= link_to 'Update Customer', edit_customer_path(@customer), class:'btn btn-warning active float-right mr-2' %>
-</h1>
-
-<p id="notice"><%= notice %></p>
-
+<br>
+<div class="container">
+<div class="row">
+<div class = "col-11" >
 <p>
-  <strong>State:</strong>
-  <%= @customer.state.state_name %>
+<%= link_to 'Update', edit_customer_path(@customer), class:'btn btn-warning btn-lg float-right mr-2' %>
+<%= link_to 'Back', customers_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
 </p>
+
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @customer.customer_first_name %> <%=@customer.customer_last_name%>
+</h1>
 
 <p>
   <strong>Status:</strong>
-  <%= @customer.customer_status.status %>
+  <%= @customer.customer_status.definition %>
 </p>
 
 <p>
-  <strong>First Name:</strong>
-  <%= @customer.customer_first_name %>
+  <strong>Date Obtained:</strong>
+  <%=@customer.date_obtained.to_formatted_s(:long) %>
 </p>
 
 <p>
-  <strong>Last Name:</strong>
-  <%= @customer.customer_last_name %>
+  <strong>Primary Phone:</strong>
+  <%= number_to_phone(@customer.customer_primary_phone) %>
 </p>
+
+<p>
+  <strong>Secondary Phone:</strong>
+  <%= number_to_phone(@customer.customer_secondary_phone) %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @customer.customer_email %>
+</p>
+
 
 <p>
   <strong>Address:</strong>
@@ -36,43 +50,32 @@
 </p>
 
 <p>
+  <strong>State:</strong>
+  <%= @customer.state.state_name %>
+</p>
+
+
+<p>
   <strong>Zip Code:</strong>
   <%= @customer.customer_zip %>
 </p>
 
-<p>
-  <strong>Primary Phone:</strong>
-  <%= @customer.customer_primary_phone %>
-</p>
-
-<p>
-  <strong>Secondary Phone:</strong>
-  <%= @customer.customer_secondary_phone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @customer.customer_email %>
-</p>
-
-<p>
-  <strong>Date Obtained:</strong>
-  <%= @customer.date_obtained %>
-</p>
 
 <p>
   <strong>Customer Notes:</strong>
   <%= @customer.customer_notes %>
 </p>
 
-
-
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
-
-<h1>Pets</h1>
+<br>
+<h2>Pets</h2>
+<br>
 
 <div class="container">
+<%= link_to "Add Pet", 
+new_pet_path({:id => @customer.id, 
+:customer_first_name => @customer.customer_first_name,
+:customer_last_name => @customer.customer_last_name}), 
+:class => "btn btn-success float-right mt-4" %>
 	<table id="example" class="table table-striped table-bordered" style="width: 1000px;">
 		<thead>
       <th>Name</th>
@@ -90,18 +93,27 @@
         <td><%= pet.pet_gender %></td>
         <td><%= pet.pet_color %></td>
         <td><%= pet.pet_breed %></td>
+<<<<<<< HEAD
         <td><%= pet.pet_weight %></td>  
         <td><%= link_to 'Show', pet %></td>
         <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
+=======
+        <td><%= pet.pet_weight %></td> 
+        <td><a class="btn btn-primary btn-block"<%= link_to 'Show', pet %></td> 
+        <td><%= link_to "Update", edit_pet_path({:id => @customer.id, 
+        :customer_first_name => @customer.customer_first_name, 
+        :customer_last_name => @customer.customer_last_name}), 
+        :class => "btn btn-warning btn-block" %></td>
+>>>>>>> f5a8973a92473c6553d4ceb138340146850aaa5b
 			</tr>
        <% end %>
 		</tbody>
 	</table>
 </div>
+</div>
+</div>
 
   
-  
- 
 
 <script type="text/javascript">
   $(document).ready(function() {
@@ -111,8 +123,9 @@
 <br>
 
 
+
           
     
 
-<%= link_to 'Back', customers_path, class: 'btn btn-danger btn-lg active float-left'%>
+
 
