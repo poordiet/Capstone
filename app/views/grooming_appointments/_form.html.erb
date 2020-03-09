@@ -61,6 +61,10 @@
     <%= form.date_select :vac_current_date %>
   </div>
 
+  <div class="grooming_services">
+    <%= link_to_add_association 'Add Service', form, :grooming_services %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

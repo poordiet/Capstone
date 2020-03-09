@@ -73,8 +73,8 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
 
   create_table "employees", force: :cascade do |t|
     t.bigint "state_id", null: false
-    t.string "emp_first_name"
-    t.string "emp_last_name"
+    t.string "emp_first_name", null: false
+    t.string "emp_last_name", null: false
     t.string "emp_primary_phone"
     t.string "emp_secondary_phone"
     t.string "emp_email"
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
   create_table "grooming_appointments", force: :cascade do |t|
     t.bigint "pet_id", null: false
     t.bigint "store_id", null: false
-    t.bigint "payment_type_id", null: false
+    t.bigint "payment_type_id"
     t.date "appt_date"
     t.string "appt_blades"
     t.decimal "appt_total"
@@ -108,7 +108,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
   create_table "grooming_services", force: :cascade do |t|
     t.bigint "service_id", null: false
     t.bigint "grooming_appointment_id", null: false
-    t.bigint "employee_id", null: false
+    t.bigint "employee_id"
     t.decimal "service_amount"
     t.string "service_amount_notes"
     t.datetime "created_at", precision: 6, null: false
@@ -169,6 +169,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
 
   create_table "pets", force: :cascade do |t|
     t.bigint "customer_id", null: false
+    t.string "pet_name"
     t.string "pet_gender", limit: 1
     t.date "pet_birthdate"
     t.string "pet_allergies"
@@ -183,7 +184,6 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
     t.decimal "pet_weight"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "pet_name"
     t.index ["customer_id"], name: "index_pets_on_customer_id"
   end
 
@@ -209,8 +209,8 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
   end
 
   create_table "states", force: :cascade do |t|
-    t.string "state_name"
-    t.string "state_abbreviation", limit: 2
+    t.string "state_name", null: false
+    t.string "state_abbreviation", limit: 2, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
