@@ -1,12 +1,17 @@
+  
 <p id="notice"><%= notice %></p>
 
+<div class = "container">
 <h1>Service Statuses</h1>
 
-<table>
-  <thead>
+<%= link_to 'New Service Status', new_service_status_path, class: 'btn btn-success float-right' %>
+<br>
+<br>
+<table id="example" class="table table-hover table-bordered">
+		<thead class="thead-dark">
     <tr>
       <th>Service Status</th>
-      <th colspan="3"></th>
+      <th colspan="3">Action</th>
     </tr>
   </thead>
 
@@ -14,9 +19,9 @@
     <% @service_statuses.each do |service_status| %>
       <tr>
         <td><%= service_status.service_status %></td>
-        <td><%= link_to 'Show', service_status %></td>
-        <td><%= link_to 'Edit', edit_service_status_path(service_status) %></td>
-        <td><%= link_to 'Delete', service_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', service_status, class: 'btn btn-block btn-primary' %></td>
+        <td><%= link_to 'Edit', edit_service_status_path(service_status), class: 'btn btn-block btn-warning' %></td>
+        <!--<td><%= link_to 'Delete', service_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +29,10 @@
 
 <br>
 
-<%= link_to 'New Service Status', new_service_status_path %>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable();
+  });
+</script>
