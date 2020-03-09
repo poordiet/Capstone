@@ -3,7 +3,7 @@ class CreateGroomingAppointments < ActiveRecord::Migration[6.0]
     create_table :grooming_appointments do |t|
       t.references :pet, null: false, foreign_key: true
       t.references :store, null: false, foreign_key: true
-      t.references :payment_type, null: false, foreign_key: true
+      t.references :payment_type, null: true, foreign_key: true
       t.date :appt_date
       t.string :appt_blades
       t.decimal :appt_total

@@ -1,6 +1,6 @@
 
 <div class="nested-fields">
-<form>
+
 <h1>Add Pet</h1>
   <div class="form-row">
         <div class="field form-group col-md-4">
@@ -13,7 +13,7 @@
             <%= f.text_field :pet_gender, class: 'form-control' %>
         </div>
 
-        <div class="field form-group col-md-4">
+        <div class="field form-group col-md-6">
             <%= f.label :pet_birthdate, 'Pet Birthdate' %>
             <%= f.date_select :pet_birthdate, class: 'form-control' %>
         </div>
@@ -70,10 +70,13 @@
             <%= f.label :pet_weight, 'Weight' %>
             <%= f.text_field :pet_weight, class: 'form-control' %>
         </div>
-    </div>
-</form>
+        </div>
 
-    <%= link_to_remove_association "Remove Pet", f, class: 'btn btn-secondary btn-lg active float-left mx-auto' %> <br>
+    <div class = "form-row">
+    <div class ="field form-group">
+    <%= link_to_remove_association "Remove Pet", f, class: 'btn btn-secondary btn-lg float-left mx-auto' %> <br>
+    </div>
+    </div>
 <br> <br>
 
 </div>

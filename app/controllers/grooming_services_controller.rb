@@ -69,6 +69,6 @@ class GroomingServicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def grooming_service_params
-      params.require(:grooming_service).permit(:service_id, :grooming_appointment_id, :employee_id, :service_amount, :service_amount, :service_amount_notes)
+      params.require(:grooming_service).permit(:style_id, :service_id, :grooming_appointment_id, :employee_id, :service_amount, :service_amount, :service_amount_notes)
     end
 end

@@ -10,23 +10,26 @@
       </ul>
     </div>
   <% end %>
-<div class="container" id="form">
-<form>
 
-<div class="field">
-  <%= form.label :customer_id, 'Customer: ' %>
-  <%= form.label :customer_first_name, :value => params[:customer_first_name]%>
-  <%= form.label :customer_last_name, :value => params[:customer_last_name]%>
- <!--<%= form.select :customer_id, options_from_collection_for_select( Customer.order(:customer_first_name).all, "id", "customer_first_name", params[:id]), disabled: true %>-->
-</div>
+  <div class="field">
+    <%= form.label :customer_id, 'Customer: ' %>
+    <%= form.hidden_field grooming_appointment.pet.customer.id %>
+    <%= form.label grooming_appointment.pet.customer.customer_first_name%>
+    <%= form.label grooming_appointment.pet.customer.customer_last_name%>
+  <!--<%= form.select :customer_id, options_from_collection_for_select( Customer.order(:customer_first_name).all, "id", "customer_first_name", params[:id]), disabled: true %>-->
+  </div>
 
-<div class="field">
-  <%= form.label :pet_id, 'Pet: ' %>
-  <%= form.hidden_field :pet_id, :value => params[:pet_id] %>
-  <%= form.label :pet_name, :value => params[:pet_name]%>
- <!--<%= form.select :customer_id, options_from_collection_for_select( Customer.order(:customer_first_name).all, "id", "customer_first_name", params[:id]), disabled: true %>-->
-</div>
+  <div class="field">
+    <%= form.label :pet_id, 'Pet: ' %>
+    <%= form.hidden_field grooming_appointment.pet.id %>
+    <%= form.label grooming_appointment.pet.pet_name%>
+  <!--<%= form.select :customer_id, options_from_collection_for_select( Customer.order(:customer_first_name).all, "id", "customer_first_name", params[:id]), disabled: true %>-->
+  </div>
 
+  <div class="field">
+    <%= form.label :pet_id %>
+    <%= form.collection_select :pet_id, Pet.all, :id, :pet_name %>
+  </div>
 
   <div class="form-row">
   <div class=" form-group field col-md-3">
@@ -80,6 +83,13 @@
   </div>
   </div>
 
+<h2>Services</h2>
+    <div id="grooming_services">
+        <%= form.fields_for :grooming_services do |grooming_service| %>
+          <%= render "grooming_service_fields", f: grooming_service %>
+        <% end %> 
+    </div>
+
  <div class="form-row">
   <div class="grooming_service form-group">
     <br>
@@ -87,6 +97,14 @@
   <br>
    <br>
   </div>
+  </div>
+
+
+  <h2>Styles</h2>
+  <div id="grooming_styles">
+      <%= form.fields_for :grooming_styles do |grooming_style| %>
+        <%= render "grooming_style_fields", f: grooming_style %>
+      <% end %> 
   </div>
 
  <div class="form-row">
@@ -110,6 +128,7 @@
   </div>
   </div>
 
+
  <br>
 
 
@@ -118,7 +137,4 @@
     <a class="btn btn-danger btn-lg float-left" href="/grooming_appointments" role="button">Cancel</a>
   </div>
 
-</form>
-
 <% end %>
-</div>

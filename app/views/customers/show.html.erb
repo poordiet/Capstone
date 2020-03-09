@@ -85,6 +85,7 @@ new_pet_path({:id => @customer.id,
       <th>Weight</th>
       <th>Show</th>
       <th>Edit</th>
+      <th>New Appointment</th>
 		</thead>
 		<tbody>
      <% @customer.pets.each do |pet| %>
@@ -99,6 +100,10 @@ new_pet_path({:id => @customer.id,
         :customer_first_name => @customer.customer_first_name, 
         :customer_last_name => @customer.customer_last_name}), 
         :class => "btn btn-warning btn-block" %></td>
+        <td><%= link_to "New Appointment", new_grooming_appointment_path({:customer_id => @customer.id, 
+        :customer_first_name => @customer.customer_first_name, 
+        :customer_last_name => @customer.customer_last_name, :pet_name => pet.pet_name, :pet_id => pet.id}), 
+        :class => "btn btn-success btn-block" %></td>
 			</tr>
        <% end %>
 		</tbody>
@@ -115,11 +120,3 @@ new_pet_path({:id => @customer.id,
   });
 </script>
 <br>
-
-
-
-          
-    
-
-
-

@@ -1,0 +1,71 @@
+<%= form_with(model: grooming_appointment, local: true) do |form| %>
+  <% if grooming_appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(grooming_appointment.errors.count, "error") %> prohibited this grooming_appointment from being saved:</h2>
+
+      <ul>
+        <% grooming_appointment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :pet_id %>
+    <%= form.collection_select :pet_id, Pet.all, :id, :pet_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :store_id %>
+    <%= form.collection_select :store_id, Store.all, :id, :store_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :payment_type_id, 'Payment Type' %>
+    <%= form.collection_select :payment_type_id, PaymentType.all, :id, :payment_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :appt_date, 'Appt Date' %>
+    <%= form.date_select :appt_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :appt_blades, 'Blades' %>
+    <%= form.text_field :appt_blades %>
+  </div>
+
+  <div class="field">
+    <%= form.label :appt_total, 'Total' %>
+    <%= form.text_field :appt_total %>
+  </div>
+
+  <div class="field">
+    <%= form.label :appt_notes, 'Appt Notes' %>
+    <%= form.text_field :appt_notes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :customer_feedback, 'Customer Feedback' %>
+    <%= form.text_field :customer_feedback %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vac_current, 'Vaccine Current' %>
+    <%= form.select :vac_current, ['Y', 'N'] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vac_current_date, 'Vaccine Date' %>
+    <%= form.date_select :vac_current_date %>
+  </div>
+
+  <div class="grooming_services">
+    <%= link_to_add_association 'Add Service', form, :grooming_services %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
