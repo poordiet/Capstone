@@ -79,15 +79,24 @@
   </div>
   </div>
 
+ <div class="form-row">
   <div class="grooming_service form-group">
     <br>
       <%= link_to_add_association 'Add Service', form, :grooming_services, class: 'btn btn-success btn-lg float-left mx-auto' %>
   <br>
    <br>
   </div>
+  </div>
+
+ <div class="form-row">
+  <div class="grooming_style form-group">
+      <%= link_to_add_association 'Add Style', form, :grooming_styles, class: 'btn btn-success btn-lg float-left mx-auto' %>
+  </div>
+</div>
 
   <div class="form-row">
   <div class="form-group field col-md-6">
+   <br> 
     <%= form.label :appt_notes, 'Appt Notes' %>
     <%= form.text_area :appt_notes, class: 'form-control' %>
   </div>
