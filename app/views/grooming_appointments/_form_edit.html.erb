@@ -83,6 +83,13 @@
   </div>
   </div>
 
+<h2>Services</h2>
+    <div id="grooming_services">
+        <%= form.fields_for :grooming_services do |grooming_service| %>
+          <%= render "grooming_service_fields", f: grooming_service %>
+        <% end %> 
+    </div>
+
  <div class="form-row">
   <div class="grooming_service form-group">
     <br>
@@ -90,6 +97,14 @@
   <br>
    <br>
   </div>
+  </div>
+
+
+  <h2>Styles</h2>
+  <div id="grooming_styles">
+      <%= form.fields_for :grooming_styles do |grooming_style| %>
+        <%= render "grooming_style_fields", f: grooming_style %>
+      <% end %> 
   </div>
 
  <div class="form-row">
@@ -113,6 +128,7 @@
   </div>
   </div>
 
+
  <br>
 
 
@@ -121,8 +137,4 @@
     <a class="btn btn-danger btn-lg float-left" href="/grooming_appointments" role="button">Cancel</a>
   </div>
 
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
