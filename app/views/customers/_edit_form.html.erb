@@ -18,7 +18,7 @@
   <div class="form-row">
     <div class="field form-group col-md-2">
     <%= form.label :customer_status_id, 'Status' %>
-    <%= form.collection_select :customer_status_id, CustomerStatus.all, :id, :definition %>
+    <%= form.collection_select :customer_status_id, CustomerStatus.all, :id, :status %>
   </div>
 
    <div class="field form-group col-md-4">

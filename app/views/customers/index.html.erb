@@ -10,9 +10,7 @@
       <th>First Name</th>
       <th>Last Name</th>
       <th>Phone Number</th>
-      <th>Email</th>
       <th>Date Obtained</th>
-      <th>Address</th>
       <th>City</th>
       <th>Status</th>
       <th>Show</th>
@@ -23,14 +21,12 @@
 			<tr>
 				<td><%= customer.customer_first_name %></td>
 				<td><%= customer.customer_last_name %></td>
-				<td><%= customer.customer_primary_phone %></td>
-				<td><%= customer.customer_email %></td>
-				<td><%= customer.date_obtained %></td>
-				<td><%= customer.customer_address %></td>
+				<td><%= number_to_phone(customer.customer_primary_phone) %></td>
+				<td><%= customer.date_obtained.to_formatted_s(:long) %></td>
         <td><%= customer.customer_city %></td>
-        <td><%= customer.customer_status.definition%></td>
-        <td><a class="btn btn-primary btn-block"<%= link_to 'Show', customer %></td>
-        <td><a class="btn btn-warning btn-block"<%= link_to 'Edit', edit_customer_path(customer) %></td>
+        <td><%= customer.customer_status.status%></td>
+        <td><%= link_to 'Show', customer, class: 'btn btn-primary btn-block' %></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer), class: 'btn btn-warning btn-block' %></td>
 			</tr>
        <% end %>
 		</tbody>

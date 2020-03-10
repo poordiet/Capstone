@@ -12,14 +12,18 @@
   <% end %>
 
   <div class="field">
+    <%= form.hidden_field :grooming_appointment_id, :value => params[:id]%>
+  </div>
+
+  <div class="field">
     <%= form.label :style_id, 'Style' %>
     <%= form.collection_select :style_id, Style.all, :id, :style_name %>
   </div>
 
-  <div class="field">
+  <!--<div class="field">
     <%= form.label :grooming_appointment_id, 'Grooming Appointment' %>
     <%= form.collection_select :grooming_appointment_id, GroomingAppointment.all, :id, :appt_date %>
-  </div>
+  </div>-->
 
   <div class="field">
     <%= form.label :groom_style_notes, 'Groom Style Notes' %>
