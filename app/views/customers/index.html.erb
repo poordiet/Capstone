@@ -10,7 +10,6 @@
       <th>First Name</th>
       <th>Last Name</th>
       <th>Phone Number</th>
-      <th>Email</th>
       <th>Date Obtained</th>
       <th>City</th>
       <th>Status</th>
@@ -23,7 +22,6 @@
 				<td><%= customer.customer_first_name %></td>
 				<td><%= customer.customer_last_name %></td>
 				<td><%= number_to_phone(customer.customer_primary_phone) %></td>
-				<td><%= customer.customer_email %></td>
 				<td><%= customer.date_obtained.to_formatted_s(:long) %></td>
         <td><%= customer.customer_city %></td>
         <td><%= customer.customer_status.status%></td>
