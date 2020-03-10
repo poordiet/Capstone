@@ -3,8 +3,29 @@
 <br>
 <br>
 <h1>Add Pet</h1>
+
+<div class="form-row">
+    <div class="field form-group col-md-4">
+        <%= f.label :pet_birthdate, 'Pet Birthdate' %>
+        <%= f.date_select :pet_birthdate, class: 'form-control' %>
+    </div>
+</div>
+
+<div class="form-row">
+        <div class="field form-group col-md-2">
+            <%= f.label :spayed_neutered, 'Spayed/Neutered' %>
+            <%= f.select :spayed_neutered, ['Y', 'N'], class: 'form-control' %>
+        </div>
+
+        <div class="field form-group col-md-2">
+            <%= f.label :pet_treat, 'Pet Treat' %>
+            <%= f.select :pet_treat, ['Y', 'N'], class: 'form-control' %>
+        </div>
+    
+    </div>
+
   <div class="form-row">
-        <div class="field form-group col-md-4">
+        <div class="field form-group col-md-2">
             <%= f.label :pet_name, 'Pet Name' %>
             <%= f.text_field :pet_name, class: 'form-control' %>
         </div>
@@ -13,69 +34,68 @@
             <%= f.hidden_field :pet_status_id, value: 1 %>
        </div>
 
-        <div class="field form-group col-md-4">
+        <div class="field form-group col-md-2">
             <%= f.label :pet_gender, 'Pet Gender' %>
             <%= f.text_field :pet_gender, class: 'form-control' %>
         </div>
-
-        <div class="field form-group col-md-6">
-            <%= f.label :pet_birthdate, 'Pet Birthdate' %>
-            <%= f.date_select :pet_birthdate, class: 'form-control' %>
-        </div>
     </div>
-    <div class="form-row">
-        <div class="field form-group col-md-4">
-            <%= f.label :pet_allergies, 'Pet Allergies' %>
-            <%= f.text_area :pet_allergies, class: 'form-control' %>
-        </div>
 
-        <div class="field form-group col-md-4">
-            <%= f.label :spayed_neutered, 'Spayed/Neutered' %>
-            <%= f.check_box :spayed_neutered, class: 'form-control' %>
-        </div>
-
-        <div class="field form-group col-md-4">
-            <%= f.label :pet_treat, 'Pet Treat' %>
-            <%= f.check_box :pet_treat, class: 'form-control' %>
-        </div>
-    </div>
     <div class="form-row">
-        <div class="field form-group col-md-4">
+        <div class="field form-group col-md-2">
             <%= f.label :vet_name, 'Vet Name' %>
             <%= f.text_field :vet_name, class: 'form-control' %>
         </div>
 
-        <div class="field form-group col-md-4">
+        <div class="field form-group col-md-2">
             <%= f.label :vet_phone, 'Vet Phone' %>
             <%= f.text_field :vet_phone, class: 'form-control' %>
         </div>
-
-        <div class="field form-group col-md-4">
-            <%= f.label :pet_medical_issues, 'Medical Issues' %>
-            <%= f.text_area :pet_medical_issues, class: 'form-control' %>
-        </div>
     </div>
-        <div class="field form-group">
-            <%= f.label :pet_notes, 'Pet Notes'%>
-            <%= f.text_area :pet_notes, class: 'form-control' %>
-        </div>
-  
-       <div class="field form-group">
-        <%= f.label :pet_breed, 'Pet Breed' %>
-        <%= f.text_field :pet_breed, class: 'form-control' %>
-      </div>
-  
+
     <div class="form-row">
-        <div class="field form-group col-md-4">
+        <div class="field form-group col-md-2">
             <%= f.label :pet_color, 'Color' %>
             <%= f.text_field :pet_color, class: 'form-control' %>
         </div>
 
-        <div class="field form-group col-md-4">
+        <div class="field form-group col-md-2">
             <%= f.label :pet_weight, 'Weight' %>
             <%= f.text_field :pet_weight, class: 'form-control' %>
         </div>
+    </div>
+
+    <div class="form-row">
+        <div class="field form-group col-md-2">
+            <%= f.label :pet_breed, 'Pet Breed' %>
+            <%= f.text_field :pet_breed, class: 'form-control' %>
+      </div>
+
+      <div class="field form-group col">
+      </div>
+    </div>
+
+    <div class="form-row">
+        <div class="field form-group col-md-6">
+            <%= f.label :pet_allergies, 'Pet Allergies' %>
+            <%= f.text_area :pet_allergies, class: 'form-control' %>
         </div>
+
+        
+    </div>
+
+    <div class="form-row">
+        <div class="field form-group col-md-6">
+            <%= f.label :pet_medical_issues, 'Medical Issues' %>
+            <%= f.text_area :pet_medical_issues, class: 'form-control' %>
+        </div>
+    </div>
+
+    <div class="form-row">
+    <div class="field form-group col-md-6">
+            <%= f.label :pet_notes, 'Pet Notes'%>
+            <%= f.text_area :pet_notes, class: 'form-control' %>
+        </div>
+    </div>
 
     <div class = "form-row">
     <div class ="field form-group">
