@@ -25,8 +25,8 @@
 				<td><%= customer.date_obtained.to_formatted_s(:long) %></td>
         <td><%= customer.customer_city %></td>
         <td><%= customer.customer_status.status%></td>
-        <td><a class="btn btn-primary btn-block"<%= link_to 'Show', customer %></td>
-        <td><a class="btn btn-warning btn-block"<%= link_to 'Edit', edit_customer_path(customer) %></td>
+        <td><a class="btn btn-primary btn-block"<%= link_to 'Show', customer %>></td>
+        <td><a class="btn btn-warning btn-block"<%= link_to 'Edit', edit_customer_path(customer) %>></td>
 			</tr>
        <% end %>
 		</tbody>

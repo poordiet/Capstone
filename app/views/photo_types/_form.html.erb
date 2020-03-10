@@ -11,12 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
+
+  <div class="field form-group col-md-4">
     <%= form.label :photo_type, 'Photo Types' %>
-    <%= form.select :photo_type, ['Before', 'After'] %>
+    <%= form.text_field :photo_type, class: 'form-control' %>
   </div>
 
+<div class="field form-group col-md-4">
   <div class="actions">
-    <%= form.submit 'Create Photo Type' %>
+    <%= link_to 'Back', photo_types_path, class: 'btn btn-danger' %>
+    <%= form.submit 'Create Photo Type', class: 'btn btn-success' %>
   </div>
+</div>
 <% end %>

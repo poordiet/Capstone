@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<div class = "container">
+<br>
 <p>
   <strong>Photo Type:</strong>
   <%= @photo_type.photo_type %>
 </p>
 
-<%= link_to 'Edit', edit_photo_type_path(@photo_type) %> |
-<%= link_to 'Back', photo_types_path %>
+<%= link_to 'Back', photo_types_path, class: 'btn btn-danger' %>
+<%= link_to 'Edit', edit_photo_type_path(@photo_type), class: 'btn btn-warning ' %>
+</div>
+
