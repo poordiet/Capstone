@@ -6,3 +6,23 @@
  *= require_self
  */
  @import "bootstrap/dist/css/bootstrap";
+
+body{
+    width: 100%;
+}
+
+#navbar{
+    width: 100%;
+}
+
+ #form {
+    width: 93%;
+    height: 100;
+    margin-left: 33%;
+    margin-right: 33%;
+   
+ }
+
+ #buttons {
+     width: 50%;
+ }
