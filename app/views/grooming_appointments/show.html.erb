@@ -50,5 +50,25 @@
   <%= @grooming_appointment.vac_current_date %>
 </p>
 
+<table id="example" class="table table-striped table-bordered" style="width: 1000px;">
+		<thead>
+      <th>Service</th>
+      <th>Amount</th>
+      <th>Amount Notes</th>
+      <th>Edit</th>
+		</thead>
+		<tbody>
+     <% @grooming_appointment.grooming_services.each do |grooming_service| %>
+			<tr>
+				<td><%= grooming_service.service.service_name %></td>
+        <td><%= grooming_service.service_amount%></td>
+        <td><%= grooming_service.service_amount_notes %></td>
+        <td><%= link_to "Update", edit_grooming_service_path({:id => grooming_service.id}), 
+        :class => "btn btn-warning btn-block" %></td>
+			</tr>
+       <% end %>
+		</tbody>
+	</table>
+
 <%= link_to 'Edit', edit_grooming_appointment_path(@grooming_appointment) %> |
 <%= link_to 'Back', grooming_appointments_path %>
