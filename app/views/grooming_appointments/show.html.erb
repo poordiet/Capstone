@@ -42,6 +42,16 @@
   <strong>Appt Blades:</strong>
   <%= @grooming_appointment.appt_blades %>
 </p>
+
+<p>
+  <strong>Vac Current:</strong>
+  <%= @grooming_appointment.vac_current %>
+</p>
+
+<p>
+  <strong>Vac Current Date:</strong>
+  <%= @grooming_appointment.vac_current_date.to_formatted_s(:long) %>
+</p>
 </div>
 
 
@@ -52,8 +62,11 @@
 <%@grooming_appointment.pet_photos.each do |photo|
    if photo.photo_type_id == 2 %>
     <%= image_tag photo.image.variant(resize:"300x300") if photo.image.attached? %>
+    <%= link_to 'Show', photo, class: 'btn btn-primary', style: 'margin-top:10px' %>
+    <%= link_to 'Edit', edit_pet_photo_path(photo), class: 'btn btn-warning', style: 'margin-top:10px' %>
     <%end%>
 <%end%>
+<%=link_to 'New Before Photo', new_pet_photo_path, class: 'btn btn-success', style: 'margin-top:10px'%>
 </div>
 </div>
 
@@ -66,13 +79,17 @@
 <%@grooming_appointment.pet_photos.each do |photo|
    if photo.photo_type_id == 3 %>
     <%= image_tag photo.image.variant(resize:"300x300") if photo.image.attached? %>
+    <%= link_to 'Show', photo, class: 'btn btn-primary', style: 'margin-top:10px' %>
+    <%= link_to 'Edit', edit_pet_photo_path(photo), class: 'btn btn-warning', style: 'margin-top:10px' %>
     <%end%>
 <%end%>
+<%=link_to 'New After Photo', new_pet_photo_path, class: 'btn btn-success', style: 'margin-top:10px'%>
 </div>
 </div>
 </div>
 
-<div class="container">
+<div class="row">
+<div class="col-12">
 <p>
   <strong>Total:</strong>
   <%= @grooming_appointment.appt_total %>
@@ -87,16 +104,7 @@
   <strong>Customer Feedback:</strong>
   <%= @grooming_appointment.customer_feedback %>
 </p>
-
-<p>
-  <strong>Vac Current:</strong>
-  <%= @grooming_appointment.vac_current %>
-</p>
-
-<p>
-  <strong>Vac Current Date:</strong>
-  <%= @grooming_appointment.vac_current_date.to_formatted_s(:long) %>
-</p>
+</div>
 </div>
 
 <br>
