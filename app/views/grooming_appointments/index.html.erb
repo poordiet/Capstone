@@ -23,7 +23,7 @@
     <% @grooming_appointments.each do |grooming_appointment| %>
       <tr>
         <td><%= grooming_appointment.pet.pet_name %></td>
-        <td><%= grooming_appointment.appt_date %></td>
+        <td><%= grooming_appointment.appt_date.to_formatted_s(:long) %></td>
         <td><%= grooming_appointment.appt_blades %></td>
         <td><%= grooming_appointment%></td>
         <td><%= grooming_appointment.store.store_address %></td>

@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+  <%= form.hidden_field :grooming_appointment_id, :value => params[:id]%>
+</div>
+
+  <div class="field">
     <%= form.label :service_id, 'Service Name' %>
     <%= form.collection_select :service_id, Service.all, :id, :service_name %>
   </div>
