@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pet_statuses
   resources :customer_statuses
   resources :employee_stores
   resources :grooming_services
