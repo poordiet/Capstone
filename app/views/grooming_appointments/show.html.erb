@@ -2,11 +2,16 @@
 
 <div class="container">
 <br>
+<div class="row ">
 <p>
 <%= link_to 'Update', edit_grooming_appointment_path(@grooming_appointment), class:'btn btn-warning btn-lg float-right mr-2' %>
 <%= link_to 'Back', grooming_appointments_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
 </p>
+</div>
 
+<div class="row">
+<div class="col">
+<br>
 <p>
   <strong>Customer:</strong>
   <%= @grooming_appointment.pet.customer.customer_first_name %>
@@ -37,27 +42,37 @@
   <strong>Appt Blades:</strong>
   <%= @grooming_appointment.appt_blades %>
 </p>
+</div>
 
+
+<div class="col">
 <!-- Shows the Before Photos photos for each Grooming Appt -->
 <h2>Before Photo</h2>
 <div>
 <%@grooming_appointment.pet_photos.each do |photo|
    if photo.photo_type_id == 2 %>
-    <%= image_tag photo.image.variant(resize:"400x400") if photo.image.attached? %>
+    <%= image_tag photo.image.variant(resize:"300x300") if photo.image.attached? %>
     <%end%>
 <%end%>
 </div>
+</div>
 
+
+
+<div class="col">
 <h2>After Photo</h2>
 <!-- Shows the After Photos photos for each Grooming Appt -->
 <div>
 <%@grooming_appointment.pet_photos.each do |photo|
    if photo.photo_type_id == 3 %>
-    <%= image_tag photo.image.variant(resize:"400x400") if photo.image.attached? %>
+    <%= image_tag photo.image.variant(resize:"300x300") if photo.image.attached? %>
     <%end%>
 <%end%>
 </div>
+</div>
+</div>
 
+<div class="container">
 <p>
   <strong>Total:</strong>
   <%= @grooming_appointment.appt_total %>
@@ -82,6 +97,7 @@
   <strong>Vac Current Date:</strong>
   <%= @grooming_appointment.vac_current_date.to_formatted_s(:long) %>
 </p>
+</div>
 
 <br>
 
