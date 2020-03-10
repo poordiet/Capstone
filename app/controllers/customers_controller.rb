@@ -75,6 +75,7 @@ class CustomersController < ApplicationController
                                                   :customer_email, :date_obtained, :customer_notes,
                                                   pets_attributes: [:id, :pet_name, :pet_gender, :pet_birthdate,
                                                   :pet_allergies, :spayed_neutered, :pet_treat, :vet_name, :vet_phone, 
-                                                  :pet_medical_issues, :pet_notes, :pet_color, :pet_breed, :pet_weight])
+                                                  :pet_medical_issues, :pet_notes, :pet_color, :pet_breed, :pet_weight, :pet_status_id])
+                                              
     end
 end
