@@ -156,6 +156,13 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
     t.index ["photo_type_id"], name: "index_pet_photos_on_photo_type_id"
   end
 
+  create_table "pet_statuses", force: :cascade do |t|
+    t.string "status"
+    t.string "definition"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "pet_vaccinations", force: :cascade do |t|
     t.bigint "vaccine_id", null: false
     t.bigint "pet_id", null: false
@@ -169,6 +176,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
 
   create_table "pets", force: :cascade do |t|
     t.bigint "customer_id", null: false
+    t.bigint "pet_status_id", null: false
     t.string "pet_name"
     t.string "pet_gender", limit: 1
     t.date "pet_birthdate"
@@ -185,6 +193,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_pets_on_customer_id"
+    t.index ["pet_status_id"], name: "index_pets_on_pet_status_id"
   end
 
   create_table "photo_types", force: :cascade do |t|
@@ -262,6 +271,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
   add_foreign_key "pet_vaccinations", "pets"
   add_foreign_key "pet_vaccinations", "vaccines"
   add_foreign_key "pets", "customers"
+  add_foreign_key "pets", "pet_statuses"
   add_foreign_key "services", "service_statuses"
   add_foreign_key "stores", "states"
 end

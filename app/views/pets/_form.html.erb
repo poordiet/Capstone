@@ -26,6 +26,10 @@
   </div> -->
 
   <div class="field">
+      <%= form.hidden_field :pet_status_id, value: 1 %>
+    </div>
+
+  <div class="field">
     <%= form.label :pet_name, 'Pet Name' %>
     <%= form.text_field :pet_name %>
   </div>
@@ -43,7 +47,7 @@
 
   <div class="field">
     <%= form.label :pet_allergies, 'Allergies' %>
-    <%= form.text_field :pet_allergies %>
+    <%= form.text_area :pet_allergies %>
   </div>
 
   <div class="field">
@@ -68,12 +72,12 @@
 
   <div class="field">
     <%= form.label :pet_medical_issues, 'Medical Issues' %>
-    <%= form.text_field :pet_medical_issues %>
+    <%= form.text_area :pet_medical_issues %>
   </div>
 
   <div class="field">
     <%= form.label :pet_notes, 'Pet Notes' %>
-    <%= form.text_field :pet_notes %>
+    <%= form.text_area :pet_notes %>
   </div>
 
   <div class="field">

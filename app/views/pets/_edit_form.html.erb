@@ -25,6 +25,11 @@
   </div> -->
 
   <div class="field">
+    <%= form.label :status, 'Status' %>
+    <%= form.collection_select :pet_status_id, PetStatus.all, :id, :definition %>
+  </div>
+
+  <div class="field">
     <%= form.label :pet_name, 'Pet Name' %>
     <%= form.text_field :pet_name %>
   </div>
