@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
+<br>
+<p>
+<%= link_to 'Update', edit_grooming_appointment_path(@grooming_appointment), class:'btn btn-warning btn-lg float-right mr-2' %>
+<%= link_to 'Back', grooming_appointments_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+</p>
+
 <p>
   <strong>Customer:</strong>
   <%= @grooming_appointment.pet.customer.customer_first_name %>
@@ -116,8 +122,5 @@ new_grooming_style_path({:id => @grooming_appointment.id}),
        <% end %>
 		</tbody>
 	</table>
-
-<%= link_to 'Edit', edit_grooming_appointment_path(@grooming_appointment) %> |
-<%= link_to 'Back', grooming_appointments_path %>
 
 </div>
