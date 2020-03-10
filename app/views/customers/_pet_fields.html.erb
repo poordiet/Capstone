@@ -21,8 +21,14 @@
             <%= f.label :pet_treat, 'Pet Treat' %>
             <%= f.select :pet_treat, ['Y', 'N'], class: 'form-control' %>
         </div>
-    
     </div>
+
+<div class="form-row">
+        <div class="field form-group col-md-2">
+            <%= f.label :pet_gender, 'Pet Gender' %>
+            <%= f.select :pet_gender, ['Y', 'N'], class: 'form-control' %>
+        </div>
+</div>
 
   <div class="form-row">
         <div class="field form-group col-md-2">
@@ -35,9 +41,9 @@
        </div>
 
         <div class="field form-group col-md-2">
-            <%= f.label :pet_gender, 'Pet Gender' %>
-            <%= f.text_field :pet_gender, class: 'form-control' %>
-        </div>
+            <%= f.label :pet_breed, 'Pet Breed' %>
+            <%= f.text_field :pet_breed, class: 'form-control' %>
+      </div>
     </div>
 
     <div class="form-row">
@@ -62,16 +68,6 @@
             <%= f.label :pet_weight, 'Weight' %>
             <%= f.text_field :pet_weight, class: 'form-control' %>
         </div>
-    </div>
-
-    <div class="form-row">
-        <div class="field form-group col-md-2">
-            <%= f.label :pet_breed, 'Pet Breed' %>
-            <%= f.text_field :pet_breed, class: 'form-control' %>
-      </div>
-
-      <div class="field form-group col">
-      </div>
     </div>
 
     <div class="form-row">
