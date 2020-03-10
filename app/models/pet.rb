@@ -1,5 +1,6 @@
 class Pet < ApplicationRecord
   belongs_to :customer
+  belongs_to :pet_status
   has_many :pet_photos
   has_many :pet_vaccinations
   has_many :vaccines, through: :pet_vaccinations
