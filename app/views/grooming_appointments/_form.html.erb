@@ -110,6 +110,21 @@
   </div>
   </div>
 
+
+<h2>Upload Before Photo</h2>
+<div class="form-row">
+   <%= form.fields_for :pet_photos do |builder| %>
+    <%= render "before_pet_photo_fields", :f => builder %>
+  <% end %>
+</div>
+<br>
+  <h2>Upload After Photo</h2>
+  <div class="form-row">
+  <%= form.fields_for :pet_photos do |builder| %>
+    <%= render "after_pet_photo_fields", :f => builder %>
+  <% end %>
+  </div>
+
  <br>
 
 
