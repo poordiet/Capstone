@@ -27,13 +27,15 @@
         <%= grooming_appointment.pet.customer.customer_last_name %></td>
         <td><%= grooming_appointment.pet.pet_name %></td>
         <td><%= grooming_appointment.appt_date.to_formatted_s(:rfc822) %></td>
-        <td><% grooming_appointment.grooming_services.each do |grooming_service| %>
-        <% counter += 1%>
-        <%= grooming_service.service.service_name%>
-        <% if counter > 1%>
-        ,
-        <%end%>
-        <%end%></td>
+        <td>
+          <% grooming_appointment.grooming_services.each_with_index do |grooming_service, index| %>
+            <%if index == (grooming_appointment.grooming_services.length - 1) then %>
+            <%= grooming_service.service.service_name%> 
+            <%else%>
+            <%= grooming_service.service.service_name%> ,
+            <%end%>
+          <%end%>
+        </td>
         <td><%= grooming_appointment.store.store_address %></td>
         <td><%= number_to_currency(grooming_appointment.appt_total) %></td>
         <td><%= link_to 'Show', grooming_appointment %></td>
