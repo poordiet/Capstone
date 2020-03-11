@@ -90,6 +90,7 @@ new_grooming_service_path({:id => @grooming_appointment.id}),
       <th>Amount</th>
       <th>Amount Notes</th>
       <th>Edit</th>
+      <th>Remove</th>
 		</thead>
 		<tbody>
      <% @grooming_appointment.grooming_services.each do |grooming_service| %>
@@ -99,6 +100,7 @@ new_grooming_service_path({:id => @grooming_appointment.id}),
         <td><%= grooming_service.service_amount_notes %></td>
         <td><%= link_to "Update", edit_grooming_service_path(grooming_service), 
         :class => "btn btn-warning btn-block" %></td>
+        <td><%= link_to 'Delete', grooming_service, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-block btn-danger' %></td>
 			</tr>
        <% end %>
 		</tbody>
@@ -119,6 +121,7 @@ new_grooming_style_path({:id => @grooming_appointment.id}),
       <th>Style</th>
       <th>Grooming Style Notes</th>
       <th>Edit</th>
+      <th>Remove</th>
 		</thead>
 
 		<tbody>
@@ -128,6 +131,7 @@ new_grooming_style_path({:id => @grooming_appointment.id}),
         <td><%= grooming_style.groom_style_notes%></td>
         <td><%= link_to "Update", edit_grooming_style_path(grooming_style), 
         :class => "btn btn-warning btn-block" %></td>
+        <td><%= link_to 'Delete', grooming_style, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-block btn-danger' %></td>
 			</tr>
        <% end %>
 		</tbody>
