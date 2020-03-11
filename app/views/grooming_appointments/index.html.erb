@@ -7,28 +7,35 @@
 <table id="example" class="table table-hover table-bordered">
 		<thead class="thead-dark">
     <tr>
+      <th>Customer</th>
       <th>Pet Name</th>
       <th>Appt Date</th>
-      <th>Blades</th>
       <th>Services</th>
       <th>Store</th>
       <th>Total</th>
-      <th>Payment Type</th>
       <th>Show</th>
       <th>Edit</th>
     </tr>
   </thead>
 
+
   <tbody>
     <% @grooming_appointments.each do |grooming_appointment| %>
+    <%counter = 0%>
       <tr>
+        <td><%= grooming_appointment.pet.customer.customer_first_name %>
+        <%= grooming_appointment.pet.customer.customer_last_name %></td>
         <td><%= grooming_appointment.pet.pet_name %></td>
-        <td><%= grooming_appointment.appt_date.to_formatted_s(:long) %></td>
-        <td><%= grooming_appointment.appt_blades %></td>
-        <td><%= grooming_appointment%></td>
+        <td><%= grooming_appointment.appt_date.to_formatted_s(:rfc822) %></td>
+        <td><% grooming_appointment.grooming_services.each do |grooming_service| %>
+        <% counter += 1%>
+        <%= grooming_service.service.service_name%>
+        <% if counter > 1%>
+        ,
+        <%end%>
+        <%end%></td>
         <td><%= grooming_appointment.store.store_address %></td>
-        <td><%= grooming_appointment.appt_total %></td>
-        <td><%= grooming_appointment.payment_type.payment_type %></td>
+        <td><%= number_to_currency(grooming_appointment.appt_total) %></td>
         <td><%= link_to 'Show', grooming_appointment %></td>
         <td><%= link_to 'Edit', edit_grooming_appointment_path(grooming_appointment) %></td>
       </tr>
