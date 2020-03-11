@@ -10,7 +10,7 @@
 </div>
 
 <div class="row">
-<div class="col">
+<div class="col-6">
 <br>
 <p>
   <strong>Customer:</strong>
@@ -26,11 +26,6 @@
 <p>
   <strong>Store:</strong>
   <%= @grooming_appointment.store.store_address %>
-</p>
-
-<p>
-  <strong>Payment Type:</strong>
-  <%= @grooming_appointment.payment_type.payment_type %>
 </p>
 
 <p>
@@ -52,58 +47,6 @@
   <strong>Vac Current Date:</strong>
   <%= @grooming_appointment.vac_current_date.to_formatted_s(:long) %>
 </p>
-</div>
-
-
-<div class="col">
-<!-- Shows the Before Photos photos for each Grooming Appt -->
-<h2>Before Photo</h2>
-<div>
-<%@grooming_appointment.pet_photos.each do |photo|
-   if photo.photo_type_id == 2 %>
-    <%= image_tag photo.image.variant(resize:"300x300") if photo.image.attached? %>
-    <%= link_to 'Show', photo, class: 'btn btn-primary', style: 'margin-top:10px' %>
-    <%= link_to 'Edit', edit_pet_photo_path(photo), class: 'btn btn-warning', style: 'margin-top:10px' %>
-    <%end%>
-<%end%>
-<%=link_to 'New Before Photo', new_pet_photo_path({:photo_type_id => 2, 
-                                            :customer_first_name => @grooming_appointment.pet.customer.customer_first_name,
-                                            :customer_last_name => @grooming_appointment.pet.customer.customer_last_name,
-                                            :pet_name=> @grooming_appointment.pet.pet_name,
-                                            :pet_id => @grooming_appointment.pet.id,
-                                            :grooming_appointment_id => @grooming_appointment.id}),
-                                              class: 'btn btn-success', style: 'margin-top:10px'%>
-</div>
-</div>
-
-<div class="col">
-<h2>After Photo</h2>
-<!-- Shows the After Photos photos for each Grooming Appt -->
-<div>
-<%@grooming_appointment.pet_photos.each do |photo|%>
-   <% if photo.photo_type_id == 3 %>
-    <%= image_tag photo.image.variant(resize:"300x300") if photo.image.attached? %>
-    <%= link_to 'Show', photo, class: 'btn btn-primary', style: 'margin-top:10px' %>
-    <%= link_to 'Edit', edit_pet_photo_path(photo), class: 'btn btn-warning', style: 'margin-top:10px' %>
-    <%end%>
-  <%end%>
-<%=link_to 'New After Photo', new_pet_photo_path({:photo_type_id => 3, 
-                                            :customer_first_name => @grooming_appointment.pet.customer.customer_first_name,
-                                            :customer_last_name => @grooming_appointment.pet.customer.customer_last_name,
-                                            :pet_name=> @grooming_appointment.pet.pet_name,
-                                            :pet_id => @grooming_appointment.pet.id,
-                                            :grooming_appointment_id => @grooming_appointment.id}),
-                                              class: 'btn btn-success', style: 'margin-top:10px'%>
-</div>
-</div>
-</div>
-
-<div class="row">
-<div class="col-12">
-<p>
-  <strong>Total:</strong>
-  <%= @grooming_appointment.appt_total %>
-</p>
 
 <p>
   <strong>Appt Notes:</strong>
@@ -115,6 +58,19 @@
   <%= @grooming_appointment.customer_feedback %>
 </p>
 </div>
+
+<div class="col-6">
+<p>
+  <strong>Total:</strong>
+  <%= number_to_currency(@grooming_appointment.appt_total) %>
+</p>
+
+<p>
+  <strong>Payment Type:</strong>
+  <%= @grooming_appointment.payment_type.payment_type %>
+</p>
+</div>
+
 </div>
 
 <br>
@@ -139,7 +95,7 @@ new_grooming_service_path({:id => @grooming_appointment.id}),
      <% @grooming_appointment.grooming_services.each do |grooming_service| %>
 			<tr>
 				<td><%= grooming_service.service.service_name %></td>
-        <td><%= grooming_service.service_amount%></td>
+        <td><%= number_to_currency(grooming_service.service_amount)%></td>
         <td><%= grooming_service.service_amount_notes %></td>
         <td><%= link_to "Update", edit_grooming_service_path(grooming_service), 
         :class => "btn btn-warning btn-block" %></td>
@@ -170,11 +126,90 @@ new_grooming_style_path({:id => @grooming_appointment.id}),
 			<tr>
 				<td><%= grooming_style.style.style_name%></td>
         <td><%= grooming_style.groom_style_notes%></td>
-        <td><%= link_to "Update", edit_grooming_style_path({:id => grooming_style.id}), 
+        <td><%= link_to "Update", edit_grooming_style_path(grooming_style), 
         :class => "btn btn-warning btn-block" %></td>
 			</tr>
        <% end %>
 		</tbody>
 	</table>
 
+
+<style>
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 400px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+  div.center {
+  padding: 15px;
+  text-align: center;
+
+
+</style>
+<div class="container">
+<br>
+<h2>Before Photos</h2>
+<%=link_to 'New Before Photo', new_pet_photo_path({:photo_type_id => 2, 
+                                            :customer_first_name => @grooming_appointment.pet.customer.customer_first_name,
+                                            :customer_last_name => @grooming_appointment.pet.customer.customer_last_name,
+                                            :pet_name=> @grooming_appointment.pet.pet_name,
+                                            :pet_id => @grooming_appointment.pet.id,
+                                            :grooming_appointment_id => @grooming_appointment.id}),
+                                              class: 'btn btn-success', style: 'margin-top:10px'%>
+<div class="row">
+  <%@grooming_appointment.pet_photos.each do |photo|%>
+   <% if photo.photo_type_id == 2 %>
+   <div class="gallery">
+    <%= image_tag photo.image.variant(resize:"400x400") if photo.image.attached? %>
+    <div class="desc"><%=photo.photo_description%></div>
+    <div class="center">
+    <%= link_to 'Show', photo%> |
+    <%= link_to 'Edit', edit_pet_photo_path(photo)%>
+    </div>
+    </div>
+    <%end%>
+  <%end%>
+</div>
+</div>
+
+<div class="container">
+<br>
+<h2>After Photos</h2>
+<%=link_to 'New After Photo', new_pet_photo_path({:photo_type_id => 3, 
+                                            :customer_first_name => @grooming_appointment.pet.customer.customer_first_name,
+                                            :customer_last_name => @grooming_appointment.pet.customer.customer_last_name,
+                                            :pet_name=> @grooming_appointment.pet.pet_name,
+                                            :pet_id => @grooming_appointment.pet.id,
+                                            :grooming_appointment_id => @grooming_appointment.id}),
+                                              class: 'btn btn-success', style: 'margin-top:10px'%>
+<div class="row">
+  <%@grooming_appointment.pet_photos.each do |photo|%>
+   <% if photo.photo_type_id == 3 %>
+   <div class="gallery">
+    <%= image_tag photo.image.variant(resize:"400x400") if photo.image.attached? %>
+    <div class="desc"><%=photo.photo_description%></div>
+    <div class="center">
+    <%= link_to 'Show', photo%> |
+    <%= link_to 'Edit', edit_pet_photo_path(photo)%>
+    </div>
+    </div>
+    <%end%>
+  <%end%>
+</div>
 </div>
