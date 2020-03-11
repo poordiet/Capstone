@@ -66,24 +66,34 @@
     <%= link_to 'Edit', edit_pet_photo_path(photo), class: 'btn btn-warning', style: 'margin-top:10px' %>
     <%end%>
 <%end%>
-<%=link_to 'New Before Photo', new_pet_photo_path, class: 'btn btn-success', style: 'margin-top:10px'%>
+<%=link_to 'New Before Photo', new_pet_photo_path({:photo_type_id => 2, 
+                                            :customer_first_name => @grooming_appointment.pet.customer.customer_first_name,
+                                            :customer_last_name => @grooming_appointment.pet.customer.customer_last_name,
+                                            :pet_name=> @grooming_appointment.pet.pet_name,
+                                            :pet_id => @grooming_appointment.pet.id,
+                                            :grooming_appointment_id => @grooming_appointment.id}),
+                                              class: 'btn btn-success', style: 'margin-top:10px'%>
 </div>
 </div>
-
-
 
 <div class="col">
 <h2>After Photo</h2>
 <!-- Shows the After Photos photos for each Grooming Appt -->
 <div>
-<%@grooming_appointment.pet_photos.each do |photo|
-   if photo.photo_type_id == 3 %>
+<%@grooming_appointment.pet_photos.each do |photo|%>
+   <% if photo.photo_type_id == 3 %>
     <%= image_tag photo.image.variant(resize:"300x300") if photo.image.attached? %>
     <%= link_to 'Show', photo, class: 'btn btn-primary', style: 'margin-top:10px' %>
     <%= link_to 'Edit', edit_pet_photo_path(photo), class: 'btn btn-warning', style: 'margin-top:10px' %>
     <%end%>
-<%end%>
-<%=link_to 'New After Photo', new_pet_photo_path, class: 'btn btn-success', style: 'margin-top:10px'%>
+  <%end%>
+<%=link_to 'New After Photo', new_pet_photo_path({:photo_type_id => 3, 
+                                            :customer_first_name => @grooming_appointment.pet.customer.customer_first_name,
+                                            :customer_last_name => @grooming_appointment.pet.customer.customer_last_name,
+                                            :pet_name=> @grooming_appointment.pet.pet_name,
+                                            :pet_id => @grooming_appointment.pet.id,
+                                            :grooming_appointment_id => @grooming_appointment.id}),
+                                              class: 'btn btn-success', style: 'margin-top:10px'%>
 </div>
 </div>
 </div>
@@ -131,7 +141,7 @@ new_grooming_service_path({:id => @grooming_appointment.id}),
 				<td><%= grooming_service.service.service_name %></td>
         <td><%= grooming_service.service_amount%></td>
         <td><%= grooming_service.service_amount_notes %></td>
-        <td><%= link_to "Update", edit_grooming_service_path({:id => grooming_service.id}), 
+        <td><%= link_to "Update", edit_grooming_service_path(grooming_service), 
         :class => "btn btn-warning btn-block" %></td>
 			</tr>
        <% end %>

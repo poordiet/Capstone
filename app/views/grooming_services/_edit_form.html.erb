@@ -1,0 +1,46 @@
+<%= form_with(model: grooming_service, local: true) do |form| %>
+  <% if grooming_service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(grooming_service.errors.count, "error") %> prohibited this grooming_service from being saved:</h2>
+
+      <ul>
+        <% grooming_service.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  <%= form.hidden_field :grooming_appointment_id, value: @grooming_service.grooming_appointment_id%>
+  </div>
+
+  <div class="field">
+    <%= form.label :service_id, 'Service Name' %>
+    <%= form.collection_select :service_id, Service.all, :id, :service_name %>
+  </div>
+
+  <!--<div class="field">
+    <%= form.label :grooming_appointment_id, 'Grooming Appointment' %>
+    <%= form.collection_select :grooming_appointment_id, GroomingAppointment.all, :id, :appt_date %>
+  </div>-->
+
+  <div class="field">
+    <%= form.label :employee_id, 'Employee' %>
+    <%= form.collection_select :employee_id, Employee.all, :id, :emp_first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :service_amount, 'Service Amount' %>
+    <%= form.text_field :service_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :service_amount_notes, 'Service Amount Notes' %>
+    <%= form.text_field :service_amount_notes %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Create Grooming Service' %>
+  </div>
+<% end %>
