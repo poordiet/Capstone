@@ -15,12 +15,15 @@ class GroomingAppointmentsController < ApplicationController
   # GET /grooming_appointments/new
   def new
     @grooming_appointment = GroomingAppointment.new
+    1.times do
+      pet_photo = @grooming_appointment.pet_photos.build
+    end
   end
 
   # GET /grooming_appointments/1/edit
   def edit
     @grooming_appointment.grooming_services
- 
+    @grooming_appointment.pet_photos
   end
 
   # POST /grooming_appointments
@@ -73,6 +76,8 @@ class GroomingAppointmentsController < ApplicationController
     def grooming_appointment_params
       params.require(:grooming_appointment).permit(:pet_id, :store_id, :payment_type_id, :appt_date, :appt_blades, :appt_total, :appt_total, :appt_notes, :customer_feedback, :vac_current, :vac_current_date,
       grooming_services_attributes: [:id,:service_id, :employee_id, :service_amount, :service_amount_notes],
-      grooming_styles_attributes: [:id, :style_id, :grooming_appointment_id, :groom_style_notes])
+      grooming_styles_attributes: [:id, :style_id, :grooming_appointment_id, :groom_style_notes],
+      pet_photos_attributes: [:id, :pet_id, :photo_type_id, :photo_link, :photo_description, :image],
+      photo_types_attributes: [:id, :photo_type])
     end
 end

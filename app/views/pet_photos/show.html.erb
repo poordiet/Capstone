@@ -1,9 +1,7 @@
 <p id="notice"><%= notice %></p>
-
-Test
-<%= image_tag(@pet_photo.image) %>
-
-<div><%=@pet_photo.image%></div>
+<div class= "container">
+<h1> Pet Photo </h1>
+<%= link_to 'Edit', edit_pet_photo_path(@pet_photo), class: 'btn btn-warning btn-lg float-right' %>
 
 <p>
   <strong>Pet:</strong>
@@ -16,15 +14,18 @@ Test
 </p>
 
 
-<p>
+<!--<p>
   <strong>Photo Link:</strong>
   <%= @pet_photo.photo_link %>
-</p>
+</p>-->
 
 <p>
   <strong>Photo Description:</strong>
   <%= @pet_photo.photo_description %>
 </p>
 
-<%= link_to 'Edit', edit_pet_photo_path(@pet_photo) %> |
-<%= link_to 'Back', pet_photos_path %>
+<%= image_tag(@pet_photo.image.variant(resize:"800x800"))%>
+<br>
+<br>
+<!--<%= link_to 'Back', pet_photos_path %>-->
+</div>

@@ -26,10 +26,6 @@
   <!--<%= form.select :customer_id, options_from_collection_for_select( Customer.order(:customer_first_name).all, "id", "customer_first_name", params[:id]), disabled: true %>-->
   </div>
 
-  <div class="field">
-    <%= form.label :pet_id %>
-    <%= form.collection_select :pet_id, Pet.all, :id, :pet_name %>
-  </div>
 
   <div class="form-row">
   <div class=" form-group field col-md-3">
@@ -128,8 +124,26 @@
   </div>
   </div>
 
-
+<!-- Photos in edit form -->
+<!--
  <br>
+ <h2>Upload Before Photo</h2>
+<div class="form-row">
+<div id="pet_photos">
+      <%= form.fields_for :pet_photos do |pet_photo| %>
+        <%= render "before_pet_photo_fields", f: pet_photo %>
+      <% end %> 
+  </div>
+</div>
+
+<br>
+<h2>Upload After Photo</h2>
+<div class="form-row">
+<%= form.fields_for :pet_photos do |builder| %>
+  <%= render "after_pet_photo_fields", :f => builder %>
+<% end %>
+</div>
+-->
 
 
  <div class="actions">

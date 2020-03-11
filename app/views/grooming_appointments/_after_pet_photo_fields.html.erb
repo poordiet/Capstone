@@ -1,0 +1,22 @@
+<div class="nested-fields">
+
+<div class="field">
+  <%= f.hidden_field :pet_id, :value => params[:pet_id] %>
+</div>
+
+    <div class="field">
+    <%= f.hidden_field :photo_type_id, value: 3%>
+    </div>
+
+    <div class="field">
+        <%= f.label :"After Photo" %>
+        <%= f.file_field :image, direct_upload: true, accept: "image/png,image/gif,image/jpeg", class:'form-control'%>
+    </div>
+
+     <div class="field">
+      <br>
+        <%= f.label :photo_description %>
+        <%= f.text_area :photo_description, class: 'form-control' %>
+    </div>
+
+</div>
