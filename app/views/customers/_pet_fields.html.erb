@@ -98,6 +98,12 @@
     <%= link_to_remove_association "Remove Pet", f, class: 'btn btn-secondary btn-lg float-left mx-auto' %> <br>
     </div>
     </div>
-<br> <br>
+
+    <div id="pet_vaccinations">
+    <div class="pet_vaccines">
+        <%= link_to_add_association 'Add Vaccine', f, :pet_vaccinations %>
+    </div>
+    </div>
+    
 
 </div>
