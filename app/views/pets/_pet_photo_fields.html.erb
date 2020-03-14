@@ -1,18 +1,22 @@
 <div class="nested-fields">
 
-    <div class="field">
-        <%= f.label :photo_type_id %>
-        <%= f.text_field :photo_type_id %>
-    </div>
-
-    <div class="field">
+<div class="form-row">
+    <div class="field form-group col-md-3">
         <%= f.label :"Profile Photo" %>
         <%= f.file_field :image, direct_upload: true, accept: "image/png,image/gif,image/jpeg"%>
     </div>
+</div>
 
-     <div class="field">
-        <%= f.label :photo_description %>
-        <%= f.text_field :photo_description %>
+<div class="form-row">
+    <div class="field form-group col-md-3">
+        <%= f.label :photo_type_id %>
+        <%= f.text_field :photo_type_id, class: 'form-control' %>
     </div>
+
+     <div class="field form-group col-md-3">
+        <%= f.label :photo_description %>
+        <%= f.text_field :photo_description, class: 'form-control' %>
+    </div>
+</div>
 
 </div>

@@ -1,19 +1,29 @@
 <div class="nested-fields">
-
-    <div class="field">
+<h5>Add Vaccine</h5>
+ 
+ <div class="form-row">
+    <div class="field form-group col-md-6">
         <%= f.label :vaccine_id %>
-        <%= f.collection_select :vaccine_id, Vaccine.all, :id, :vaccine_name %>
+        <%= f.collection_select :vaccine_id, Vaccine.all, :id, :vaccine_name, class: 'form-control' %>
     </div>
+</div>
 
-    <div class="field">
+ <div class="form-row">
+    <div class="field form-group col-md-6">
         <%= f.label :date_given %>
-        <%= f.date_select :date_given %>
+        <%= f.date_select :date_given, class: 'form-control' %>
     </div>
+</div> 
 
-    <div class="field">
+<div class="form-row">
+    <div class="field form-group col-md-6">
         <%= f.label :date_expire %>
-        <%= f.date_select :date_expire %>
+        <%= f.date_select :date_expire, class: 'form-control' %>
     </div>
+</div>
 
-    <%= link_to_remove_association "Remove Vaccine", f %>
+<div class = "form-row">
+    <div class ="field form-group">
+    <%= link_to_remove_association "Remove Vaccine", f, class: 'btn btn-secondary btn-sm float-left mx-auto' %>
+    </div>
 </div>

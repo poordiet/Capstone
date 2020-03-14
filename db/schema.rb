@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
 
   create_table "customers", force: :cascade do |t|
     t.bigint "state_id", null: false
-    t.bigint "customer_status_id", null: false
     t.string "customer_first_name"
     t.string "customer_last_name"
     t.string "customer_address"
@@ -58,7 +57,6 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
     t.string "customer_notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["customer_status_id"], name: "index_customers_on_customer_status_id"
     t.index ["state_id"], name: "index_customers_on_state_id"
   end
 
@@ -90,7 +88,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
   create_table "grooming_appointments", force: :cascade do |t|
     t.bigint "pet_id", null: false
     t.bigint "store_id", null: false
-    t.bigint "payment_type_id"
+    t.bigint "payment_type_id", null: false
     t.date "appt_date"
     t.string "appt_blades"
     t.decimal "appt_total"
@@ -108,7 +106,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
   create_table "grooming_services", force: :cascade do |t|
     t.bigint "service_id", null: false
     t.bigint "grooming_appointment_id", null: false
-    t.bigint "employee_id"
+    t.bigint "employee_id", null: false
     t.decimal "service_amount"
     t.string "service_amount_notes"
     t.datetime "created_at", precision: 6, null: false
@@ -176,7 +174,6 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
 
   create_table "pets", force: :cascade do |t|
     t.bigint "customer_id", null: false
-    t.bigint "pet_status_id", null: false
     t.string "pet_name"
     t.string "pet_gender", limit: 1
     t.date "pet_birthdate"
@@ -188,12 +185,10 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
     t.string "pet_medical_issues"
     t.string "pet_notes"
     t.string "pet_color"
-    t.string "pet_breed"
     t.decimal "pet_weight"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_pets_on_customer_id"
-    t.index ["pet_status_id"], name: "index_pets_on_pet_status_id"
   end
 
   create_table "photo_types", force: :cascade do |t|
@@ -251,7 +246,6 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "customers", "customer_statuses"
   add_foreign_key "customers", "states"
   add_foreign_key "employee_stores", "employees"
   add_foreign_key "employee_stores", "stores"
@@ -271,7 +265,6 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
   add_foreign_key "pet_vaccinations", "pets"
   add_foreign_key "pet_vaccinations", "vaccines"
   add_foreign_key "pets", "customers"
-  add_foreign_key "pets", "pet_statuses"
   add_foreign_key "services", "service_statuses"
   add_foreign_key "stores", "states"
 end

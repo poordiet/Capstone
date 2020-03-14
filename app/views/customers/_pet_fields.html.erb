@@ -1,23 +1,21 @@
 
 <div class="nested-fields">
-<br>
-<br>
 <h1>Add Pet</h1>
 <br>
 <div class="form-row">
-    <div class="field form-group col-md-4">
+    <div class="field form-group col-md-6">
         <%= f.label :pet_birthdate, 'Pet Birthdate' %>
         <%= f.date_select :pet_birthdate, class: 'form-control' %>
     </div>
 </div>
 
 <div class="form-row">
-        <div class="field form-group col-md-2">
+        <div class="field form-group col-sm-3">
             <%= f.label :spayed_neutered, 'Spayed/Neutered' %>
             <%= f.select :spayed_neutered, ['Y', 'N'], class: 'form-control' %>
         </div>
 
-        <div class="field form-group col-md-2">
+        <div class="field form-group col-sm-3">
             <%= f.label :pet_treat, 'Pet Treat' %>
             <%= f.select :pet_treat, ['Y', 'N'], class: 'form-control' %>
         </div>
@@ -95,13 +93,13 @@
 
     <div class = "form-row">
     <div class ="field form-group">
-    <%= link_to_remove_association "Remove Pet", f, class: 'btn btn-secondary btn-lg float-left mx-auto' %> <br>
+    <%= link_to_remove_association "Remove Pet", f, class: 'btn btn-secondary btn-sm float-left mx-auto' %> <br>
     </div>
     </div>
 
-    <div id="pet_vaccinations">
-    <div class="pet_vaccines">
-        <%= link_to_add_association 'Add Vaccine', f, :pet_vaccinations %>
+    <div id="pet_vaccinations" class = "form-row">
+    <div class="pet_vaccines field form-group">
+        <%= link_to_add_association 'Add Vaccine', f, :pet_vaccinations, class: 'btn btn-info btn-sm float-left mx-auto'%>
     </div>
     </div>
     

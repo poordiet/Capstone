@@ -16,7 +16,7 @@ body{
 }
 
 #navbar{
-    width: 100%;
+    width: auto;
 }
 
  #form {
@@ -30,3 +30,14 @@ body{
  #buttons {
      width: 50%;
  }
+
+.pet table
+{
+    table-layout: auto;
+    width: 100%;
+}
+
+.pet th, .pet td
+{
+    text-align: center;
+}

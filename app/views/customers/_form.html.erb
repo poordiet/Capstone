@@ -15,8 +15,8 @@
 
 
 
- <div id="form" >
- <br>
+<div id="form" >
+<br>
 <h1>New Customer</h1>
 <br>
  <div class="field">
@@ -24,7 +24,7 @@
   </div>
   <form>
   <div class="form-row">
-   <div class="field form-group col-md-4">
+   <div class="field form-group col-md-6">
     <%= form.label :date_obtained, 'Date Obtained' %>
     <%= form.date_select :date_obtained %>
   </div>
@@ -94,10 +94,9 @@
     <%= form.text_area :customer_notes, class: 'form-control' %>
   </div>
 </div>
-
-  
+<br>
 <div class = "form-row">
-  <div class="pets">
+  <div class="pets field form-group">
     <%= link_to_add_association 'Add Pet', form, :pets, class: 'btn btn-success btn-lg float-left mx-auto' %>
   </div>
 </div>
@@ -111,7 +110,7 @@
     <div id="buttons">
     <a class="btn btn-danger btn-lg " href="/customers" role="button">Cancel</a>
     <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
-    <div>
+    </div>
   
   </div>
   

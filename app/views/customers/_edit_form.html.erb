@@ -10,12 +10,9 @@
       </ul>
     </div>
   <% end %>
-  
-  <br>
 
 
-
-<div id="form" >
+<div id="form">
 <br>
 <h1>Editing Customer</h1>
 <br>
@@ -100,24 +97,17 @@
   
 <div class = "form-row">
   <div class="pets">
-    <%= link_to_add_association 'Add Pet', form, :pets, class: 'btn btn-success btn-lg float-left mx-auto' %>
+    <%= link_to_add_association 'Add Pet', form, :pets, class: 'btn btn-success btn-sm float-left mx-auto' %>
   </div>
 </div>
-
-</form>
-
-
-  
-  
-  <br>
+<br>
     <div id="buttons">
-    <a class="btn btn-danger btn-lg " href="/customers" role="button">Cancel</a>
-    <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
-    <div>
-  
-  </div>
-  
-  
+    <a class="btn btn-danger btn-lg float-left " href="/customers" role="button">Cancel</a>
+    <%= link_to 'Show', @customer, class: "btn btn-warning btn-lg", style: "margin-left: auto;" %>
+    <button type="submit" class="btn btn-primary btn-lg float-right mx-auto">Submit</button>
+    </div>  
+</form>
+</div>
 <% end %>
 
 
