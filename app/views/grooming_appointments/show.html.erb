@@ -178,7 +178,7 @@ div.desc {
                                               class: 'btn btn-success', style: 'margin-top:10px'%>
 <div class="row">
   <%@grooming_appointment.pet_photos.each do |photo|%>
-   <% if photo.photo_type_id == 2 %>
+   <% if photo.photo_type_id == 2 && photo.image.attached? %>
    <div class="gallery">
     <%= image_tag photo.image.variant(resize:"400x400") if photo.image.attached? %>
     <div class="desc"><%=photo.photo_description%></div>
@@ -204,7 +204,7 @@ div.desc {
                                               class: 'btn btn-success', style: 'margin-top:10px'%>
 <div class="row">
   <%@grooming_appointment.pet_photos.each do |photo|%>
-   <% if photo.photo_type_id == 3 %>
+   <% if photo.photo_type_id == 3 && photo.image.attached?%>
    <div class="gallery">
     <%= image_tag photo.image.variant(resize:"400x400") if photo.image.attached? %>
     <div class="desc"><%=photo.photo_description%></div>
