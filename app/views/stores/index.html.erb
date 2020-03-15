@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>State</th>
+      <th>Store Name</th>
       <th>Store Address</th>
       <th>Store City</th>
       <th>Store Zip</th>
@@ -18,6 +19,7 @@
     <% @stores.each do |store| %>
       <tr>
         <td><%= store.state.state_name %></td>
+        <td><%= store.store_name %></td>
         <td><%= store.store_address %></td>
         <td><%= store.store_city %></td>
         <td><%= store.store_zip %></td>

@@ -88,3 +88,71 @@
 
 <%= link_to 'Edit', edit_pet_path(@pet) %> 
 <%= link_to 'Back', pets_path %>
+
+<br>
+<h2>Vaccinations</h2>
+<br>
+
+<div class="container">
+<%= link_to "Add Vaccination", 
+new_pet_vaccination_path({:id => @pet.id, 
+:pet_name => @pet.pet_name}), 
+:class => "btn btn-success float-right mt-4" %>
+<table id="example" class="table table-striped table-bordered" style="width: 1000px;">
+		<thead>
+      <th>Vaccine</th>
+      <th>Date Given</th>
+      <th>Date Expired</th>
+      <th>Update</th>
+		</thead>
+		<tbody>
+     <% @pet.pet_vaccinations.each do |pet_vaccinations| %>
+			<tr>
+				<td><%= pet_vaccinations.vaccine.vaccine_name %></td>
+        <td><%= pet_vaccinations.date_given %></td>
+        <td><%= pet_vaccinations.date_expire %></td>
+        <td><%= link_to "Update", edit_pet_vaccination_path(pet_vaccinations), 
+        :class => "btn btn-warning btn-block" %></td>
+			</tr>
+       <% end %>
+		</tbody>
+	</table>
+  
+
+  <br>
+  <h2>Grooming Appointments</h2>
+  <br>
+
+  <%= link_to "Add Grooming Appointment", 
+  new_grooming_appointment_path({:pet_id => @pet.id, 
+  :pet_name => @pet.pet_name,
+  :customer_first_name => @pet.customer.customer_first_name,
+  :customer_last_name => @pet.customer.customer_last_name}), 
+  :class => "btn btn-success float-right mt-4" %>
+  <table id="example" class="table table-striped table-bordered" style="width: 1000px;">
+		<thead>
+      <th>Date</th>
+      <th>Services</th>
+      <th>Blades</th>
+      <th>Total</th>
+      <th>Show</th>
+		</thead>
+		<tbody>
+     <% @pet.grooming_appointments.each do |grooming_appointment| %>
+			<tr>
+				<td><%= grooming_appointment.appt_date.to_formatted_s(:long) %></td>
+        <td><% grooming_appointment.grooming_services.each_with_index do |grooming_service, index| %>
+            <%if index == (grooming_appointment.grooming_services.length - 1) then %>
+            <%= grooming_service.service.service_name%> 
+            <%else%>
+            <%= grooming_service.service.service_name%> ,
+            <%end%>
+          <%end%></td>
+        <td><%= grooming_appointment.appt_blades %></td>
+        <td><%= number_to_currency(grooming_appointment.appt_total) %></td>
+        <td><%= link_to 'Show', grooming_appointment, class: 'btn btn-block btn-primary' %></td>
+			</tr>
+       <% end %>
+		</tbody>
+	</table>
+  </div>

@@ -86,6 +86,8 @@ class PetsController < ApplicationController
                                   vaccines_attributes: [:id, :vaccine_name],
                                   pet_vaccinations_attributes: [:id, :vaccine_id, :date_given, :date_expire],
                                   pet_photos_attributes: [:id, :photo_type_id, :grooming_appt_id, :photo_link, :photo_description, :image],
-                                  photo_types_attributes: [:id, :photo_type])
+                                  photo_types_attributes: [:id, :photo_type],
+                                  grooming_appointment_attributes: [:id, :appt_date, :appt_blades, :appt_total],
+                                  service_attributes: [:id, :style_name])
     end
 end
