@@ -1,0 +1,47 @@
+<div class="nested-fields">
+    <br>
+    <br>
+    <h1>Add Store</h1>
+    <br>
+    <form>
+
+
+        <% if false %>
+        <!--This IF statement blocks this code because their isn't a store_name in the Schema.rb-->
+        <div class="field">
+            <%= f.label :store_name %>
+            <%= f.text_field :store_name %>
+        </div>
+        <% end %>
+
+        <div class="form-row">
+            <div class="field form-group col-md-2">
+                <%= f.label :store_phone %>
+                <%= f.text_field :store_phone, class: 'form-control' %>
+            </div>
+
+            <div class="field form-group col-md-2">
+                <%= f.label :store_address %>
+                <%= f.text_field :store_address, class: 'form-control' %>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="field form-group col-md-2">
+                <%= f.label :store_city %>
+                <%= f.text_field :store_city, class: 'form-control' %>
+            </div>
+
+            <div class="field form-group col-md-2">
+                <%= f.label :state_id, 'State' %>
+                <%= f.collection_select :state_id, State.all, :id, :state_abbreviation %>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="field form-group col-md-2">
+                <%= f.label :store_zip %>
+                <%= f.text_field :store_zip, class: 'form-control' %>
+            </div>
+        </div>
+    </form>

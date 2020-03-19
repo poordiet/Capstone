@@ -1,33 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>State:</strong>
-  <%= @store.state_id %>
+    <strong>State:</strong>
+    <%= @store.state.state_abbreviation %>
 </p>
 
 <p>
-  <strong>Store Name:</strong>
-  <%= @store.store_address %>
+    <strong>Store Name:</strong>
+    <%= @store.store_address %>
+</p>
+
+<% if false %>
+<!--This IF statement blocks this code because their isn't a store_name in the Schema.rb-->
+<p>
+    <strong>Store address:</strong>
+    <%= @store.store_name %>
+</p>
+<% end %>
+
+<p>
+    <strong>Store city:</strong>
+    <%= @store.store_city %>
 </p>
 
 <p>
-  <strong>Store address:</strong>
-  <%= @store.store_name %>
+    <strong>Store zip:</strong>
+    <%= @store.store_zip %>
 </p>
 
 <p>
-  <strong>Store city:</strong>
-  <%= @store.store_city %>
-</p>
-
-<p>
-  <strong>Store zip:</strong>
-  <%= @store.store_zip %>
-</p>
-
-<p>
-  <strong>Store phone:</strong>
-  <%= @store.store_phone %>
+    <strong>Store phone:</strong>
+    <%= @store.store_phone %>
 </p>
 
 <%= link_to 'Edit', edit_store_path(@store) %> |
