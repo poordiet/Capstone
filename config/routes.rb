@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :employee_statuses
+  resources :incident_statuses
   resources :pet_statuses
   resources :customer_statuses
   resources :employee_stores

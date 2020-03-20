@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @incident_status.status %>
+</p>
+
+<p>
+  <strong>Definition:</strong>
+  <%= @incident_status.definition %>
+</p>
+
+<%= link_to 'Edit', edit_incident_status_path(@incident_status) %> |
+<%= link_to 'Back', incident_statuses_path %>

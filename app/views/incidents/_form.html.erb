@@ -17,6 +17,10 @@
   </div>
 
   <div class="field">
+    <%= form.hidden_field :incident_status_id, value: 1%>
+  </div>
+
+  <div class="field">
     <%= form.label :incident_notes, 'Incident Notes' %>
     <%= form.text_field :incident_notes %>
   </div>
