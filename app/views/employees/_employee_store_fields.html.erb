@@ -6,12 +6,11 @@
     <form>
         <div class="field">
             <%= f.label :store_id %>
-            <%= f.collection_select :store_id, Store.all, :id, :store_address %>
+            <%= f.collection_select :store_id, Store.all, :id, :store_name, class: 'form-control' %>
         </div>
 
         <div class="field">
-            <%= f.label :employee_id %>
-            <%= f.collection_select :employee_id, Employee.all, :id, :emp_first_name %>
+            <%= f.hidden_field :employee_id, :value => @employee.id %>
         </div>
 
         <div class="form-row">
@@ -20,3 +19,4 @@
             </div>
         </div>
     </form>
+</div>
