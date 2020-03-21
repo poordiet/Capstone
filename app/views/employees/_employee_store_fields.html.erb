@@ -3,18 +3,14 @@
     <br>
     <h1>Add Store</h1>
     <br>
-        <div class="field">
-            <%= f.label :store_id %>
-            <%= f.collection_select :store_id, Store.all, :id, :store_name, class: 'form-control' %>
-        </div>
+    <div class="field">
+        <%= f.label :store_id %>
+        <%= f.collection_select :store_id, Store.all, :id, :store_name, class: 'form-control' %>
+    </div>
 
-        <div class="field">
-            <%= f.hidden_field :employee_id, :value => @employee.id %>
+    <div class="form-row">
+        <div class="field form-group">
+            <%= link_to_remove_association "Remove Store", f, class: 'btn btn-secondary btn-lg float-left mx-auto' %> <br>
         </div>
-
-        <div class="form-row">
-            <div class="field form-group">
-                <%= link_to_remove_association "Remove Store", f, class: 'btn btn-secondary btn-lg float-left mx-auto' %> <br>
-            </div>
-        </div>
+    </div>
 </div>

@@ -71,8 +71,8 @@ class EmployeesController < ApplicationController
     def employee_params
       params.require(:employee).permit(:state_id, :emp_first_name, :emp_last_name, :emp_primary_phone,
                                                   :emp_secondary_phone, :emp_email, :emp_hire_date, :emp_address, :emp_city,
-                                                  :emp_zip, :employee_status_id, employee_stores_attributes: [:id, :store_id, :employee_id],
+                                                  :emp_zip, :employee_status_id, employee_stores_attributes: [:id, :store_id, :employee_id, :_destroy],
                                                   stores_attributes: [:id, :state_id, :store_name, :store_address, :store_city,
-                                                  :store_zip, :store_phone])
+                                                  :store_zip, :store_phone, :_destroy])
     end
 end

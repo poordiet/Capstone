@@ -20,74 +20,73 @@
     <div class="field">
         <%= form.hidden_field :employee_status_id, value: 1%>
     </div>
+    <div class="form-row">
+        <div class="field form-group col-md-6">
+            <%= form.label :emp_hire_date, 'Hire Date' %>
+            <%= form.date_select :emp_hire_date %>
+        </div>
+    </div>
 
-        <div class="form-row">
-            <div class="field form-group col-md-6">
-                <%= form.label :emp_hire_date, 'Hire Date' %>
-                <%= form.date_select :emp_hire_date %>
-            </div>
+    <div class="form-row">
+        <div class="field form-group col-md-2">
+            <%= form.label :emp_first_name, 'First Name' %>
+            <%= form.text_field :emp_first_name, class: 'form-control' %>
         </div>
 
-        <div class="form-row">
-            <div class="field form-group col-md-2">
-                <%= form.label :emp_first_name, 'First Name' %>
-                <%= form.text_field :emp_first_name, class: 'form-control' %>
-            </div>
+        <div class="field form-group col-md-2">
+            <%= form.label :emp_last_name, 'Last Name' %>
+            <%= form.text_field :emp_last_name, class: 'form-control' %>
+        </div>
+    </div>
 
-            <div class="field form-group col-md-2">
-                <%= form.label :emp_last_name, 'Last Name' %>
-                <%= form.text_field :emp_last_name, class: 'form-control' %>
-            </div>
+    <div class="form-row">
+        <div class="field form-group col-md-2">
+            <%= form.label :emp_address, 'Address' %>
+            <%= form.text_field :emp_address, class: 'form-control' %>
         </div>
 
-        <div class="form-row">
-            <div class="field form-group col-md-2">
-                <%= form.label :emp_address, 'Address' %>
-                <%= form.text_field :emp_address, class: 'form-control' %>
-            </div>
+        <div class="field form-group col-md-2">
+            <%= form.label :state_id, 'State' %>
+            <%= form.collection_select :state_id, State.all, :id, :state_name %>
+        </div>
+    </div>
 
-            <div class="field form-group col-md-2">
-                <%= form.label :state_id, 'State' %>
-                <%= form.collection_select :state_id, State.all, :id, :state_name %>
-            </div>
+    <div class="form-row">
+        <div class="field form-group col-md-2">
+            <%= form.label :emp_city, 'City' %>
+            <%= form.text_field :emp_city, class: 'form-control' %>
         </div>
 
-        <div class="form-row">
-            <div class="field form-group col-md-2">
-                <%= form.label :emp_city, 'City' %>
-                <%= form.text_field :emp_city, class: 'form-control' %>
-            </div>
+        <div class="field form-group col-md-2">
+            <%= form.label :emp_zip, 'Zip Code' %>
+            <%= form.text_field :emp_zip, class: 'form-control' %>
+        </div>
+    </div>
 
-            <div class="field form-group col-md-2">
-                <%= form.label :emp_zip, 'Zip Code' %>
-                <%= form.text_field :emp_zip, class: 'form-control' %>
-            </div>
+    <div class="form-row">
+        <div class="field form-group col-md-2">
+            <%= form.label :emp_primary_phone, 'Primary Phone' %>
+            <%= form.text_field :emp_primary_phone, class: 'form-control' %>
         </div>
 
-        <div class="form-row">
-            <div class="field form-group col-md-2">
-                <%= form.label :emp_primary_phone, 'Primary Phone' %>
-                <%= form.text_field :emp_primary_phone, class: 'form-control' %>
-            </div>
-
-            <div class="field form-group col-md-2">
-                <%= form.label :emp_secondary_phone, 'Secondary Phone' %>
-                <%= form.text_field :emp_secondary_phone, class: 'form-control' %>
-            </div>
+        <div class="field form-group col-md-2">
+            <%= form.label :emp_secondary_phone, 'Secondary Phone' %>
+            <%= form.text_field :emp_secondary_phone, class: 'form-control' %>
         </div>
+    </div>
 
-        <div class="form-row">
-            <div class="field form-group col-md-4">
-                <%= form.label :emp_email, 'Email' %>
-                <%= form.text_field :emp_email, class: 'form-control' %>
-            </div>
+    <div class="form-row">
+        <div class="field form-group col-md-4">
+            <%= form.label :emp_email, 'Email' %>
+            <%= form.text_field :emp_email, class: 'form-control' %>
         </div>
+    </div>
 
-        <div class="form-row">
-            <div class="employee_stores">
-                <%= link_to_add_association 'Add Store', form, :employee_stores, class: 'btn btn-success btn-lg float-left mx-auto' %>
-            </div>
+    <div class="form-row">
+        <div class="employee_stores">
+            <%= link_to_add_association 'Add Store', form, :employee_stores, class: 'btn btn-success btn-lg float-left mx-auto' %>
         </div>
+    </div>
 
 
     <br>
