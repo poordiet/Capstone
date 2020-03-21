@@ -62,6 +62,13 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
     t.index ["state_id"], name: "index_customers_on_state_id"
   end
 
+  create_table "employee_statuses", force: :cascade do |t|
+    t.string "status"
+    t.string "definition"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "employee_stores", force: :cascade do |t|
     t.bigint "store_id", null: false
     t.bigint "employee_id", null: false
@@ -73,6 +80,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
 
   create_table "employees", force: :cascade do |t|
     t.bigint "state_id", null: false
+    t.bigint "employee_status_id", null: false
     t.string "emp_first_name", null: false
     t.string "emp_last_name", null: false
     t.string "emp_primary_phone"
@@ -84,6 +92,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
     t.string "emp_zip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["employee_status_id"], name: "index_employees_on_employee_status_id"
     t.index ["state_id"], name: "index_employees_on_state_id"
   end
 
@@ -91,7 +100,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
     t.bigint "pet_id", null: false
     t.bigint "store_id", null: false
     t.bigint "payment_type_id"
-    t.date "appt_date"
+    t.datetime "appt_date"
     t.string "appt_blades"
     t.decimal "appt_total"
     t.string "appt_notes"
@@ -128,13 +137,22 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
     t.index ["style_id"], name: "index_grooming_styles_on_style_id"
   end
 
+  create_table "incident_statuses", force: :cascade do |t|
+    t.string "status"
+    t.string "definition"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "incidents", force: :cascade do |t|
     t.bigint "grooming_appointment_id", null: false
+    t.bigint "incident_status_id", null: false
     t.string "incident_notes"
     t.decimal "incident_cost"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["grooming_appointment_id"], name: "index_incidents_on_grooming_appointment_id"
+    t.index ["incident_status_id"], name: "index_incidents_on_incident_status_id"
   end
 
   create_table "payment_types", force: :cascade do |t|
@@ -256,6 +274,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
   add_foreign_key "customers", "states"
   add_foreign_key "employee_stores", "employees"
   add_foreign_key "employee_stores", "stores"
+  add_foreign_key "employees", "employee_statuses"
   add_foreign_key "employees", "states"
   add_foreign_key "grooming_appointments", "payment_types"
   add_foreign_key "grooming_appointments", "pets"
@@ -266,6 +285,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
   add_foreign_key "grooming_styles", "grooming_appointments"
   add_foreign_key "grooming_styles", "styles"
   add_foreign_key "incidents", "grooming_appointments"
+  add_foreign_key "incidents", "incident_statuses"
   add_foreign_key "pet_photos", "grooming_appointments"
   add_foreign_key "pet_photos", "pets"
   add_foreign_key "pet_photos", "photo_types"

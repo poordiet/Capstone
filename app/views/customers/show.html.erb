@@ -20,7 +20,11 @@
 
 <p>
   <strong>Date Obtained:</strong>
-  <%=@customer.date_obtained.to_formatted_s(:long) %>
+  <%if @customer.date_obtained.nil?%>
+              <%= @customer.date_obtained%>
+              <%else%>
+              <%= @customer.date_obtained.to_formatted_s(:long) %>
+              <%end%>
 </p>
 
 <p>

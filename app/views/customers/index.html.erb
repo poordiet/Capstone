@@ -22,7 +22,11 @@
                 <td><%= customer.customer_first_name %></td>
                 <td><%= customer.customer_last_name %></td>
                 <td><%= number_to_phone(customer.customer_primary_phone) %></td>
-                <td><%= customer.date_obtained.to_formatted_s(:long) %></td>
+                <td><%if customer.date_obtained.nil?%>
+                    <%= customer.date_obtained%>
+                    <%else%>
+                    <%= customer.date_obtained.to_formatted_s(:long) %>
+                    <%end%></td>
                 <td><%= customer.customer_city %></td>
                 <td><%= customer.customer_status.status%></td>
                 <td><%= link_to 'Show', customer, class: 'btn btn-primary btn-block' %></td>

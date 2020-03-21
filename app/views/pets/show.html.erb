@@ -22,7 +22,11 @@
 
 <p>
   <strong>Birthdate:</strong>
-  <%= @pet.pet_birthdate %>
+  <%if @pet.pet_birthdate.nil?%>
+              <%= @pet.pet_birthdate%>
+              <%else%>
+              <%= @pet.pet_birthdate.to_formatted_s(:long) %>
+              <%end%> 
 </p>
 
 <p>
