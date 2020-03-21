@@ -4,6 +4,7 @@ class CreatePetVaccinations < ActiveRecord::Migration[6.0]
       t.references :vaccine, null: false, foreign_key: true
       t.references :pet, null: false, foreign_key: true
       t.date :date_given
+      t.decimal :duration
       t.date :date_expire
 
       t.timestamps
