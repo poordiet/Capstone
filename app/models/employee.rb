@@ -7,6 +7,7 @@ class Employee < ApplicationRecord
   has_many :incidents
 
   accepts_nested_attributes_for :employee_stores, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :stores, reject_if: :all_blank, allow_destroy: true
   
   validates :emp_first_name, presence: true
   validates :emp_last_name, presence: true

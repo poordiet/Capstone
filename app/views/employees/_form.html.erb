@@ -15,7 +15,12 @@
     <br>
     <h1>New Employee</h1>
     <br>
-    <form>
+
+
+    <div class="field">
+        <%= form.hidden_field :employee_status_id, value: 1%>
+    </div>
+
         <div class="form-row">
             <div class="field form-group col-md-6">
                 <%= form.label :emp_hire_date, 'Hire Date' %>
@@ -84,7 +89,7 @@
             </div>
         </div>
 
-    </form>
+
     <br>
     <div id="buttons">
         <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>

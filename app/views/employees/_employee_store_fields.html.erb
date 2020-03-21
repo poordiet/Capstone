@@ -3,7 +3,6 @@
     <br>
     <h1>Add Store</h1>
     <br>
-    <form>
         <div class="field">
             <%= f.label :store_id %>
             <%= f.collection_select :store_id, Store.all, :id, :store_name, class: 'form-control' %>
@@ -18,5 +17,4 @@
                 <%= link_to_remove_association "Remove Store", f, class: 'btn btn-secondary btn-lg float-left mx-auto' %> <br>
             </div>
         </div>
-    </form>
 </div>
