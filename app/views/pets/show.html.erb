@@ -23,10 +23,10 @@
 <p>
   <strong>Birthdate:</strong>
   <%if @pet.pet_birthdate.nil?%>
-              <%= @pet.pet_birthdate%>
-              <%else%>
-              <%= @pet.pet_birthdate.to_formatted_s(:long) %>
-              <%end%> 
+  <%= @pet.pet_birthdate%>
+  <%else%>
+  <%= @pet.pet_birthdate.to_formatted_s(:long) %>
+  <%end%> 
 </p>
 
 <p>
