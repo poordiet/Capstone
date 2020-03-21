@@ -1,9 +1,9 @@
 service_statuses =[
-    [1,"Active"],
-    [2,"Discontinued"]
+    ["Active"],
+    ["Discontinued"]
 ]
 
 
-service_statuses.each do |id, status|
-    ServiceStatus.create(id: id, service_status: status)
+service_statuses.each do | status|
+    ServiceStatus.create( service_status: status)
 end
