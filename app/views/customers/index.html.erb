@@ -1,54 +1,54 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-<br>
-<h1>Customers</h1>
-<br>
-  <a class="btn btn-success float-right mt-4" href="customers/new" role="button" aria-pressed="true">New Customer</a>
-	<table id="example" class="table table-hover table-bordered">
-		<thead class="thead-dark">
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Phone Number</th>
-      <th>Date Obtained</th>
-      <th>City</th>
-      <th>Status</th>
-      <th>Show</th>
-      <th>Edit</th>
-		</thead>
-		<tbody>
-     <% @customers.each do |customer| %>
-			<tr>
-				<td><%= customer.customer_first_name %></td>
-				<td><%= customer.customer_last_name %></td>
-				<td><%= number_to_phone(customer.customer_primary_phone) %></td>
-				<td><%if customer.date_obtained.nil?%>
-              <%= customer.date_obtained%>
-              <%else%>
-              <%= customer.date_obtained.to_formatted_s(:long) %>
-              <%end%></td>
-        <td><%= customer.customer_city %></td>
-        <td><%= customer.customer_status.status%></td>
-        <td><%= link_to 'Show', customer, class: 'btn btn-primary btn-block' %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer), class: 'btn btn-warning btn-block' %></td>
-			</tr>
-       <% end %>
-		</tbody>
-	</table>
+    <br>
+    <h1>Customers</h1>
+    <br>
+    <a class="btn btn-success float-right mt-4" href="customers/new" role="button" aria-pressed="true">New Customer</a>
+    <table id="example" class="table table-hover table-bordered">
+        <thead class="thead-dark">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone Number</th>
+            <th>Date Obtained</th>
+            <th>City</th>
+            <th>Status</th>
+            <th>Show</th>
+            <th>Edit</th>
+        </thead>
+        <tbody>
+            <% @customers.each do |customer| %>
+            <tr>
+                <td><%= customer.customer_first_name %></td>
+                <td><%= customer.customer_last_name %></td>
+                <td><%= number_to_phone(customer.customer_primary_phone) %></td>
+                <td><%if customer.date_obtained.nil?%>
+                    <%= customer.date_obtained%>
+                    <%else%>
+                    <%= customer.date_obtained.to_formatted_s(:long) %>
+                    <%end%></td>
+                <td><%= customer.customer_city %></td>
+                <td><%= customer.customer_status.status%></td>
+                <td><%= link_to 'Show', customer, class: 'btn btn-primary btn-block' %></td>
+                <td><%= link_to 'Edit', edit_customer_path(customer), class: 'btn btn-warning btn-block' %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
 </div>
 
 <script type="text/javascript">
-  var dataTable = $('#example').DataTable();
+    var dataTable = $('#example').DataTable();
 
-  $(document).ready(function() {
-   dataTable;
-  });
-  
-  document.addEventListener("turbolinks:before-cache", function() {
-    if (dataTable !== null) {
-    dataTable.destroy();  
-    dataTable = null;
-    }
-  });
+    $(document).ready(function() {
+        dataTable;
+    });
+
+    document.addEventListener("turbolinks:before-cache", function() {
+        if (dataTable !== null) {
+            dataTable.destroy();
+            dataTable = null;
+        }
+    });
 </script>
 <br>
