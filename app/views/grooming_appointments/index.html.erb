@@ -18,7 +18,7 @@
     </tr>
   </thead>
 
-
+grooming_appointment.appt_date.to_formatted_s(:long)
   <tbody>
     <% @grooming_appointments.each do |grooming_appointment| %>
     <%counter = 0%>
@@ -26,7 +26,7 @@
         <td><%= grooming_appointment.pet.customer.customer_first_name %>
         <%= grooming_appointment.pet.customer.customer_last_name %></td>
         <td><%= grooming_appointment.pet.pet_name %></td>
-        <td><%= grooming_appointment.appt_date.to_formatted_s(:rfc822) %></td>
+        <td><%=  grooming_appointment.appt_date.strftime("%b %d %Y %I:%M %p ")%></td>
         <td>
           <% grooming_appointment.grooming_services.each_with_index do |grooming_service, index| %>
             <%if index == (grooming_appointment.grooming_services.length - 1) then %>
