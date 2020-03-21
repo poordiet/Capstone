@@ -226,6 +226,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
 
   create_table "stores", force: :cascade do |t|
     t.bigint "state_id", null: false
+    t.string "store_name"
     t.string "store_address"
     t.string "store_city"
     t.string "store_zip"

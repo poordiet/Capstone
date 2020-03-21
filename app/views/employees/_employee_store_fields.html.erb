@@ -1,0 +1,22 @@
+<div class="nested-fields">
+    <br>
+    <br>
+    <h1>Add Store</h1>
+    <br>
+    <form>
+        <div class="field">
+            <%= f.label :store_id %>
+            <%= f.collection_select :store_id, Store.all, :id, :store_address %>
+        </div>
+
+        <div class="field">
+            <%= f.label :employee_id %>
+            <%= f.collection_select :employee_id, Employee.all, :id, :emp_first_name %>
+        </div>
+
+        <div class="form-row">
+            <div class="field form-group">
+                <%= link_to_remove_association "Remove Store", f, class: 'btn btn-secondary btn-lg float-left mx-auto' %> <br>
+            </div>
+        </div>
+    </form>

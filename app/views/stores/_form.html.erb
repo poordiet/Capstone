@@ -12,17 +12,9 @@
 <% end %>
 
 <div class="field">
-    <%= form.label :state_id, 'State' %>
-    <%= form.collection_select :state_id, State.all, :id, :state_abbreviation %>
-</div>
-
-<% if false %>
-<!--This IF statement blocks this code because their isn't a store_name in the Schema.rb-->
-<div class="field">
     <%= form.label :store_name %>
     <%= form.text_field :store_name %>
 </div>
-<% end %>
 
 <div class="field">
     <%= form.label :store_address %>
@@ -32,6 +24,11 @@
 <div class="field">
     <%= form.label :store_city %>
     <%= form.text_field :store_city %>
+</div>
+
+<div class="field">
+    <%= form.label :state_id, 'State' %>
+    <%= form.collection_select :state_id, State.all, :id, :state_abbreviation %>
 </div>
 
 <div class="field">
