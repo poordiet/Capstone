@@ -181,6 +181,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
     t.bigint "vaccine_id", null: false
     t.bigint "pet_id", null: false
     t.date "date_given"
+    t.decimal "duration"
     t.date "date_expire"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

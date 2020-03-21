@@ -45,7 +45,11 @@
 
 <p>
   <strong>Vac Current Date:</strong>
+  <%if @grooming_appointment.vac_current_date.nil?%>
+  <%= @grooming_appointment.vac_current_date%>
+  <%else%>
   <%= @grooming_appointment.vac_current_date.to_formatted_s(:long) %>
+  <%end%> 
 </p>
 
 <p>
