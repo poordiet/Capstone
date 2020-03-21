@@ -1,10 +1,10 @@
 pet_status = [
-    [1,	"Alive", "Pet is still alive"],
-    [2,	"Passed", "Pet is no longer with us"]
+    ["Alive", "Pet is still alive"],
+    ["Passed", "Pet is no longer with us"]
 ]
 
 
 
-pet_status.each do |id, status, definition|
-    PetStatus.create(id: id, status: status, definition:definition)
+pet_status.each do | status, definition|
+    PetStatus.create( status: status, definition:definition)
 end
