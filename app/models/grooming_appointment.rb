@@ -1,7 +1,7 @@
 class GroomingAppointment < ApplicationRecord
   belongs_to :pet
   belongs_to :store
-  belongs_to :payment_type
+  belongs_to :payment_type, optional: true
   has_many :grooming_styles
   has_many :styles, through: :grooming_styles
   has_many :grooming_services

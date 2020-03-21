@@ -37,10 +37,10 @@
 
 
   <div class="form-row">
-  <div class="form-group field col-md-4">
+  <div class="form-group field col-md-6">
     <%= form.label :appt_date, 'Appt Date' %>
     <br>
-    <%= form.date_select :appt_date, class: 'form-control' %>
+    <%= form.datetime_select :appt_date, class: 'form-control' %>
   </div>
   </div>
 
@@ -110,7 +110,7 @@
   </div>
   </div>
 
-
+<!---
 <h2>Upload Before Photo</h2>
 <div class="form-row">
    <%= form.fields_for :pet_photos do |builder| %>
@@ -123,7 +123,8 @@
   <%= form.fields_for :pet_photos do |builder| %>
     <%= render "after_pet_photo_fields", :f => builder %>
   <% end %>
-  </div>
+  </div>  
+  -->
 
  <br>
 
@@ -132,6 +133,7 @@
     <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
      <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
   </div>
+
 
 </form>
 
