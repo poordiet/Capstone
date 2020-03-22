@@ -30,7 +30,11 @@
 
             <p>
                 <strong>Hire Date:</strong>
+                <%if @employee.emp_hire_date.nil?%>
+                <%= @employee.emp_hire_date%>
+                <%else%>
                 <%= @employee.emp_hire_date.to_formatted_s(:long) %>
+                <%end%> 
             </p>
 
             <p>
