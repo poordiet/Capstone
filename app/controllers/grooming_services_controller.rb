@@ -15,10 +15,12 @@ class GroomingServicesController < ApplicationController
   # GET /grooming_services/new
   def new
     @grooming_service = GroomingService.new
+    session[:prev_url] = request.referer
   end
 
   # GET /grooming_services/1/edit
   def edit
+    session[:prev_url] = request.referer
   end
 
   # POST /grooming_services
@@ -28,8 +30,9 @@ class GroomingServicesController < ApplicationController
 
     respond_to do |format|
       if @grooming_service.save
-        format.html { redirect_to @grooming_service, notice: 'Grooming service was successfully created.' }
-        format.json { render :show, status: :created, location: @grooming_service }
+        format.html {  redirect_to session.delete(:prev_url), notice: "Grooming Service was successfully created."}
+        #format.html { redirect_to @grooming_service, notice: 'Grooming service was successfully created.' }
+        #format.json { render :show, status: :created, location: @grooming_service }
       else
         format.html { render :new }
         format.json { render json: @grooming_service.errors, status: :unprocessable_entity }
@@ -42,8 +45,9 @@ class GroomingServicesController < ApplicationController
   def update
     respond_to do |format|
       if @grooming_service.update(grooming_service_params)
-        format.html { redirect_to @grooming_service, notice: 'Grooming service was successfully updated.' }
-        format.json { render :show, status: :ok, location: @grooming_service }
+        format.html {  redirect_to session.delete(:prev_url), notice: "Grooming Service was successfully created."}
+        #format.html { redirect_to @grooming_service, notice: 'Grooming service was successfully updated.' }
+        #format.json { render :show, status: :ok, location: @grooming_service }
       else
         format.html { render :edit }
         format.json { render json: @grooming_service.errors, status: :unprocessable_entity }
@@ -55,10 +59,11 @@ class GroomingServicesController < ApplicationController
   # DELETE /grooming_services/1.json
   def destroy
     @grooming_service.destroy
-    respond_to do |format|
-      format.html { redirect_to grooming_services_url, notice: 'Grooming service was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_back(fallback_location: root_path)
+    #respond_to do |format|
+     # format.html { redirect_to grooming_services_url, notice: 'Grooming service was successfully destroyed.' }
+      #format.json { head :no_content }
+    #end
   end
 
   private
