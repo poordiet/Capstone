@@ -74,18 +74,23 @@
                             <th>Store State</th>
                             <th>Store Zip</th>
                             <th>Store Phone</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <% @employee.stores.each do |store| %>
+                        <% @employee.employee_stores.each do |employee_store| %>
                         <tr>
-                            <td><%= store.store_name %></td>
-                            <td><%= store.store_address %></td>
-                            <td><%= store.store_city %></td>
-                            <td><%= store.state.state_abbreviation %></td>
-                            <td><%= store.store_zip %></td>
-                            <td><%= number_to_phone(store.store_phone) %></td>
+                            <td><%= employee_store.store.store_name %></td>
+                            <td><%= employee_store.store.store_address %></td>
+                            <td><%= employee_store.store.store_city %></td>
+                            <td><%= employee_store.store.state.state_abbreviation %></td>
+                            <td><%= employee_store.store.store_zip %></td>
+                            <td><%= number_to_phone(employee_store.store.store_phone) %></td>
+                            <td><%= link_to "Update", edit_employee_store_path(employee_store), 
+                            :class => "btn btn-warning btn-block" %></td>
+                            <td><%= link_to 'Delete', employee_store, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-block btn-danger' %></td>
                         </tr>
                         <% end %>
                     </tbody>
