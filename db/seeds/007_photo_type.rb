@@ -1,8 +1,8 @@
 photo_types = [
-    ["Profile"],
-    ["Before"],
-    ["After"],
-    ["General"]
+    "Profile",
+    "Before",
+    "After",
+    "General"
 ]
 
 

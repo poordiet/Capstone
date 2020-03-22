@@ -10,6 +10,6 @@ services =[
 
 
 
-services.each do |  name, description|
-    Service.create(  service_name: name, service_description: description)
+services.each do |service_status_id, name, description|
+    Service.create(service_status_id: service_status_id,service_name: name, service_description: description)
 end
