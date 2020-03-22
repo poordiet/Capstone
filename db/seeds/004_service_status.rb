@@ -1,6 +1,6 @@
 service_statuses =[
-    ["Active"],
-    ["Discontinued"]
+    "Active",
+    "Discontinued"
 ]
 
 
