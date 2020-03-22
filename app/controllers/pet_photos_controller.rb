@@ -15,10 +15,12 @@ class PetPhotosController < ApplicationController
   # GET /pet_photos/new
   def new
     @pet_photo = PetPhoto.new
+    session[:prev_url] = request.referer
   end
 
   # GET /pet_photos/1/edit
   def edit
+    session[:prev_url] = request.referer
   end
 
   # POST /pet_photos
@@ -28,8 +30,9 @@ class PetPhotosController < ApplicationController
 
     respond_to do |format|
       if @pet_photo.save
-        format.html { redirect_to @pet_photo, notice: 'Pet photo was successfully created.' }
-        format.json { render :show, status: :created, location: @pet_photo }
+        format.html {  redirect_to session[:prev_url], notice: "Pet Photo was successfully created."}
+        #format.html { redirect_to @pet_photo, notice: 'Pet photo was successfully created.' }
+        #format.json { render :show, status: :created, location: @pet_photo }
       else
         format.html { render :new }
         format.json { render json: @pet_photo.errors, status: :unprocessable_entity }
@@ -40,15 +43,17 @@ class PetPhotosController < ApplicationController
   # PATCH/PUT /pet_photos/1
   # PATCH/PUT /pet_photos/1.json
   def update
+
     respond_to do |format|
       if @pet_photo.update(pet_photo_params)
-        format.html { redirect_to @pet_photo, notice: 'Pet photo was successfully updated.' }
-        format.json { render :show, status: :ok, location: @pet_photo }
-      else
-        format.html { render :edit }
-        format.json { render json: @pet_photo.errors, status: :unprocessable_entity }
-      end
-    end
+        format.html {  redirect_to session[:prev_url], notice: "Pet Photo was successfully updated."}
+        #format.html { redirect_to @pet_photo, notice: 'Pet photo was successfully updated.' }
+        #format.json { render :show, status: :ok, location: @pet_photo }
+     else
+       format.html { render :edit }
+       format.json { render json: @pet_photo.errors, status: :unprocessable_entity }
+     end
+  end
   end
 
   # DELETE /pet_photos/1

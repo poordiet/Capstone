@@ -5,7 +5,7 @@
 <div class="row ">
 <p>
 <%= link_to 'Update', edit_grooming_appointment_path(@grooming_appointment), class:'btn btn-warning btn-lg float-right mr-2' %>
-<%= link_to 'Back', grooming_appointments_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+<%= link_to 'All Appointments', grooming_appointments_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
 </p>
 </div>
 
@@ -30,7 +30,11 @@
 
 <p>
   <strong>Appt Date:</strong>
+  <%if @grooming_appointment.appt_date.nil?%>
+  <%= @grooming_appointment.appt_date%>
+  <%else%>
   <%= @grooming_appointment.appt_date.to_formatted_s(:long) %>
+  <%end%> 
 </p>
 
 <p>
