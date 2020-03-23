@@ -2,6 +2,7 @@ class CreateEmployees < ActiveRecord::Migration[6.0]
   def change
     create_table :employees do |t|
       t.references :state, null: false, foreign_key: true
+      t.references :employee_status, null: false, foreign_key: true
       t.string :emp_first_name, null: false
       t.string :emp_last_name, null: false
       t.string :emp_primary_phone

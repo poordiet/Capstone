@@ -15,10 +15,12 @@ class EmployeeStoresController < ApplicationController
   # GET /employee_stores/new
   def new
     @employee_store = EmployeeStore.new
+    session[:prev_url] = request.referer
   end
 
   # GET /employee_stores/1/edit
   def edit
+    session[:prev_url] = request.referer
   end
 
   # POST /employee_stores
@@ -28,8 +30,9 @@ class EmployeeStoresController < ApplicationController
 
     respond_to do |format|
       if @employee_store.save
-        format.html { redirect_to @employee_store, notice: 'Employee store was successfully created.' }
-        format.json { render :show, status: :created, location: @employee_store }
+        format.html {  redirect_to session.delete(:prev_url), notice: "Employee Store was successfully created."}
+        #format.html { redirect_to @employee_store, notice: 'Employee store was successfully created.' }
+        #format.json { render :show, status: :created, location: @employee_store }
       else
         format.html { render :new }
         format.json { render json: @employee_store.errors, status: :unprocessable_entity }
@@ -42,8 +45,9 @@ class EmployeeStoresController < ApplicationController
   def update
     respond_to do |format|
       if @employee_store.update(employee_store_params)
-        format.html { redirect_to @employee_store, notice: 'Employee store was successfully updated.' }
-        format.json { render :show, status: :ok, location: @employee_store }
+        format.html {  redirect_to session.delete(:prev_url), notice: "Employee Store was successfully updated."}
+        #format.html { redirect_to @employee_store, notice: 'Employee store was successfully updated.' }
+        #format.json { render :show, status: :ok, location: @employee_store }
       else
         format.html { render :edit }
         format.json { render json: @employee_store.errors, status: :unprocessable_entity }
@@ -55,10 +59,11 @@ class EmployeeStoresController < ApplicationController
   # DELETE /employee_stores/1.json
   def destroy
     @employee_store.destroy
-    respond_to do |format|
-      format.html { redirect_to employee_stores_url, notice: 'Employee store was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_back(fallback_location: root_path)
+    #respond_to do |format|
+     # format.html { redirect_to employee_stores_url, notice: 'Employee store was successfully destroyed.' }
+     # format.json { head :no_content }
+    #end
   end
 
   private
@@ -69,6 +74,10 @@ class EmployeeStoresController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def employee_store_params
-      params.require(:employee_store).permit(:store_id, :employee_id)
+      params.require(:employee_store).permit(:store_id, :employee_id, 
+                                                        employees_attributes: [:state_id, :emp_first_name, :emp_last_name, :emp_primary_phone,
+                                                        :emp_secondary_phone, :emp_email, :emp_hire_date, :emp_address, :emp_city,
+                                                        :emp_zip], stores_attributes: [:store_id, :store_address, :store_city, :store_zip,
+                                                        :store_phone])
     end
 end

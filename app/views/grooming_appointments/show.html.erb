@@ -5,7 +5,7 @@
 <div class="row ">
 <p>
 <%= link_to 'Update', edit_grooming_appointment_path(@grooming_appointment), class:'btn btn-warning btn-lg float-right mr-2' %>
-<%= link_to 'Back', grooming_appointments_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+<%= link_to 'All Appointments', grooming_appointments_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
 </p>
 </div>
 
@@ -30,7 +30,11 @@
 
 <p>
   <strong>Appt Date:</strong>
+  <%if @grooming_appointment.appt_date.nil?%>
+  <%= @grooming_appointment.appt_date%>
+  <%else%>
   <%= @grooming_appointment.appt_date.to_formatted_s(:long) %>
+  <%end%> 
 </p>
 
 <p>
@@ -45,7 +49,11 @@
 
 <p>
   <strong>Vac Current Date:</strong>
+  <%if @grooming_appointment.vac_current_date.nil?%>
+  <%= @grooming_appointment.vac_current_date%>
+  <%else%>
   <%= @grooming_appointment.vac_current_date.to_formatted_s(:long) %>
+  <%end%> 
 </p>
 
 <p>
@@ -178,7 +186,7 @@ div.desc {
                                               class: 'btn btn-success', style: 'margin-top:10px'%>
 <div class="row">
   <%@grooming_appointment.pet_photos.each do |photo|%>
-   <% if photo.photo_type_id == 2 %>
+   <% if photo.photo_type_id == 2 && photo.image.attached? %>
    <div class="gallery">
     <%= image_tag photo.image.variant(resize:"400x400") if photo.image.attached? %>
     <div class="desc"><%=photo.photo_description%></div>
@@ -204,7 +212,7 @@ div.desc {
                                               class: 'btn btn-success', style: 'margin-top:10px'%>
 <div class="row">
   <%@grooming_appointment.pet_photos.each do |photo|%>
-   <% if photo.photo_type_id == 3 %>
+   <% if photo.photo_type_id == 3 && photo.image.attached?%>
    <div class="gallery">
     <%= image_tag photo.image.variant(resize:"400x400") if photo.image.attached? %>
     <div class="desc"><%=photo.photo_description%></div>

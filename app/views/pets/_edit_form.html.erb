@@ -136,12 +136,5 @@
   </div>
   </div>
 
-<div id="buttons">
-    <a class="btn btn-danger btn-lg " href="/customers" role="button">Cancel</a>
-    <%= link_to 'Show', @pet, class: "btn btn-warning btn-lg", style: "margin: 0px 175px;" %>
-    <button type="submit" class="btn btn-primary btn-lg float-right">Submit</button>
-</div>
-  
-</form>
-
+   <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
 <% end %>

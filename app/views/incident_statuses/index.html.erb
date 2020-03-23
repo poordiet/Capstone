@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Incident Statuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Definition</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @incident_statuses.each do |incident_status| %>
+      <tr>
+        <td><%= incident_status.status %></td>
+        <td><%= incident_status.definition %></td>
+        <td><%= link_to 'Show', incident_status %></td>
+        <td><%= link_to 'Edit', edit_incident_status_path(incident_status) %></td>
+        <td><%= link_to 'Destroy', incident_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Incident Status', new_incident_status_path %>

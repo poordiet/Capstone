@@ -130,11 +130,10 @@
   </div>
   </div>
 
-  <div class="form-row">
-  <div id="buttons">
-    <a class="btn btn-danger btn-lg " href="/customers" role="button">Cancel</a>
-    <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
-  </div>
+   <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+
+  <div class="actions">
+    <%= form.submit %>
   </div>
 
 </form>

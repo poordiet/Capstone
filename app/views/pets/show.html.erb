@@ -31,7 +31,11 @@
 
 <p>
   <strong>Birthdate:</strong>
-  <%= @pet.pet_birthdate %>
+  <%if @pet.pet_birthdate.nil?%>
+  <%= @pet.pet_birthdate%>
+  <%else%>
+  <%= @pet.pet_birthdate.to_formatted_s(:long) %>
+  <%end%> 
 </p>
 
 <p>
@@ -92,6 +96,11 @@
     <%end%>
 <%end%>
 </div>
+
+
+
+<%= link_to 'Edit', edit_pet_path(@pet) %> 
+<%= link_to 'Back', @pet.customer, class: 'btn btn-danger btn-lg float-left' %>
 
 <br>
 <h2>Vaccinations</h2>
@@ -156,7 +165,26 @@ new_pet_vaccination_path({:id => @pet.id,
        <% end %>
 		</tbody>
 	</table>
+<<<<<<< HEAD
 </div>
 </div>
 </div>
   </div>
+=======
+  </div>
+
+  <script type="text/javascript">
+  var dataTable = $('#example').DataTable();
+
+  $(document).ready(function() {
+   dataTable;
+  });
+  
+  document.addEventListener("turbolinks:before-cache", function() {
+    if (dataTable !== null) {
+    dataTable.destroy();  
+    dataTable = null;
+    }
+  });
+</script>
+>>>>>>> master

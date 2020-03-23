@@ -20,7 +20,11 @@
 
 <p>
   <strong>Date Obtained:</strong>
-  <%=@customer.date_obtained.to_formatted_s(:long) %>
+  <%if @customer.date_obtained.nil?%>
+              <%= @customer.date_obtained%>
+              <%else%>
+              <%= @customer.date_obtained.to_formatted_s(:long) %>
+              <%end%>
 </p>
 
 <p>
@@ -113,8 +117,17 @@ new_pet_path({:id => @customer.id,
   
 
 <script type="text/javascript">
+  var dataTable = $('#example').DataTable();
+
   $(document).ready(function() {
-    $('#example').DataTable();
+   dataTable;
+  });
+  
+  document.addEventListener("turbolinks:before-cache", function() {
+    if (dataTable !== null) {
+    dataTable.destroy();  
+    dataTable = null;
+    }
   });
 </script>
 <br>

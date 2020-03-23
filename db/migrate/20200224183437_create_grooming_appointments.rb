@@ -4,7 +4,7 @@ class CreateGroomingAppointments < ActiveRecord::Migration[6.0]
       t.references :pet, null: false, foreign_key: true
       t.references :store, null: false, foreign_key: true
       t.references :payment_type, null: true, foreign_key: true
-      t.date :appt_date
+      t.datetime :appt_date
       t.string :appt_blades
       t.decimal :appt_total
       t.string :appt_notes
