@@ -73,11 +73,10 @@ class CustomersController < ApplicationController
                                                   :customer_address, :customer_city, :customer_zip, 
                                                   :customer_primary_phone, :customer_secondary_phone, 
                                                   :customer_email, :date_obtained, :customer_notes,
-                                                  pets_attributes: [:id, :pet_name, :pet_gender, :pet_birthdate,
+                                                  pets_attributes: [:id, :_destroy, :pet_name, :pet_gender, :pet_birthdate,
                                                   :pet_allergies, :spayed_neutered, :pet_treat, :vet_name, :vet_phone, 
-                                                  :pet_medical_issues, :pet_notes, :pet_color, :pet_breed, :pet_weight, :pet_status_id],
-                                                  vaccines_attributes: [:id, :vaccine_name, :vaccine_required],
-                                                  pet_vaccinations_attributes: [:id, :date_given, :date_expire])
+                                                  :pet_medical_issues, :pet_notes, :pet_color, :pet_breed, :pet_weight, :pet_status_id,
+                                                  pet_vaccinations_attributes: [:id, :_destroy, :vaccine_id, :date_given, :duration, :date_expire]])
                                               
     end
 end
