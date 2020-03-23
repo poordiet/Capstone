@@ -15,10 +15,12 @@ class PetVaccinationsController < ApplicationController
   # GET /pet_vaccinations/new
   def new
     @pet_vaccination = PetVaccination.new
+    session[:prev_url] = request.referer
   end
 
   # GET /pet_vaccinations/1/edit
   def edit
+    session[:prev_url] = request.referer
   end
 
   # POST /pet_vaccinations
@@ -28,8 +30,9 @@ class PetVaccinationsController < ApplicationController
 
     respond_to do |format|
       if @pet_vaccination.save
-        format.html { redirect_to @pet_vaccination, notice: 'Pet vaccination was successfully created.' }
-        format.json { render :show, status: :created, location: @pet_vaccination }
+        format.html {  redirect_to session.delete(:prev_url), notice: "Pet Vaccine was successfully created."}
+        #format.html { redirect_to @pet_vaccination, notice: 'Pet vaccination was successfully created.' }
+        #format.json { render :show, status: :created, location: @pet_vaccination }
       else
         format.html { render :new }
         format.json { render json: @pet_vaccination.errors, status: :unprocessable_entity }
@@ -42,8 +45,9 @@ class PetVaccinationsController < ApplicationController
   def update
     respond_to do |format|
       if @pet_vaccination.update(pet_vaccination_params)
-        format.html { redirect_to @pet_vaccination, notice: 'Pet vaccination was successfully updated.' }
-        format.json { render :show, status: :ok, location: @pet_vaccination }
+        format.html {  redirect_to session.delete(:prev_url), notice: "Pet Vaccine was successfully updated."}
+        #format.html { redirect_to @pet_vaccination, notice: 'Pet vaccination was successfully updated.' }
+        #format.json { render :show, status: :ok, location: @pet_vaccination }
       else
         format.html { render :edit }
         format.json { render json: @pet_vaccination.errors, status: :unprocessable_entity }
