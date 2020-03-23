@@ -31,13 +31,8 @@ body{
      width: 50%;
  }
 
-.pet table
-{
-    table-layout: auto;
-    width: 100%;
-}
-
-.pet th, .pet td
-{
-    text-align: center;
+ .info-box{
+    border: 5px black;
+    padding: 10px;
+    background: rgb(209, 130, 245);
 }

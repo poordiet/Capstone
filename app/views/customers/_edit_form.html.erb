@@ -20,12 +20,12 @@
   <div class="form-row">
     <div class="field form-group col-md-2">
     <%= form.label :customer_status_id, 'Status' %>
-    <%= form.collection_select :customer_status_id, CustomerStatus.all, :id, :status %>
+    <%= form.collection_select :customer_status_id, CustomerStatus.all, :id, :status%>
   </div>
 
    <div class="field form-group col-md-4">
     <%= form.label :date_obtained, 'Date Obtained' %>
-    <%= form.date_select :date_obtained %>
+    <%= form.date_select :date_obtained, options = {include_blank: true, selected: @customer.date_obtained} %>
   </div>
   </div>
 

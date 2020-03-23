@@ -1,0 +1,25 @@
+<div class="container">
+<div class="row"> 
+    <div class="col-lg-6 info-box">
+        <h2>Sales Overview</h2>
+        <p>
+            Sales: <span class="text-primary"> <%= number_to_currency @sales_total%></span>
+          <br>
+           
+        </p>
+        <p>
+            
+        </p>
+    </div> 
+    <div class="col-lg-6 info-box">
+        <h2>Some Other info</h2>
+        <p></p>
+    </div>
+</div>
+<br>
+<br>
+<div class="charts">
+    <%= column_chart GroomingAppointment.group_by_month(:appt_date).count,
+    ytitle: "Groomings", xtitle: "Month", title: "Groomings per Month", colors: ["#C519E3"] %>
+</div>
+</div>

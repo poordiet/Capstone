@@ -8,6 +8,8 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require('datatables.net-bs4')
+require("chartkick")
+require("chart.js")
 
 // Used for data tables?
 import $ from 'jquery';

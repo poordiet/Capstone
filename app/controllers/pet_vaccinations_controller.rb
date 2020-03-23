@@ -73,7 +73,7 @@ class PetVaccinationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pet_vaccination_params
-      params.require(:pet_vaccination).permit(:vaccine_id, :pet_id, :date_given, :date_expire,
+      params.require(:pet_vaccination).permit(:vaccine_id, :pet_id, :date_given, :duration, :date_expire,
                                               vaccines_attributes: [:id, :vaccine_name],
                                               pet_attributes: [:id, :pet_name])
     end
