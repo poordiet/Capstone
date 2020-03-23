@@ -1,7 +1,11 @@
 <p id="notice"><%= notice %></p>
 <div class= "container">
 <h1> Pet Photo </h1>
+
+<p>
 <%= link_to 'Edit', edit_pet_photo_path(@pet_photo), class: 'btn btn-warning btn-lg float-right' %>
+<%= link_to 'Back', :back, class: 'btn btn-danger btn-lg float-right mr-2'%>
+</p>
 
 <p>
   <strong>Pet:</strong>

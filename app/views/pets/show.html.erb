@@ -80,13 +80,46 @@
 </p>
 
 <!-- Shows the profile photos for each pet -->
-<div>
+<!--<div>
 <%@pet.pet_photos.each do |photo|
    if photo.photo_type_id == 1 %>
     <%= image_tag photo.image.variant(resize:"400x400") if photo.image.attached? %>
     <%end%>
+<%end%>-->
+
+<br>
+<!-- Check if Profile Photo Exists-->
+<%count = 0%>
+<%@pet.pet_photos.each do |photo|%>
+   <% if photo.photo_type_id == 1%>
+  <% count +=1 %>
 <%end%>
-</div>
+<%end%>
+
+<!-- Only show new button if no profile photo exists-->
+ <%if count == 0%>
+<%=link_to 'New Pet Profile Photo', new_pet_photo_path({:photo_type_id => 1, 
+                                            :customer_first_name => @pet.customer.customer_first_name,
+                                            :customer_last_name => @pet.customer.customer_last_name,
+                                            :pet_name=> @pet.pet_name,
+                                            :pet_id => @pet.id}),
+                                              class: 'btn btn-success', style: 'margin-top:10px'%>
+ <%end%>
+
+<!-- Show Existing Pet Profile Photo -->
+  <%@pet.pet_photos.each do |photo|%>
+   <% if photo.photo_type_id == 1 && photo.image.attached? %>
+   <div class="gallery">
+    <%= image_tag photo.image.variant(resize:"400x400") if photo.image.attached? %>
+    <div class="desc"><%=photo.photo_description%></div>
+    <div class="center">
+    <%= link_to 'Show', photo%> |
+    <%= link_to 'Edit', edit_pet_photo_path(photo)%>
+    </div>
+    </div>
+    <%end%>
+  <%end%>
+
 
 
 
