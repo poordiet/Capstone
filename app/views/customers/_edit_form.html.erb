@@ -18,14 +18,14 @@
 <br>
 <form>
   <div class="form-row">
-    <div class="field form-group col-md-2">
+    <div class="field form-group col-md-1">
     <%= form.label :customer_status_id, 'Status' %>
     <%= form.collection_select :customer_status_id, CustomerStatus.all, :id, :status%>
   </div>
 
-   <div class="field form-group col-md-4">
+   <div class="field form-group col-md-5">
     <%= form.label :date_obtained, 'Date Obtained' %>
-    <%= form.date_select :date_obtained, options = {include_blank: true, selected: @customer.date_obtained} %>
+    <%= form.text_field :date_obtained, type: 'date', class: 'form-control' %>
   </div>
   </div>
 
@@ -93,6 +93,7 @@
     <%= form.text_area :customer_notes, class: 'form-control', rows: '4' %>
   </div>
 </div>
+</form>
 
   
 <div class = "form-row">
@@ -106,6 +107,7 @@
     <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
     <div>
   
+  </div>
   </div>
   
   

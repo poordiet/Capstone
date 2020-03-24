@@ -3,9 +3,9 @@
 <h1>Add Pet</h1>
 <br>
 <div class="form-row">
-    <div class="field form-group col-md-6">
+    <div class="field form-group col-md-3">
         <%= f.label :pet_birthdate, 'Pet Birthdate' %>
-        <%= f.date_select :pet_birthdate, class: 'form-control' %>
+        <%= f.text_field :pet_birthdate, type: 'date', class: 'form-control' %>
     </div>
 </div>
 
@@ -29,7 +29,7 @@
 </div>
 
   <div class="form-row">
-        <div class="field form-group col-md-2">
+        <div class="field form-group col-md-3">
             <%= f.label :pet_name, 'Pet Name' %>
             <%= f.text_field :pet_name, class: 'form-control' %>
         </div>
@@ -38,31 +38,31 @@
             <%= f.hidden_field :pet_status_id, value: 1 %>
        </div>
 
-        <div class="field form-group col-md-2">
+        <div class="field form-group col-md-3">
             <%= f.label :pet_breed, 'Pet Breed' %>
             <%= f.text_field :pet_breed, class: 'form-control' %>
       </div>
     </div>
 
     <div class="form-row">
-        <div class="field form-group col-md-2">
+        <div class="field form-group col-md-3">
             <%= f.label :vet_name, 'Vet Name' %>
             <%= f.text_field :vet_name, class: 'form-control' %>
         </div>
 
-        <div class="field form-group col-md-2">
+        <div class="field form-group col-md-3">
             <%= f.label :vet_phone, 'Vet Phone' %>
             <%= f.text_field :vet_phone, class: 'form-control' %>
         </div>
     </div>
 
     <div class="form-row">
-        <div class="field form-group col-md-2">
+        <div class="field form-group col-md-3">
             <%= f.label :pet_color, 'Color' %>
             <%= f.text_field :pet_color, class: 'form-control' %>
         </div>
 
-        <div class="field form-group col-md-2">
+        <div class="field form-group col-md-3">
             <%= f.label :pet_weight, 'Weight' %>
             <%= f.text_field :pet_weight, class: 'form-control' %>
         </div>

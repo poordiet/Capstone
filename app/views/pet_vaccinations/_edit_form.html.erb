@@ -25,12 +25,12 @@
 
   <div class="field">
     <%= form.label :date_given, 'Date Given' %>
-    <%= form.date_select :date_given %>
+    <%= form.text_field :date_given, type: 'date', class: 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :date_expire, 'Expiration Date' %>
-    <%= form.date_select :date_expire %>
+    <%= form.text_field :date_expire, type: 'date', class: 'form-control' %>
   </div>
 
   <div class="actions">
