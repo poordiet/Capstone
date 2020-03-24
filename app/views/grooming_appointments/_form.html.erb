@@ -38,9 +38,11 @@
 
   <div class="form-row">
   <div class="form-group field col-md-6">
-    <%= form.label :appt_date, 'Appt Date' %>
+    <%= form.label :appt_date, 'Appt Date/Time' %>
     <br>
-    <%= form.datetime_select :appt_date, class: 'form-control' %>
+  
+     <%= form.text_field :appt_date, type: "datetime-local", class: 'form-control' %>
+  </div>
   </div>
   </div>
 

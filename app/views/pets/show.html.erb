@@ -1,5 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<div class = "container">
+
+<p>'<%= link_to 'Back', @pet.customer, class: 'btn btn-danger btn-lg float-right mr-2' %>
+<%= link_to 'Edit', edit_pet_path(@pet), class: 'btn btn-warning btn-lg float-right mr-2' %> 
+
+
+<div class="row">
+<div class ="col">
 <p>
   <strong>Customer:</strong>
   <%= @pet.customer.customer_first_name %>
@@ -78,6 +86,7 @@
   <strong>Pet Weight:</strong>
   <%= @pet.pet_weight %>
 </p>
+</div>
 
 <!-- Shows the profile photos for each pet -->
 <!--<div>
@@ -86,6 +95,32 @@
     <%= image_tag photo.image.variant(resize:"400x400") if photo.image.attached? %>
     <%end%>
 <%end%>-->
+
+<!-- Styling for Pet Profile Photo-->
+<style>
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 400px;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+  div.center {
+  padding: 15px;
+  text-align: center;
+
+
+</style>
 
 <br>
 <!-- Check if Profile Photo Exists-->
@@ -97,6 +132,8 @@
 <%end%>
 
 <!-- Only show new button if no profile photo exists-->
+<div class="col">
+<h2>Pet Profile Photo</h2>
  <%if count == 0%>
 <%=link_to 'New Pet Profile Photo', new_pet_photo_path({:photo_type_id => 1, 
                                             :customer_first_name => @pet.customer.customer_first_name,
@@ -111,7 +148,6 @@
    <% if photo.photo_type_id == 1 && photo.image.attached? %>
    <div class="gallery">
     <%= image_tag photo.image.variant(resize:"400x400") if photo.image.attached? %>
-    <div class="desc"><%=photo.photo_description%></div>
     <div class="center">
     <%= link_to 'Show', photo%> |
     <%= link_to 'Edit', edit_pet_photo_path(photo)%>
@@ -119,12 +155,9 @@
     </div>
     <%end%>
   <%end%>
+  </div>
+  </div>
 
-
-
-
-<%= link_to 'Edit', edit_pet_path(@pet) %> 
-<%= link_to 'Back', @pet.customer, class: 'btn btn-danger btn-lg float-left' %>
 
 <br>
 <h2>Vaccinations</h2>
@@ -174,7 +207,7 @@ new_pet_vaccination_path({:id => @pet.id,
       <th>Total</th>
       <th>Show</th>
 		</thead>
-		<tbody>
+	<tbody>
      <% @pet.grooming_appointments.each do |grooming_appointment| %>
 			<tr>
 				<td><%= grooming_appointment.appt_date.to_formatted_s(:long) %></td>
@@ -192,6 +225,7 @@ new_pet_vaccination_path({:id => @pet.id,
        <% end %>
 		</tbody>
 	</table>
+  </div>
   </div>
 
   <script type="text/javascript">
