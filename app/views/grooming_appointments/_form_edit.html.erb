@@ -83,7 +83,7 @@
    <div class="form-group field">
     <%= form.label :payment_type_id, 'Payment Type' %>
     <br>
-    <%= form.collection_select :payment_type_id, PaymentType.all, :id, :payment_type %>
+    <%= form.collection_select :payment_type_id, PaymentType.all, :id, :payment_type, options = {include_blank: true}  %>
   </div>
   </div>
 
