@@ -40,19 +40,20 @@
   <div class="form-group field col-md-6">
     <%= form.label :appt_date, 'Appointment Date' %>
     <br>
-     <%= form.date_select :appt_date, class: 'form-control' %>
+    <%= form.text_field :appt_date, type: 'date', class: 'form-control' %>
   </div>
   </div>
+
 
   <div class="form-row">
   <div class="form-group field col-md-6">
     <%= form.label :appt_time, 'Appointment Time' %>
     <br>
-     <%= form.time_select :appt_time, class: 'form-control' %>
+     <%= form.time_select :appt_time, class: 'form-control', :ampm => true %>
   </div>
   </div>
 
-
+  
   <div class="form-row">
   <div class="form-group field col-md-3">
     <%= form.label :appt_blades, 'Blades' %>
@@ -85,7 +86,7 @@
    <div class="form-group field">
     <%= form.label :payment_type_id, 'Payment Type' %>
     <br>
-    <%= form.collection_select :payment_type_id, PaymentType.all, :id, :payment_type %>
+    <%= form.collection_select :payment_type_id, PaymentType.all, :id, :payment_type, options = {include_blank: true}  %>
   </div>
   </div>
 
