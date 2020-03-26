@@ -1,0 +1,53 @@
+
+<div class="container">
+<br>
+<br>
+<h2>Expired Vaccines</h2>
+<table id="example" class="table table-striped table-bordered" style="width: 1000px;">
+	<thead class="thead-dark">
+      <th>Customer</th>
+      <th>Pet</th>
+      <th>Vaccine</th>
+      <th>Date Expired</th>
+		</thead>
+		<tbody>
+     <% @pet_vaccinations.each do |pet_vaccinations| %>
+		<tr>
+        <% if pet_vaccinations.date_expire.to_s.to_i < Date.today.to_s.to_i && pet_vaccinations.date_expire.present? %>
+        <td><% pet_vaccinations.pet.customer.customer_first_name %></td>
+        <td><% pet_vaccinations.pet.pet_name %></td>
+		<td><%= pet_vaccinations.vaccine.vaccine_name %></td>
+        <td><%= pet_vaccinations.date_expire.to_s %></td>
+		</tr>
+           <% end %> 
+       <% end %>
+		</tbody>
+	</table>
+
+    <br>
+    <br>
+
+    <h2>Vaccines Expiring in the Next Six Months</h2>
+<table id="example" class="table table-striped table-bordered" style="width: 1000px;">
+	<thead class="thead-dark">
+      <th>Customer</th>
+      <th>Pet</th>
+      <th>Vaccine</th>
+      <th>Date Expired</th>
+		</thead>
+		<tbody>
+     <% @pet_vaccinations.each do |pet_vaccinations| %>
+		<tr>
+        <% if pet_vaccinations.date_expire.to_s.to_i.between?(Date.today.to_s.to_i, (Date.today.to_s.to_i + 0.5))%>
+        <td><% pet_vaccinations.pet.customer.customer_first_name %></td>
+        <td><% pet_vaccinations.pet.pet_name %></td>
+		<td><%= pet_vaccinations.vaccine.vaccine_name %></td>
+        <td><%= pet_vaccinations.date_expire.to_s %></td>
+		</tr>
+           <% end %> 
+       <% end %>
+		</tbody>
+	</table>
+
+
+</div>
