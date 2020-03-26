@@ -84,7 +84,11 @@
 
 <p>
   <strong>Payment Type:</strong>
+   <%if @grooming_appointment.payment_type.nil?%>
+  <%else%>
   <%= @grooming_appointment.payment_type.payment_type %>
+  <%end%> 
+ 
 </p>
 </div>
 
