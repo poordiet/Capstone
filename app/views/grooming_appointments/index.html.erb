@@ -26,7 +26,7 @@
         <td><%= grooming_appointment.pet.customer.customer_first_name %>
         <%= grooming_appointment.pet.customer.customer_last_name %></td>
         <td><%= grooming_appointment.pet.pet_name %></td>
-        <td><%=  grooming_appointment.appt_date.strftime("%b %d %Y %I:%M %p ")%></td>
+        <td><%=  grooming_appointment.appt_date.strftime("%b %d %Y")%> <%= grooming_appointment.appt_time.strftime("%I:%M%p")%></td>
         <td>
           <% grooming_appointment.grooming_services.each_with_index do |grooming_service, index| %>
             <%if index == (grooming_appointment.grooming_services.length - 1) then %>
