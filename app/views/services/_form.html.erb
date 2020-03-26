@@ -11,22 +11,38 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :service_status_id, 'Service Status' %>
-    <%= form.collection_select :service_status_id, ServiceStatus.all, :id, :service_status %>
+<div id="form">
+  <br>
+  <h1>New Service</h1>
+  <br>
+  <div class="form-row">
+    <div class="field form-group col-md-2">
+      <%= form.label :service_status_id, 'Service Status' %>
+      <%= form.collection_select :service_status_id, ServiceStatus.all, :id, :service_status %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :service_name, 'Service Name' %>
-    <%= form.text_field :service_name %>
+  <div class="form-row">
+    <div class="field form-group col-md-2">
+      <%= form.label :service_name, 'Service Name' %>
+      <%= form.text_field :service_name, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :service_description, 'Service Description' %>
-    <%= form.text_field :service_description %>
+  <div class="form-row">
+    <div class="field form-group col-md-2">
+      <%= form.label :service_description, 'Service Description' %>
+      <%= form.text_area :service_description, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-row">
+    <div class="field form-group col-md-6">
+      <div id="buttons">
+        <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+        <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
+      </div>
+    </div>
   </div>
+</div>
 <% end %>

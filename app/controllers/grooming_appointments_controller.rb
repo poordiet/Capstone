@@ -78,6 +78,7 @@ class GroomingAppointmentsController < ApplicationController
       grooming_services_attributes: [:id,:service_id, :employee_id, :service_amount, :service_amount_notes],
       grooming_styles_attributes: [:id, :style_id, :grooming_appointment_id, :groom_style_notes],
       pet_photos_attributes: [:id, :pet_id, :photo_type_id, :photo_link, :photo_description, :image],
-      photo_types_attributes: [:id, :photo_type])
+      photo_types_attributes: [:id, :photo_type],
+      incidents_attributes: [:id, :grooming_appointment_id, :incident_notes, :incident_cost, :incident_cost])
     end
 end

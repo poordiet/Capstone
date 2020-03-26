@@ -18,8 +18,8 @@
           <td><%= incident.grooming_appointment.appt_date %></td>
           <td><%= incident.incident_notes %></td>
           <td><%= incident.incident_cost %></td>
-          <td><%= link_to 'Show', incident %></td>
-          <td><%= link_to 'Edit', edit_incident_path(incident) %></td>
+          <td><%= link_to 'Show', incident, class: 'btn btn-primary btn-block' %></td>
+          <td><%= link_to 'Edit', edit_incident_path(incident), class: 'btn btn-warning btn-block' %></td>
           <!--<td><%= link_to 'Delete', incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
         </tr>
       <% end %>
@@ -42,4 +42,4 @@
                 dataTable = null;
             }
         });
-    </script>
+</script>
