@@ -25,11 +25,11 @@
 
 <p>
   <strong>Store:</strong>
-  <%= @grooming_appointment.store.store_address %>
+  <%= @grooming_appointment.store.store_name %>
 </p>
 
 <p>
-  <strong>Appt Date:</strong>
+  <strong>Appointment Date:</strong>
   <%if @grooming_appointment.appt_date.nil?%>
   <%= @grooming_appointment.appt_date%>
   <%else%>
@@ -38,12 +38,21 @@
 </p>
 
 <p>
-  <strong>Appt Blades:</strong>
+  <strong>Appointment Time:</strong>
+  <%if @grooming_appointment.appt_time.nil?%>
+  <%= @grooming_appointment.appt_time%>
+  <%else%>
+  <%= @grooming_appointment.appt_time.strftime("%I:%M%p")%>
+  <%end%> 
+</p>
+
+<p>
+  <strong>Blades:</strong>
   <%= @grooming_appointment.appt_blades %>
 </p>
 
 <p>
-  <strong>Vac Current:</strong>
+  <strong>Vaccine Current:</strong>
   <%= @grooming_appointment.vac_current %>
 </p>
 
@@ -75,7 +84,11 @@
 
 <p>
   <strong>Payment Type:</strong>
+   <%if @grooming_appointment.payment_type.nil?%>
+  <%else%>
   <%= @grooming_appointment.payment_type.payment_type %>
+  <%end%> 
+ 
 </p>
 </div>
 
