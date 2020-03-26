@@ -1,7 +1,10 @@
 <div class="nested-fields">
 
-<div class="form-row">
-    <div class="field form-group col-md-3">
+    <div class="field">
+        <%= f.hidden_field :photo_type_id, value: 1 %>
+    </div>
+
+    <div class="field">
         <%= f.label :"Profile Photo" %>
         <%= f.file_field :image, direct_upload: true, accept: "image/png,image/gif,image/jpeg"%>
     </div>

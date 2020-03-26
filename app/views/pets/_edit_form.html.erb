@@ -119,10 +119,13 @@
         </div>
     </div>
 
-  <%= form.fields_for :pet_photos do |builder| %>
+  <!--<%= form.fields_for :pet_photos do |builder| %>
     <%= render "pet_photo_fields", :f => builder %>
-  <% end %>
-<br>
+  <% end %>-->
+
+  <br>
+  <br>
+
   <h2>Vaccines</h2>
     <div id="pet_vaccinations">
         <%= form.fields_for :pet_vaccinations do |pet_vaccination| %>
