@@ -23,11 +23,12 @@ Rails.application.routes.draw do
   resources :states
   get 'dashboard/index'
   resources :customers
+  get 'reports/index'
   
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :charts do
-    
+    get 'sales_by_day'
   end
   root to: 'dashboard#index'
 end

@@ -17,5 +17,8 @@ class GroomingAppointment < ApplicationRecord
   accepts_nested_attributes_for :styles, reject_if: :all_blank, allow_destroy: true
 
   accepts_nested_attributes_for :pet_photos, reject_if: :all_blank, allow_destroy: true
+
+  
+
   
 end
