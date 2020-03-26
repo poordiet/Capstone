@@ -105,7 +105,7 @@ grooming_appointments = [
 
 
 grooming_appointments.each do | pet_id, store_id, payment_type, appt_date, appt_blades, appt_total, appt_notes, customer_feedback, vac_current, vac_current_date |
-    GroomingAppointment.create( pet_id: pet_id, store_id: store_id, payment_type_id: payment_type, appt_date: appt_date, appt_blades: appt_blades, appt_notes: appt_notes,
+    GroomingAppointment.create( pet_id: pet_id, store_id: store_id, payment_type_id: payment_type, appt_date: appt_date, appt_blades: appt_blades, appt_total: appt_total, appt_notes: appt_notes,
                                 customer_feedback: customer_feedback, vac_current: vac_current, vac_current_date: vac_current_date)
 end
 
