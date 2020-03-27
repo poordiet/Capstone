@@ -1,19 +1,33 @@
-<p id="notice"><%= notice %></p>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-11">
+      <p>
+          <%= link_to 'Update', edit_service_path(@service), class:'btn btn-warning btn-lg float-right mr-2' %>
+          <%= link_to 'Back', services_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+      </p>
 
-<p>
-  <strong>Service Status:</strong>
-  <%= @service.service_status.service_status %>
-</p>
+      <p id="notice"><%= notice %></p>
+      <div class="field form-group col-md-4">
+        <p>
+          <strong>Service Status:</strong>
+          <%= @service.service_status.service_status %>
+        </p>
+      </div>
 
-<p>
-  <strong>Service Name:</strong>
-  <%= @service.service_name %>
-</p>
+      <div class="field form-group col-md-4">
+        <p>
+          <strong>Service Name:</strong>
+          <%= @service.service_name %>
+        </p>
+      </div>
 
-<p>
-  <strong>Service Description:</strong>
-  <%= @service.service_description %>
-</p>
-
-<%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', services_path %>
+      <div class="field form-group col-md-7">
+        <p>
+          <strong>Service Description:</strong>
+          <%= @service.service_description %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

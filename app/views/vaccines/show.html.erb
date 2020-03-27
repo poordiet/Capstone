@@ -1,19 +1,32 @@
-<p id="notice"><%= notice %></p>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-11">
+      <p>
+          <%= link_to 'Update', edit_vaccine_path(@vaccine), class:'btn btn-warning btn-lg float-right mr-2' %>
+          <%= link_to 'Back', vaccines_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+      </p>
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Vaccine Name:</strong>
-  <%= @vaccine.vaccine_name %>
-</p>
+      <div class="field form-group col-md-5">
+        <p>
+          <strong>Vaccine Name:</strong>
+          <%= @vaccine.vaccine_name %>
+        </p>
+      </div>
+      <div class="field form-group col-md-8">
+        <p>
+          <strong>Vaccine Description:</strong>
+          <%= @vaccine.vaccine_description %>
+        </p>
+      </div>
 
-<p>
-  <strong>Vaccine Description:</strong>
-  <%= @vaccine.vaccine_description %>
-</p>
-
-<p>
-  <strong>Vaccine Required:</strong>
-  <%= @vaccine.vaccine_required %>
-</p>
-
-<%= link_to 'Edit', edit_vaccine_path(@vaccine) %> |
-<%= link_to 'Back', vaccines_path %>
+      <div class="field form-group col-md-5">
+        <p>
+          <strong>Vaccine Required:</strong>
+          <%= @vaccine.vaccine_required.upcase %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

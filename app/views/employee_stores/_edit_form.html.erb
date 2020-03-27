@@ -1,0 +1,40 @@
+<%= form_with(model: employee_store, local: true) do |form| %>
+  <% if employee_store.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee_store.errors.count, "error") %> prohibited this employee_store from being saved:</h2>
+
+      <ul>
+        <% employee_store.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div id="form">
+  <br>
+  <h1>Edit Employee Store</h1>
+  <br>
+  <div class="form-column">
+    <div class="field form-group col-md-2">
+      <%= form.label :store_id %>
+      <%= form.collection_select :store_id, Store.all, :id, :store_address %>
+    </div>
+
+    <div class="field form-group col-md-2">
+      <%= form.label :employee_id %>
+      <%= form.collection_select :employee_id, Employee.all, :id, :emp_first_name %>
+    </div>
+
+  </div>
+    
+  <br>
+  <div class="field form-group col-md-6">
+    <div id="buttons">
+        <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+        <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
+    </div>
+  </div>
+  
+</div>
+<% end %>

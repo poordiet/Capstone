@@ -1,14 +1,27 @@
-<p id="notice"><%= notice %></p>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-11">
+            <p>
+                <%= link_to 'Update', edit_employee_store_path(@employee_store), class:'btn btn-warning btn-lg float-right mr-2' %>
+                <%= link_to 'Back', employee_stores_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+            </p>
 
-<p>
-  <strong>Store:</strong>
-  <%= @employee_store.store.store_address %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Employee:</strong>
-  <%= @employee_store.employee.emp_first_name %>
-</p>
+  <p>
+    <strong>Store Name:</strong>
+    <%= @employee_store.store.store_name %>
+  </p>
 
-<%= link_to 'Edit', edit_employee_store_path(@employee_store) %> |
-<%= link_to 'Back', employee_stores_path %>
+  <p>
+    <strong>Store Address:</strong>
+    <%= @employee_store.store.store_address %>
+  </p>
+
+  <p>
+    <strong>Employee:</strong>
+    <%= @employee_store.employee.emp_first_name %>
+  </p>
+
+</div>

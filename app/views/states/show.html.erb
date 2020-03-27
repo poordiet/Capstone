@@ -1,14 +1,23 @@
-<p id="notice"><%= notice %></p>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-11">
+      <p>
+        <%= link_to 'Update', edit_state_path(@state), class:'btn btn-warning btn-lg float-right mr-2' %>
+        <%= link_to 'Back', states_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+      </p>
 
-<p>
-  <strong>State name:</strong>
-  <%= @state.state_name %>
-</p>
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>State abbreviation:</strong>
-  <%= @state.state_abbreviation %>
-</p>
+      <p>
+        <strong>State name:</strong>
+        <%= @state.state_name %>
+      </p>
 
-<%= link_to 'Edit', edit_state_path(@state) %> |
-<%= link_to 'Back', states_path %>
+      <p>
+        <strong>State abbreviation:</strong>
+        <%= @state.state_abbreviation %>
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<%= form_with(model: store, local: true) do |form| %>
+<% if store.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(store.errors.count, "error") %> prohibited this store from being saved:</h2>
+
+    <ul>
+        <% store.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+
+<div id="form">
+    <br>
+    <h1>Edit Store</h1>
+    <br>
+    <div class="form-row">
+        <div class="field form-group col-md-2">
+            <%= form.label :store_name %>
+            <%= form.text_field :store_name, class: 'form-control' %>
+        </div>
+
+        <div class="field form-group col-md-2">
+            <%= form.label :store_address %>
+            <%= form.text_field :store_address, class: 'form-control' %>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="field form-group col-md-2">
+            <%= form.label :store_city %>
+            <%= form.text_field :store_city, class: 'form-control' %>
+        </div>
+
+        <div class="field form-group col-md-2">
+            <%= form.label :state_id, 'State' %>
+            <%= form.collection_select :state_id, State.all, :id, :state_abbreviation %>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="field form-group col-md-2">
+            <%= form.label :store_zip %>
+            <%= form.text_field :store_zip, class: 'form-control' %>
+        </div>
+
+        <div class="field form-group col-md-2">
+            <%= form.label :store_phone %>
+            <%= form.text_field :store_phone, class: 'form-control' %>
+        </div>
+    </div>
+    <br>
+    <div id="buttons">
+        <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+        <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
+    </div>
+</div>
+<% end %>
