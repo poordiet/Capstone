@@ -1,35 +1,42 @@
 <div class="nested-fields col-12">
+<br>
 
+  <hr/>
+
+ <h3>Service</h3>
 
 <div class="form-row">
-        <div class="field form-group col-md-3">
+        <div class="field form-group col-md-6">
             <%= f.label :service_id, 'Service Name' %>
+            <br>
             <%= f.collection_select :service_id, Service.all, :id, :service_name %>
         </div>
 
 
-  <div class="field form-group col-md-3">
+  <div class="field form-group col-md-6">
     <%= f.label :employee_id, 'Employee' %>
-    <%= f.collection_select :employee_id, Employee.all, :id, :emp_first_name %>
+    <br>
+    <%= f.collection_select :employee_id, Employee.all, :id, :employee_full_name , options = {include_blank: true}%>
   </div>
 </div>
 
 <div class="form-row">
-  <div class="field form-group col-md-2">
+  <div class="field form-group col-md-4">
     <%= f.label :service_amount, 'Service Amount' %>
     <%= f.text_field :service_amount,class: 'form-control'  %>
   </div>
   </div>
 
 <div class="form-row">
-  <div class="field form-group col-md-6">
+  <div class="field form-group col-md-12">
     <%= f.label :service_amount_notes, 'Service Amount Notes' %>
     <%= f.text_area :service_amount_notes, class: 'form-control'  %>
   </div>
 </div>
 
-
-    <%= link_to_remove_association "Remove Service", f, class: 'btn btn-secondary btn-lg active float-left mx-auto' %> <br>
-    <br>
-  
+<div class="form-row">
+  <div class="field form-group col-md-12">
+    <%= link_to_remove_association "Remove Service", f, class: 'btn btn-secondary btn-sm btn-block float-left mx-auto' %>
+    </div>
+  </div>
 </div>

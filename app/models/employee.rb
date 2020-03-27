@@ -12,4 +12,8 @@ class Employee < ApplicationRecord
   validates :emp_first_name, presence: true
   validates :emp_last_name, presence: true
   validates :emp_primary_phone, presence: true
+
+  def employee_full_name
+    "#{emp_first_name}  #{emp_last_name}, #{emp_primary_phone}"
+  end
 end

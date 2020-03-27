@@ -100,7 +100,8 @@ ActiveRecord::Schema.define(version: 2020_02_28_012439) do
     t.bigint "pet_id", null: false
     t.bigint "store_id", null: false
     t.bigint "payment_type_id"
-    t.datetime "appt_date"
+    t.date "appt_date"
+    t.time "appt_time"
     t.string "appt_blades"
     t.decimal "appt_total"
     t.string "appt_notes"

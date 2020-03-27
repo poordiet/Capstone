@@ -3,10 +3,14 @@
     <br>
     <h1>Add Store</h1>
     <br>
-    <div class="field">
+    
+    <div class="form-row">
+    <div class="field form-group">
         <%= f.label :store_id %>
         <%= f.collection_select :store_id, Store.all, :id, :store_name, class: 'form-control' %>
     </div>
+    </div>
+    <br>
 
     <div class="form-row">
         <div class="field form-group">

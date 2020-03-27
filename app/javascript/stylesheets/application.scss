@@ -34,5 +34,55 @@ body{
  .info-box{
     border: 5px black;
     padding: 10px;
-    background: rgb(209, 130, 245);
+ }
+
+//New Customer
+.customer-content
+{
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 10px; 
 }
+
+
+ // Grooming Appointment Module 
+ // .content will center a form
+ .content {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 10px;
+    }
+    
+    .name-label{
+    font-size: 20px;
+    font-weight: bold;
+    }
+    
+    .name{
+    font-size: 20px;
+    }
+
+// Success Notification Styling
+    .success-notice{
+        color: green;
+    }
+
+// Drop Downs
+select {
+  
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+    
+ 

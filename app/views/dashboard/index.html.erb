@@ -3,25 +3,69 @@
     <div class="col-lg-6 info-box">
         <h2>Sales Overview</h2>
         <p>
-            Sales: <span class="text-primary"> <%= number_to_currency @sales_total%></span>
-          <br>
-           
-        </p>
-        <p>
-            
+            Today's Sales: <span class="text-primary"> <%= number_to_currency @sales_by_day%></span>
         </p>
     </div> 
     <div class="col-lg-6 info-box">
-        <h2>Some Other info</h2>
-        <p></p>
+        <h2>Grooming Overview</h2>
+        <p>
+        Total Groomings Performed Today: <span class="text-primary"> <%= @grooming_per_day%></span>
+        </p>
     </div>
 </div>
 <br>
+<hr>
 <br>
-<div class="charts">
-    <%= column_chart GroomingAppointment.group_by_month(:appt_date).count,
-    ytitle: "Groomings", xtitle: "Month", title: "Groomings per Month", colors: ["#C519E3"] %>
+
+
+<table id="example" class="table table-hover table-bordered">
+		<thead class="thead-dark">
+    <tr>
+      <th>Customer</th>
+      <th>Pet Name</th>
+      <th>Appt Date</th>
+      <th>Total</th>
+  
+    </tr>
+  </thead>
+
+    <br>
+    <br>
+   <h2>Today's Grooming Appointments</h2>
+    <br> 
+  <tbody>
+    <% @grooming_appointments.each do |grooming_appointment| %>
+    <%counter = 0%>
+      <tr>
+        <% if grooming_appointment.appt_date.strftime("%m/%d/%Y") == DateTime.current.strftime("%m/%d/%Y") %> 
+        <td><%= grooming_appointment.pet.customer.customer_first_name %>
+        <%= grooming_appointment.pet.customer.customer_last_name %></td>
+        <td><%= grooming_appointment.pet.pet_name %></td>
+        <td><%=  grooming_appointment.appt_date.strftime("%b %d %Y %I:%M %p ")%></td>
+        <td><%= number_to_currency(grooming_appointment.appt_total) %></td>
+        <% end %> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<hr>
+<br>
+
+<div>
+<%= column_chart GroomingAppointment.group_by_quarter(:appt_date).count,
+    title: 'Appointments per Quarter', xtitle: 'Date', ytitle: 'Appointments' %>
+
 </div>
+
+
 </div>
-<br>
-<br>
+
+
+
+
+
+
+
+
