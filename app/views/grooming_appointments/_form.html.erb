@@ -47,7 +47,7 @@
       <%= form.text_field :appt_date, type: 'date', class: 'form-control col-md-8' %>
     </div>
 
-    <div class="form-group field col-md-3 ml-2">
+    <div class="form-group field col-md-4 ml-2">
       <%= form.label :appt_time, 'Appointment Time'%>
       <br>
       <%= form.time_select :appt_time, class: 'form-control', :ampm => true %>
@@ -115,14 +115,14 @@
   <div class="form-group field col-md-12">
    <br> 
     <%= form.label :appt_notes, 'Appointment Notes' %>
-    <%= form.text_area :appt_notes, class: 'form-control' %>
+    <%= form.text_area :appt_notes, class: 'form-control',rows: '4' %>
   </div>
   </div>
 
   <div class="form-row">
   <div class="form-group field col-md-12">
     <%= form.label :customer_feedback, 'Customer Feedback' %>
-    <%= form.text_area :customer_feedback, class: 'form-control' %>
+    <%= form.text_area :customer_feedback, class: 'form-control', rows: '4' %>
   </div>
   </div>
 
