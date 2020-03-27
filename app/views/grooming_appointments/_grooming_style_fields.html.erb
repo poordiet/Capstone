@@ -1,22 +1,25 @@
 
-<div class="nested-fields col-md-4">
+<div class="nested-fields col-12">
 
-<h2>Add Style</h2>
+<h5>Add Style</h5>
 
 <div class="form-row">
-    <div class="field form-group col-md-12">
+    <div class="field form-group col-md-3">
         <%= f.label :style_id, 'Style' %>
         <%= f.collection_select :style_id, Style.all, :id, :style_name %>
     </div>
 </div>
 
 <div class="form-row">
-  <div class="field form-group col-md-12">
+  <div class="field form-group col-md-6">
   <%= f.label :groom_style_notes, 'Groom Style Notes' %>
-    <%= f.text_field :groom_style_notes, class: 'form-control' %>
+    <%= f.text_area :groom_style_notes, class: 'form-control' %>
   </div>
 </div>
 
-    <%= link_to_remove_association "Remove Style", f, class: 'btn btn-secondary btn-lg active float-left mx-auto' %>
-  
+<div class = "form-row">
+    <div class ="field form-group">
+    <%= link_to_remove_association "Remove Style", f, class: 'btn btn-secondary btn-sm float-left mx-auto' %>
+    </div>
+</div>
 </div>

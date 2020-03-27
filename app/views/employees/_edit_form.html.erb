@@ -17,9 +17,9 @@
     <br>
     <form>
         <div class="form-row">
-            <div class="field form-group col-md-6">
+            <div class="field form-group col-md-4">
                 <%= form.label :emp_hire_date, 'Hire Date' %>
-                <%= form.date :emp_hire_date, type: 'date', class: 'form-control' %>
+                <%= form.text_field :emp_hire_date, type: 'date', class: 'form-control' %>
             </div>
         </div>
 
@@ -86,7 +86,7 @@
     <br>
     <div id="buttons">
         <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
-        <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
+        <button type="submit" class="btn btn-primary btn-lg float-right " style="margin-right: 175px;">Submit</button>
     </div>
 </div>
 <% end %>

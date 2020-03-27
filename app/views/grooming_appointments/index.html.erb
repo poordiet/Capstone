@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
+<br>
 <h1>Grooming Appointments</h1>
+<br>
 <!--<a class="btn btn-success float-right mt-4" href="grooming_appointments/new" role="button" aria-pressed="true">New Appointment</a>-->
 
 <table id="example" class="table table-hover table-bordered">
@@ -52,12 +54,7 @@
 
 
 <script type="text/javascript">
-  var dataTable = $('#example').DataTable({
-    "language":{
-      "sLengthMenu": "Num. of Entries Per Page _MENU_",
-      "sSearch": "Search:"
-    }
-  });
+  var dataTable = $('#example').DataTable();
 
   $(document).ready(function() {
    dataTable;

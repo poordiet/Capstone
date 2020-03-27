@@ -16,10 +16,6 @@
 
 <div class = "container">
 
-<p>'<%= link_to 'Back', @pet.customer, class: 'btn btn-danger btn-lg float-right mr-2' %>
-<%= link_to 'Edit', edit_pet_path(@pet), class: 'btn btn-warning btn-lg float-right mr-2' %> 
-
-
 <div class="row">
 <div class ="col">
 <p>
@@ -141,7 +137,7 @@ div.desc {
 <%end%>
 
 <!-- Only show new button if no profile photo exists-->
-<div class="col">
+<div class="col" style="margin-right:250px;" align="center">
 <h2>Pet Profile Photo</h2>
  <%if count == 0%>
 <%=link_to 'New Pet Profile Photo', new_pet_photo_path({:photo_type_id => 1, 
@@ -175,7 +171,7 @@ div.desc {
 <%= link_to "Add Vaccination", 
 new_pet_vaccination_path({:id => @pet.id, 
 :pet_name => @pet.pet_name}), 
-:class => "btn btn-success float-right mt-4", :style => "margin-bottom: 30px;" %>
+:class => "btn btn-success float-right mt-4"%>
 <table id="example" class="table table-hover table-bordered" style="width: 1000px;">
 		<thead class="thead-dark">
       <th>Vaccine</th>
@@ -203,7 +199,7 @@ new_pet_vaccination_path({:id => @pet.id,
   :pet_name => @pet.pet_name,
   :customer_first_name => @pet.customer.customer_first_name,
   :customer_last_name => @pet.customer.customer_last_name}), 
-  :class => "btn btn-success float-right mt-4", :style => "margin-bottom: 30px;" %>
+  :class => "btn btn-success float-right mt-3", :style => "margin-bottom: 30px;"%>
 
   <table id="example" class="table table-hover table-bordered" style="width: 1000px;">
 		<thead class="thead-dark">

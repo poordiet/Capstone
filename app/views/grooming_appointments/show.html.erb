@@ -1,12 +1,20 @@
+<br>
+<div class="container">
+<div class="row">
+<div class = "col-11" >
+<p>
+<%= link_to 'Edit', edit_grooming_appointment_path(@grooming_appointment), class:'btn btn-warning btn-lg float-right mr-2' %>
+<%= link_to 'Back', grooming_appointments_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+</p>
+
 <p id="notice"><%= notice %></p>
 
 <div class="container">
 <br>
 <div class="row ">
-<p>
-<%= link_to 'Update', edit_grooming_appointment_path(@grooming_appointment), class:'btn btn-warning btn-lg float-right mr-2' %>
-<%= link_to 'All Appointments', grooming_appointments_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
-</p>
+<h1>
+  Grooming Appointment Details
+</h1>
 </div>
 
 <div class="row">
@@ -68,14 +76,14 @@
 </div>
 
 <div class="col-6">
-<p>
+<p><br>
   <strong>Total:</strong>
   <%= number_to_currency(@grooming_appointment.appt_total) %>
 </p>
 
 <p>
   <strong>Payment Type:</strong>
-  <%= @grooming_appointment.payment_type.payment_type %>
+  <%= @grooming_appointment.payment_type%>
 </p>
 </div>
 
@@ -84,16 +92,14 @@
 <br>
 
 <h2>Services</h2>
-<div class = "row">
-<div class = "col-10">
+<div class = "container">
 <%= link_to "Add Service", 
 new_grooming_service_path({:id => @grooming_appointment.id}), 
 :class => "btn btn-success float-right mt-4", style: 'margin-bottom: 10px' %>
 </div>
-</div>
 
-<table id="example" class="table table-striped table-bordered" style="width: 1000px;">
-		<thead>
+<table id="example" class="table table-hover table-bordered" style="width: 1000px;">
+		<thead class="thead-dark">
       <th>Service</th>
       <th>Amount</th>
       <th>Amount Notes</th>
@@ -117,15 +123,13 @@ new_grooming_service_path({:id => @grooming_appointment.id}),
 
 <br>
   <h2>Styles</h2>
-  <div class = "row">
-<div class = "col-10">
+  <div class = "container">
 <%= link_to "Add Style", 
 new_grooming_style_path({:id => @grooming_appointment.id}), 
 :class => "btn btn-success float-right mt-4", style: 'margin-bottom: 10px' %>
 </div>
-</div>
-  <table id="example" class="table table-striped table-bordered" style="width: 1000px;">
-		<thead>
+  <table id="example" class="table table-hover table-bordered" style="width: 1000px;">
+		<thead class="thead-dark">
       <th>Style</th>
       <th>Grooming Style Notes</th>
       <th>Edit</th>

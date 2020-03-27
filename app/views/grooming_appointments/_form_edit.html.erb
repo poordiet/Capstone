@@ -11,6 +11,14 @@
     </div>
   <% end %>
 
+  <div id="formpet">
+
+  <br>
+  <h1>Editing Grooming Appointment</h1>
+  <br>
+
+  <form>
+
   <div class="field">
     <%= form.label :customer_id, 'Customer: ' %>
     <%= form.hidden_field grooming_appointment.pet.customer.id %>
@@ -86,14 +94,14 @@
         <% end %> 
     </div>
 
+<br>
+
  <div class="form-row">
-  <div class="grooming_service form-group">
-    <br>
-      <%= link_to_add_association 'Add Service', form, :grooming_services, class: 'btn btn-success btn-lg float-left mx-auto' %>
-  <br>
-   <br>
+  <div class="addpets col">
+      <%= link_to_add_association 'Add Service', form, :grooming_services, class: 'btn btn-success btn-lg ml-5' %>
   </div>
-  </div>
+</div>
+
 
 
   <h2>Styles</h2>
@@ -103,14 +111,16 @@
       <% end %> 
   </div>
 
- <div class="form-row">
-  <div class="grooming_style form-group">
-      <%= link_to_add_association 'Add Style', form, :grooming_styles, class: 'btn btn-success btn-lg float-left mx-auto' %>
+  <br>
+
+<div class="form-row">
+  <div class="addpets col">
+      <%= link_to_add_association 'Add Style', form, :grooming_styles, class: 'btn btn-success btn-lg ml-5' %>
   </div>
 </div>
 
   <div class="form-row">
-  <div class="form-group field col-md-6">
+  <div class="form-group field col-md-5">
    <br> 
     <%= form.label :appt_notes, 'Appt Notes' %>
     <%= form.text_area :appt_notes, class: 'form-control' %>
@@ -118,7 +128,7 @@
   </div>
 
   <div class="form-row">
-  <div class="form-group field col-md-6">
+  <div class="form-group field col-md-5">
     <%= form.label :customer_feedback, 'Customer Feedback' %>
     <%= form.text_area :customer_feedback, class: 'form-control' %>
   </div>
@@ -145,10 +155,16 @@
 </div>
 -->
 
+</form>
 
- <div class="actions">
-    <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
-    <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+<br>
+
+ 
+ <div id="buttons">
+     <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+    <button type="submit" class="subbut btn btn-primary btn-lg float-right ">Submit</button>
   </div>
 
+
+</div>
 <% end %>

@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-<div id="form">
+<div id="formpet">
 <br>
 <h1>Editing Pet</h1>
 <br>
@@ -97,7 +97,7 @@
     </div>
 
     <div class="form-row">
-        <div class="field form-group col-md-6">
+        <div class="field form-group col-md-5">
             <%= form.label :pet_allergies, 'Pet Allergies' %>
             <%= form.text_area :pet_allergies, class: 'form-control' %>
         </div>
@@ -106,14 +106,14 @@
     </div>
 
     <div class="form-row">
-        <div class="field form-group col-md-6">
+        <div class="field form-group col-md-5">
             <%= form.label :pet_medical_issues, 'Medical Issues' %>
             <%= form.text_area :pet_medical_issues, class: 'form-control' %>
         </div>
     </div>
 
     <div class="form-row">
-    <div class="field form-group col-md-6">
+    <div class="field form-group col-md-5">
             <%= form.label :pet_notes, 'Pet Notes'%>
             <%= form.text_area :pet_notes, class: 'form-control' %>
         </div>
@@ -124,7 +124,6 @@
   <% end %>-->
 
   <br>
-  <br>
 
   <h2>Vaccines</h2>
     <div id="pet_vaccinations">
@@ -134,10 +133,19 @@
     </div>
 
   <div class="form-row">
-  <div class="pet_vaccines field form-group">
-    <%= link_to_add_association 'Add Vaccine', form, :pet_vaccinations, class: 'btn btn-success btn-lg float-left mx-auto'  %>
+  <div class="addvac col">
+    <%= link_to_add_association 'Add Vaccine', form, :pet_vaccinations, class: 'btn btn-success btn-lg ml-5'  %>
   </div>
   </div>
+  </form>
 
-   <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+  <br>
+
+   <div id="buttons">
+        <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+        <button type="submit" class="subbut btn btn-primary btn-lg float-right ">Submit</button>
+  </div>
+  
+  </div>
+  </div>
 <% end %>

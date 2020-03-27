@@ -10,7 +10,13 @@
       </ul>
     </div>
   <% end %>
+
 <div class="container" id="form">
+
+<br>
+  <h1>New Grooming Appointment</h1>
+<br>
+
 <form>
 
 <div class="field">
@@ -56,19 +62,17 @@
   <div class="form-row">
   <div class="form-group field col-md-2">
     <%= form.label :vac_current, 'Vaccine Current' %>
-    <br>
     <%= form.select :vac_current, ['Y', 'N', 'U'] %>
   </div>
   
 
   <div class="form-group field col-md-4">
     <%= form.label :vac_current_date, 'Vaccine Date' %>
-    <br>
-    <%= form.date_select :vac_current_date %>
+    <%= form.text_field :vac_current_date, type: 'date', class: 'form-control' %>
   </div>
   </div>
 
-   <div class="form-row">
+  <div class="form-row">
   <div class=" form-group field col-md-2">
     <%= form.label :appt_total, 'Total' %>
     <%= form.text_field :appt_total, class: 'form-control' %>
@@ -82,17 +86,16 @@
   </div>
 
  <div class="form-row">
-  <div class="grooming_service form-group">
-    <br>
-      <%= link_to_add_association 'Add Service', form, :grooming_services, class: 'btn btn-success btn-lg float-left mx-auto' %>
-  <br>
-   <br>
+  <div class="addpets col">
+      <%= link_to_add_association 'Add Service', form, :grooming_services, class: 'btn btn-success btn-lg ml-5' %>
   </div>
-  </div>
+</div>
+
+<br>
 
  <div class="form-row">
-  <div class="grooming_style form-group">
-      <%= link_to_add_association 'Add Style', form, :grooming_styles, class: 'btn btn-success btn-lg float-left mx-auto' %>
+  <div class="addpets col">
+      <%= link_to_add_association 'Add Style', form, :grooming_styles, class: 'btn btn-success btn-lg ml-5' %>
   </div>
 </div>
 
@@ -127,16 +130,16 @@
   </div>  
   -->
 
+</form>
+
  <br>
 
 
- <div class="actions">
-    <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
+ <div id="buttons">
      <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+    <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
   </div>
 
-
-</form>
-
-<% end %>
 </div>
+</div>
+<% end %>
