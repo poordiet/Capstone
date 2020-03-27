@@ -11,40 +11,48 @@
     </div>
   <% end %>
 
+
+<div class="content">
+<br>
+
+<h1>Edit Grooming Appointment</h1>
+<hr/>
+
   <div class="field">
-    <%= form.label :customer_id, 'Customer: ' %>
+    <%= form.label :customer_id, 'Customer: ', class: 'name-label' %>
     <%= form.hidden_field grooming_appointment.pet.customer.id %>
-    <%= form.label grooming_appointment.pet.customer.customer_first_name%>
-    <%= form.label grooming_appointment.pet.customer.customer_last_name%>
-  <!--<%= form.select :customer_id, options_from_collection_for_select( Customer.order(:customer_first_name).all, "id", "customer_first_name", params[:id]), disabled: true %>-->
+    <%= form.label grooming_appointment.pet.customer.customer_first_name, class: 'name'%>
+    <%= form.label grooming_appointment.pet.customer.customer_last_name, class: 'name'%>
   </div>
 
   <div class="field">
-    <%= form.label :pet_id, 'Pet: ' %>
+    <%= form.label :pet_id, 'Pet: ', class: 'name-label' %>
     <%= form.hidden_field grooming_appointment.pet.id %>
-    <%= form.label grooming_appointment.pet.pet_name%>
-  <!--<%= form.select :customer_id, options_from_collection_for_select( Customer.order(:customer_first_name).all, "id", "customer_first_name", params[:id]), disabled: true %>-->
+    <%= form.label grooming_appointment.pet.pet_name, class: 'name'%>
   </div>
+
+  <hr/>
 
 
   <div class="form-row">
   <div class=" form-group field col-md-3">
     <%= form.label :store_id %>
-    <%= form.collection_select :store_id, Store.all, :id, :store_address, class: 'form-control' %>
+    <br>
+    <%= form.collection_select :store_id, Store.all, :id, :store_name, class: 'form-control' %>
   </div>
   </div>
 
 
   <div class="form-row">
-  <div class="form-group field col-md-3">
+  <div class="form-group field col-md-6">
     <%= form.label :appt_date, 'Appointment Date' %>
     <br>
-     <%= form.text_field :appt_date, type: 'date', class: 'form-control' %>
-  </div>
+     <%= form.text_field :appt_date, type: 'date', class: 'form-control col-md-8' %>
   </div>
 
-   <div class="form-row">
-  <div class="form-group field col-md-6">
+
+
+  <div class="form-group field col-md-3 ml-2">
     <%= form.label :appt_time, 'Appointment Time' %>
     <br>
      <%= form.time_select :appt_time, class: 'form-control', :ampm => true %>
@@ -52,32 +60,32 @@
   </div>
 
   <div class="form-row">
-  <div class="form-group field col-md-3">
+  <div class="form-group field col-md-6">
     <%= form.label :appt_blades, 'Blades' %>
-    <%= form.text_field :appt_blades, class: 'form-control' %>
+    <%= form.text_field :appt_blades, class: 'form-control col-md-8' %>
   </div>
   </div>
 
 
   <div class="form-row">
-  <div class="form-group field col-md-2">
+  <div class="form-group field col-md-6">
     <%= form.label :vac_current, 'Vaccine Current' %>
     <br>
-    <%= form.select :vac_current, ['Y', 'N', 'U'] %>
+    <%= form.select :vac_current, ['Y', 'N'] %>
   </div>
   
 
   <div class="form-group field col-md-4">
-    <%= form.label :vac_current_date, 'Vaccine Date' %>
+    <%= form.label :vac_current_date, 'Vaccine Current Date' %>
     <br>
-    <%= form.date_select :vac_current_date %>
+   <%= form.text_field :vac_current_date, type: 'date', class: 'form-control col-md-8' %>
   </div>
   </div>
 
    <div class="form-row">
-  <div class=" form-group field col-md-2">
+  <div class=" form-group field col-md-6">
     <%= form.label :appt_total, 'Total' %>
-    <%= form.text_field :appt_total, class: 'form-control' %>
+    <%= form.text_field :appt_total, class: 'form-control col-md-8' %>
   </div>
 
    <div class="form-group field">
@@ -87,46 +95,56 @@
   </div>
   </div>
 
-<h2>Services</h2>
-    <div id="grooming_services">
-        <%= form.fields_for :grooming_services do |grooming_service| %>
-          <%= render "grooming_service_fields", f: grooming_service %>
-        <% end %> 
-    </div>
+    <hr/>
 
  <div class="form-row">
-  <div class="grooming_service form-group">
-    <br>
-      <%= link_to_add_association 'Add Service', form, :grooming_services, class: 'btn btn-success btn-lg float-left mx-auto' %>
-  <br>
-   <br>
-  </div>
+    <div class="form-group col-12">
+      <h2>Services</h2>
+          <%= form.fields_for :grooming_services do |grooming_service| %>
+            <%= render "grooming_service_fields", f: grooming_service %>
+          <% end %> 
+    </div>
   </div>
 
 
-  <h2>Styles</h2>
-  <div id="grooming_styles">
+  <div class="form-row">
+      <div class="form-group col-md-12">
+        <%= link_to_add_association 'Add Service', form, :grooming_services, class: 'btn btn-success btn-sm btn-block float-left mx-auto' %>
+        <br>
+        <br>
+    </div>
+  </div>
+
+
+  <hr/>
+
+   <div class="form-row">
+    <div class="form-group col-12">
+      <h2>Styles</h2>
       <%= form.fields_for :grooming_styles do |grooming_style| %>
         <%= render "grooming_style_fields", f: grooming_style %>
       <% end %> 
+    </div>
   </div>
 
+
+
  <div class="form-row">
-  <div class="grooming_style form-group">
-      <%= link_to_add_association 'Add Style', form, :grooming_styles, class: 'btn btn-success btn-lg float-left mx-auto' %>
+  <div class="form-group col-12">
+      <%= link_to_add_association 'Add Style', form, :grooming_styles, class: 'btn btn-success btn-sm btn-block float-left mx-auto' %>
   </div>
 </div>
 
   <div class="form-row">
-  <div class="form-group field col-md-6">
+  <div class="form-group field col-md-12">
    <br> 
-    <%= form.label :appt_notes, 'Appt Notes' %>
+    <%= form.label :appt_notes, 'Appointment Notes' %>
     <%= form.text_area :appt_notes, class: 'form-control' %>
   </div>
   </div>
 
   <div class="form-row">
-  <div class="form-group field col-md-6">
+  <div class="form-group field col-md-12">
     <%= form.label :customer_feedback, 'Customer Feedback' %>
     <%= form.text_area :customer_feedback, class: 'form-control' %>
   </div>
@@ -160,3 +178,5 @@
   </div>
 
 <% end %>
+
+</div>

@@ -12,24 +12,6 @@
     </div>
   <% end %>
 
-  <style>
-  .content {
-  max-width: 800px;
-  margin: auto;
-  background: white;
-  padding: 10px;
-}
-
-.name-label{
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.name{
-  font-size: 20px;
-}
-
-  </style>
 
 <div class="content">
 
@@ -47,12 +29,13 @@
   <%= form.label :pet_name, :value => params[:pet_name], class: 'name'%>
 </div>
 
+ <hr/>
 
   <div class="form-row">
     <div class=" form-group field col-md-3">
       <%= form.label :store_id %>
       <br>
-      <%= form.collection_select :store_id, Store.all, :id, :store_name, class: "form-dropdown"  %>
+      <%= form.collection_select :store_id, Store.all, :id, :store_name%>
     </div>
   </div>
 
@@ -90,7 +73,7 @@
   <div class="form-group field col-md-6">
     <%= form.label :vac_current_date, 'Vaccine Current Date' %>
     <br>
-    <%= form.date_select :vac_current_date %>
+   <%= form.text_field :vacc_current_date, type: 'date', class: 'form-control col-md-8' %>
   </div>
   </div>
 
@@ -107,21 +90,22 @@
   </div>
   </div>
 
-
+<hr/>
+<h2>Services</h2>
  <div class="form-row">
-  <div class="form-group">
+    <div class="form-group col-md-12">
     <br>
-      <%= link_to_add_association 'Add Service', form, :grooming_services, class: 'btn btn-success btn-sm float-left mx-auto' %>
-
+      <%= link_to_add_association 'Add Service', form, :grooming_services, class: 'btn btn-success btn-sm btn-block float-left mx-auto' %>
   </div>
   </div>
   
   <hr/>
 
+<h2>Styles</h2>
  <div class="form-row">
-  <div class="form-group">
+  <div class="form-group col-md-12">
   <br>
-    <%= link_to_add_association 'Add Style', form, :grooming_styles, class: 'btn btn-success btn-sm float-left mx-auto' %>
+    <%= link_to_add_association 'Add Style', form, :grooming_styles, class: 'btn btn-success btn-sm btn-block float-left mx-auto' %>
   <br>
   <br>
   </div>

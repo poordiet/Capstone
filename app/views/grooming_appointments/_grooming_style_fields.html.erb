@@ -1,14 +1,15 @@
 <div class="nested-fields col-12">
-<br>
- <h2>Add Style</h2>
+ <hr/>
 
+ <h3>Style</h3>
 
 <div class="form-row">
-    <div class="field form-group col-md-12">
+    <div class="field form-group col-md-6">
         <%= f.label :style_id, 'Style' %>
         <br>
         <%= f.collection_select :style_id, Style.all, :id, :style_name %>
     </div>
+
 </div>
 
 <div class="form-row">
@@ -18,10 +19,13 @@
   </div>
 </div>
 
-    <%= link_to_remove_association "Remove Style", f, class: 'btn btn-secondary btn-sm float-left mx-auto' %>
-     <br>
-     <br>
-     <hr/>
-</div>
+<div class="form-row">
+  <div class="field form-group col-md-12">
+    <%= link_to_remove_association "Remove Style", f, class: 'btn btn-secondary btn-sm btn-block mx-auto' %>
+    </div>
+  </div>
+
+  </div>
+
 
 
