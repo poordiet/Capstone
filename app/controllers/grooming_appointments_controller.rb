@@ -14,6 +14,8 @@ class GroomingAppointmentsController < ApplicationController
 
   # GET /grooming_appointments/new
   def new
+    #@pet = params[:pet_id]
+    @pet_id = params[:pet_id]
     @grooming_appointment = GroomingAppointment.new
     1.times do
       pet_photo = @grooming_appointment.pet_photos.build
@@ -29,6 +31,10 @@ class GroomingAppointmentsController < ApplicationController
   # POST /grooming_appointments
   # POST /grooming_appointments.json
   def create
+    #@pet = Pet.find(params[:pet_id])
+
+    @pet = Pet.find(params[:pet_id])
+    
     @grooming_appointment = GroomingAppointment.new(grooming_appointment_params)
 
     respond_to do |format|
@@ -36,6 +42,8 @@ class GroomingAppointmentsController < ApplicationController
         format.html { redirect_to @grooming_appointment, notice: 'Grooming appointment was successfully created.' }
         format.json { render :show, status: :created, location: @grooming_appointment }
       else
+        #@pet_id = @pet.id
+        @pet_id = @pet.id
         format.html { render :new }
         format.json { render json: @grooming_appointment.errors, status: :unprocessable_entity }
       end

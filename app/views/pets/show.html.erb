@@ -194,10 +194,7 @@ new_pet_vaccination_path({:id => @pet.id,
   <br>
 
   <%= link_to "Add Grooming Appointment", 
-  new_grooming_appointment_path({:pet_id => @pet.id, 
-  :pet_name => @pet.pet_name,
-  :customer_first_name => @pet.customer.customer_first_name,
-  :customer_last_name => @pet.customer.customer_last_name}), 
+  new_grooming_appointment_path(@pet), 
   :class => "btn btn-success float-right mt-4" %>
   <table id="example" class="table table-striped table-bordered" style="width: 1000px;">
 		<thead>
