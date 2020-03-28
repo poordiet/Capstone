@@ -106,15 +106,15 @@
 
 <h2>Services</h2>
 <div class = "row">
-<div class = "col-10">
+<div class = "col-11">
 <%= link_to "Add Service", 
 new_grooming_service_path({:id => @grooming_appointment.id}), 
 :class => "btn btn-success float-right mt-4", style: 'margin-bottom: 10px' %>
-</div>
-</div>
 
-<table id="example" class="table table-striped table-bordered" style="width: 1000px;">
-		<thead class="thead-dark">
+
+
+<table id="example" class="table table-striped table-bordered">
+		<thead>
       <th>Service</th>
       <th>Amount</th>
       <th>Amount Notes</th>
@@ -134,37 +134,40 @@ new_grooming_service_path({:id => @grooming_appointment.id}),
        <% end %>
 		</tbody>
 	</table>
+  </div>
+  </div>
 
 
 <br>
   <h2>Styles</h2>
-  <div class = "row">
-<div class = "col-10">
+<div class = "row">
+<div class = "col-11">
 <%= link_to "Add Style", 
 new_grooming_style_path({:id => @grooming_appointment.id}), 
 :class => "btn btn-success float-right mt-4", style: 'margin-bottom: 10px' %>
-</div>
-</div>
-<table id="example" class="table table-striped table-bordered" style="width: 1000px;">
-  <thead class="thead-dark">
-    <th>Style</th>
-    <th>Grooming Style Notes</th>
-    <th>Edit</th>
-    <th>Remove</th>
-  </thead>
 
-  <tbody>
-    <% @grooming_appointment.grooming_styles.each do |grooming_style| %>
-    <tr>
-      <td><%= grooming_style.style.style_name%></td>
-      <td><%= grooming_style.groom_style_notes%></td>
-      <td><%= link_to "Update", edit_grooming_style_path(grooming_style), 
-      :class => "btn btn-warning btn-block" %></td>
-      <td><%= link_to 'Delete', grooming_style, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-block btn-danger' %></td>
-    </tr>
-      <% end %>
-  </tbody>
-</table>
+  <table id="example" class="table table-striped table-bordered">
+		<thead>
+      <th>Style</th>
+      <th>Grooming Style Notes</th>
+      <th>Edit</th>
+      <th>Remove</th>
+		</thead>
+
+		<tbody>
+     <% @grooming_appointment.grooming_styles.each do |grooming_style| %>
+			<tr>
+				<td><%= grooming_style.style.style_name%></td>
+        <td><%= grooming_style.groom_style_notes%></td>
+        <td><%= link_to "Update", edit_grooming_style_path(grooming_style), 
+        :class => "btn btn-warning btn-block" %></td>
+        <td><%= link_to 'Delete', grooming_style, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-block btn-danger' %></td>
+			</tr>
+       <% end %>
+		</tbody>
+	</table>
+  </div>
+</div>
 
 <br>
 <h2>Incidents</h2>
