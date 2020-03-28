@@ -23,7 +23,7 @@
     <tr>
       <th>Customer</th>
       <th>Pet Name</th>
-      <th>Appt Date</th>
+      <th>Appt Date/Time</th>
       <th>Total</th>
   
     </tr>
@@ -32,6 +32,7 @@
 
 <%zone = ActiveSupport::TimeZone.new("Central Time (US & Canada)")%>
 <%Time.now.in_time_zone(zone)%>
+
     <br>
     <br>
    <h2>Today's Grooming Appointments</h2>
@@ -40,11 +41,11 @@
     <% @grooming_appointments.each do |grooming_appointment| %>
     <%counter = 0%>
       <tr>
-        <% if grooming_appointment.appt_date.strftime("%m/%d/%Y") == Time.now.in_time_zone(zone).strftime("%m/%d/%Y") %> 
+        <% if grooming_appointment.appt_date.strftime("%m/%d/%Y") == Date.current.strftime("%m/%d/%Y") %> 
         <td><%= grooming_appointment.pet.customer.customer_first_name %>
         <%= grooming_appointment.pet.customer.customer_last_name %></td>
         <td><%= grooming_appointment.pet.pet_name %></td>
-        <td><%=  grooming_appointment.appt_date.strftime("%b %d %Y %I:%M %p ")%></td>
+        <td><%=  grooming_appointment.appt_date.strftime("%b %d %Y")%> <%= grooming_appointment.appt_time.strftime("%I:%M%p")%></td>
         <td><%= number_to_currency(grooming_appointment.appt_total) %></td>
         <% end %> 
       </tr>
@@ -57,9 +58,6 @@
 <br>
 
 <div>
-<%= column_chart GroomingAppointment.group_by_quarter(:appt_date).count,
-    title: 'Appointments per Quarter', xtitle: 'Date', ytitle: 'Appointments' %>
-
 </div>
 
 
