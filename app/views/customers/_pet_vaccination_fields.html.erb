@@ -1,13 +1,11 @@
 <div class="nested-fields col-md-12">
-<br>
-<br>
-<h1>Add Vaccination</h1>
+<h4>Add Vaccination</h4>
 <hr>
-<br>
-
+    <p><i>Must fill out Date Given AND Duration, or Date Expiration.</i></p>
     <div class ="form-row">
     <div class="field form-group">
-        <%= f.label :vaccine_id %>
+        <%= f.label :vaccine_id, 'Vaccine *' %>
+        <br>
         <%= f.collection_select :vaccine_id, Vaccine.all, :id, :vaccine_name %>
     </div>
     </div>
@@ -15,22 +13,29 @@
     <div class="form-row">
     <div class="field form-group">
         <%= f.label :date_given %>
+        <br>
         <%= f.date_select :date_given %>
     </div>
     </div>
 
     <div class="form-row">
     <div class="field form-group">
+        <%= f.label :duration, "Duration (Years)" %>
+        <br>
+        <%= f.number_field :duration, class: 'form-control'%>
+    </div>
+    </div>
+
+    <div class="form-row">
+    <div class="field form-group">
         <%= f.label :date_expire %>
+        <br>
         <%= f.date_select :date_expire %>
     </div>
     </div>
 
     <div class="form-row col-md-12">
-    <%= link_to_remove_association "Remove Vaccine", f, class: 'btn btn-secondary btn-lg' %>
+    <%= link_to_remove_association "Remove Vaccine", f, class: 'btn btn-secondary btn-sm' %>
     </div>
     <hr>
-
-    <br>
-    <br>
 </div>
