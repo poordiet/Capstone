@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   get 'dashboard/index'
   resources :customers
   get 'reports/index'
+  get 'reports/customer_reports'
+  get 'reports/sales_reports'
+  get 'reports/vaccine_reports'
   
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -32,3 +35,5 @@ Rails.application.routes.draw do
   end
   root to: 'dashboard#index'
 end
+
+

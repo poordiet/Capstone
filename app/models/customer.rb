@@ -6,6 +6,8 @@ class Customer < ApplicationRecord
   
 
   accepts_nested_attributes_for :pets, reject_if: :all_blank, allow_destroy: true
+
+  
   
   
 end
