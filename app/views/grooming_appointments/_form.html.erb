@@ -15,24 +15,23 @@
 
 <div class="content">
 
-<%= hidden_field_tag :pet_id,@pet_id %>
-<%= form.label :pet_id,@pet_id %>
+<!-- Passes pet_id as its own parameter to the controller -->
+<%= hidden_field_tag :pet_id, @pet_id %>
 
-<%= hidden_field_tag :pet_name,@pet_name %>
-<%= form.label :pet_name,@pet_name %>
 
 <h1>New Grooming Appointment</h1>
 <hr/>
 <div class="field">
   <%= form.label :customer_id, 'Customer: ', class: 'name-label' %>
-  <%= form.label :customer_first_name, :value => params[:customer_first_name], class: 'name'%>
-  <%= form.label :customer_last_name, :value => params[:customer_last_name], class: 'name'%>
+  <%= form.label :customer_first_name, :value => @customer_first_name, class: 'name'%>
+  <%= form.label :customer_last_name, :value => @customer_last_name, class: 'name'%>
 </div>
 
 <div class="field">
   <%= form.label :pet_id, 'Pet: ', class: 'name-label' %>
+  <!-- hidden_field passes the pet id in with the grooming appt paramaters-->
   <%= form.hidden_field :pet_id, :value => params[:pet_id] %>
-  <%= form.label :pet_name, :value => params[:pet_name], class: 'name'%>
+  <%= form.label :pet_name, :value => @pet_name, class: 'name'%>
 </div>
 
  <hr/>

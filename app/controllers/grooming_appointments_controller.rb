@@ -17,6 +17,8 @@ class GroomingAppointmentsController < ApplicationController
     #@pet = params[:pet_id]
     @pet_name = params[:pet_name]
     @pet_id = params[:pet_id]
+    @customer_first_name = params[:customer_first_name]
+    @customer_last_name = params[:customer_last_name]
     @grooming_appointment = GroomingAppointment.new
     1.times do
       pet_photo = @grooming_appointment.pet_photos.build
@@ -35,6 +37,7 @@ class GroomingAppointmentsController < ApplicationController
     #@pet = Pet.find(params[:pet_id])
 
     @pet = Pet.find(params[:pet_id])
+    @customer = Customer.find(@pet.customer.id)
     
     @grooming_appointment = GroomingAppointment.new(grooming_appointment_params)
 
@@ -46,6 +49,8 @@ class GroomingAppointmentsController < ApplicationController
         #@pet_id = @pet.id
         @pet_id = @pet.id
         @pet_name = @pet.pet_name
+        @customer_first_name = @customer.customer_first_name
+        @customer_last_name = @customer.customer_last_name
         format.html { render :new }
         format.json { render json: @grooming_appointment.errors, status: :unprocessable_entity }
       end
