@@ -5,7 +5,7 @@
 
 <div class="form-row">
     <div class="field form-group col-md-6">
-        <%= f.label :style_id, 'Style' %>
+        <%= f.label :style_id, 'Style *' %>
         <br>
         <%= f.collection_select :style_id, Style.all, :id, :style_name %>
     </div>

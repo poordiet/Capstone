@@ -21,6 +21,7 @@
 
 <h1>New Grooming Appointment</h1>
 <hr/>
+ <p><i>* Indicates Required Fields</i></p>
 <div class="field">
   <%= form.label :customer_id, 'Customer: ', class: 'name-label' %>
   <%= form.label :customer_first_name, :value => @customer_first_name, class: 'name'%>
@@ -38,7 +39,7 @@
 
   <div class="form-row">
     <div class=" form-group field col-md-3">
-      <%= form.label :store_id %>
+      <%= form.label :store_id, "Store *" %>
       <br>
       <%= form.collection_select :store_id, Store.all, :id, :store_name%>
     </div>
@@ -47,13 +48,13 @@
 
   <div class="form-row">
     <div class="form-group field col-md-6">
-      <%= form.label :appt_date, 'Appointment Date' %>
+      <%= form.label :appt_date, 'Appointment Date *' %>
       <br>
       <%= form.text_field :appt_date, type: 'date', class: 'form-control col-md-8' %>
     </div>
 
     <div class="form-group field col-md-4 ml-2">
-      <%= form.label :appt_time, 'Appointment Time'%>
+      <%= form.label :appt_time, 'Appointment Time *'%>
       <br>
       <%= form.time_select :appt_time, class: 'form-control', :ampm => true %>
     </div>
@@ -69,14 +70,14 @@
 
   <div class="form-row">
   <div class="form-group field col-md-6">
-    <%= form.label :vac_current, 'Vaccine Current' %>
+    <%= form.label :vac_current, 'Vaccine Current *' %>
     <br>
     <%= form.select :vac_current, ['Y', 'N'] %>
   </div>
   
 
   <div class="form-group field col-md-6">
-    <%= form.label :vac_current_date, 'Vaccine Current Date' %>
+    <%= form.label :vac_current_date, 'Vaccine Current Date *' %>
     <br>
    <%= form.text_field :vac_current_date, type: 'date', class: 'form-control col-md-8' %>
   </div>
