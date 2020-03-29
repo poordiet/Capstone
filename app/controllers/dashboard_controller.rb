@@ -4,6 +4,7 @@ class DashboardController < ApplicationController
       @sales_by_day = DashboardCalculations.sales_by_day
       @grooming_per_day = DashboardCalculations.grooming_per_day
       @grooming_appointments = GroomingAppointment.all
+      @pets = Pet.all
     end
   
     
