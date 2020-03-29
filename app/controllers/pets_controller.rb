@@ -90,4 +90,6 @@ class PetsController < ApplicationController
                                   grooming_appointment_attributes: [:id, :appt_date, :appt_blades, :appt_total],
                                   service_attributes: [:id, :style_name])
     end
+
+
 end
