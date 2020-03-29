@@ -19,4 +19,5 @@ class Pet < ApplicationRecord
     validates :pet_treat, presence: true
     validates :pet_color, presence: true
     validates :pet_breed, presence: true
+    validates :pet_weight, presence: true
 end

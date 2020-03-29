@@ -22,6 +22,10 @@ class PetsController < ApplicationController
 
     # GET /pets/newnew
     def new
+      @customer_id = params[:customer_id]
+      @customer_first_name = params[:customer_first_name]
+      @customer_last_name = params[:customer_last_name]
+
       @pet = Pet.new
       1.times do
         pet_photo = @pet.pet_photos.build
@@ -35,6 +39,9 @@ class PetsController < ApplicationController
   # POST /pets
   # POST /pets.json
   def create
+
+    @customer = Customer.find(params[:customer_id])
+    
     @pet = Pet.new(pet_params)
 
     respond_to do |format|
@@ -42,6 +49,9 @@ class PetsController < ApplicationController
         format.html { redirect_to @pet, notice: 'Pet was successfully created.' }
         format.json { render :show, status: :created, location: @pet }
       else
+        @customer_id = @customer.id
+        @customer_first_name = @customer.customer_first_name
+        @customer_last_name = @customer.customer_last_name
         format.html { render :new }
         format.json { render json: @pet.errors, status: :unprocessable_entity }
       end

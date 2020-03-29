@@ -34,12 +34,12 @@ class GroomingAppointmentsController < ApplicationController
   # POST /grooming_appointments
   # POST /grooming_appointments.json
   def create
-    #@pet = Pet.find(params[:pet_id])
 
     @pet = Pet.find(params[:pet_id])
     @customer = Customer.find(@pet.customer.id)
     
     @grooming_appointment = GroomingAppointment.new(grooming_appointment_params)
+    
 
     respond_to do |format|
       if @grooming_appointment.save

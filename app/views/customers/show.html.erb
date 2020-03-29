@@ -76,7 +76,7 @@
 
 <div class="container">
 <%= link_to "Add Pet", 
-new_pet_path({:id => @customer.id, 
+new_customer_pet_path({:customer_id => @customer.id, 
 :customer_first_name => @customer.customer_first_name,
 :customer_last_name => @customer.customer_last_name}), 
 :class => "btn btn-success float-right mt-4" %>
