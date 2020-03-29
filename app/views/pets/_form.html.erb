@@ -19,12 +19,6 @@
  <!--<%= form.select :customer_id, options_from_collection_for_select( Customer.order(:customer_first_name).all, "id", "customer_first_name", params[:id]), disabled: true %>-->
 </div>
 
-  <!--
-  <div class="field">
-    <%= form.label :customer_id %>
-    <%= form.collection_select :customer_id, Customer.all, :id, :customer_first_name %>
-  </div> -->
-
   <div class="field">
       <%= form.hidden_field :pet_status_id, value: 1 %>
     </div>
