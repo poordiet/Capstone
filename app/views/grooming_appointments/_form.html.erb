@@ -49,6 +49,11 @@
       <th>Date Expire</th>
 		</thead>
 
+<style>
+.red{
+  color: red;
+}
+</style>
 		<tbody>
      <% @pet.pet_vaccinations.each do |pet_vaccination| %>
 			<tr>
@@ -61,6 +66,8 @@
         <td><%= pet_vaccination.duration%></td>
         <td><%if pet_vaccination.date_expire.nil?%>
             <%= pet_vaccination.date_expire%>
+            <%elsif pet_vaccination.date_expire < Date.current%>
+            <div class = "red"><%=pet_vaccination.date_expire.strftime("%b %d %Y")%></div>
             <%else%>
             <%= pet_vaccination.date_expire.strftime("%b %d %Y")%>
             <%end%>
