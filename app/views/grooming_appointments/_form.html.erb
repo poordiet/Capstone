@@ -18,6 +18,9 @@
 <%= hidden_field_tag :pet_id,@pet_id %>
 <%= form.label :pet_id,@pet_id %>
 
+<%= hidden_field_tag :pet_name,@pet_name %>
+<%= form.label :pet_name,@pet_name %>
+
 <h1>New Grooming Appointment</h1>
 <hr/>
 <div class="field">
@@ -29,7 +32,7 @@
 <div class="field">
   <%= form.label :pet_id, 'Pet: ', class: 'name-label' %>
   <%= form.hidden_field :pet_id, :value => params[:pet_id] %>
-  <%= form.label :pet_id, :value => params[:testing], class: 'name'%>
+  <%= form.label :pet_name, :value => params[:pet_name], class: 'name'%>
 </div>
 
  <hr/>

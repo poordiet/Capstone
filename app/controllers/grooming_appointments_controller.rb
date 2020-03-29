@@ -15,6 +15,7 @@ class GroomingAppointmentsController < ApplicationController
   # GET /grooming_appointments/new
   def new
     #@pet = params[:pet_id]
+    @pet_name = params[:pet_name]
     @pet_id = params[:pet_id]
     @grooming_appointment = GroomingAppointment.new
     1.times do
@@ -44,6 +45,7 @@ class GroomingAppointmentsController < ApplicationController
       else
         #@pet_id = @pet.id
         @pet_id = @pet.id
+        @pet_name = @pet.pet_name
         format.html { render :new }
         format.json { render json: @grooming_appointment.errors, status: :unprocessable_entity }
       end
