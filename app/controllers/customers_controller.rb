@@ -26,15 +26,6 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
 
-    puts "in customer controller in create method"
-     @customer.pets do |pet|
-      puts "in customer.pets do |pet|"
-       pet.pet_vaccinations do |pet_vaccination|
-           puts  "in pet.pet_vaccinations do|pet_vaccination|"
-          pet_vaccination.calculate_expiration(pet_vaccination.date_given, pet_vaccination.date_expire, pet_vaccination.duration)
-      end
-    end
-
     respond_to do |format|
       if @customer.save
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
