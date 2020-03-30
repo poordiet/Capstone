@@ -2,17 +2,17 @@
 <div class="container">
 <div class="row">
 <div class = "col-11" >
-<p>
-<%= link_to 'Update', edit_customer_path(@customer), class:'btn btn-warning btn-lg float-right mr-2' %>
-<%= link_to 'Back', customers_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
-</p>
 
 <p id="notice"><%= notice %></p>
 
 <h1>
   <%= @customer.customer_first_name %> <%=@customer.customer_last_name%>
 </h1>
-<br>
+<hr>
+<p>
+<%= link_to 'Update', edit_customer_path(@customer), class:'btn btn-warning btn-lg float-right mr-2' %>
+<%= link_to 'Back', customers_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+</p>
 <p>
   <strong>Status:</strong>
   <%= @customer.customer_status.status %>

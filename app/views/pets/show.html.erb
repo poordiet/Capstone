@@ -2,7 +2,7 @@
 
 <div class = "container">
 <br>
-<h1> Pet Profile </h2>
+<h1><%= @pet.pet_name%> </h2>
 <hr>
 <%= link_to 'Edit', edit_pet_path(@pet), class: 'btn btn-warning btn-lg float-right mr-2' %> 
 <p><%= link_to 'Back', @pet.customer, class: 'btn btn-danger btn-lg float-right mr-2' %>
