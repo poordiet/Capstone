@@ -14,6 +14,7 @@ class PetVaccinationsController < ApplicationController
 
   # GET /pet_vaccinations/new
   def new
+    @pet_id = params[:pet_id]
     @pet_vaccination = PetVaccination.new
     session[:prev_url] = request.referer
   end
@@ -26,6 +27,8 @@ class PetVaccinationsController < ApplicationController
   # POST /pet_vaccinations
   # POST /pet_vaccinations.json
   def create
+
+    @pet = Pet.find(params[:pet_vaccination][:pet_id])
 
     # Automatically calculate the expiration date from the date given and duration
     @date_given = params[:pet_vaccination][:date_given]
@@ -44,6 +47,8 @@ class PetVaccinationsController < ApplicationController
         #format.html { redirect_to @pet_vaccination, notice: 'Pet vaccination was successfully created.' }
         #format.json { render :show, status: :created, location: @pet_vaccination }
       else
+        @pet_name = @pet.pet_name
+        @pet_id = @pet.id
         format.html { render :new }
         format.json { render json: @pet_vaccination.errors, status: :unprocessable_entity }
       end

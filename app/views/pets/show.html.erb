@@ -165,7 +165,7 @@ div.desc {
 
 <div class="container">
 <%= link_to "Add Vaccination", 
-new_pet_vaccination_path({:id => @pet.id, 
+new_pet_vaccination_path({:pet_id => @pet.id, 
 :pet_name => @pet.pet_name}), 
 :class => "btn btn-success float-right mt-4" %>
 <table id="example" class="table table-striped table-bordered" style="width: 1000px;">
