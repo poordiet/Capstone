@@ -39,7 +39,9 @@ class PetPhotosController < ApplicationController
 
     @pet = Pet.find(params[:pet_id])
     @customer = Customer.find(@pet.customer.id)
-    @grooming_appointment = GroomingAppointment.find(params[:grooming_appointment_id])
+    if !params[:grooming_appointment_id].empty?
+      @grooming_appointment = GroomingAppointment.find(params[:grooming_appointment_id])
+    end
     @photo_type_id = params[:photo_type_id]
 
     @pet_photo = PetPhoto.new(pet_photo_params)
@@ -54,7 +56,9 @@ class PetPhotosController < ApplicationController
         @pet_name = @pet.pet_name
         @customer_first_name = @customer.customer_first_name
         @customer_last_name = @customer.customer_last_name
-        @grooming_appointment_id = @grooming_appointment.id
+        if !@grooming_appointment.nil?
+          @grooming_appointment_id = @grooming_appointment.id
+        end
         @photo_type_id = params[:photo_type_id]
         format.html { render :new }
         format.json { render json: @pet_photo.errors, status: :unprocessable_entity }
