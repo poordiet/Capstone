@@ -1,3 +1,4 @@
+
 <div class="nested-fields col-md-12">
 <h4>Add Vaccination</h4>
 <hr>
@@ -10,29 +11,30 @@
     </div>
     </div>
 
-    <div class="form-row">
-    <div class="field form-group">
-        <%= f.label :date_given %>
-        <br>
-        <%= f.date_select :date_given %>
-    </div>
-    </div>
+<div class="form-row">
+  <div class="field">
+    <%= f.label :date_given, 'Date Given' %>
+     <%= f.text_field :date_given, type: 'date', class: 'form-control col-md-12' %>
+  </div>
+  </div>
 
-    <div class="form-row">
-    <div class="field form-group">
-        <%= f.label :duration, "Duration (Years)" %>
-        <br>
-        <%= f.number_field :duration, class: 'form-control'%>
-    </div>
-    </div>
+  <br>
 
-    <div class="form-row">
-    <div class="field form-group">
-        <%= f.label :date_expire %>
-        <br>
-        <%= f.date_select :date_expire %>
-    </div>
-    </div>
+  <div class="form-row">
+  <div class="field">
+    <%= f.label :duration, 'Duration' %>
+    <%= f.select :duration, [0.5, 1, 2, 3, 4, 5],options = {include_blank: true}, class: 'form-control' %>
+  </div>
+  </div>
+  <br>
+
+  <div class="form-row">
+  <div class="field">
+    <%= f.label :date_expire, 'Expiration Date' %>
+     <%= f.text_field :date_expire, type: 'date', class: 'form-control'%>
+  </div>
+  </div>
+
 
     <div class="form-row col-md-12">
     <%= link_to_remove_association "Remove Vaccine", f, class: 'btn btn-secondary btn-sm' %>

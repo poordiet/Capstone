@@ -28,16 +28,16 @@ class PetVaccinationsController < ApplicationController
   # POST /pet_vaccinations.json
   def create
 
-    @pet = Pet.find(params[:pet_vaccination][:pet_id])
+    @pet = Pet.find(params[:pet_vaccination][:pet_id]) 
 
-    # Automatically calculate the expiration date from the date given and duration
-    @date_given = params[:pet_vaccination][:date_given]
-    @duration = params[:pet_vaccination][:duration]
-    @date_expire = params[:pet_vaccination][:date_expire]
-    #@date_expire = @date_given + @duration.to_i.years
 
-    
+    puts "This is the pet vaccination create controller"
     @pet_vaccination = PetVaccination.new(pet_vaccination_params)
+
+    @date_given = @pet_vaccination.date_given
+    @date_expire = @pet_vaccination.date_expire
+    @duration = @pet_vaccination.duration
+
     @pet_vaccination.calculate_expiration(@date_given, @duration, @date_expire)
     #@pet_vaccination.date_expire = @date_expire
 

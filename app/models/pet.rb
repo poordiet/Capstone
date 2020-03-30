@@ -15,7 +15,6 @@ class Pet < ApplicationRecord
     validates :pet_status, presence: true
     validates :pet_gender, presence: true
     validates :spayed_neutered, presence: true
-    validates :customer_id, presence: true
     validates :pet_treat, presence: true
     validates :pet_color, presence: true
     validates :pet_breed, presence: true
