@@ -15,9 +15,6 @@ class GroomingAppointmentsController < ApplicationController
   # GET /grooming_appointments/new
   def new
 
-    @pet_vaccinations = PetVaccination.all
-    @pets = Pet.all
-
     @pet_name = params[:pet_name]
     @pet_id = params[:pet_id]
     @pet = Pet.find(params[:pet_id])

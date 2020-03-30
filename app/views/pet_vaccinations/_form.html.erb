@@ -34,7 +34,7 @@
   <div class="form-row">
   <div class="field">
     <%= form.label :date_given, 'Date Given' %>
-    <%= form.date_select :date_given %>
+     <%= form.text_field :date_given, type: 'date', class: 'form-control col-md-12' %>
   </div>
   </div>
 
@@ -42,8 +42,16 @@
 
   <div class="form-row">
   <div class="field">
+    <%= form.label :duration, 'Duration' %>
+    <%= form.select :duration, [0.5, 1, 2, 3, 4, 5], class: 'form-control' %>
+  </div>
+  </div>
+  <br>
+
+  <div class="form-row">
+  <div class="field">
     <%= form.label :date_expire, 'Expiration Date' %>
-    <%= form.date_select :date_expire %>
+     <%= form.text_field :date_expire, type: 'date', class: 'form-control col-md-12' %>
   </div>
   </div>
 
