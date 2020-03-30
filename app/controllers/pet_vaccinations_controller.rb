@@ -58,6 +58,7 @@ class PetVaccinationsController < ApplicationController
   # PATCH/PUT /pet_vaccinations/1
   # PATCH/PUT /pet_vaccinations/1.json
   def update
+
     respond_to do |format|
       if @pet_vaccination.update(pet_vaccination_params)
         format.html {  redirect_to session.delete(:prev_url), notice: "Pet Vaccine was successfully updated."}

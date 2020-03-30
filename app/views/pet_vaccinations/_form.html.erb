@@ -25,6 +25,7 @@
   <div class="form-row">
   <div class="field">
     <%= form.label :vaccine_id, 'Vaccine' %>
+    <br>
     <%= form.collection_select :vaccine_id, Vaccine.all, :id, :vaccine_name %>
   </div>
   </div>
@@ -43,6 +44,7 @@
   <div class="form-row">
   <div class="field">
     <%= form.label :duration, 'Duration' %>
+    <br>
     <%= form.select :duration, [0.5, 1, 2, 3, 4, 5],options = {include_blank: true}, class: 'form-control' %>
   </div>
   </div>
