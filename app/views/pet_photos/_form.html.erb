@@ -23,15 +23,15 @@
 <div class ="row">
   <div class="col-12">
     <%= form.label :customer_id, 'Customer: ', class: 'name-label'%>
-    <%= form.label :customer_first_name, params[:customer_first_name], class: 'name'%>
-    <%= form.label :customer_last_name, params[:customer_last_name], class: 'name'%>
+    <%= form.label :customer_first_name, @customer_first_name, class: 'name'%>
+    <%= form.label :customer_last_name, @customer_last_name, class: 'name'%>
   </div>
   </div>
 
 <div class ="row">
   <div class="col-12">
     <%= form.label :pet_id, 'Pet: ', class: 'name-label'%>
-    <%= form.label :pet_name, params[:pet_name], class: 'name'%>
+    <%= form.label :pet_name, @pet_name, class: 'name'%>
     <%= form.hidden_field :pet_id, :value => params[:pet_id]%>
   </div>
 </div>
@@ -42,6 +42,10 @@
     <%= form.collection_select :photo_type_id, PhotoType.all, :id, :photo_type %>
   </div>-->
 
+  <%= hidden_field_tag :grooming_appointment_id, @grooming_appointment_id %>
+  <%= hidden_field_tag :pet_id, @pet_id %>
+  <%= hidden_field_tag :photo_type_id, @photo_type_id %>
+  
   <div class="field">
     <%= form.hidden_field :grooming_appointment_id, :value => params[:grooming_appointment_id] %>
   </div>
