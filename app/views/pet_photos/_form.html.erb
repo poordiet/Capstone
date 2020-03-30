@@ -11,23 +11,31 @@
     </div>
   <% end %>
 
-<div class ="container">
-<div class = "col-6">
+<div class ="content">
+
+<h1>New Pet Photo</h1>
+<hr>
+
   <div class="field">
   <%= form.hidden_field :photo_type_id, :value => params[:photo_type_id] %>
   </div>
 
-  <div class="field">
-    <%= form.label :customer_id, 'Customer: '%>
-    <%= form.label :customer_first_name, params[:customer_first_name]%>
-    <%= form.label :customer_last_name, params[:customer_last_name]%>
+<div class ="row">
+  <div class="col-12">
+    <%= form.label :customer_id, 'Customer: ', class: 'name-label'%>
+    <%= form.label :customer_first_name, params[:customer_first_name], class: 'name'%>
+    <%= form.label :customer_last_name, params[:customer_last_name], class: 'name'%>
+  </div>
   </div>
 
-  <div class="field">
-    <%= form.label :pet_id, 'Pet: '%>
-    <%= form.label :pet_name, params[:pet_name]%>
+<div class ="row">
+  <div class="col-12">
+    <%= form.label :pet_id, 'Pet: ', class: 'name-label'%>
+    <%= form.label :pet_name, params[:pet_name], class: 'name'%>
     <%= form.hidden_field :pet_id, :value => params[:pet_id]%>
   </div>
+</div>
+<hr>
 
   <!--<div class="field">
     <%= form.label :photo_type_id, 'Photo Type' %>
@@ -38,23 +46,27 @@
     <%= form.hidden_field :grooming_appointment_id, :value => params[:grooming_appointment_id] %>
   </div>
 
-  <div class="field">
+<div class ="row">
+  <div class="col-12">
     <%= form.label :image %>
     <%= form.file_field :image, class: 'form-control'%>
   </div>
+</div>
+
+<br>
 
   <div class="field">
     <%= form.label :photo_description, "Photo Description" %>
-    <%= form.text_area :photo_description, class: 'form-control' %>
+    <%= form.text_area :photo_description, class: 'form-control',rows: '4' %>
   </div>
 
  <br>
-    <div id="buttons">
+    <div class="field">
     <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
     <button type="submit", redirect_to(:back), class="btn btn-primary btn-lg float-right ">Submit</button>
     <div>
 
 <% end %>
 
-</div>
+
 </div>
