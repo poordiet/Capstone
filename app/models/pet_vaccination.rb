@@ -3,22 +3,32 @@ class PetVaccination < ApplicationRecord
   belongs_to :vaccine
   belongs_to :pet
 
-  def calculate_expiration(date_given, duration)
-    if !duration=="" && !date_given ==""
+  def calculate_expiration(date_given, duration, date_expire)
+    if !duration.empty? && !date_given.empty? && date_expire.empty?
 
       duration = duration.to_f
-      Date.parse(date_given)
+      date_given = Date.parse(date_given)
 
       if duration == 0.5
         duration = 6
         duration = duration.to_i.months
       else
-        duration = duration.years
+        duration = duration.to_i.years
       end 
 
       self.date_expire = date_given + duration
   end
 
+end
+
+validate :date_given_or_date_expire
+
+
+
+def date_given_or_date_expire
+  unless (!date_given.blank? && !duration.blank?) || !date_expire.blank?
+    errors.add(:base, "Specify date given and duration or date expire")
+  end
 end
 
 end

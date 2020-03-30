@@ -30,11 +30,12 @@ class PetVaccinationsController < ApplicationController
     # Automatically calculate the expiration date from the date given and duration
     @date_given = params[:pet_vaccination][:date_given]
     @duration = params[:pet_vaccination][:duration]
+    @date_expire = params[:pet_vaccination][:date_expire]
     #@date_expire = @date_given + @duration.to_i.years
 
     
     @pet_vaccination = PetVaccination.new(pet_vaccination_params)
-    @pet_vaccination.calculate_expiration(@date_given, @duration)
+    @pet_vaccination.calculate_expiration(@date_given, @duration, @date_expire)
     #@pet_vaccination.date_expire = @date_expire
 
     respond_to do |format|
