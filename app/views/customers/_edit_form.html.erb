@@ -19,15 +19,15 @@
 <br>
 <h1>Editing Customer</h1>
 <br>
-
+ <p><i>* Indicates Required Fields</i></p>
  <div class="form-row">
    <div class="field form-group col-md-6">
-    <%= form.label :date_obtained, 'Date Obtained' %>
+    <%= form.label :date_obtained, 'Date Obtained *' %>
     <%= form.text_field :date_obtained, type: 'date', class: 'form-control col-md-8' %>
   </div>
  
     <div class="field form-group col-md-6">
-    <%= form.label :customer_status_id, 'Status' %>
+    <%= form.label :customer_status_id, 'Status *' %>
     <br>
     <%= form.collection_select :customer_status_id, CustomerStatus.all, :id, :status%>
   </div>
@@ -35,12 +35,12 @@
 
 <div class="form-row">
   <div class="field form-group col-md-6">
-    <%= form.label :customer_first_name, 'First Name' %>
+    <%= form.label :customer_first_name, 'First Name *' %>
     <%= form.text_field :customer_first_name, class: 'form-control'  %>
   </div>
 
   <div class="field form-group col-md-6">
-    <%= form.label :customer_last_name, 'Last Name' %>
+    <%= form.label :customer_last_name, 'Last Name *' %>
     <%= form.text_field :customer_last_name, class: 'form-control'  %>
   </div>
   </div>
@@ -72,7 +72,7 @@
 
 <div class="form-row">
   <div class="field form-group col-md-6">
-    <%= form.label :customer_primary_phone, 'Primary Phone' %>
+    <%= form.label :customer_primary_phone, 'Primary Phone *' %>
     <%= form.text_field :customer_primary_phone, class: 'form-control' %>
   </div>
 
@@ -98,7 +98,9 @@
   </div>
 </div>
 
-  
+  <hr>
+  <h2> Pets </h2>
+  <hr>
  <div class="form-row">
       <div class="field form-group col-md-12">
           <%= link_to_add_association 'Add Pet', form, :pets, class: 'btn btn-success btn-sm btn-block float-left mx-auto' %>

@@ -2,17 +2,17 @@
 <div class="container">
     <div class="row">
         <div class="col-11">
-            <p>
-                <%= link_to 'Update', edit_employee_path(@employee), class:'btn btn-warning btn-lg float-right mr-2' %>
-                <%= link_to 'Back', employees_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
-            </p>
 
             <p id="notice"><%= notice %></p>
 
             <h1>
                 <%= @employee.emp_first_name %> <%= @employee.emp_last_name %>
             </h1>
-            <br>
+            <hr>
+             <p>
+                <%= link_to 'Update', edit_employee_path(@employee), class:'btn btn-warning btn-lg float-right mr-2' %>
+                <%= link_to 'Back', employees_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+            </p>
             <p>
                 <strong>Primary Phone:</strong>
                 <%= number_to_phone(@employee.emp_primary_phone) %>

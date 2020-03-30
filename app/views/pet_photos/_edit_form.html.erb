@@ -11,43 +11,47 @@
     </div>
   <% end %>
 
-<div class ="container">
-<div class = "col-6">
+<div class ="content">
+
+<h1>Update Pet Photo</h1>
+<p><i>* Indicates Required Fields</i></p>
+<hr>
+
   <div class="field">
   <%= form.hidden_field :photo_type_id, :value => @pet_photo.photo_type_id %>
   </div>
 
   <div class="field">
-    <%= form.label :pet_id, 'Customer: '%>
-    <%= form.label :pet_id, @pet_photo.pet.customer.customer_first_name%>
-    <%= form.label :pet_id, @pet_photo.pet.customer.customer_last_name%>
-    <!--<%= form.collection_select :pet_id, Pet.all, :id, :pet_name %>-->
+    <%= form.label :pet_id, 'Customer: ', class: 'name-label'%>
+    <%= form.label :pet_id, @pet_photo.pet.customer.customer_first_name, class: 'name'%>
+    <%= form.label :pet_id, @pet_photo.pet.customer.customer_last_name, class: 'name'%>
   </div>
 
   <div class="field">
-    <%= form.label :pet_id, 'Pet: '%>
-    <%= form.label :pet_id, value: @pet_photo.pet.pet_name%>
-    <!--<%= form.collection_select :pet_id, Pet.all, :id, :pet_name %>-->
+    <%= form.label :pet_id, 'Pet: ', class: 'name-label'%>
+    <%= form.label :pet_id, value: @pet_photo.pet.pet_name, class: 'name'%>
   </div>
 
-  <!--<div class="field">
-    <%= form.label :photo_type_id, 'Photo Type' %>
-    <%= form.collection_select :photo_type_id, PhotoType.all, :id, :photo_type %>
-  </div>-->
+  <hr>
 
   <div class="field">
     <%= form.hidden_field :grooming_appointment_id, value: @pet_photo.grooming_appointment_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :image %>
+  <div class ="row">
+  <div class="col-12">
+    <%= form.label :image, "Image *" %>
     <%= form.file_field :image, class: 'form-control'%>
   </div>
+</div>
+
+<br>
 
   <div class="field">
     <%= form.label :photo_description, "Photo Description" %>
-    <%= form.text_area :photo_description, class: 'form-control' %>
+    <%= form.text_area :photo_description, class: 'form-control',rows: '4' %>
   </div>
+
 
  <br>
     <div id="buttons">

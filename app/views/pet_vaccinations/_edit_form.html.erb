@@ -11,29 +11,72 @@
     </div>
   <% end %>
 
+  <style>
+ .pet-vaccination-content {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 10px;
+    }
+</style>
 
+<div class="pet-vaccination-content">
+<br>
+<h1>Edit Pet Vaccination</h1>
+<i>Specify date given AND duration, or any combination with date expire</i>
+<hr>
+
+<div class="form-row">
 <div class="field">
-  <%= form.label :pet_id, 'Pet: ' %>
+  <%= form.label :pet_id, 'Pet: ', class: 'name-label' %>
   <%= form.hidden_field :pet_id, :value => @pet_vaccination.pet.id %>
-  <%= form.label :pet_name, :value => @pet_vaccination.pet.pet_name%>
+  <%= form.label :pet_name, :value => @pet_vaccination.pet.pet_name, class: 'name'%>
+</div>
 </div>
 
+<br>
+
+  <div class="form-row">
   <div class="field">
     <%= form.label :vaccine_id, 'Vaccine' %>
+    <br>
     <%= form.collection_select :vaccine_id, Vaccine.all, :id, :vaccine_name %>
   </div>
+  </div>
 
+  <br>
+
+  <div class="form-row">
   <div class="field">
     <%= form.label :date_given, 'Date Given' %>
-    <%= form.date_select :date_given %>
+     <%= form.text_field :date_given, type: 'date', class: 'form-control col-md-12' %>
+  </div>
   </div>
 
+  <br>
+
+  <div class="form-row">
+  <div class="field">
+    <%= form.label :duration, 'Duration' %>
+    <br>
+    <%= form.select :duration, [0.5, 1, 2, 3, 4, 5],options = {include_blank: true}, class: 'form-control' %>
+  </div>
+  </div>
+  <br>
+
+  <div class="form-row">
   <div class="field">
     <%= form.label :date_expire, 'Expiration Date' %>
-    <%= form.date_select :date_expire %>
+     <%= form.text_field :date_expire, type: 'date', class: 'form-control col-md-12' %>
+  </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <br>
+  <div class="form-row">
+       <div class="col-12">
+    <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
+     <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
   </div>
+    </div>
+</div>
 <% end %>

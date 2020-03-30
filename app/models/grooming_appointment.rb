@@ -24,5 +24,7 @@ class GroomingAppointment < ApplicationRecord
   validates :appt_time, presence: true
   validates :pet_id, presence: true
   validates :store_id, presence: true
+  validates :vac_current, presence: true
+  validates :vac_current_date, presence: true
   
 end

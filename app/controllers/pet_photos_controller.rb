@@ -14,6 +14,16 @@ class PetPhotosController < ApplicationController
 
   # GET /pet_photos/new
   def new
+
+    @pet_name = params[:pet_name]
+    @pet_id = params[:pet_id]
+    @pet = Pet.find(params[:pet_id])
+    @customer_first_name = params[:customer_first_name]
+    @customer_last_name = params[:customer_last_name]
+    @grooming_appointment_id = params[:grooming_appointment_id]
+    @photo_type_id = params[:photo_type_id]
+
+
     @pet_photo = PetPhoto.new
     session[:prev_url] = request.referer
   end
@@ -26,6 +36,14 @@ class PetPhotosController < ApplicationController
   # POST /pet_photos
   # POST /pet_photos.json
   def create
+
+    @pet = Pet.find(params[:pet_id])
+    @customer = Customer.find(@pet.customer.id)
+    if !params[:grooming_appointment_id].empty?
+      @grooming_appointment = GroomingAppointment.find(params[:grooming_appointment_id])
+    end
+    @photo_type_id = params[:photo_type_id]
+
     @pet_photo = PetPhoto.new(pet_photo_params)
 
     respond_to do |format|
@@ -34,6 +52,14 @@ class PetPhotosController < ApplicationController
         #format.html { redirect_to @pet_photo, notice: 'Pet photo was successfully created.' }
         #format.json { render :show, status: :created, location: @pet_photo }
       else
+        @pet_id = @pet.id
+        @pet_name = @pet.pet_name
+        @customer_first_name = @customer.customer_first_name
+        @customer_last_name = @customer.customer_last_name
+        if !@grooming_appointment.nil?
+          @grooming_appointment_id = @grooming_appointment.id
+        end
+        @photo_type_id = params[:photo_type_id]
         format.html { render :new }
         format.json { render json: @pet_photo.errors, status: :unprocessable_entity }
       end

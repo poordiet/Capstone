@@ -14,6 +14,8 @@ class PetVaccinationsController < ApplicationController
 
   # GET /pet_vaccinations/new
   def new
+    @pet_id = params[:pet_id]
+    @pet_name = params[:pet_name]
     @pet_vaccination = PetVaccination.new
     session[:prev_url] = request.referer
   end
@@ -26,7 +28,19 @@ class PetVaccinationsController < ApplicationController
   # POST /pet_vaccinations
   # POST /pet_vaccinations.json
   def create
+
+    @pet = Pet.find(params[:pet_vaccination][:pet_id]) 
+
+
+    puts "This is the pet vaccination create controller"
     @pet_vaccination = PetVaccination.new(pet_vaccination_params)
+
+    @date_given = @pet_vaccination.date_given
+    @date_expire = @pet_vaccination.date_expire
+    @duration = @pet_vaccination.duration
+
+    @pet_vaccination.calculate_expiration(@date_given, @duration, @date_expire)
+    #@pet_vaccination.date_expire = @date_expire
 
     respond_to do |format|
       if @pet_vaccination.save
@@ -34,6 +48,8 @@ class PetVaccinationsController < ApplicationController
         #format.html { redirect_to @pet_vaccination, notice: 'Pet vaccination was successfully created.' }
         #format.json { render :show, status: :created, location: @pet_vaccination }
       else
+        @pet_name = @pet.pet_name
+        @pet_id = @pet.id
         format.html { render :new }
         format.json { render json: @pet_vaccination.errors, status: :unprocessable_entity }
       end
@@ -43,6 +59,7 @@ class PetVaccinationsController < ApplicationController
   # PATCH/PUT /pet_vaccinations/1
   # PATCH/PUT /pet_vaccinations/1.json
   def update
+
     respond_to do |format|
       if @pet_vaccination.update(pet_vaccination_params)
         format.html {  redirect_to session.delete(:prev_url), notice: "Pet Vaccine was successfully updated."}

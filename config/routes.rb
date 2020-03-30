@@ -13,8 +13,12 @@ Rails.application.routes.draw do
   resources :stores
   resources :employees
   resources :services
-  resources :pets
-  resources :customers
+  resources :pets do
+    resources :grooming_appointments
+  end
+  resources :customers do
+    resources :pets
+  end
   resources :photo_types
   resources :service_statuses
   resources :payment_types

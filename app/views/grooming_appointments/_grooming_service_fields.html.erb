@@ -7,7 +7,7 @@
 
 <div class="form-row">
         <div class="field form-group col-md-6">
-            <%= f.label :service_id, 'Service Name' %>
+            <%= f.label :service_id, 'Service Name *' %>
             <br>
             <%= f.collection_select :service_id, Service.all, :id, :service_name %>
         </div>

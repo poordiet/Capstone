@@ -48,6 +48,7 @@ body{
 }
 
 
+
  // Grooming Appointment Module 
  // .content will center a form
  .content {
@@ -65,6 +66,7 @@ body{
     .name{
     font-size: 20px;
     }
+
 
 // Success Notification Styling
     .success-notice{
@@ -86,5 +88,13 @@ select {
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+ 
+.pet-vaccination-content {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 10px;
+    }
+
     
  

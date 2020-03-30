@@ -1,34 +1,9 @@
 
 <div class="nested-fields">
-<br>
-<br>
-<h1>Add Pet</h1>
-<hr>
-<br>
-<div class="form-row">
-    <div class="field form-group col-md-4">
-        <%= f.label :pet_birthdate, 'Pet Birthdate' %>
-        <%= f.text_field :pet_birthdate, type: 'date', class: 'form-control col-md-8' %>
-        <!--<%= f.date_select :pet_birthdate, :start_year=>2000, class: 'form-control' %>-->
-    </div>
-</div>
 
-<div class="form-row col-md-12">
-        <div class="field form-group col-md-4">
-            <%= f.label :spayed_neutered, 'Spayed/Neutered' %>
-            <%= f.select :spayed_neutered, ['Y', 'N'], class: 'form-control' %>
-        </div>
+<h3>Pet</h3>
+<br>
 
-        <div class="field form-group col-md-4">
-            <%= f.label :pet_treat, 'Pet Treat' %>
-            <%= f.select :pet_treat, ['Y', 'N'], class: 'form-control' %>
-        </div>
-
-        <div class="field form-group col-md-4">
-            <%= f.label :pet_gender, 'Pet Gender' %>
-            <%= f.select :pet_gender, ['M', 'F'], class: 'form-control' %>
-        </div>
-    </div>
 
 <div class="form-row">
         
@@ -36,7 +11,7 @@
 
   <div class="form-row">
         <div class="field form-group col-md-6">
-            <%= f.label :pet_name, 'Pet Name' %>
+            <%= f.label :pet_name, 'Pet Name *' %>
             <%= f.text_field :pet_name, class: 'form-control col-md-8' %>
         </div>
 
@@ -45,9 +20,52 @@
        </div>
 
         <div class="field form-group col-md-6">
-            <%= f.label :pet_breed, 'Pet Breed' %>
+            <%= f.label :pet_breed, 'Breed *' %>
             <%= f.text_field :pet_breed, class: 'form-control col-md-8' %>
       </div>
+    </div>
+
+      <div class="form-row">
+        <div class="field form-group col-md-6">
+            <%= f.label :pet_color, 'Color *' %>
+            <%= f.text_field :pet_color, class: 'form-control col-md-8' %>
+        </div>
+
+        <div class="field form-group col-md-6">
+            <%= f.label :pet_weight, 'Weight *' %>
+            <%= f.text_field :pet_weight, class: 'form-control col-md-8' %>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="form-row col-md-12">
+        <div class="field form-group col-md-4">
+            <%= f.label :spayed_neutered, 'Spayed/Neutered *' %>
+            <br>
+            <%= f.select :spayed_neutered, ['Y', 'N'], class: 'form-control' %>
+        </div>
+
+        <div class="field form-group col-md-4">
+            <%= f.label :pet_treat, 'Pet Treat *' %>
+            <%= f.select :pet_treat, ['Y', 'N'], class: 'form-control' %>
+        </div>
+
+        <div class="field form-group col-md-4">
+            <%= f.label :pet_gender, 'Pet Gender *' %>
+            <br>
+            <%= f.select :pet_gender, ['M', 'F'], class: 'form-control' %>
+        </div>
+    </div>
+
+    <br>
+    
+    <div class="form-row">
+    <div class="field form-group col-md-6">
+        <%= f.label :pet_birthdate, 'Pet Birthdate' %>
+        <%= f.text_field :pet_birthdate, type: 'date', class: 'form-control col-md-8' %>
+        <!--<%= f.date_select :pet_birthdate, :start_year=>2000, class: 'form-control' %>-->
+    </div>
     </div>
 
     <div class="form-row">
@@ -62,17 +80,6 @@
         </div>
     </div>
 
-    <div class="form-row">
-        <div class="field form-group col-md-6">
-            <%= f.label :pet_color, 'Color' %>
-            <%= f.text_field :pet_color, class: 'form-control col-md-8' %>
-        </div>
-
-        <div class="field form-group col-md-6">
-            <%= f.label :pet_weight, 'Weight' %>
-            <%= f.text_field :pet_weight, class: 'form-control col-md-8' %>
-        </div>
-    </div>
 
     <div class="form-row">
         <div class="field form-group col-md-12">
@@ -99,7 +106,7 @@
 
     <div class = "form-row">
     <div class ="field form-group col-md-12">
-    <%= link_to_remove_association "Remove Pet", f, class: 'btn btn-secondary btn-lg float-left mx-auto col-md-12' %> <br>
+    <%= link_to_remove_association "Remove Pet", f, class: 'btn btn-secondary btn-sm float-left mx-auto col-md-12' %> <br>
     </div>
     </div>
     <hr>
@@ -107,14 +114,10 @@
     <div class= "form-row col-md-12">
     <div id="pet_vaccinations">
     <div class="pet_vaccines">
-        <%= link_to_add_association 'Add Vaccine', f, :pet_vaccinations, class: 'btn btn-success btn-lg float-left mx-auto col-md-12'%>
+        <%= link_to_add_association 'Add Vaccine', f, :pet_vaccinations, class: 'btn btn-info btn-sm float-left mx-auto col-md-12'%>
     </div>
     </div>
     </div>
     <hr>
-
-    <br>
-    <br>
-    
 
 </div>

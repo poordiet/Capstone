@@ -4,4 +4,7 @@ class GroomingService < ApplicationRecord
   belongs_to :employee,  optional: true
 
 
+   # Form Validations
+   validates :service_id, presence: true
+
 end

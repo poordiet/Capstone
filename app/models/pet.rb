@@ -9,4 +9,14 @@ class Pet < ApplicationRecord
   accepts_nested_attributes_for :pet_vaccinations, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :vaccines, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :pet_photos, reject_if: :all_blank, allow_destroy: true
+
+    # Form Validations
+    validates :pet_name, presence: true
+    validates :pet_status, presence: true
+    validates :pet_gender, presence: true
+    validates :spayed_neutered, presence: true
+    validates :pet_treat, presence: true
+    validates :pet_color, presence: true
+    validates :pet_breed, presence: true
+    validates :pet_weight, presence: true
 end
