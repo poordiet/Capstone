@@ -15,6 +15,7 @@ class PetVaccinationsController < ApplicationController
   # GET /pet_vaccinations/new
   def new
     @pet_id = params[:pet_id]
+    @pet_name = params[:pet_name]
     @pet_vaccination = PetVaccination.new
     session[:prev_url] = request.referer
   end

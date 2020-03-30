@@ -11,12 +11,25 @@
     </div>
   <% end %>
 
+<style>
+ .pet-vaccination-content {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 10px;
+    }
+</style>
+<div class="pet-vaccination-content">
+<br>
+<h1>New Pet Vaccination</h1>
+<i>Specify date given AND duration, or any combination with date expire</i>
+<hr>
 
 <div class="form-row">
 <div class="field">
-  <%= form.label :pet_id, 'Pet: ' %>
+  <%= form.label :pet_id, 'Pet: ', class: 'name-label' %>
   <%= form.hidden_field :pet_id, :value => @pet_id %>
-  <%= form.label :pet_name, :value => @pet_name%>
+  <%= form.label :pet_name, :value => @pet_name, class: 'name'%>
 </div>
 </div>
 
@@ -59,9 +72,10 @@
 
   <br>
   <div class="form-row">
-      <div id="buttons">
-        <button type="submit" class="btn btn-primary btn-lg  ">Submit</button>
+       <div class="col-12">
+    <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
+     <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+  </div>
     </div>
-    </div>
-
+</div>
 <% end %>
