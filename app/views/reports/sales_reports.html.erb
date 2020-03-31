@@ -4,7 +4,7 @@
      <hr>
     <br>
 
-    <h2>Sales per Service</h2>
+    <h2>Lifetime Sales per Service</h2>
     <table id="example" class="table table-striped table-bordered" style="width: 1000px;">
 	<thead class="thead-dark">
       <th>Service</th>
@@ -24,7 +24,7 @@
      <hr>
     <br>
 
-     <h2>Sales per Store</h2>
+     <h2>Lifetime Sales per Store</h2>
     <table id="example" class="table table-striped table-bordered" style="width: 1000px;">
 	<thead class="thead-dark">
       <th>Store</th>
@@ -35,6 +35,47 @@
 		<tr>
          <td><%= sales_by_store.store.store_name %></td>
         <td><%= number_to_currency sales_by_store.sum%></td>
+       <% end %>
+		</tbody>
+	</table>
+
+
+    <br>
+     <hr>
+    <br>
+    <h2>Current Year Sales per Month</h2>
+    <table id="example" class="table table-striped table-bordered" style="width: 1000px;">
+	<thead class="thead-dark">
+      <th>Month</th>
+      <th>Total Sales</th>
+		</thead>
+		<tbody>
+     <% @sales_by_month.each do |sales_by_month| %>
+		<tr>
+         <% if sales_by_month.month.year == Date.today.year %>
+         <td><%= sales_by_month.month.strftime("%B") %></td>
+        <td><%= number_to_currency sales_by_month.sales%></td>
+        <% end %>
+       <% end %>
+		</tbody>
+	</table>
+
+    <br>
+     <hr>
+    <br>
+    <h2>Previous Year Sales per Month</h2>
+    <table id="example" class="table table-striped table-bordered" style="width: 1000px;">
+	<thead class="thead-dark">
+      <th>Month</th>
+      <th>Total Sales</th>
+		</thead>
+		<tbody>
+     <% @sales_by_month.each do |sales_by_month| %>
+		<tr>
+         <% if sales_by_month.month.year == Date.today.last_year.year  %>
+         <td><%= sales_by_month.month.strftime("%B") %></td>
+        <td><%= number_to_currency sales_by_month.sales%></td>
+        <% end %>
        <% end %>
 		</tbody>
 	</table>

@@ -11,110 +11,138 @@
     </div>
   <% end %>
 
-<div class="field">
-  <%= form.label :customer_id, 'Customer: ' %>
-  <%= form.label :customer_first_name, pet.customer.customer_first_name%>
-  <%= form.label :customer_first_name, pet.customer.customer_last_name%>
+<div class="content">
+<br>
+<h1>Editing Pet</h1>
+<p><i>* Indicates Required Fields</i></p>
+<hr>
+<br>
+<div class="field ">
+  <%= form.label :customer_id, 'Customer: ', class: 'name-label'%>
+  <%= form.label :customer_first_name, pet.customer.customer_first_name, class: 'name'%>
+  <%= form.label :customer_first_name, pet.customer.customer_last_name, class: 'name'%>
 </div>
+
+<hr>
 
   <!--
   <div class="field">
     <%= form.label :customer_id %>
     <%= form.collection_select :customer_id, Customer.all, :id, :customer_first_name %>
   </div> -->
-
-  <div class="field">
+  
+  <div class="field form-group">
     <%= form.label :status, 'Status' %>
     <%= form.collection_select :pet_status_id, PetStatus.all, :id, :definition %>
   </div>
+  
 
-  <div class="field">
-    <%= form.label :pet_name, 'Pet Name' %>
-    <%= form.text_field :pet_name %>
-  </div>
+   <div class="form-row">
+        <div class="field form-group col-md-6">
+            <%= form.label :pet_name, 'Pet Name *' %>
+            <%= form.text_field :pet_name, class: 'form-control col-md-8' %>
+        </div>
 
+        <div class="field">
+            <%= form.hidden_field :pet_status_id, value: 1 %>
+       </div>
 
-  <div class="field">
-    <%= form.label :pet_gender, 'Pet Gender' %>
-    <%= form.select :pet_gender, ['M', 'F'] %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pet_birthdate, 'Birthdate' %>
-     <%= form.text_field :pet_birthdate, type: 'date', class: 'form-control' %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pet_allergies, 'Allergies' %>
-    <%= form.text_area :pet_allergies %>
-  </div>
-
-  <div class="field">
-    <%= form.label :spayed_neutered, 'Spayed/Neutered' %>
-    <%= form.select :spayed_neutered, ['Y', 'N'] %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pet_treat, 'Treats' %>
-    <%= form.select :pet_treat, ['Y', 'N'] %>
-  </div>
-
-  <div class="field">
-    <%= form.label :vet_name, 'Vet Name' %>
-    <%= form.text_field :vet_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :vet_phone, 'Vet Phone' %>
-    <%= form.text_field :vet_phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pet_medical_issues, 'Medical Issues' %>
-    <%= form.text_area :pet_medical_issues %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pet_notes, 'Pet Notes' %>
-    <%= form.text_area :pet_notes %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pet_color, 'Pet Color' %>
-    <%= form.text_field :pet_color %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pet_breed %>
-    <%= form.text_field :pet_breed %>
+        <div class="field form-group col-md-6">
+            <%= form.label :pet_breed, 'Breed *' %>
+            <%= form.text_field :pet_breed, class: 'form-control col-md-8' %>
+      </div>
     </div>
 
-  <div class="field">
-    <%= form.label :pet_weight, 'Pet Weight' %>
-    <%= form.text_field :pet_weight %>
-  </div>
+      <div class="form-row">
+        <div class="field form-group col-md-6">
+            <%= form.label :pet_color, 'Color *' %>
+            <%= form.text_field :pet_color, class: 'form-control col-md-8' %>
+        </div>
 
-  <!--<%= form.fields_for :pet_photos do |builder| %>
-    <%= render "pet_photo_fields", :f => builder %>
-  <% end %>-->
+        <div class="field form-group col-md-6">
+            <%= form.label :pet_weight, 'Weight *' %>
+            <%= form.text_field :pet_weight, class: 'form-control col-md-8' %>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="form-row col-md-12">
+        <div class="field form-group col-md-4">
+            <%= form.label :spayed_neutered, 'Spayed/Neutered *' %>
+            <br>
+            <%= form.select :spayed_neutered, ['Y', 'N'], class: 'form-control' %>
+        </div>
+
+        <div class="field form-group col-md-4">
+            <%= form.label :pet_treat, 'Pet Treat *' %>
+            <%= form.select :pet_treat, ['Y', 'N'], class: 'form-control' %>
+        </div>
+
+        <div class="field form-group col-md-4">
+            <%= form.label :pet_gender, 'Pet Gender *' %>
+            <br>
+            <%= form.select :pet_gender, ['M', 'F'], class: 'form-control' %>
+        </div>
+    </div>
+
+    <br>
+    
+    <div class="form-row">
+    <div class="field form-group col-md-6">
+        <%= form.label :pet_birthdate, 'Pet Birthdate' %>
+        <%= form.text_field :pet_birthdate, type: 'date', class: 'form-control col-md-8' %>
+        <!--<%= form.date_select :pet_birthdate, :start_year=>2000, class: 'form-control' %>-->
+    </div>
+    </div>
+
+    <div class="form-row">
+        <div class="field form-group col-md-6">
+            <%= form.label :vet_name, 'Vet Name' %>
+            <%= form.text_field :vet_name, class: 'form-control col-md-8' %>
+        </div>
+
+        <div class="field form-group col-md-6">
+            <%= form.label :vet_phone, 'Vet Phone' %>
+            <%= form.text_field :vet_phone, class: 'form-control col-md-8' %>
+        </div>
+    </div>
+
+
+    <div class="form-row">
+        <div class="field form-group col-md-12">
+            <%= form.label :pet_allergies, 'Pet Allergies' %>
+            <%= form.text_area :pet_allergies, class: 'form-control' %>
+        </div>
+
+        
+    </div>
+
+    <div class="form-row">
+        <div class="field form-group col-md-12">
+            <%= form.label :pet_medical_issues, 'Medical Issues' %>
+            <%= form.text_area :pet_medical_issues, class: 'form-control' %>
+        </div>
+    </div>
+
+    <div class="form-row">
+    <div class="field form-group col-md-12">
+            <%= form.label :pet_notes, 'Pet Notes'%>
+            <%= form.text_area :pet_notes, class: 'form-control' %>
+        </div>
+    </div>
+
+  <div class="form-row">
+  <div class="form-group col-md-12">
+    <%= link_to_add_association 'Add Vaccine', form, :pet_vaccinations, class: 'btn btn-success btn-sm float-left mx-auto col-md-12' %>
+  </div>
+  </div>
 
   <br>
-  <br>
-
-  <!--<h2>Vaccines</h2>
-    <div id="pet_vaccinations">
-        <%= form.fields_for :pet_vaccinations do |pet_vaccination| %>
-          <%= render "pet_vaccination_fields", f: pet_vaccination %>
-        <% end %> 
-    </div>-->
-
-  <div class="pet_vaccines">
-    <%= link_to_add_association 'Add Vaccine', form, :pet_vaccinations %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-
-   <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+    <div>
+     <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+    <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
+    <div>
 <% end %>
+
+</div>

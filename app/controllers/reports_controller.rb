@@ -24,6 +24,7 @@ class ReportsController < ApplicationController
         @date_obtained = ReportCalculations.date_obtained
         @customer_sales = ReportCalculations.customer_sales
         @customer_appointments = ReportCalculations.customer_appointments
+        @sales_by_month = ReportCalculations.sales_by_month
     end
 
     def customer_reports

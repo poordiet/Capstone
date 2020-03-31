@@ -1,5 +1,6 @@
 
 <div class="container">
+
 <br>
 <hr>
 <br>
@@ -7,13 +8,13 @@
     <div class="col-lg-6 info-box">
         <h2>Sales Overview</h2>
         <p>
-            Today's Sales: <span class="text-primary"> <%= number_to_currency @sales_by_day%></span>
+            Today's Sales: <span class="text-primary"> <%= number_to_currency GroomingAppointment.where(:appt_date => Date.today).sum(:appt_total) %></span>
         </p>
     </div> 
     <div class="col-lg-6 info-box">
         <h2>Grooming Overview</h2>
         <p>
-        Total Groomings Performed Today: <span class="text-primary"> <%= @grooming_per_day%></span>
+        Total Groomings Performed Today: <span class="text-primary"> <%= GroomingAppointment.where(:appt_date => Date.today).count(:id) %></span>
         </p>
     </div>
 </div>
@@ -57,26 +58,7 @@
   </tbody>
 </table>
 
-<br>
-<hr>
-<br>
 
- <h2>Pet Birthdays this Month</h2>
-    <table id="example" class="table table-striped table-bordered" style="width: 1000px;">
-	<thead class="thead-dark">
-      <th>Pet</th>
-      <th>Birthday</th>
-		</thead>
-		<tbody>
-     <% @pets.each do |pets| %>
-		<tr>
-      <% if pets.pet_birthdate.present? && pets.pet_birthdate.strftime("%m%d") >= Date.today.beginning_of_month.strftime('%m%d') &&  pets.pet_birthdate.strftime("%m%d") <= Date.today.end_of_month.strftime('%m%d')%>
-      <td><%= pets.pet_name %></td>
-      <td><%= pets.pet_birthdate%></td>
-        <% end %>
-       <% end %>
-		</tbody>
-	</table>
 
 
 </div>

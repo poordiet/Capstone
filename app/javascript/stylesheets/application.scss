@@ -17,6 +17,33 @@ body{
     width: 100%;
 }
 
+// ValerieBar
+#valeriebar1 {
+	position: absolute;
+	height: 3px;
+	background-color: #9a12b3;
+	
+	
+
+	
+	
+}
+
+//Navbar links
+nav .navbar-nav li a{
+    color: #575958 !important;
+   
+}
+
+nav .navbar-nav li a:hover { color: #9a12b3 !important; }
+
+#logo{
+    max-width: 50px;
+    margin: auto;
+    right: 20px;
+}
+
+
 #navbar{
     width: 100%;
 }
