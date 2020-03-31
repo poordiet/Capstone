@@ -9,11 +9,18 @@ class Customer < ApplicationRecord
 
   
   # Form Validations
-  validates :date_obtained, presence: true
+  #validates :date_obtained, presence: true
   validates :customer_first_name, presence: true
   validates :customer_last_name, presence: true
   validates :customer_primary_phone, presence: true
-  
+  validate :date_obtained_no_future
+
+  # Checks to see if the date_obtained is a future date
+  def date_obtained_no_future
+    if date_obtained.present? && date_obtained > Date.today
+      errors.add(:date_obtained, "can't be in the future")
+    end
+  end  
 
   # Calculates Expiration date for Pet Vaccination in the Customer Nested Form
   after_save :calculate_expiration

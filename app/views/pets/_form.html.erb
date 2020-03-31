@@ -18,8 +18,15 @@
 <div class="content">
 <h3>New Pet</h3>
 <br>
-
-
+<hr>
+<div class="field">
+  <%= form.hidden_field :customer_id, :value => params[:customer_id] %>
+  <%= form.label :customer_id, 'Customer: ', class: 'name-label' %>
+  <%= form.label :customer_first_name, :value => @customer_first_name, class: 'name'%>
+  <%= form.label :customer_last_name, :value => @customer_last_name, class: 'name'%>
+</div>
+<br>
+<hr>
 <div class="form-row">
         
 </div>
