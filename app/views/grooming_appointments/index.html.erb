@@ -3,7 +3,7 @@
 <div class="container">
 <br>
 <h1>Grooming Appointments</h1>
-<br>
+<hr>
 <!--<a class="btn btn-success float-right mt-4" href="grooming_appointments/new" role="button" aria-pressed="true">New Appointment</a>-->
 
 <table id="example" class="table table-hover table-bordered">
@@ -19,8 +19,6 @@
       <th>Edit</th>
     </tr>
   </thead>
-
-
   <tbody>
     <% @grooming_appointments.each do |grooming_appointment| %>
     <%counter = 0%>
@@ -38,7 +36,7 @@
             <%end%>
           <%end%>
         </td>
-        <td><%= grooming_appointment.store.store_address %></td>
+        <td><%= grooming_appointment.store.store_name %></td>
         <td><%= number_to_currency(grooming_appointment.appt_total) %></td>
         <td><%= link_to 'Show', grooming_appointment, class: 'btn btn-block btn-primary' %></td>
         <td><%= link_to 'Edit', edit_grooming_appointment_path(grooming_appointment), class: 'btn btn-block btn-warning' %></td>

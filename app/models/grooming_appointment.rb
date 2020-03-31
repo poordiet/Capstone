@@ -26,5 +26,6 @@ class GroomingAppointment < ApplicationRecord
   validates :store_id, presence: true
   validates :vac_current, presence: true
   validates :vac_current_date, presence: true
+  validates :appt_total, numericality: {greater_than_or_equal_to: 0,:allow_nil => true,  message: ": Total cannot be negative"}
   
 end

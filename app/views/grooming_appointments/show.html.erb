@@ -106,6 +106,7 @@
 <br>
 
 <h2>Services</h2>
+<hr>
 <div class = "row">
 <div class = "col-11">
 <%= link_to "Add Service", 
@@ -141,6 +142,7 @@ new_grooming_service_path({:id => @grooming_appointment.id}),
 
 <br>
   <h2>Styles</h2>
+  <hr>
 <div class = "row">
 <div class = "col-11">
 <%= link_to "Add Style", 
@@ -172,9 +174,15 @@ new_grooming_style_path({:id => @grooming_appointment.id}),
 
 <br>
 <h2>Incidents</h2>
-<br>
-<table id="incidents" class="table table-hover table-bordered">
-  <thead class="thead-dark">
+<hr>
+<div class = "row">
+<div class = "col-11">
+<%=link_to 'New Incident', new_incident_path({:pet_name=> @grooming_appointment.pet.pet_name,
+                                            :pet_id => @grooming_appointment.pet.id,
+                                            :grooming_appointment_id => @grooming_appointment.id}),
+                                              class: 'btn btn-success float-right', style: 'margin-top:10px'%>
+<table id="incidents" class="table table-striped table-bordered">
+  <thead>
     <th>Grooming Appointment</th>
     <th>Incident Notes</th>
     <th>Incident Cost</th>
@@ -193,6 +201,8 @@ new_grooming_style_path({:id => @grooming_appointment.id}),
     <% end %>
   </tbody>
 </table>
+</div>
+</div>
 
 <script type="text/javascript">
         var dataTable = $('#incidents').DataTable();
@@ -240,6 +250,7 @@ div.desc {
 <div class="container">
 <br>
 <h2>Before Photos</h2>
+<hr>
 <%=link_to 'New Before Photo', new_pet_photo_path({:photo_type_id => 2, 
                                             :customer_first_name => @grooming_appointment.pet.customer.customer_first_name,
                                             :customer_last_name => @grooming_appointment.pet.customer.customer_last_name,
@@ -247,7 +258,7 @@ div.desc {
                                             :pet_id => @grooming_appointment.pet.id,
                                             :grooming_appointment_id => @grooming_appointment.id}),
                                               class: 'btn btn-success', style: 'margin-top:10px'%>
-<div class="row">
+  <div class="row">
   <%@grooming_appointment.pet_photos.each do |photo|%>
    <% if photo.photo_type_id == 2 && photo.image.attached? %>
    <div class="gallery">
@@ -266,6 +277,7 @@ div.desc {
 <div class="container">
 <br>
 <h2>After Photos</h2>
+<hr>
 <%=link_to 'New After Photo', new_pet_photo_path({:photo_type_id => 3, 
                                             :customer_first_name => @grooming_appointment.pet.customer.customer_first_name,
                                             :customer_last_name => @grooming_appointment.pet.customer.customer_last_name,
@@ -273,7 +285,7 @@ div.desc {
                                             :pet_id => @grooming_appointment.pet.id,
                                             :grooming_appointment_id => @grooming_appointment.id}),
                                               class: 'btn btn-success', style: 'margin-top:10px'%>
-<div class="row">
+  <div class="row">
   <%@grooming_appointment.pet_photos.each do |photo|%>
    <% if photo.photo_type_id == 3 && photo.image.attached?%>
    <div class="gallery">
