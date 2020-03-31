@@ -38,8 +38,11 @@
 
 <script type="text/javascript">
     var dataTable = $('#example').DataTable( {
-        
-  "columns": [
+    "language":{
+      "sLengthMenu": "Num. of Entries Per Page _MENU_",
+      "sSearch": "Search:",
+
+    "columns": [
     null,
     null,
     null,
@@ -49,7 +52,10 @@
     null,
     null
   ]
-} );;
+    }
+    
+
+} );
 
     $(document).ready(function() {
         dataTable;

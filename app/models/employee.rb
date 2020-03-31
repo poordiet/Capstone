@@ -12,6 +12,14 @@ class Employee < ApplicationRecord
   validates :emp_first_name, presence: true
   validates :emp_last_name, presence: true
   validates :emp_primary_phone, presence: true
+  validate :date_hired_no_dumb
+
+  # Checks to see if the date_hired occurs before the business started
+  def date_hired_no_dumb
+    if emp_hire_date.present? && emp_hire_date.strftime("%Y") < "2017"
+      errors.add(:emp_hire_date, "can't occur before the business started")
+    end
+  end  
 
   def employee_full_name
     "#{emp_first_name}  #{emp_last_name}, #{emp_primary_phone}"
