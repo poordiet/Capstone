@@ -8,7 +8,10 @@ class PetVaccination < ApplicationRecord
 
   # Update Expiration
   def update_expiration
-    calculate_expiration(self.date_given, self.duration, self.date_expire)
+    duration = self.duration
+    date_given = self.date_given
+    date_expire = self.date_expire
+    calculate_expiration(date_given, duration, date_expire)
   end  
 
 
