@@ -17,32 +17,31 @@
   <p><i>* Indicates Required Fields</i></p>
   <hr>
 
-  
   <div class="form-row">
-    <div class="field form-group col-md-12">
-      <%= form.label :appt_date, 'Appointment Date: ', class: 'name-label' %>
-      <%= form.label :appt_date, incident.grooming_appointment.appt_date.strftime("%b %d %Y"), class: 'name'%>
+    <div class="field col-md-12">
+      <%= form.label :grooming_appointment_id, 'Appointment Date: ', class: 'name-label' %>
+      <%= form.label incident.grooming_appointment.appt_date.strftime("%b %d %Y"), class: 'name'%>
     </div>
   </div>
 
    <div class="form-row">
-    <div class="field form-group col-md-12">
+    <div class="field col-md-12">
       <%= form.label :appt_time, 'Appointment Time: ', class: 'name-label' %>
-      <%= form.label :appt_time, incident.grooming_appointment.appt_time.strftime("%I:%M%p"), class: 'name'%>
+      <%= form.label incident.grooming_appointment.appt_time.strftime("%I:%M%p"), class: 'name'%>
     </div>
   </div>
 
   <div class="form-row">
-    <div class="field form-group col-md-12">
+    <div class="field col-md-12">
       <%= form.label :pet_name, 'Pet Name: ', class: 'name-label' %>
-      <%= form.label :pet_name, incident.grooming_appointment.pet.pet_name, class:'name'%>
+      <%= form.label incident.grooming_appointment.pet.pet_name, class:'name'%>
     </div>
   </div>
   <hr>
 
   <div class="form-row">
     <div class="field form-group col-md-2">
-       <%= form.hidden_field :grooming_appointment_id, value: @grooming_appointment_id%>
+       <%= form.hidden_field :grooming_appointment_id, value: incident.grooming_appointment.id%>
     </div>
   </div>
 
