@@ -29,7 +29,7 @@
         <td>  <%if grooming_appointment.appt_date.nil? || grooming_appointment.appt_time.nil?%>
         <%=  grooming_appointment.appt_date%> <%=  grooming_appointment.appt_time%>
         <%else%>
-       <%=grooming_appointment.appt_date.strftime("%b %d %Y")%> <%= grooming_appointment.appt_time.strftime("%I:%M%p")%>
+       <%=grooming_appointment.appt_date.to_formatted_s(:long)%> <%= grooming_appointment.appt_time.strftime("%I:%M%p")%>
         <%end%> 
         </td>
         <td>

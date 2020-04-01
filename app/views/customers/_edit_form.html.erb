@@ -18,8 +18,8 @@
 <div class="customer-content">
 <br>
 <h1>Editing Customer</h1>
-<br>
- <p><i>* Indicates Required Fields</i></p>
+<p><i>* Indicates Required Fields</i></p>
+<hr>
  <div class="form-row">
    <div class="field form-group col-md-6">
     <%= form.label :date_obtained, 'Date Obtained *' %>
@@ -30,7 +30,7 @@
     <%= form.label :customer_status_id, 'Status *' %>
     <br>
     <%= form.collection_select :customer_status_id, CustomerStatus.all, :id, :status%>
-  </div>
+   </div>
    </div>
 
 <div class="form-row">
