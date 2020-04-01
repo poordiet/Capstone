@@ -20,7 +20,7 @@
           <td><%= incident.incident_notes %></td>
           <td><%= number_to_currency(incident.incident_cost) %></td>
           <td><%= incident.incident_status.status %></td>
-          <td><%= link_to 'Show', incident, class: 'btn btn-primary btn-block' %></td>
+          <td><%= link_to 'Show', incident, class: 'btn btn-info btn-block' %></td>
           <td><%= link_to 'Edit', edit_incident_path(incident), class: 'btn btn-warning btn-block' %></td>
           <!--<td><%= link_to 'Delete', incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
         </tr>

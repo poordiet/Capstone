@@ -99,7 +99,7 @@ new_customer_pet_path({:customer_id => @customer.id,
         <td><%= pet.pet_color %></td>
         <td><%= pet.pet_breed %></td>
         <td><%= pet.pet_weight %></td> 
-        <td><a class="btn btn-primary btn-block"<%= link_to 'Show', pet %></td> 
+        <td><a class="btn btn-info btn-block"<%= link_to 'Show', pet %></td> 
         <td><%= link_to "Update", edit_pet_path(pet), 
         :class => "btn btn-warning btn-block" %></td>
         <td><%= link_to "New Appointment", new_pet_grooming_appointment_path(:pet_id => pet.id, :pet_name => pet.pet_name, 

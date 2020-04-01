@@ -122,6 +122,7 @@ new_grooming_service_path({:id => @grooming_appointment.id}),
       <th>Service</th>
       <th>Amount</th>
       <th>Amount Notes</th>
+      <th>Employee</th>
       <th>Edit</th>
       <th>Remove</th>
 		</thead>
@@ -131,6 +132,7 @@ new_grooming_service_path({:id => @grooming_appointment.id}),
 				<td><%= grooming_service.service.service_name %></td>
         <td><%= number_to_currency(grooming_service.service_amount)%></td>
         <td><%= grooming_service.service_amount_notes %></td>
+        <td><%= grooming_service.employee.emp_first_name%> <%= grooming_service.employee.emp_last_name%></td>
         <td><%= link_to "Update", edit_grooming_service_path(grooming_service), 
         :class => "btn btn-warning btn-block" %></td>
         <td><%= link_to 'Delete', grooming_service, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-block btn-danger' %></td>
@@ -190,6 +192,7 @@ new_grooming_style_path({:id => @grooming_appointment.id}),
     <th>Grooming Appointment</th>
     <th>Incident Notes</th>
     <th>Incident Cost</th>
+    <th>Show</th>
     <th>Update</th>
   </thead>
 
@@ -199,6 +202,7 @@ new_grooming_style_path({:id => @grooming_appointment.id}),
         <td><%= incident.grooming_appointment.appt_date.to_formatted_s(:long) %></td>
         <td><%= incident.incident_notes %></td>
         <td><%= number_to_currency(incident.incident_cost) %></td>
+        <td><%= link_to 'Show', incident, class: 'btn btn-info btn-block'%></td>
         <td><%= link_to "Update", edit_incident_path(incident), :class => "btn btn-warning btn-block" %></td>
         <!--<td><%= link_to 'Delete', incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>

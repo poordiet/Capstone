@@ -227,6 +227,7 @@ new_pet_vaccination_path({:pet_id => @pet.id,
       <th>Blades</th>
       <th>Total</th>
       <th>Show</th>
+      <th>Edit</th>
 		</thead>
 	<tbody>
      <% @pet.grooming_appointments.each do |grooming_appointment| %>
@@ -241,7 +242,9 @@ new_pet_vaccination_path({:pet_id => @pet.id,
           <%end%></td>
         <td><%= grooming_appointment.appt_blades %></td>
         <td><%= number_to_currency(grooming_appointment.appt_total) %></td>
-        <td><%= link_to 'Show', grooming_appointment, class: 'btn btn-block btn-primary' %></td>
+        <td><%= link_to 'Show', grooming_appointment, class: 'btn btn-block btn-info' %></td>
+         <td><%= link_to "Update", edit_grooming_appointment_path(grooming_appointment), 
+        :class => "btn btn-warning btn-block" %></td>
 			</tr>
        <% end %>
 		</tbody>
