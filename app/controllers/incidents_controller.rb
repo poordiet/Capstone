@@ -14,6 +14,10 @@ class IncidentsController < ApplicationController
 
   # GET /incidents/new
   def new
+    @grooming_appointment_id = params[:grooming_appointment_id]
+    @appt_time = params[:appt_time]
+    @appt_date = params[:appt_date]
+    @pet_name = params[:pet_name]
     @incident = Incident.new
   end
 
@@ -24,6 +28,8 @@ class IncidentsController < ApplicationController
   # POST /incidents
   # POST /incidents.json
   def create
+    @grooming_appointment = GroomingAppointment.find(params[:grooming_appointment_id])
+
     @incident = Incident.new(incident_params)
 
     respond_to do |format|
@@ -31,6 +37,10 @@ class IncidentsController < ApplicationController
         format.html { redirect_to @incident, notice: 'Incident was successfully created.' }
         format.json { render :show, status: :created, location: @incident }
       else
+        @grooming_appointment_id = @grooming_appointment.id
+        @appt_date = @grooming_appointment.appt_date.strftime("%b %d %Y")
+        @appt_time = @grooming_appointment.appt_time.strftime("%I:%M%p")
+        @pet_name = @grooming_appointment.pet.pet_name
         format.html { render :new }
         format.json { render json: @incident.errors, status: :unprocessable_entity }
       end
@@ -69,9 +79,6 @@ class IncidentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def incident_params
-      params.require(:incident).permit(:grooming_appointment_id, :incident_notes, :incident_cost, :incident_cost,
-                                      :grooming_appointments_attributes [:id, :pet_id, :store_id, :payment_type_id,
-                                      :appt_date, :appt_blades, :appt_total, :appt_total, :appt_notes, :customer_feedback,
-                                      :vac_current, :vac_current_date,])
+      params.require(:incident).permit(:grooming_appointment_id, :incident_notes, :incident_cost, :incident_status_id)
     end
 end

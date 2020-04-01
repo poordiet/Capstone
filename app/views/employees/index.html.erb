@@ -3,9 +3,9 @@
 <div class="container">
     <br>
     <h1>Employees</h1>
-    <br>
+    <hr>
     <a class="btn btn-success float-right mt-4" href="employees/new" role="button" aria-pressed="true">New Employee</a>
-    <table id="example" class="table table-hover table-bordered">
+    <table id="example" class="table table-hover table-bordered mt-2">
         <thead class="thead-dark">
             <th>First Name</th>
             <th>Last Name</th>
@@ -25,7 +25,7 @@
                 <td><%= employee.emp_email %></td>
                 <td><%= employee.emp_hire_date.to_formatted_s(:long) %></td>
                 <td><%= employee.emp_city %></td>
-                <td><%= link_to 'Show', employee, class: 'btn btn-primary btn-block' %></td>
+                <td><%= link_to 'Show', employee, class: 'btn btn-info btn-block' %></td>
                 <td><%= link_to 'Edit', edit_employee_path(employee), class: 'btn btn-warning btn-block' %></td>
                 <!--<td><%= link_to 'Delete', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
             </tr>

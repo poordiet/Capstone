@@ -11,14 +11,6 @@
     </div>
   <% end %>
 
-<style>
- .pet-vaccination-content {
-    max-width: 500px;
-    margin: auto;
-    background: white;
-    padding: 10px;
-    }
-</style>
 <div class="pet-vaccination-content">
 <br>
 <h1>New Pet Vaccination</h1>
@@ -56,9 +48,9 @@
 
   <div class="form-row">
   <div class="field">
-    <%= form.label :duration, 'Duration' %>
+    <%= form.label :duration, 'Duration (Years)' %>
     <br>
-    <%= form.select :duration, [0.5, 1, 2, 3, 4, 5],options = {include_blank: true}, class: 'form-control' %>
+    <%= form.select :duration, ['0.5', '1', '2', '3', '4', '5'],options = {include_blank: true, selected: @pet_vaccination.duration}, class: 'form-control' %>
   </div>
   </div>
   <br>

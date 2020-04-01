@@ -20,11 +20,12 @@ class GroomingAppointment < ApplicationRecord
   accepts_nested_attributes_for :pet_photos, reject_if: :all_blank, allow_destroy: true
 
   # Form Validations
-  #validates :appt_date, presence: true
-  #validates :appt_time, presence: true
-  #validates :pet_id, presence: true
-  #validates :store_id, presence: true
-  #validates :vac_current, presence: true
-  #validates :vac_current_date, presence: true
+  validates :appt_date, presence: true
+  validates :appt_time, presence: true
+  validates :pet_id, presence: true
+  validates :store_id, presence: true
+  validates :vac_current, presence: true
+  validates :vac_current_date, presence: true
+  validates :appt_total, numericality: {greater_than_or_equal_to: 0,:allow_nil => true,  message: ": Total cannot be negative"}
   
 end

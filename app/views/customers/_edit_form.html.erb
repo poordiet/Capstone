@@ -18,8 +18,8 @@
 <div class="customer-content">
 <br>
 <h1>Editing Customer</h1>
-<br>
- <p><i>* Indicates Required Fields</i></p>
+<p><i>* Indicates Required Fields</i></p>
+<hr>
  <div class="form-row">
    <div class="field form-group col-md-6">
     <%= form.label :date_obtained, 'Date Obtained *' %>
@@ -30,7 +30,7 @@
     <%= form.label :customer_status_id, 'Status *' %>
     <br>
     <%= form.collection_select :customer_status_id, CustomerStatus.all, :id, :status%>
-  </div>
+   </div>
    </div>
 
 <div class="form-row">
@@ -73,12 +73,12 @@
 <div class="form-row">
   <div class="field form-group col-md-6">
     <%= form.label :customer_primary_phone, 'Primary Phone *' %>
-    <%= form.text_field :customer_primary_phone, class: 'form-control col-md-8' %>
+    <%= form.text_field :customer_primary_phone,type: 'tel', class: 'form-control col-md-8' %>
   </div>
 
   <div class="field form-group col-md-6">
     <%= form.label :customer_secondary_phone, 'Secondary Phone' %>
-    <%= form.text_field :customer_secondary_phone, class: 'form-control col-md-8' %>
+    <%= form.text_field :customer_secondary_phone,type: 'tel', class: 'form-control col-md-8' %>
   </div>
 
   </div>
@@ -119,4 +119,27 @@
   
 <% end %>
 
+<script>
+$("input[type='tel']").each(function(){
+  $(this).on("change keyup paste", function (e) {
+    var output,
+      $this = $(this),
+      input = $this.val();
 
+    if(e.keyCode != 8) {
+      input = input.replace(/[^0-9]/g, '');
+      var area = input.substr(0, 3);
+      var pre = input.substr(3, 3);
+      var tel = input.substr(6, 4);
+      if (area.length < 3) {
+        output =  area;
+      } else if (area.length == 3 && pre.length < 3) {
+        output =  area + "-" + pre;
+      } else if (area.length == 3 && pre.length == 3) {
+        output =  area +  "-" + pre + "-" + tel;
+      }
+      $this.val(output);
+    }
+  });
+});
+</script>

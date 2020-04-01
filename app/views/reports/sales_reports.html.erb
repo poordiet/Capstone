@@ -60,7 +60,7 @@
 		</tbody>
 	</table>
 
-    <br>
+   <!-- <br>
      <hr>
     <br>
     <h2>Previous Year Sales per Month</h2>
@@ -78,6 +78,92 @@
         <% end %>
        <% end %>
 		</tbody>
-	</table>
+	</table>-->
+
+
+<!-- Sales by Month Chart for Previous Year-->
+<br>
+<hr>
+<br>
+<h2> Sales per Month for Last Year </h2>  
+<br>
+<% @data = []
+@labels = []
+i = 0
+@sales_by_month.each do |sale|
+    if sale.month.year == Date.today.last_year.year  
+    @data << sale.sales.to_i
+    @labels << sale.month.strftime("%B")
+    end
+end %>
+
+<canvas id="myChart" width="400" height="200"></canvas>
+<script>
+var array = <%= @data.inspect.html_safe %>;
+var labels = <%= @labels.inspect.html_safe %>;
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Sales',
+            data: array ,
+            backgroundColor: [
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        legend: {
+        position: 'right'
+         },
+        scales: {
+            yAxes: [{
+                scaleLabel: {
+                display: true,
+                labelString: 'Amount'
+                },
+                ticks: {
+                    beginAtZero: true
+                }
+               
+            }],
+            xAxes: [{
+                scaleLabel: {
+                display: true,
+                labelString: 'Month'
+                },  
+            }]
+        }
+    }
+});
+</script>
 
 </div>

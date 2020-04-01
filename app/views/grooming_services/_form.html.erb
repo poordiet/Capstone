@@ -11,37 +11,49 @@
     </div>
   <% end %>
 
+<div class = "content">
+<br>
+<h1> New Grooming Service</h1>
+<hr>
   <div class="field">
   <%= form.hidden_field :grooming_appointment_id, :value => params[:id]%>
 </div>
 
-  <div class="field">
+<div class = "row">
+  <div class="field col-12">
     <%= form.label :service_id, 'Service Name' %>
+    <br>
     <%= form.collection_select :service_id, Service.all, :id, :service_name %>
   </div>
+</div>
 
-  <!--<div class="field">
-    <%= form.label :grooming_appointment_id, 'Grooming Appointment' %>
-    <%= form.collection_select :grooming_appointment_id, GroomingAppointment.all, :id, :appt_date %>
-  </div>-->
-
-  <div class="field">
+<div class="row">
+  <div class="field col-12">
     <%= form.label :employee_id, 'Employee' %>
+    <br>
     <%= form.collection_select :employee_id, Employee.all, :id, :emp_first_name %>
   </div>
+</div>
 
-  <div class="field">
+<div class="row">
+  <div class="field col-6">
     <%= form.label :service_amount, 'Service Amount' %>
-    <%= form.text_field :service_amount %>
+    <%= form.number_field :service_amount, class: 'form-control' %>
   </div>
+</div>
 
-  <div class="field">
+<div class = "row">
+  <div class="field col-12">
     <%= form.label :service_amount_notes, 'Service Amount Notes' %>
-    <%= form.text_field :service_amount_notes %>
+    <%= form.text_area :service_amount_notes, rows: '4', class:'form-control' %>
   </div>
-
-  <div class="actions">
+</div>
+<br>
+<div class = "row">
+  <div class="col-12">
    <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
-    <%= form.submit 'Create Grooming Service' %>
+    <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
   </div>
+</div>
 <% end %>
+</div>

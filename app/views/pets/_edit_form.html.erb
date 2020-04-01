@@ -33,6 +33,7 @@
   
   <div class="field form-group">
     <%= form.label :status, 'Status' %>
+    <br>
     <%= form.collection_select :pet_status_id, PetStatus.all, :id, :definition %>
   </div>
   
@@ -60,7 +61,7 @@
         </div>
 
         <div class="field form-group col-md-6">
-            <%= form.label :pet_weight, 'Weight *' %>
+            <%= form.label :pet_weight, 'Weight(lbs) *' %>
             <%= form.text_field :pet_weight, class: 'form-control col-md-8' %>
         </div>
     </div>
@@ -76,6 +77,7 @@
 
         <div class="field form-group col-md-4">
             <%= form.label :pet_treat, 'Pet Treat *' %>
+            <br>
             <%= form.select :pet_treat, ['Y', 'N'], class: 'form-control' %>
         </div>
 
@@ -132,6 +134,9 @@
         </div>
     </div>
 
+  <hr>
+  <h3>Vaccines</h3>
+  <hr>
   <div class="form-row">
   <div class="form-group col-md-12">
     <%= link_to_add_association 'Add Vaccine', form, :pet_vaccinations, class: 'btn btn-success btn-sm float-left mx-auto col-md-12' %>

@@ -11,35 +11,68 @@
     </div>
   <% end %>
 
-<div id="form">
+<div class = 'incident-content'>
   <br>
-  <h1>New Incident</h1>
-  <br>
-  <div class="field">
-    <%= form.hidden_field :incident_status_id, value: 1%>
-  </div>
+  <h1>Edit Incident</h1>
+  <p><i>* Indicates Required Fields</i></p>
+  <hr>
 
   <div class="form-row">
-    <div class="field form-group col-md-2">
-      <%= form.label :incident_notes, 'Incident Notes' %>
-      <%= form.text_field :incident_notes, class: 'form-control' %>
+    <div class="field col-md-12">
+      <%= form.label :grooming_appointment_id, 'Appointment Date: ', class: 'name-label' %>
+      <%= form.label incident.grooming_appointment.appt_date.strftime("%b %d %Y"), class: 'name'%>
+    </div>
+  </div>
+
+   <div class="form-row">
+    <div class="field col-md-12">
+      <%= form.label :appt_time, 'Appointment Time: ', class: 'name-label' %>
+      <%= form.label incident.grooming_appointment.appt_time.strftime("%I:%M%p"), class: 'name'%>
     </div>
   </div>
 
   <div class="form-row">
+    <div class="field col-md-12">
+      <%= form.label :pet_name, 'Pet Name: ', class: 'name-label' %>
+      <%= form.label incident.grooming_appointment.pet.pet_name, class:'name'%>
+    </div>
+  </div>
+  <hr>
+
+  <div class="form-row">
     <div class="field form-group col-md-2">
-      <%= form.label :incident_cost, 'Incident Cost' %>
-      <%= form.text_field :incident_cost, class: 'form-control' %>
+       <%= form.hidden_field :grooming_appointment_id, value: incident.grooming_appointment.id%>
     </div>
   </div>
 
-  <br>
-  <div class="form-row">
+  <div class="field form-row">
+  <div class="field form-group col-md-12">
+    <%= form.label :incident_status, 'Status *' %>
+    <br>
+    <%= form.collection_select :incident_status_id, IncidentStatus.all, :id, :status%>
+   </div> 
+   </div>
+
+  <div class="form-row">  
     <div class="field form-group col-md-4">
-      <div id="buttons">
+      <%= form.label :incident_cost, 'Incident Cost' %> 
+      <%= form.number_field :incident_cost, class: 'form-control'%>
+  </div>
+   </div>
+
+  <div class="form-row">
+    <div class="field form-group col-md-12">
+      <%= form.label :incident_notes, 'Incident Notes *' %>
+      <%= form.text_area :incident_notes, class: 'form-control', rows: '4' %>
+    </div>
+
+  </div>
+
+  <br>
+  <div class="form-row">
+    <div class="field form-group col-md-12">
         <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
         <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
-      </div>
     </div>
   </div>
 </div>

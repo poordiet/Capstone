@@ -22,16 +22,11 @@ body{
 	position: absolute;
 	height: 3px;
 	background-color: #9a12b3;
-	
-	
-
-	
-	
 }
 
 //Navbar links
 nav .navbar-nav li a{
-    color: #575958 !important;
+    color: #22262b !important;
    
 }
 
@@ -116,8 +111,17 @@ select {
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
  
+// Pet Vaccination Forms
 .pet-vaccination-content {
     max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 10px;
+    }
+
+// Incident Forms
+.incident-content {
+    max-width: 800px;
     margin: auto;
     background: white;
     padding: 10px;
