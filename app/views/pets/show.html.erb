@@ -5,13 +5,13 @@
 <br>
 <h1><%= @pet.pet_name%> </h2>
 <hr>
-<%= link_to 'Edit', edit_pet_path(@pet), class: 'btn btn-warning btn-lg float-right mr-2' %> 
-<p><%= link_to 'Back', @pet.customer, class: 'btn btn-danger btn-lg float-right mr-2' %>
+<p><%= link_to 'Edit', edit_pet_path(@pet), class: 'btn btn-warning btn-lg float-right mr-2' %> 
+<%= link_to 'Customer', @pet.customer, class: 'btn btn-info btn-lg float-right mr-2' %>
 </p>
-
+<br>
 
 <div class="row">
-<div class ="col">
+<div class ="col-6">
 <p>
   <strong>Customer:</strong>
   <%= @pet.customer.customer_first_name %>
@@ -121,7 +121,7 @@ div.desc {
 <%end%>
 
 <!-- Only show new button if no profile photo exists-->
-<div class="col">
+<div class="col-4">
 <h3>Pet Profile Photo</h3>
  <%if count == 0%>
 <%=link_to 'New Pet Profile Photo', new_pet_photo_path({:photo_type_id => 1, 
@@ -191,7 +191,7 @@ new_pet_vaccination_path({:pet_id => @pet.id,
      <% @pet.pet_vaccinations.each do |pet_vaccination| %>
 			<tr>
 				<td><%= pet_vaccination.vaccine.vaccine_name %></td>
-        <td><%if pet_vaccination.date_given.nil?%>
+        <td ><%if pet_vaccination.date_given.nil?%>
         <%=  pet_vaccination.date_given%>
         <%else%>
         <%=pet_vaccination.date_given.to_formatted_s(:long)%>
@@ -264,6 +264,7 @@ new_pet_vaccination_path({:pet_id => @pet.id,
     }
   });
 </script>
+
 
 <!-- For Second Table-->
 <script type="text/javascript">

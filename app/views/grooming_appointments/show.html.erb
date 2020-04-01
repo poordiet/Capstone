@@ -1,13 +1,15 @@
-<p id="notice" class="success-notice"><%= notice %></p>
+
 
 <div class="container">
-<br>
 
+<br>
+<p id="notice" class="success-notice"><%= notice %></p>
 
 <h1> Grooming Appointment Details </h1>
 <hr>
 
 <%= link_to 'Update', edit_grooming_appointment_path(@grooming_appointment), class:'btn btn-warning btn-lg float-right mr-2' %>
+<%= link_to 'Pet Profile', pet_path(@grooming_appointment.pet), class: 'btn btn-info btn-lg float-right mr-2'%>
 <%= link_to 'All Appointments', grooming_appointments_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
 
 <div class="row">
