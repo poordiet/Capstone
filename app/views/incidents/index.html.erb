@@ -6,7 +6,7 @@
   <hr>
   <table id="example" class="table table-hover table-bordered">
     <thead class="thead-dark">
-      <th>Grooming Appointment</th>
+      <th>Appointment Date/Time</th>
       <th>Incident Notes</th>
       <th>Incident Cost</th>
       <th>Show</th>
@@ -15,9 +15,9 @@
     <tbody>
       <% @incidents.each do |incident| %>
         <tr>
-          <td><%= incident.grooming_appointment.appt_date %></td>
+          <td><%= incident.grooming_appointment.appt_date.strftime("%b %d %Y") %> <%= incident.grooming_appointment.appt_time.strftime("%I:%M%p") %></td>
           <td><%= incident.incident_notes %></td>
-          <td><%= incident.incident_cost %></td>
+          <td><%= number_to_currency(incident.incident_cost) %></td>
           <td><%= link_to 'Show', incident, class: 'btn btn-primary btn-block' %></td>
           <td><%= link_to 'Edit', edit_incident_path(incident), class: 'btn btn-warning btn-block' %></td>
           <!--<td><%= link_to 'Delete', incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->

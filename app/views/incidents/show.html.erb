@@ -2,16 +2,33 @@
 <div class="container">
   <div class="row">
     <div class="col-11">
+    <h1> Incident Profile </h1>
+    <hr>
       <p>
           <%= link_to 'Update', edit_incident_path(@incident), class:'btn btn-warning btn-lg float-right mr-2' %>
           <%= link_to 'Back', incidents_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
       </p>
 
       <p id="notice"><%= notice %></p>
+
       <div class="field form-group col-md-8">
         <p>
-          <strong>Grooming Appointment:</strong>
-          <%= @incident.grooming_appointment.appt_date %>
+          <strong>Customer:</strong>
+          <%= @incident.grooming_appointment.pet.customer.customer_first_name %> <%= @incident.grooming_appointment.pet.customer.customer_last_name %>
+        </p>
+      </div>
+
+      <div class="field form-group col-md-8">
+        <p>
+          <strong>Pet:</strong>
+          <%= @incident.grooming_appointment.pet.pet_name %> 
+        </p>
+      </div>
+
+      <div class="field form-group col-md-8">
+        <p>
+          <strong>Appointment Date/Time:</strong>
+          <%= @incident.grooming_appointment.appt_date.strftime("%b %d %Y") %> <%= @incident.grooming_appointment.appt_time.strftime("%I:%M%p") %>
         </p>
       </div>
 
@@ -32,7 +49,7 @@
       <div class="field form-group col-md-4">
         <p>
           <strong>Incident Cost:</strong>
-          <%= @incident.incident_cost %>
+          <%= number_to_currency(@incident.incident_cost) %>
         </p>
       </div>
     </div>
