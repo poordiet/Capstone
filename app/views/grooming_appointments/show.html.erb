@@ -13,7 +13,7 @@
 <%= link_to 'All Appointments', grooming_appointments_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
 
 <div class="row">
-<div class="col-6">
+<div class="col-12">
 <br>
 <p>
   <strong>Customer:</strong>
@@ -196,9 +196,9 @@ new_grooming_style_path({:id => @grooming_appointment.id}),
   <tbody>
     <% @grooming_appointment.incidents.each do |incident| %>
       <tr>
-        <td><%= incident.grooming_appointment.appt_date %></td>
+        <td><%= incident.grooming_appointment.appt_date.to_formatted_s(:long) %></td>
         <td><%= incident.incident_notes %></td>
-        <td><%= incident.incident_cost %></td>
+        <td><%= number_to_currency(incident.incident_cost) %></td>
         <td><%= link_to "Update", edit_incident_path(incident), :class => "btn btn-warning btn-block" %></td>
         <!--<td><%= link_to 'Delete', incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
