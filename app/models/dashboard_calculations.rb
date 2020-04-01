@@ -12,8 +12,6 @@ class DashboardCalculations
         GroomingAppointment.count_by_sql("select sum(appt_total) from grooming_appointments where  appt_date = CURRENT_DATE")
     end
 
-     
-
 
   end
 

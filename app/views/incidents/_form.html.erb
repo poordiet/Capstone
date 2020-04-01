@@ -11,14 +11,39 @@
     </div>
   <% end %>
 
-<div id="form">
+<div class = 'incident-content'>
   <br>
   <h1>New Incident</h1>
-  <br>
+  <p><i>* Indicates Required Fields</i></p>
+  <hr>
+
+  
+  <div class="form-row">
+    <div class="field form-group col-md-12">
+      <%= form.label :appt_date, 'Appointment Date: ', class: 'name-label' %>
+      <%= form.label :appt_date, @appt_date, class: 'name'%>
+    </div>
+  </div>
+
+   <div class="form-row">
+    <div class="field form-group col-md-12">
+      <%= form.label :appt_time, 'Appointment Time: ', class: 'name-label' %>
+      <%= form.label :appt_time, @appt_time, class: 'name'%>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="field form-group col-md-12">
+      <%= form.label :pet_name, 'Pet Name: ', class: 'name-label' %>
+      <%= form.label :pet_name, @pet_name, class:'name'%>
+    </div>
+  </div>
+  <hr>
+  <%= hidden_field_tag :grooming_appointment_id, @grooming_appointment_id%>
+
   <div class="form-row">
     <div class="field form-group col-md-2">
-      <%= form.label :grooming_appointment_id, 'Grooming Appointment' %>
-      <%= form.collection_select :grooming_appointment_id, GroomingAppointment.all, :id, :appt_date %>
+       <%= form.hidden_field :grooming_appointment_id, value: @grooming_appointment_id%>
     </div>
   </div>
 
@@ -26,27 +51,26 @@
     <%= form.hidden_field :incident_status_id, value: 1%>
   </div>
 
-  <div class="form-row">
-    <div class="field form-group col-md-2">
-      <%= form.label :incident_notes, 'Incident Notes' %>
-      <%= form.text_field :incident_notes, class: 'form-control' %>
-    </div>
+  <div class="form-row">  
+    <div class="field form-group col-md-4">
+      <%= form.label :incident_cost, 'Incident Cost' %> 
+      <%= form.number_field :incident_cost, class: 'form-control'%>
   </div>
+   </div>
 
   <div class="form-row">
-    <div class="field form-group col-md-2">
-      <%= form.label :incident_cost, 'Incident Cost' %>
-      <%= form.text_field :incident_cost, class: 'form-control' %>
+    <div class="field form-group col-md-12">
+      <%= form.label :incident_notes, 'Incident Notes *' %>
+      <%= form.text_area :incident_notes, class: 'form-control', rows: '4' %>
     </div>
+
   </div>
 
   <br>
   <div class="form-row">
-    <div class="field form-group col-md-4">
-      <div id="buttons">
+    <div class="field form-group col-md-12">
         <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
         <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
-      </div>
     </div>
   </div>
 </div>
