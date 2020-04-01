@@ -48,7 +48,7 @@
 
   <div class="form-row">
   <div class="field">
-    <%= form.label :duration, 'Duration' %>
+    <%= form.label :duration, 'Duration (Years)' %>
     <br>
     <%= form.select :duration, ['0.5', '1', '2', '3', '4', '5'],options = {include_blank: true, selected: @pet_vaccination.duration}, class: 'form-control' %>
   </div>

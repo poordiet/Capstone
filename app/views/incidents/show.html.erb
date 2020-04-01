@@ -1,5 +1,6 @@
 <br>
 <div class="container">
+      <p id="notice" class="success-notice"><%= notice%></p>
   <div class="row">
     <div class="col-11">
     <h1> Incident Profile </h1>
@@ -8,8 +9,6 @@
           <%= link_to 'Update', edit_incident_path(@incident), class:'btn btn-warning btn-lg float-right mr-2' %>
           <%= link_to 'Back', incidents_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
       </p>
-
-      <p id="notice"><%= notice %></p>
 
       <div class="field form-group col-md-8">
         <p>

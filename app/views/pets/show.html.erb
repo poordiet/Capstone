@@ -1,6 +1,7 @@
-<p id="notice"><%= notice %></p>
+
 
 <div class = "container">
+ <p id="notice" class="success-notice"><%= notice %></p>
 <br>
 <h1><%= @pet.pet_name%> </h2>
 <hr>
@@ -175,18 +176,28 @@ new_pet_vaccination_path({:pet_id => @pet.id,
 		<thead>
       <th>Vaccine</th>
       <th>Date Given</th>
-      <th>Duration</th>
+      <th>Duration (Years)</th>
       <th>Date Expired</th>
       <th>Update</th>
 		</thead>
 		<tbody>
-     <% @pet.pet_vaccinations.each do |pet_vaccinations| %>
+     <% @pet.pet_vaccinations.each do |pet_vaccination| %>
 			<tr>
-				<td><%= pet_vaccinations.vaccine.vaccine_name %></td>
-        <td><%= pet_vaccinations.date_given %></td>
-        <td><%= pet_vaccinations.duration %></td>
-        <td><%= pet_vaccinations.date_expire %></td>
-        <td><%= link_to "Update", edit_pet_vaccination_path(pet_vaccinations), 
+				<td><%= pet_vaccination.vaccine.vaccine_name %></td>
+        <td><%if pet_vaccination.date_given.nil?%>
+        <%=  pet_vaccination.date_given%>
+        <%else%>
+        <%=pet_vaccination.date_given.strftime("%b %d %Y")%>
+        <%end%> 
+        </td>
+        <td><%= pet_vaccination.duration %></td>
+        <td><%if pet_vaccination.date_expire.nil?%>
+        <%=  pet_vaccination.date_expire%>
+        <%else%>
+        <%=pet_vaccination.date_expire.strftime("%b %d %Y")%>
+        <%end%> 
+        </td>
+        <td><%= link_to "Update", edit_pet_vaccination_path(pet_vaccination), 
         :class => "btn btn-warning btn-block" %></td>
 			</tr>
        <% end %>
