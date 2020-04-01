@@ -1,5 +1,5 @@
 class Report < ApplicationRecord
 
- ]
+ 
 
 end

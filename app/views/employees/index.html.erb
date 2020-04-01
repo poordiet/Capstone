@@ -23,7 +23,7 @@
                 <td><%= employee.emp_last_name %></td>
                 <td><%= number_to_phone(employee.emp_primary_phone) %></td>
                 <td><%= employee.emp_email %></td>
-                <td><%= employee.emp_hire_date %></td>
+                <td><%= employee.emp_hire_date.to_formatted_s(:long) %></td>
                 <td><%= employee.emp_city %></td>
                 <td><%= link_to 'Show', employee, class: 'btn btn-primary btn-block' %></td>
                 <td><%= link_to 'Edit', edit_employee_path(employee), class: 'btn btn-warning btn-block' %></td>
@@ -36,7 +36,24 @@
 <br>
 
 <script type="text/javascript">
-    var dataTable = $('#example').DataTable();
+    var dataTable = $('#example').DataTable({
+          "language":{
+      "sLengthMenu": "Num. of Entries Per Page _MENU_",
+      "sSearch": "Search:",
+
+    "columns": [
+    null,
+    null,
+    null,
+    {"type": "date"},
+    null,
+    null,
+    null,
+    null
+  ]
+    }
+    
+    });
 
     $(document).ready(function() {
         dataTable;

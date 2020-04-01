@@ -114,8 +114,8 @@
                         <% @employee.grooming_services.each do |grooming_service| %>
                         <tr>
                             <td><%= grooming_service.service.service_name %></td>
-                            <td><%= grooming_service.grooming_appointment.appt_date %></td>
-                            <td><%= grooming_service.service_amount %></td>
+                            <td><%= grooming_service.grooming_appointment.appt_date.to_formatted_s(:long) %></td>
+                            <td><%= number_to_currency grooming_service.service_amount %></td>
                             <td><%= grooming_service.service_amount_notes %></td>
                         </tr>
                         <% end %>

@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <div class="container">
     <br>
     <h1>Customers</h1>
@@ -38,7 +37,23 @@
 </div>
 
 <script type="text/javascript">
-    var dataTable = $('#example').DataTable();
+    var dataTable = $('#example').DataTable( {
+    
+
+    "columns": [
+    null,
+    null,
+    null,
+    {"type": "date"},
+    null,
+    null,
+    null,
+    null
+  ]
+    
+    
+
+} );
 
     $(document).ready(function() {
         dataTable;
