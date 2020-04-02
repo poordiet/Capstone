@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+
     def index
       @sales_total = DashboardCalculations.sales_total
       @sales_by_day = DashboardCalculations.sales_by_day
@@ -8,6 +9,4 @@ class DashboardController < ApplicationController
       @appointments_for_today = DashboardCalculations.appointments_for_today
     end
   
-    
-
   end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  resources :login
   resources :employee_statuses
   resources :incident_statuses
   resources :pet_statuses
@@ -31,6 +33,7 @@ Rails.application.routes.draw do
   get 'reports/customer_reports'
   get 'reports/sales_reports'
   get 'reports/vaccine_reports'
+  get 'login/index'
   
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

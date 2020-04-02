@@ -24,6 +24,12 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto">
         <div class="col-md">
+        <li class="nav-item active">
+          <%= link_to '<b>Logout</b>'.html_safe, destroy_user_session_path, method: :delete, 
+          data: {confirm: "Are you sure you want to Log Out?"}, class: 'nav-link' %>
+        </li>
+        </div>
+        <div class="col-md">
         <li class="nav-item active" >
           <a class="nav-link"  id="nav-link-text"href="/customers">Customer</a>
         </li>
@@ -33,6 +39,7 @@
           <a class="nav-link" href="/grooming_appointments">Grooming</a>
         </li>
         </div>
+        
         <div class="col-md">
         <li class="nav-item active">
           <a class="nav-link" href="/employees">Employee</a>
