@@ -20,7 +20,6 @@
 
 <div class="row">
 <div class="col-6">
-<br>
 <p>
   <strong>Customer:</strong>
   <%= @grooming_appointment.pet.customer.customer_first_name%>
@@ -60,7 +59,6 @@
 </div>
 
 <div class="col-6">
-<br>
 <p>
   <strong>Vaccine Current:</strong>
   <%= @grooming_appointment.vac_current %>
@@ -91,7 +89,6 @@
 </div>
 </div>
 
-<div class = "container">
 <div class="row">
 <div class="col-12">
 <br>
@@ -116,7 +113,6 @@
   <strong>Customer Feedback:</strong>
   <%= @grooming_appointment.customer_feedback %>
 </p>
-</div>
 </div>
 </div>
 
@@ -146,7 +142,7 @@ new_grooming_service_path({:id => @grooming_appointment.id}),
      <% @grooming_appointment.grooming_services.each do |grooming_service| %>
 			<tr>
 				<td><%= grooming_service.service.service_name %></td>
-        <td><%= number_to_currency(grooming_service.service_amount)%></td>
+        <td class="text-right"><%= number_to_currency(grooming_service.service_amount)%></td>
         <td><%= grooming_service.service_amount_notes %></td>
         <td>
         <%if !grooming_service.employee.nil?%>
@@ -221,7 +217,7 @@ new_grooming_style_path({:id => @grooming_appointment.id}),
       <tr>
         <td><%= incident.grooming_appointment.appt_date.to_formatted_s(:long) %></td>
         <td><%= incident.incident_notes %></td>
-        <td><%= number_to_currency(incident.incident_cost) %></td>
+        <td class="text-right"><%= number_to_currency(incident.incident_cost) %></td>
         <td><%= link_to 'Show', incident, class: 'btn btn-info btn-block'%></td>
         <td><%= link_to "Update", edit_incident_path(incident), :class => "btn btn-warning btn-block" %></td>
         <!--<td><%= link_to 'Delete', incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
