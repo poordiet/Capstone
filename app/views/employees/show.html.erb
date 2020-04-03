@@ -66,7 +66,7 @@
             <hr>
             <div class="container">
                 <%= link_to "Add Store", 
-                new_employee_store_path({:store_id => @employee.id, 
+                new_employee_store_path({:employee_id => @employee.id, 
                 :emp_first_name => @employee.emp_first_name,
                 :emp_last_name => @employee.emp_last_name}), 
                 :class => "btn btn-success float-right mt-4", style: 'margin-bottom: 10px' %>
@@ -142,16 +142,16 @@
 
 <br>
 <script type="text/javascript">
-    var dataTable = $('#store').DataTable();
+    var dataTable2 = $('#store').DataTable();
 
     $(document).ready(function() {
-        dataTable;
+        dataTable2;
     });
 
     document.addEventListener("turbolinks:before-cache", function() {
-        if (dataTable !== null) {
-            dataTable.destroy();
-            dataTable = null;
+        if (dataTable2 !== null) {
+            dataTable2.destroy();
+            dataTable2 = null;
         }
     });
 </script>
