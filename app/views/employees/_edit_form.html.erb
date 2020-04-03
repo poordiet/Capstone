@@ -16,6 +16,14 @@
     <h1>Edit Employee</h1>
     <p><i>* Indicates Required Fields</i></p>
     <hr>
+
+   <div class="form-row">
+    <div class=" form-group field col-6">
+    <%= form.label :employee_status_id, 'Employee Status *' %>
+    <br>
+    <%= form.collection_select :employee_status_id, EmployeeStatus.all, :id, :status %>
+    </div>
+    </div>
     
    <div class="form-row">
         <div class="field form-group col-md-6">
