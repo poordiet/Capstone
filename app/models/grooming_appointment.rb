@@ -27,7 +27,7 @@ class GroomingAppointment < ApplicationRecord
   validates :vac_current, presence: true
   validates :vac_current_date, presence: true
   validates :appt_total, numericality: {greater_than_or_equal_to: 0,:allow_nil => true,  message: ": Total cannot be negative"}
-
+  validate  :appt_date_after_bus_start
 
   # Dynamically calculate Appt Total from Grooming Service Amounts
   
@@ -45,5 +45,13 @@ class GroomingAppointment < ApplicationRecord
 
     self.appt_total = @service_amount_total
   end
+
+
+    # Checks to see if the appt_date occurs before the business started
+    def appt_date_after_bus_start
+      if appt_date.present? && appt_date.strftime("%Y") < "2017"
+        errors.add(:appt_date, "can't occur before the business started")
+      end
+    end  
   
 end
