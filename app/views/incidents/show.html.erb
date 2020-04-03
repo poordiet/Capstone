@@ -3,15 +3,15 @@
       <p id="notice" class="success-notice"><%= notice%></p>
   <div class="row">
     <div class="col-11">
+
+      <%= link_to 'Edit', edit_incident_path(@incident), class:'btn btn-warning btn-lg float-right mr-2' %>
+      <%= link_to 'Grooming Appointment', grooming_appointment_path(@incident.grooming_appointment), class:'btn btn-info btn-lg float-right mr-2' %>
+      <%= link_to 'All Incidents', incidents_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+
     <h1> Incident Profile </h1>
     <hr>
       <div class = "row">
       <div class = "col-12">
-      <p>
-          <%= link_to 'Update', edit_incident_path(@incident), class:'btn btn-warning btn-lg float-right mr-2' %>
-          <%= link_to 'Grooming Appointment', grooming_appointment_path(@incident.grooming_appointment), class:'btn btn-info btn-lg float-right mr-2' %>
-          <%= link_to 'All Incidents', incidents_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
-      </p>
       </div>
         </div>
         <div class="field form-group col-md-4">
@@ -42,17 +42,17 @@
         </p>
       </div>
 
-      <div class="field form-group col-md-8">
-        <p>
-          <strong>Incident Notes:</strong>
-          <%= @incident.incident_notes %>
-        </p>
-      </div>
-
       <div class="field form-group col-md-4">
         <p>
           <strong>Incident Cost:</strong>
           <%= number_to_currency(@incident.incident_cost) %>
+        </p>
+      </div>
+
+      <div class="field form-group col-md-12">
+        <p>
+          <strong>Incident Notes:</strong>
+          <%= @incident.incident_notes %>
         </p>
       </div>
     </div>

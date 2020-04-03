@@ -1,16 +1,18 @@
 <br>
 <div class="container">
-    <div class="row">
-        <div class="col-11">
+
              <p id="notice" class="success-notice"><%= notice %></p>
+             <p>
+                <%= link_to 'Edit', edit_employee_path(@employee), class:'btn btn-warning btn-lg float-right mr-2' %>
+                <%= link_to 'Back', employees_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+            </p>
             <h1>
                 <%= @employee.emp_first_name %> <%= @employee.emp_last_name %>
             </h1>
             <hr>
-             <p>
-                <%= link_to 'Update', edit_employee_path(@employee), class:'btn btn-warning btn-lg float-right mr-2' %>
-                <%= link_to 'Back', employees_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
-            </p>
+
+             <div class="row">
+            <div class="col-5">
             <p>
                 <strong>Primary Phone:</strong>
                 <%= number_to_phone(@employee.emp_primary_phone) %>
@@ -34,7 +36,9 @@
                 <%= @employee.emp_hire_date.to_formatted_s(:long) %>
                 <%end%> 
             </p>
+            </div>
 
+            <div class = "col-6">
             <p>
                 <strong>Address:</strong>
                 <%= @employee.emp_address %>
@@ -54,17 +58,20 @@
                 <strong>Zip Code:</strong>
                 <%= @employee.emp_zip %>
             </p>
+            </div>
+            </div>
             <br>
+        
             <h2>Stores</h2>
-            <br>
+            <hr>
             <div class="container">
                 <%= link_to "Add Store", 
                 new_employee_store_path({:store_id => @employee.id, 
                 :emp_first_name => @employee.emp_first_name,
                 :emp_last_name => @employee.emp_last_name}), 
                 :class => "btn btn-success float-right mt-4", style: 'margin-bottom: 10px' %>
-                <table id="store" class="table table-striped table-bordered" style="width: 1000px;">
-                    <thead class="thead-dark">
+                <table id="store" class="table table-striped table-bordered">
+                    <thead class="thead">
                         <tr>
                             <th>Store Name</th>
                             <th>Store Address</th>
@@ -86,7 +93,7 @@
                             <td><%= employee_store.store.state.state_abbreviation %></td>
                             <td><%= employee_store.store.store_zip %></td>
                             <td><%= number_to_phone(employee_store.store.store_phone) %></td>
-                            <td><%= link_to "Update", edit_employee_store_path(employee_store), 
+                            <td><%= link_to "Edit", edit_employee_store_path(employee_store), 
                             :class => "btn btn-warning btn-block" %></td>
                             <td><%= link_to 'Delete', employee_store, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-block btn-danger' %></td>
                         </tr>
@@ -95,16 +102,18 @@
                 </table>
             </div>
             <br>
-            <h2>Grooming Services</h2>
-            <br>
+            <h2>Grooming Service Assignments</h2>
+            <hr>
             <div class="container">
-                <table id="grooming_services" class="table table-striped table-bordered" style="width: 1000px;">
-                    <thead class="thead-dark">
+                <table id="grooming_services" class="table table-striped table-bordered">
+                    <thead class="thead">
                         <tr>
                             <th>Service</th>
                             <th>Grooming Appointment</th>
+                            <th>Customer</th>
+                            <th>Pet</th>
                             <th>Service Amount</th>
-                            <th>Service Amount Notes</th>
+                            <th>Show</th>
                         </tr>
                     </thead>
 
@@ -112,9 +121,16 @@
                         <% @employee.grooming_services.each do |grooming_service| %>
                         <tr>
                             <td><%= grooming_service.service.service_name %></td>
-                            <td><%= grooming_service.grooming_appointment.appt_date.to_formatted_s(:long) %></td>
+                            <td> <%if grooming_service.grooming_appointment.appt_date.nil? || grooming_service.grooming_appointment.appt_time.nil?%>
+                                 <%=  grooming_service.grooming_appointment.appt_date%> <%=  grooming_service.grooming_appointment.appt_time%>
+                                 <%else%>
+                                 <%=grooming_service.grooming_appointment.appt_date.to_formatted_s(:long)%> <%= grooming_service.grooming_appointment.appt_time.strftime("%I:%M%p")%>
+                                 <%end%> 
+                            </td>
+                            <td><%= grooming_service.grooming_appointment.pet.customer.customer_first_name%> <%= grooming_service.grooming_appointment.pet.customer.customer_last_name%></td>
+                            <td><%= grooming_service.grooming_appointment.pet.pet_name%></td>
                             <td><%= number_to_currency grooming_service.service_amount %></td>
-                            <td><%= grooming_service.service_amount_notes %></td>
+                            <td><%= link_to 'Show', grooming_service.grooming_appointment, class: 'btn btn-block btn-info' %></td>
                         </tr>
                         <% end %>
                     </tbody>

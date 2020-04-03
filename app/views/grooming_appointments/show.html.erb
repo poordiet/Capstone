@@ -5,7 +5,7 @@
 <br>
 <p id="notice" class="success-notice"><%= notice %></p>
 
-<%= link_to 'Update', edit_grooming_appointment_path(@grooming_appointment), class:'btn btn-warning btn-lg float-right mr-2' %>
+<%= link_to 'Edit', edit_grooming_appointment_path(@grooming_appointment), class:'btn btn-warning btn-lg float-right mr-2' %>
 <%=link_to 'New Incident', new_incident_path({:pet_name=> @grooming_appointment.pet.pet_name,
                                             :pet_id => @grooming_appointment.pet.id,
                                             :grooming_appointment_id => @grooming_appointment.id,
@@ -122,7 +122,7 @@
 <h2>Services</h2>
 <hr>
 <div class = "row">
-<div class = "col-11">
+<div class = "col-12">
 <%= link_to "Add Service", 
 new_grooming_service_path({:id => @grooming_appointment.id}), 
 :class => "btn btn-success float-right mt-4", style: 'margin-bottom: 10px' %>
@@ -149,7 +149,7 @@ new_grooming_service_path({:id => @grooming_appointment.id}),
         <%= grooming_service.employee.emp_first_name%> <%= grooming_service.employee.emp_last_name%>
         <%end%>
         </td>
-        <td><%= link_to "Update", edit_grooming_service_path(grooming_service), 
+        <td><%= link_to "Edit", edit_grooming_service_path(grooming_service), 
         :class => "btn btn-warning btn-block" %></td>
         <td><%= link_to 'Delete', grooming_service, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-block btn-danger' %></td>
 			</tr>
@@ -164,7 +164,7 @@ new_grooming_service_path({:id => @grooming_appointment.id}),
   <h2>Styles</h2>
   <hr>
 <div class = "row">
-<div class = "col-11">
+<div class = "col-12">
 <%= link_to "Add Style", 
 new_grooming_style_path({:id => @grooming_appointment.id}), 
 :class => "btn btn-success float-right mt-4", style: 'margin-bottom: 10px' %>
@@ -182,7 +182,7 @@ new_grooming_style_path({:id => @grooming_appointment.id}),
 			<tr>
 				<td><%= grooming_style.style.style_name%></td>
         <td><%= grooming_style.groom_style_notes%></td>
-        <td><%= link_to "Update", edit_grooming_style_path(grooming_style), 
+        <td><%= link_to "Edit", edit_grooming_style_path(grooming_style), 
         :class => "btn btn-warning btn-block" %></td>
         <td><%= link_to 'Delete', grooming_style, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-block btn-danger' %></td>
 			</tr>
@@ -196,7 +196,7 @@ new_grooming_style_path({:id => @grooming_appointment.id}),
 <h2>Incidents</h2>
 <hr>
 <div class = "row">
-<div class = "col-11">
+<div class = "col-12">
 <%=link_to 'New Incident', new_incident_path({:pet_name=> @grooming_appointment.pet.pet_name,
                                             :pet_id => @grooming_appointment.pet.id,
                                             :grooming_appointment_id => @grooming_appointment.id,
@@ -209,7 +209,7 @@ new_grooming_style_path({:id => @grooming_appointment.id}),
     <th>Incident Notes</th>
     <th>Incident Cost</th>
     <th>Show</th>
-    <th>Update</th>
+    <th>Edit</th>
   </thead>
 
   <tbody>
@@ -219,7 +219,7 @@ new_grooming_style_path({:id => @grooming_appointment.id}),
         <td><%= incident.incident_notes %></td>
         <td class="text-right"><%= number_to_currency(incident.incident_cost) %></td>
         <td><%= link_to 'Show', incident, class: 'btn btn-info btn-block'%></td>
-        <td><%= link_to "Update", edit_incident_path(incident), :class => "btn btn-warning btn-block" %></td>
+        <td><%= link_to "Edit", edit_incident_path(incident), :class => "btn btn-warning btn-block" %></td>
         <!--<td><%= link_to 'Delete', incident, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>

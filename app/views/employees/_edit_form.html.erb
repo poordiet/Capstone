@@ -11,82 +11,92 @@
 </div>
 <% end %>
 
-<div id="form">
+<div class="content">
     <br>
     <h1>Edit Employee</h1>
+    <p><i>* Indicates Required Fields</i></p>
+    <hr>
+    
+   <div class="form-row">
+        <div class="field form-group col-md-6">
+            <%= form.label :emp_hire_date, 'Hire Date *' %>
+            <%= form.text_field :emp_hire_date, type: 'date', class: 'form-control col-md-8' %>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="field form-group col-md-6">
+            <%= form.label :emp_first_name, 'First Name *' %>
+            <%= form.text_field :emp_first_name, class: 'form-control col-md-8' %>
+        </div>
+
+        <div class="field form-group col-md-6">
+            <%= form.label :emp_last_name, 'Last Name *' %>
+            <%= form.text_field :emp_last_name, class: 'form-control col-md-8' %>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="field form-group col-md-6">
+            <%= form.label :emp_primary_phone, 'Primary Phone *' %>
+            <%= form.text_field :emp_primary_phone,type: 'tel', class: 'form-control col-md-8' %>
+        </div>
+
+        <div class="field form-group col-md-6">
+            <%= form.label :emp_secondary_phone, 'Secondary Phone' %>
+            <%= form.text_field :emp_secondary_phone,type: 'tel', class: 'form-control col-md-8' %>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="field form-group col-md-6">
+            <%= form.label :emp_email, 'Email' %>
+            <%= form.text_field :emp_email, class: 'form-control col-md-8' %>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="field form-group col-md-6">
+            <%= form.label :emp_address, 'Address' %>
+            <%= form.text_field :emp_address, class: 'form-control col-md-10' %>
+        </div>
+
+        <div class="field form-group col-md-2">
+            <%= form.label :state_id, 'State' %>
+            <%= form.collection_select :state_id, State.all, :id, :state_name %>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="field form-group col-md-6">
+            <%= form.label :emp_city, 'City' %>
+            <%= form.text_field :emp_city, class: 'form-control col-md-8' %>
+        </div>
+
+        <div class="field form-group col-md-3">
+            <%= form.label :emp_zip, 'Zip Code' %>
+            <%= form.text_field :emp_zip, class: 'form-control col-md-8' %>
+        </div>
+    </div>
+
+    <hr>
+    <h2>Employee Stores</h2>
+    <hr>
+    <div class="form-row">
+     <div class="col-12">
+        <div class="employee_stores">
+            <%= link_to_add_association 'Add Store', form, :employee_stores, class: 'btn btn-success btn-sm btn-block mx-auto' %>
+        </div>
+    </div>
+    </div>
+    <hr>
     <br>
-    <form>
-        <div class="form-row">
-            <div class="field form-group col-md-6">
-                <%= form.label :emp_hire_date, 'Hire Date' %>
-                <%= form.text_field :emp_hire_date, type: 'date' %>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="field form-group col-md-2">
-                <%= form.label :emp_first_name, 'First Name' %>
-                <%= form.text_field :emp_first_name, class: 'form-control' %>
-            </div>
-
-            <div class="field form-group col-md-2">
-                <%= form.label :emp_last_name, 'Last Name' %>
-                <%= form.text_field :emp_last_name, class: 'form-control' %>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="field form-group col-md-2">
-                <%= form.label :emp_address, 'Address' %>
-                <%= form.text_field :emp_address, class: 'form-control' %>
-            </div>
-
-            <div class="field form-group col-md-2">
-                <%= form.label :state_id, 'State' %>
-                <%= form.collection_select :state_id, State.all, :id, :state_name %>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="field form-group col-md-2">
-                <%= form.label :emp_city, 'City' %>
-                <%= form.text_field :emp_city, class: 'form-control' %>
-            </div>
-
-            <div class="field form-group col-md-2">
-                <%= form.label :emp_zip, 'Zip Code' %>
-                <%= form.text_field :emp_zip, class: 'form-control' %>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="field form-group col-md-2">
-                <%= form.label :emp_primary_phone, 'Primary Phone' %>
-                <%= form.text_field :emp_primary_phone,type: 'tel', class: 'form-control' %>
-            </div>
-
-            <div class="field form-group col-md-2">
-                <%= form.label :emp_secondary_phone, 'Secondary Phone' %>
-                <%= form.text_field :emp_secondary_phone,type: 'tel', class: 'form-control' %>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="field form-group col-md-4">
-                <%= form.label :emp_email, 'Email' %>
-                <%= form.text_field :emp_email, class: 'form-control' %>
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="stores">
-                <%= link_to_add_association 'Add Store', form, :employee_stores, class: 'btn btn-success btn-lg float-left mx-auto' %>
-            </div>
-        </div>
-    </form>
     <br>
-    <div id="buttons">
-        <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+    <div class = "form-row">
+        <div class = "col-12">
+        <%= link_to 'Cancel', session[:prev_url], class: 'btn btn-danger btn-lg float-left'%>
         <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
+        </div>
     </div>
 </div>
 <% end %>

@@ -12,6 +12,7 @@ class Employee < ApplicationRecord
   validates :emp_first_name, presence: true
   validates :emp_last_name, presence: true
   validates :emp_primary_phone, presence: true
+  validates :emp_hire_date, presence: true
   validate :date_hired_no_dumb
 
   # Checks to see if the date_hired occurs before the business started
