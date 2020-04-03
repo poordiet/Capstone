@@ -24,7 +24,7 @@
   <div class="field col-12">
     <%= form.label :service_id, 'Service Name *' %>
     <br>
-    <%= form.collection_select :service_id, Service.all, :id, :service_name %>
+    <%= form.collection_select :service_id, Service.active_services, :id, :service_name %>
   </div>
 </div>
 
