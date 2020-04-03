@@ -33,5 +33,5 @@ class Customer < ApplicationRecord
         pet_vaccination.save
       end
     end
-    end
+  end
 end
