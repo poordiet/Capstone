@@ -42,7 +42,7 @@
           <%end%>
         </td>
         <td><%= grooming_appointment.store.store_name %></td>
-        <td><%= number_to_currency(grooming_appointment.appt_total) %></td>
+        <td class="text-right"><%= number_to_currency(grooming_appointment.appt_total) %></td>
         <td><%= link_to 'Show', grooming_appointment, class: 'btn btn-block btn-info' %></td>
         <td><%= link_to 'Edit', edit_grooming_appointment_path(grooming_appointment), class: 'btn btn-block btn-warning' %></td>
       </tr>

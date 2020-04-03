@@ -16,6 +16,7 @@ class GroomingServicesController < ApplicationController
   def new
     @grooming_service = GroomingService.new
     session[:prev_url] = request.referer
+    
   end
 
   # GET /grooming_services/1/edit
@@ -26,6 +27,7 @@ class GroomingServicesController < ApplicationController
   # POST /grooming_services
   # POST /grooming_services.json
   def create
+    
     @grooming_service = GroomingService.new(grooming_service_params)
 
     respond_to do |format|

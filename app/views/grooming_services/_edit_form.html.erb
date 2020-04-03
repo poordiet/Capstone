@@ -11,9 +11,10 @@
     </div>
   <% end %>
 
-  <div class = "content">
+  <div class = "grooming-service-content">
 <br>
 <h1> New Grooming Service</h1>
+<p><i>* Indicates Required Fields</i></p>
 <hr>
   <div class="field">
  <%= form.hidden_field :grooming_appointment_id, value: @grooming_service.grooming_appointment_id%>
@@ -21,7 +22,7 @@
 
 <div class = "row">
   <div class="field col-12">
-    <%= form.label :service_id, 'Service Name' %>
+    <%= form.label :service_id, 'Service Name *' %>
     <br>
     <%= form.collection_select :service_id, Service.all, :id, :service_name %>
   </div>
@@ -37,7 +38,7 @@
 
 <div class="row">
   <div class="field col-6">
-    <%= form.label :service_amount, 'Service Amount' %>
+    <%= form.label :service_amount, 'Service Amount *' %>
     <%= form.number_field :service_amount, class: 'form-control' %>
   </div>
 </div>

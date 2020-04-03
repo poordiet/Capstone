@@ -11,30 +11,41 @@
     </div>
   <% end %>
 
-<div id="form">
+<div class="employee-store-content">
   <br>
   <h1>New Employee Store</h1>
-  <br>
+  <p><i>* Indicates Required Fields</i></p>
+  <hr>
+
+  <div class="form-group">
+    <div class="col-12">
+      <%= form.label :employee_id, "Employee: ", class: 'name-label'%>
+      <%= form.label :employee_first_name, value: @employee.emp_first_name, class:'name'%>
+      <%= form.label :employee_last_name, value: @employee.emp_last_name, class:'name'%>
+    </div>
+  </div>
+  <hr>
+
   <div class="form-column">
-    <div class="field form-group col-md-2">
-      <%= form.label :store_id %>
+    <div class="field form-group col-md-12">
+      <%= form.label :store_id, "Store *" %>
+      <br>
       <%= form.collection_select :store_id, Store.all, :id, :store_name %>
     </div>
 
     <div class="field form-group col-md-2">
-      <%= form.label :employee_id %>
-      <%= form.collection_select :employee_id, Employee.all, :id, :emp_first_name %>
+      <%= form.hidden_field :employee_id, value: @employee.id%>
     </div>
 
   </div>
     
   <br>
-  <div class="field form-group col-md-6">
-    <div id="buttons">
-        <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+   <div class = "form-row">
+        <div class = "col-12">
+        <%= link_to 'Cancel', session[:prev_url], class: 'btn btn-danger btn-lg float-left'%>
         <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
+        </div>
     </div>
-  </div>
   
 </div>
 <% end %>

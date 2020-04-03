@@ -5,14 +5,18 @@
 
  <p id="notice" class="success-notice"><%= notice %></p>
 
+<p>
+<%= link_to 'Edit', edit_customer_path(@customer), class:'btn btn-warning btn-lg float-right mr-2' %>
+<%= link_to 'All Customers', customers_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+</p>
+
 <h1>
   <%= @customer.customer_first_name %> <%=@customer.customer_last_name%>
 </h1>
 <hr>
-<p>
-<%= link_to 'Update', edit_customer_path(@customer), class:'btn btn-warning btn-lg float-right mr-2' %>
-<%= link_to 'All Customers', customers_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
-</p>
+
+<div class = "row">
+<div class = "col-6">
 <p>
   <strong>Status:</strong>
   <%= @customer.customer_status.status %>
@@ -41,8 +45,9 @@
   <strong>Email:</strong>
   <%= @customer.customer_email %>
 </p>
+</div>
 
-
+<div class = "col-6">
 <p>
   <strong>Address:</strong>
   <%= @customer.customer_address %>
@@ -63,16 +68,19 @@
   <strong>Zip Code:</strong>
   <%= @customer.customer_zip %>
 </p>
+</div>
 
-
+<div class = "col-12">
 <p>
   <strong>Customer Notes:</strong>
   <%= @customer.customer_notes %>
 </p>
+</div>
+</div>
 
 <br>
 <h2>Pets</h2>
-<br>
+<hr>
 
 <div class = "row">
 <div class = "col-12">
@@ -101,7 +109,7 @@ new_customer_pet_path({:customer_id => @customer.id,
         <td><%= pet.pet_breed %></td>
         <td><%= pet.pet_weight %></td> 
         <td><a class="btn btn-info btn-block"<%= link_to 'Show', pet %></td> 
-        <td><%= link_to "Update", edit_pet_path(pet), 
+        <td><%= link_to "Edit", edit_pet_path(pet), 
         :class => "btn btn-warning btn-block" %></td>
         <td><%= link_to "New Appointment", new_pet_grooming_appointment_path(:pet_id => pet.id, :pet_name => pet.pet_name, 
         :customer_last_name => pet.customer.customer_last_name, :customer_first_name => pet.customer.customer_first_name), 

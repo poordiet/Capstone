@@ -106,7 +106,7 @@
     <br>
     <div class = "form-row">
         <div class="form-group col-md-12">
-            <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+            <%= link_to 'Cancel', session[:prev_url], class: 'btn btn-danger btn-lg float-left'%>
             <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
         </div>
     </div>

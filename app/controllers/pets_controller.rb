@@ -12,19 +12,13 @@ class PetsController < ApplicationController
   def show
   end
 
-  # GET /pets/new
-  def new
-    @pet = Pet.new
-    1.times do
-      pet_photo = @pet.pet_photos.build
-    end
-  end
-
-    # GET /pets/newnew
+    # GET /pets/new
     def new
       @customer_id = params[:customer_id]
       @customer_first_name = params[:customer_first_name]
       @customer_last_name = params[:customer_last_name]
+
+      session[:prev_url] = request.referer
 
       @pet = Pet.new
       1.times do

@@ -61,7 +61,7 @@
 
   <div class="form-row">
   <div class="form-group field col-md-6">
-    <%= form.label :appt_blades, 'Blades' %>
+    <%= form.label :appt_blades, 'Blade Notes' %>
     <%= form.text_field :appt_blades, class: 'form-control col-md-8' %>
   </div>
   </div>
@@ -96,7 +96,7 @@
   </div>
 
     <hr/>
-
+<!--
  <div class="form-row">
     <div class="form-group col-12">
       <h2>Services</h2>
@@ -105,8 +105,10 @@
           <% end %> 
     </div>
   </div>
+  -->
 
-
+<h2>Services</h2>
+<br>
   <div class="form-row">
       <div class="form-group col-md-12">
         <%= link_to_add_association 'Add Service', form, :grooming_services, class: 'btn btn-success btn-sm btn-block float-left mx-auto' %>
@@ -117,7 +119,7 @@
 
 
   <hr/>
-
+<!--
    <div class="form-row">
     <div class="form-group col-12">
       <h2>Styles</h2>
@@ -125,10 +127,11 @@
         <%= render "grooming_style_fields", f: grooming_style %>
       <% end %> 
     </div>
-  </div>
+  </div>-->
 
 
-
+<h2>Styles</h2>
+<br>
  <div class="form-row">
   <div class="form-group col-12">
       <%= link_to_add_association 'Add Style', form, :grooming_styles, class: 'btn btn-success btn-sm btn-block float-left mx-auto' %>
@@ -174,7 +177,7 @@
 
  <div class="actions">
     <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
-    <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+    <%= link_to 'Cancel', session[:prev_url], class: 'btn btn-danger btn-lg float-left'%>
   </div>
 
 <% end %>
