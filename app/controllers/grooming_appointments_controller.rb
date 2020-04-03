@@ -41,7 +41,6 @@ class GroomingAppointmentsController < ApplicationController
     @customer = Customer.find(@pet.customer.id)
     
     @grooming_appointment = GroomingAppointment.new(grooming_appointment_params)
-    
 
     respond_to do |format|
       if @grooming_appointment.save

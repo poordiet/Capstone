@@ -27,5 +27,23 @@ class GroomingAppointment < ApplicationRecord
   validates :vac_current, presence: true
   validates :vac_current_date, presence: true
   validates :appt_total, numericality: {greater_than_or_equal_to: 0,:allow_nil => true,  message: ": Total cannot be negative"}
+
+
+  # Dynamically calculate Appt Total from Grooming Service Amounts
+  
+  before_save :calculate_total
+  before_update :calculate_total
+
+  def calculate_total
+    @service_amount_total = 0
+
+    self.grooming_services.each do |grooming_service|
+
+        @service_amount_total =  @service_amount_total + grooming_service.service_amount
+
+    end
+
+    self.appt_total = @service_amount_total
+  end
   
 end
