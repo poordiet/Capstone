@@ -14,7 +14,7 @@ class GroomingAppointmentsController < ApplicationController
 
   # GET /grooming_appointments/new
   def new
-
+    session[:prev_url] = request.referer
     @pet_name = params[:pet_name]
     @pet_id = params[:pet_id]
     @pet = Pet.find(params[:pet_id])
@@ -28,6 +28,7 @@ class GroomingAppointmentsController < ApplicationController
 
   # GET /grooming_appointments/1/edit
   def edit
+    session[:prev_url] = request.referer
     @grooming_appointment.grooming_services
     @grooming_appointment.pet_photos
   end
@@ -47,7 +48,6 @@ class GroomingAppointmentsController < ApplicationController
         format.html { redirect_to @grooming_appointment, notice: 'Grooming appointment was successfully created.' }
         format.json { render :show, status: :created, location: @grooming_appointment }
       else
-        #@pet_id = @pet.id
         @pet_id = @pet.id
         @pet_name = @pet.pet_name
         @customer_first_name = @customer.customer_first_name

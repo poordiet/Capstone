@@ -5,15 +5,21 @@
 <br>
 <p id="notice" class="success-notice"><%= notice %></p>
 
-<h1> Grooming Appointment Details </h1>
-<hr>
-
 <%= link_to 'Update', edit_grooming_appointment_path(@grooming_appointment), class:'btn btn-warning btn-lg float-right mr-2' %>
+<%=link_to 'New Incident', new_incident_path({:pet_name=> @grooming_appointment.pet.pet_name,
+                                            :pet_id => @grooming_appointment.pet.id,
+                                            :grooming_appointment_id => @grooming_appointment.id,
+                                            :appt_date => @grooming_appointment.appt_date.strftime("%b %d %Y"),
+                                            :appt_time => @grooming_appointment.appt_time.strftime("%I:%M%p")}),
+                                              class: 'btn btn-success btn-lg float-right mr-2'%>
 <%= link_to 'Pet Profile', pet_path(@grooming_appointment.pet), class: 'btn btn-info btn-lg float-right mr-2'%>
 <%= link_to 'All Appointments', grooming_appointments_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
 
+<h1>Appointment Details </h1>
+<hr>
+
 <div class="row">
-<div class="col-12">
+<div class="col-6">
 <br>
 <p>
   <strong>Customer:</strong>
@@ -50,11 +56,11 @@
   <%end%> 
 </p>
 
-<p>
-  <strong>Blades:</strong>
-  <%= @grooming_appointment.appt_blades %>
-</p>
 
+</div>
+
+<div class="col-6">
+<br>
 <p>
   <strong>Vaccine Current:</strong>
   <%= @grooming_appointment.vac_current %>
@@ -70,8 +76,35 @@
 </p>
 
 <p>
+  <strong>Total:</strong>
+  <%= number_to_currency(@grooming_appointment.appt_total) %>
+</p>
+
+<p>
+  <strong>Payment Type:</strong>
+   <%if @grooming_appointment.payment_type.nil?%>
+  <%else%>
+  <%= @grooming_appointment.payment_type.payment_type %>
+  <%end%> 
+</p>
+
+</div>
+</div>
+
+<div class = "container">
+<div class="row">
+<div class="col-12">
+<br>
+<h5><i> Notes </i></h5>
+<hr>
+<p>
 <strong> Pet Notes: </strong>
 <%=@grooming_appointment.pet.pet_notes%>
+</p>
+
+<p>
+  <strong>Blade Notes:</strong>
+  <%= @grooming_appointment.appt_blades %>
 </p>
 
 <p>
@@ -83,27 +116,10 @@
   <strong>Customer Feedback:</strong>
   <%= @grooming_appointment.customer_feedback %>
 </p>
-
-<p>
-  <strong>Total:</strong>
-  <%= number_to_currency(@grooming_appointment.appt_total) %>
-</p>
-
-<p>
-  <strong>Payment Type:</strong>
-   <%if @grooming_appointment.payment_type.nil?%>
-  <%else%>
-  <%= @grooming_appointment.payment_type.payment_type %>
-  <%end%> 
- 
-</p>
+</div>
+</div>
 </div>
 
-<div class="col-6">
-<!-- this is where total and payment type were -->
-</div>
-
-</div>
 
 <br>
 
@@ -132,7 +148,11 @@ new_grooming_service_path({:id => @grooming_appointment.id}),
 				<td><%= grooming_service.service.service_name %></td>
         <td><%= number_to_currency(grooming_service.service_amount)%></td>
         <td><%= grooming_service.service_amount_notes %></td>
-        <td><%= grooming_service.employee.emp_first_name%> <%= grooming_service.employee.emp_last_name%></td>
+        <td>
+        <%if !grooming_service.employee.nil?%>
+        <%= grooming_service.employee.emp_first_name%> <%= grooming_service.employee.emp_last_name%>
+        <%end%>
+        </td>
         <td><%= link_to "Update", edit_grooming_service_path(grooming_service), 
         :class => "btn btn-warning btn-block" %></td>
         <td><%= link_to 'Delete', grooming_service, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-block btn-danger' %></td>

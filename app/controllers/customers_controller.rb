@@ -14,11 +14,13 @@ class CustomersController < ApplicationController
 
   # GET /customers/new
   def new
+    session[:prev_url] = request.referer
     @customer = Customer.new
   end
 
   # GET /customers/1/edit
   def edit
+    session[:prev_url] = request.referer
   end
 
   # POST /customers

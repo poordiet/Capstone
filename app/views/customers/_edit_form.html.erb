@@ -1,4 +1,6 @@
 <%= form_with(model: customer, local: true) do |form| %>
+  <br>
+ <div class="customer-content">
   <% if customer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
@@ -10,12 +12,9 @@
       </ul>
     </div>
   <% end %>
-  
-  <br>
 
 
 
-<div class="customer-content">
 <br>
 <h1>Editing Customer</h1>
 <p><i>* Indicates Required Fields</i></p>
@@ -110,7 +109,7 @@
   
   <br>
     <div>
-     <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+     <%= link_to 'Cancel', session[:prev_url], class: 'btn btn-danger btn-lg float-left'%>
     <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
     <div>
   

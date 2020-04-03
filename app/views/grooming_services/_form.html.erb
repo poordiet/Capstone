@@ -11,16 +11,17 @@
     </div>
   <% end %>
 
-<div class = "content">
+<div class = "grooming-service-content">
 <br>
 <h1> New Grooming Service</h1>
+<p><i>* Indicates Required Fields</i></p>
 <hr>
   <div class="field">
   <%= form.hidden_field :grooming_appointment_id, :value => params[:id]%>
 </div>
 
 <div class = "row">
-  <div class="field col-12">
+  <div class=" form-group field col-12">
     <%= form.label :service_id, 'Service Name' %>
     <br>
     <%= form.collection_select :service_id, Service.all, :id, :service_name %>
@@ -28,7 +29,7 @@
 </div>
 
 <div class="row">
-  <div class="field col-12">
+  <div class="form-group field col-12">
     <%= form.label :employee_id, 'Employee' %>
     <br>
     <%= form.collection_select :employee_id, Employee.all, :id, :emp_first_name %>
@@ -36,22 +37,22 @@
 </div>
 
 <div class="row">
-  <div class="field col-6">
+  <div class=" form-group field col-6">
     <%= form.label :service_amount, 'Service Amount' %>
     <%= form.number_field :service_amount, class: 'form-control' %>
   </div>
 </div>
 
 <div class = "row">
-  <div class="field col-12">
+  <div class="form-group col-12">
     <%= form.label :service_amount_notes, 'Service Amount Notes' %>
     <%= form.text_area :service_amount_notes, rows: '4', class:'form-control' %>
   </div>
 </div>
 <br>
 <div class = "row">
-  <div class="col-12">
-   <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+  <div class="form-group col-12">
+   <%= link_to 'Cancel', session[:prev_url], class: 'btn btn-danger btn-lg float-left'%>
     <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
   </div>
 </div>
