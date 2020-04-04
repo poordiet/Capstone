@@ -22,11 +22,13 @@ class EmployeesController < ApplicationController
 
   # GET /employees/new
   def new
+    session[:prev_url] = request.referer
     @employee = Employee.new
   end
 
   # GET /employees/1/edit
   def edit
+    session[:prev_url] = request.referer
   end
 
   # POST /employees

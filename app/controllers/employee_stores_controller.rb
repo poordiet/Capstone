@@ -14,6 +14,7 @@ class EmployeeStoresController < ApplicationController
 
   # GET /employee_stores/new
   def new
+    @employee = Employee.find(params[:employee_id])
     @employee_store = EmployeeStore.new
     session[:prev_url] = request.referer
   end
@@ -27,13 +28,14 @@ class EmployeeStoresController < ApplicationController
   # POST /employee_stores.json
   def create
     @employee_store = EmployeeStore.new(employee_store_params)
-
+  
     respond_to do |format|
       if @employee_store.save
         format.html {  redirect_to session.delete(:prev_url), notice: "Employee Store was successfully created."}
         #format.html { redirect_to @employee_store, notice: 'Employee store was successfully created.' }
         #format.json { render :show, status: :created, location: @employee_store }
       else
+        @employee = Employee.find(params[:employee_id])
         format.html { render :new }
         format.json { render json: @employee_store.errors, status: :unprocessable_entity }
       end

@@ -1,12 +1,12 @@
 <div class="nested-fields">
     <br>
-    <br>
-    <h1>Add Store</h1>
+    <h3>Employee Store</h3>
     <br>
     
     <div class="form-row">
-    <div class="field form-group">
+    <div class="field form-group col-6">
         <%= f.label :store_id %>
+        <br>
         <%= f.collection_select :store_id, Store.all, :id, :store_name, class: 'form-control' %>
     </div>
     </div>
@@ -14,7 +14,8 @@
 
     <div class="form-row">
         <div class="field form-group">
-            <%= link_to_remove_association "Remove Store", f, class: 'btn btn-secondary btn-lg float-left mx-auto' %> <br>
+            <%= link_to_remove_association "Remove Store", f, class: 'btn btn-secondary float-left mx-auto' %> <br>
         </div>
     </div>
+    <hr>
 </div>

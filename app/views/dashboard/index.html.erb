@@ -32,7 +32,9 @@
 		<thead class="thead-dark">
     <tr>
       <th>Customer</th>
+      <th>Customer Phone</th>
       <th>Pet Name</th>
+      <th>Store</th>
       <th>Appt Date/Time</th>
       <th>Total</th>
   
@@ -51,7 +53,9 @@
     <% @appointments_for_today.each do |grooming_appointment| %>
       <tr> 
         <td><%= grooming_appointment.customer %>
+        <td><%= grooming_appointment.customer_primary_phone%></td>
         <td><%= grooming_appointment.pet_name %></td>
+        <td><%= grooming_appointment.store_name %></td>
         <td><%=  grooming_appointment.appt_date.strftime("%b %d %Y")%> <%= grooming_appointment.appt_time.strftime("%I:%M%p")%></td>
         <td><%= number_to_currency(grooming_appointment.appt_total) %></td>
       </tr>

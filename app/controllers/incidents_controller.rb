@@ -14,6 +14,7 @@ class IncidentsController < ApplicationController
 
   # GET /incidents/new
   def new
+    session[:prev_url] = request.referer
     @grooming_appointment_id = params[:grooming_appointment_id]
     @appt_time = params[:appt_time]
     @appt_date = params[:appt_date]

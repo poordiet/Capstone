@@ -11,12 +11,23 @@ class Pet < ApplicationRecord
   accepts_nested_attributes_for :pet_photos, reject_if: :all_blank, allow_destroy: true
 
     # Form Validations
-   # validates :pet_name, presence: true
-    #validates :pet_status, presence: true
-    #validates :pet_gender, presence: true
-    #validates :spayed_neutered, presence: true
-    #validates :pet_treat, presence: true
-    #validates :pet_color, presence: true
-    #validates :pet_breed, presence: true
-    #validates :pet_weight, presence: true
+    validates :pet_name, presence: true
+    validates :pet_status, presence: true
+    validates :pet_gender, presence: true
+    validates :spayed_neutered, presence: true
+    validates :pet_treat, presence: true
+    validates :pet_color, presence: true
+    validates :pet_breed, presence: true
+    validates :pet_weight, presence: true
+  
+    # Calculates Expiration date for Pet Vaccination in the Pet Nested Form
+  after_save :calculate_expiration
+
+  private
+    def calculate_expiration    
+       self.pet_vaccinations.each do |pet_vaccination|
+        pet_vaccination.calculate_expiration(pet_vaccination.date_given, pet_vaccination.duration, pet_vaccination.date_expire)
+        pet_vaccination.save
+      end
+  end
 end

@@ -11,27 +11,37 @@
     </div>
   <% end %>
 
+<br>
+<div class = "grooming-style-content">
+<br>
+<h1> Edit Grooming Style</h1>
+<p><i>* Indicates Required Fields</i></p>
+<hr>
   <div class="field">
     <%= form.hidden_field :grooming_appointment_id, :value => @grooming_style.grooming_appointment_id%>
   </div>
 
-  <div class="field">
-    <%= form.label :style_id, 'Style' %>
+  
+<div class = "row">
+  <div class=" form-group col-12">
+    <%= form.label :style_id, 'Style *' %>
+    <br>
     <%= form.collection_select :style_id, Style.all, :id, :style_name %>
   </div>
+</div>
 
-  <!--<div class="field">
-    <%= form.label :grooming_appointment_id, 'Grooming Appointment' %>
-    <%= form.collection_select :grooming_appointment_id, GroomingAppointment.all, :id, :appt_date %>
-  </div>-->
-
-  <div class="field">
+<div class = "row">
+  <div class=" form-group col-12">
     <%= form.label :groom_style_notes, 'Groom Style Notes' %>
-    <%= form.text_field :groom_style_notes %>
+    <%= form.text_area :groom_style_notes, class: 'form-control', rows: '4' %>
   </div>
+</div>
 
-  <div class="actions">
-  <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
-    <%= form.submit 'Create Grooming Style' %>
+<div class = "row">
+  <div class="col-12">
+  <%= link_to 'Cancel', session[:prev_url], class: 'btn btn-danger btn-lg float-left'%>
+    <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
   </div>
+<div>
 <% end %>
+</div>

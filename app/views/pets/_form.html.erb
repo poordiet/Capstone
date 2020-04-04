@@ -98,7 +98,7 @@
 
         <div class="field form-group col-md-6">
             <%= form.label :vet_phone, 'Vet Phone' %>
-            <%= form.text_field :vet_phone, class: 'form-control col-md-8' %>
+            <%= form.text_field :vet_phone, class: 'form-control col-md-8', type: 'tel' %>
         </div>
     </div>
 
@@ -138,10 +138,35 @@
     <br>
     <div class = "form-row">
         <div class="form-group col-md-12">
-            <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+            <%= link_to 'Cancel', session[:prev_url], class: 'btn btn-danger btn-lg float-left'%>
             <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
         </div>
     </div>
 
     </div>
 <% end %>
+
+<script>
+$("input[type='tel']").each(function(){
+  $(this).on("change keyup paste", function (e) {
+    var output,
+      $this = $(this),
+      input = $this.val();
+
+    if(e.keyCode != 8) {
+      input = input.replace(/[^0-9]/g, '');
+      var area = input.substr(0, 3);
+      var pre = input.substr(3, 3);
+      var tel = input.substr(6, 4);
+      if (area.length < 3) {
+        output =  area;
+      } else if (area.length == 3 && pre.length < 3) {
+        output =  area + "-" + pre;
+      } else if (area.length == 3 && pre.length == 3) {
+        output =  area +  "-" + pre + "-" + tel;
+      }
+      $this.val(output);
+    }
+  });
+});
+</script>

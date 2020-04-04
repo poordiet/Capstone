@@ -3,11 +3,15 @@
 <div class = "container">
  <p id="notice" class="success-notice"><%= notice %></p>
 <br>
+
+<%= link_to 'Edit', edit_pet_path(@pet), class: 'btn btn-warning btn-lg float-right mr-2' %> 
+<%= link_to 'Customer', @pet.customer, class: 'btn btn-info btn-lg float-right mr-2' %>
+<%= link_to "New Appointment", new_pet_grooming_appointment_path(:pet_id => @pet.id, :pet_name => @pet.pet_name, 
+        :customer_last_name => @pet.customer.customer_last_name, :customer_first_name => @pet.customer.customer_first_name), 
+        :class => "btn btn-success btn-lg float-right mr-2" %>
+
 <h1><%= @pet.pet_name%> </h2>
 <hr>
-<p><%= link_to 'Edit', edit_pet_path(@pet), class: 'btn btn-warning btn-lg float-right mr-2' %> 
-<%= link_to 'Customer', @pet.customer, class: 'btn btn-info btn-lg float-right mr-2' %>
-</p>
 <br>
 
 <div class="row">
@@ -23,13 +27,24 @@
 </p>
 
 <p>
-  <strong>Pet name:</strong>
-  <%= @pet.pet_name %>
+  <strong>Pet Gender:</strong>
+  <%= @pet.pet_gender %>
+</p>
+
+
+<p>
+  <strong>Pet Color:</strong>
+  <%= @pet.pet_color %>
 </p>
 
 <p>
-  <strong>Pet gender:</strong>
-  <%= @pet.pet_gender %>
+  <strong>Pet Breed:</strong>
+  <%= @pet.pet_breed %>
+</p>
+
+<p>
+  <strong>Pet Weight:</strong>
+  <%= @pet.pet_weight %> lbs
 </p>
 
 <p>
@@ -61,20 +76,6 @@
   <%= @pet.vet_phone %>
 </p>
 
-<p>
-  <strong>Pet Color:</strong>
-  <%= @pet.pet_color %>
-</p>
-
-<p>
-  <strong>Pet Breed:</strong>
-  <%= @pet.pet_breed %>
-</p>
-
-<p>
-  <strong>Pet Weight:</strong>
-  <%= @pet.pet_weight %>
-</p>
 </div>
 
 <!-- Shows the profile photos for each pet -->
@@ -111,7 +112,6 @@ div.desc {
 
 </style>
 
-<br>
 <!-- Check if Profile Photo Exists-->
 <%count = 0%>
 <%@pet.pet_photos.each do |photo|%>
@@ -147,7 +147,6 @@ div.desc {
   </div>
   </div>
 
-<div class ="container">
 <div class = "row">
 <div class = "col-12">
   <p>
@@ -165,7 +164,6 @@ div.desc {
   <strong>Pet Notes:</strong>
   <%= @pet.pet_notes %>
 </p>
-</div>
 </div>
 </div>
 
@@ -204,7 +202,7 @@ new_pet_vaccination_path({:pet_id => @pet.id,
         <%=pet_vaccination.date_expire.to_formatted_s(:long)%>
         <%end%> 
         </td>
-        <td><%= link_to "Update", edit_pet_vaccination_path(pet_vaccination), 
+        <td><%= link_to "Edit", edit_pet_vaccination_path(pet_vaccination), 
         :class => "btn btn-warning btn-block" %></td>
 			</tr>
        <% end %>
@@ -243,7 +241,7 @@ new_pet_vaccination_path({:pet_id => @pet.id,
         <td><%= grooming_appointment.appt_blades %></td>
         <td><%= number_to_currency(grooming_appointment.appt_total) %></td>
         <td><%= link_to 'Show', grooming_appointment, class: 'btn btn-block btn-info' %></td>
-         <td><%= link_to "Update", edit_grooming_appointment_path(grooming_appointment), 
+         <td><%= link_to "Edit", edit_grooming_appointment_path(grooming_appointment), 
         :class => "btn btn-warning btn-block" %></td>
 			</tr>
        <% end %>

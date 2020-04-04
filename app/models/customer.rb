@@ -9,7 +9,7 @@ class Customer < ApplicationRecord
 
   
   # Form Validations
-  #validates :date_obtained, presence: true
+  validates :date_obtained, presence: true
   validates :customer_first_name, presence: true
   validates :customer_last_name, presence: true
   validates :customer_primary_phone, presence: true
@@ -33,5 +33,5 @@ class Customer < ApplicationRecord
         pet_vaccination.save
       end
     end
-    end
+  end
 end

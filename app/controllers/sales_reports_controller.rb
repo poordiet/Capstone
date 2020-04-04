@@ -11,6 +11,7 @@ class SalesReportsController < ApplicationController
         @date_obtained = ReportCalculations.date_obtained
         @customer_sales = ReportCalculations.customer_sales
         @customer_appointments = ReportCalculations.customer_appointments 
+        @service_count = ReportCalculations.service_count
     end   
 
 end
