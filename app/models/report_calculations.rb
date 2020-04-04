@@ -8,8 +8,12 @@ class ReportCalculations
         GroomingService.find_by_sql("select service_id, sum(service_amount) from grooming_services group by service_id order by sum(service_amount) desc")
     end
 
+    def self.service_count
+        GroomingService.find_by_sql("select service_id, count(service_id) from grooming_services group by service_id order by count(service_id) desc")
+    end
+
     def self.sales_by_store
-        GroomingAppointment.find_by_sql("select store_id, sum(appt_total) from grooming_appointments group by store_id;")
+        GroomingAppointment.find_by_sql("select store_id, sum(appt_total) from grooming_appointments group by store_id")
     end
 
     def self.date_obtained
@@ -27,6 +31,7 @@ class ReportCalculations
     def self.sales_by_month
         GroomingAppointment.find_by_sql("select date_trunc('month', appt_date) as month, sum(appt_total) as sales from grooming_appointments group by month order by month")
     end
+
 
 
 end
