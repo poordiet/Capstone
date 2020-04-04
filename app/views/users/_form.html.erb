@@ -13,6 +13,11 @@
 
 <h2>Create User</h2>
 
+<div class="field">
+    <%= form.label :role %><br />
+    <%= form.email_field :role %>
+  </div>
+
   <div class="field">
     <%= form.label :email %><br />
     <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
