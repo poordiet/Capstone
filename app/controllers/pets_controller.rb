@@ -28,6 +28,7 @@ class PetsController < ApplicationController
 
   # GET /pets/1/edit
   def edit
+    session[:prev_url] = request.referer
   end
 
   # POST /pets
