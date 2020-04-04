@@ -10,6 +10,15 @@
     
   </head>
 
+  <div>
+    <% if user_signed_in? %>
+      <%= current_user.email %>
+        <% if current_user.admin == true %>
+          <%='(A)'%>
+        <% end %>
+    <% end %>
+  </div>
+
   <body>
     <div class="col-md" id="logo">
       <a class="nav-link" href="/"> <%= image_tag "logo.png", size: "75x75"%> </a>
@@ -20,14 +29,14 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent">
         <span class="navbar-toggler-icon"></span>
       </button>
-
+      
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mx-auto">
         <div class="col-md">
-        <li class="nav-item active">
-          <%= link_to '<b>Logout</b>'.html_safe, destroy_user_session_path, method: :delete, 
-          data: {confirm: "Are you sure you want to Log Out?"}, class: 'nav-link' %>
-        </li>
+          <li class="nav-item active">
+            <%= link_to '<b>Logout</b>'.html_safe, destroy_user_session_path, method: :delete, 
+            data: {confirm: "Are you sure you want to Log Out?"}, class: 'nav-link' %>
+          </li>
         </div>
         <div class="col-md">
         <li class="nav-item active" >
@@ -71,7 +80,7 @@
           <a class="dropdown-item" href="/payment_types">Manage Payment Types</a>
           <a class="dropdown-item" href="/vaccines">Manage Vaccines</a>
           <a class="dropdown-item" href="/stores">Manage Stores</a>
-          <a class="dropdown-item" href="">Manage Users</a>
+          <a class="dropdown-item" href="/users">Manage Users</a>
         </div>
         </li>
         </div>
@@ -80,7 +89,8 @@
     </nav>
     </div>
     <div class="col-sm-12" id="valeriebar1"></div>
-  
+    
     <%= yield %>
   </body>
 </html>
+

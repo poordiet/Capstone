@@ -1,0 +1,33 @@
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-11">
+            <p>
+                <%= link_to 'Update', edit_user_path(@user), class:'btn btn-warning btn-lg float-right mr-2' %>
+                <%= link_to 'Back', users_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+            </p>
+
+            <p id="notice"><%= notice %></p>
+
+            <p>
+                <strong>Email:</strong>
+                <%= @user.email %>
+            </p>
+
+            <p>
+                <strong>Date Created:</strong>
+                <%= @user.created_at %>
+            </p>
+
+            <p>
+                <strong>Last Update:</strong>
+                <%= @user.updated_at %>
+            </p>
+
+            <p>
+                <strong>Admin:</strong>
+                <%= @user.admin %>
+            </p>
+        </div>
+    </div>
+</div>
