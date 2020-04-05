@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_04_224429) do
+ActiveRecord::Schema.define(version: 2020_04_05_200510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -273,7 +273,9 @@ ActiveRecord::Schema.define(version: 2020_04_04_224429) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin", default: false
     t.string "roles"
+    t.bigint "employee_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["employee_id"], name: "index_users_on_employee_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -311,4 +313,5 @@ ActiveRecord::Schema.define(version: 2020_04_04_224429) do
   add_foreign_key "pets", "pet_statuses"
   add_foreign_key "services", "service_statuses"
   add_foreign_key "stores", "states"
+  add_foreign_key "users", "employees"
 end

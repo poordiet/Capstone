@@ -9,24 +9,26 @@
     <table id="example" class="table table-hover table-bordered">
     <thead class="thead-dark">
       <tr>
+        <th>Employee</th>
+        <th>Employee Status</th>
         <th>Email</th>
-        <th>Date Created</th>
-        <th>Last Update</th>
         <th>Admin</th>
         <th>Show</th>
         <th>Edit</th>
+        <th>Delete</th>
       </tr>
     </thead>
 
     <tbody>
       <% @users.each do |user| %>
         <tr>
+          <td><%= user.employee.emp_first_name %> <%= user.employee.emp_last_name %></td>
+          <td><%= user.employee.employee_status.status %></td>
           <td><%= user.email %></td>
-          <td><%= user.created_at %></td>
-          <td><%= user.updated_at %></td>
           <td><%= user.admin %></td>
           <td><%= link_to 'Show', user, class: 'btn btn-primary btn-block' %></td>
           <td><%= link_to 'Edit', edit_user_path(user), class: 'btn btn-warning btn-block' %></td>
+          <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-block btn-danger' %></td>
           <!--<td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
         </tr>
       <% end %>

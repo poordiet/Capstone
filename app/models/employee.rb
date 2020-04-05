@@ -1,10 +1,12 @@
 class Employee < ApplicationRecord
   belongs_to :state
+  belongs_to :employee_status
   has_many :employee_stores
   has_many :stores, through: :employee_stores
   has_many :grooming_appointments
   has_many :grooming_services
   has_many :incidents
+  has_one :user
 
   accepts_nested_attributes_for :employee_stores, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :stores, reject_if: :all_blank, allow_destroy: true

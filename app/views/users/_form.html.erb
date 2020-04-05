@@ -11,11 +11,17 @@
 </div>
 <% end %>
 
-<h2>Create User</h2>
-
 <div class="field">
     <%= form.label :admin, "Administrator" %><br />
     <%= form.select :admin, ['true', 'false'], class: 'form-control'  %>
+  </div>
+
+  <div class="row">
+  <div class="form-group field col-12">
+    <%= form.label :employee_id, 'Employee' %>
+    <br>
+    <%= form.collection_select :employee_id, Employee.active_employees, :id, :employee_full_name %>
+  </div>
   </div>
 
   <div class="field">
@@ -37,7 +43,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit "Sign up" %>
+    <%= form.submit "Submit" %>
   </div>
 
 <% end %>
