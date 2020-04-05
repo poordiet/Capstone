@@ -27,4 +27,10 @@ class Employee < ApplicationRecord
   def employee_full_name
     "#{emp_first_name}  #{emp_last_name}, #{emp_primary_phone}"
   end
+
+  # Get Active Employees
+  def self.active_employees
+    @active_employees = Service.find_by_sql("select id, emp_first_name || ' ' || emp_last_name || ', ' || emp_primary_phone AS employee_full_name from employees where employee_status_id = 1")
+    
+  end
 end

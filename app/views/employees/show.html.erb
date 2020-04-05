@@ -14,6 +14,11 @@
              <div class="row">
             <div class="col-5">
             <p>
+                <strong>Employee Status:</strong>
+                <%= @employee.employee_status.status %>
+            </p>
+
+            <p>
                 <strong>Primary Phone:</strong>
                 <%= number_to_phone(@employee.emp_primary_phone) %>
             </p>

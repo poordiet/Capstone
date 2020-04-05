@@ -12,7 +12,7 @@
             <th>Primary Phone</th>
             <th>Email</th>
             <th>Date Hired</th>
-            <th>City</th>
+            <th>Status</th>
             <th>Show</th>
             <th>Edit</th>
         </thead>
@@ -24,7 +24,7 @@
                 <td><%= number_to_phone(employee.emp_primary_phone) %></td>
                 <td><%= employee.emp_email %></td>
                 <td><%= employee.emp_hire_date.to_formatted_s(:long) %></td>
-                <td><%= employee.emp_city %></td>
+                <td><%= employee.employee_status.status%>
                 <td><%= link_to 'Show', employee, class: 'btn btn-info btn-block' %></td>
                 <td><%= link_to 'Edit', edit_employee_path(employee), class: 'btn btn-warning btn-block' %></td>
                 <!--<td><%= link_to 'Delete', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->

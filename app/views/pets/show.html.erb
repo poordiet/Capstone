@@ -5,10 +5,12 @@
 <br>
 
 <%= link_to 'Edit', edit_pet_path(@pet), class: 'btn btn-warning btn-lg float-right mr-2' %> 
-<%= link_to 'Customer', @pet.customer, class: 'btn btn-info btn-lg float-right mr-2' %>
 <%= link_to "New Appointment", new_pet_grooming_appointment_path(:pet_id => @pet.id, :pet_name => @pet.pet_name, 
         :customer_last_name => @pet.customer.customer_last_name, :customer_first_name => @pet.customer.customer_first_name), 
         :class => "btn btn-success btn-lg float-right mr-2" %>
+<%= link_to 'Customer', @pet.customer, class: 'btn btn-info btn-lg float-right mr-2' %>
+<%= link_to 'All Pets', pets_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+
 
 <h1><%= @pet.pet_name%> </h2>
 <hr>
@@ -44,7 +46,11 @@
 
 <p>
   <strong>Pet Weight:</strong>
-  <%= @pet.pet_weight %> lbs
+  <%if @pet.pet_weight.nil?%>
+    <%= @pet.pet_weight%>
+  <%else%>
+    <%= @pet.pet_weight.to_i %> lbs
+  <%end%>
 </p>
 
 <p>
