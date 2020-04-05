@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :path=> 'u'
   resources :login
   resources :users
   resources :employee_statuses

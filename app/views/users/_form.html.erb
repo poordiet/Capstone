@@ -14,8 +14,8 @@
 <h2>Create User</h2>
 
 <div class="field">
-    <%= form.label :role %><br />
-    <%= form.email_field :role %>
+    <%= form.label :admin, "Administrator" %><br />
+    <%= form.select :admin, ['true', 'false'], class: 'form-control'  %>
   </div>
 
   <div class="field">
