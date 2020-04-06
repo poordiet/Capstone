@@ -68,9 +68,32 @@
         <li class="nav-item dropdown active">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" role = "button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Reports</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/reports/sales_reports">Sales Reports</a>
-          <a class="dropdown-item" href="/reports/customer_reports">Customer Reports</a>
-          <a class="dropdown-item" href="/reports/vaccine_reports">Pet Reports</a>
+        <form class="accordion" id="reportsAccordion">
+        <div>
+          <a class="dropdown-item" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" href="#">Sales Reports</a>
+          <div id="collapseOne" class="collapse px-3" data-parent="#reportsAccordion">
+             <a class="dropdown-item" href="/reports/most_profitable_service_report">Most Profitable Service</a>
+             <a class="dropdown-item" href="/reports/lifetime_sales_per_store_report">Lifetime Sales per Store</a>
+             <a class="dropdown-item" href="/reports/current_and_last_year_sales_per_month_report">Current Year and Last Year Sales per Month</a>
+          </div>
+        </div>
+        <div>
+          <a class="dropdown-item" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" href="#">Customer Reports</a>
+          <div id="collapseTwo" class="collapse px-3" data-parent="#reportsAccordion">
+             <a class="dropdown-item" href="/reports/customers_gained_report">Customers Gained</a>
+             <a class="dropdown-item" href="/reports/most_profitable_customers">Most Profitable Customers</a>
+             <a class="dropdown-item" href="/reports/customers_with_most_appointments_report">Customers with Most Appointments</a>
+          </div>
+        </div>
+        <div>
+          <a class="dropdown-item" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree" href="#">Pet Reports</a>
+          <div id="collapseThree" class="collapse px-3" data-parent="#reportsAccordion">
+             <a class="dropdown-item" href="/reports/vaccines_expiring_report">Vaccines Expiring in Three Months</a>
+             <a class="dropdown-item" href="/reports/pet_birthdays_report">Upcoming Pet Birthdays</a>
+          </div>
+          </form>
+        </div>
+          <a class="dropdown-item" href="#">Inactive Employees with User Accounts</a>
         </div>
           </li>
         </div>

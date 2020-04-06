@@ -273,7 +273,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_200510) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin", default: false
     t.string "roles"
-    t.bigint "employee_id"
+    t.bigint "employee_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["employee_id"], name: "index_users_on_employee_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
