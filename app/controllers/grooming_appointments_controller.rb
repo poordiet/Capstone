@@ -44,7 +44,7 @@ class GroomingAppointmentsController < ApplicationController
 
     respond_to do |format|
       if @grooming_appointment.save
-        format.html { redirect_to @grooming_appointment, notice: 'Grooming appointment was successfully created.' }
+        format.html { redirect_to @grooming_appointment, success: 'Grooming appointment was successfully created.' }
         format.json { render :show, status: :created, location: @grooming_appointment }
       else
         @pet_id = @pet.id
@@ -62,7 +62,7 @@ class GroomingAppointmentsController < ApplicationController
   def update
     respond_to do |format|
       if @grooming_appointment.update(grooming_appointment_params)
-        format.html { redirect_to @grooming_appointment, notice: 'Grooming appointment was successfully updated.' }
+        format.html { redirect_to @grooming_appointment, success: 'Grooming appointment was successfully updated.' }
         format.json { render :show, status: :ok, location: @grooming_appointment }
       else
         format.html { render :edit }
@@ -76,7 +76,7 @@ class GroomingAppointmentsController < ApplicationController
   def destroy
     @grooming_appointment.destroy
     respond_to do |format|
-      format.html { redirect_to grooming_appointments_url, notice: 'Grooming appointment was successfully destroyed.' }
+      format.html { redirect_to grooming_appointments_url, success: 'Grooming appointment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

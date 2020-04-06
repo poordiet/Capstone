@@ -32,7 +32,7 @@ class GroomingServicesController < ApplicationController
 
     respond_to do |format|
       if @grooming_service.save
-        format.html {  redirect_to session.delete(:prev_url), notice: "Grooming Service was successfully created."}
+        format.html {  redirect_to session.delete(:prev_url), success: "Grooming Service was successfully created."}
         #format.html { redirect_to @grooming_service, notice: 'Grooming service was successfully created.' }
         #format.json { render :show, status: :created, location: @grooming_service }
       else
@@ -47,7 +47,7 @@ class GroomingServicesController < ApplicationController
   def update
     respond_to do |format|
       if @grooming_service.update(grooming_service_params)
-        format.html {  redirect_to session.delete(:prev_url), notice: "Grooming Service was successfully created."}
+        format.html {  redirect_to session.delete(:prev_url), success: "Grooming Service was successfully updated."}
         #format.html { redirect_to @grooming_service, notice: 'Grooming service was successfully updated.' }
         #format.json { render :show, status: :ok, location: @grooming_service }
       else
@@ -61,7 +61,10 @@ class GroomingServicesController < ApplicationController
   # DELETE /grooming_services/1.json
   def destroy
     @grooming_service.destroy
-    redirect_back(fallback_location: root_path)
+   # redirect_back(fallback_location: root_path)
+    respond_to do |format|
+      format.html {redirect_back fallback_location: root_path, success: 'Grooming Service was succesfully deleted'}
+    end
     #respond_to do |format|
      # format.html { redirect_to grooming_services_url, notice: 'Grooming service was successfully destroyed.' }
       #format.json { head :no_content }

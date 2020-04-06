@@ -10,12 +10,12 @@
     <thead class="thead-dark">
       <tr>
         <th>Employee</th>
+        <th>Phone Number</th>
         <th>Employee Status</th>
-        <th>Email</th>
+        <th>Email/Username</th>
         <th>Admin</th>
         <th>Show</th>
         <th>Edit</th>
-        <th>Delete</th>
       </tr>
     </thead>
 
@@ -23,12 +23,12 @@
       <% @users.each do |user| %>
         <tr>
           <td><%= user.employee.emp_first_name %> <%= user.employee.emp_last_name %></td>
+          <td><%= user.employee.emp_primary_phone %></td>
           <td><%= user.employee.employee_status.status %></td>
           <td><%= user.email %></td>
           <td><%= user.admin %></td>
           <td><%= link_to 'Show', user, class: 'btn btn-primary btn-block' %></td>
           <td><%= link_to 'Edit', edit_user_path(user), class: 'btn btn-warning btn-block' %></td>
-          <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-block btn-danger' %></td>
           <!--<td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
         </tr>
       <% end %>

@@ -112,7 +112,11 @@ nav .navbar-nav li a:hover { color: #9a12b3 !important; }
 
 // Success Notification Styling
     .success-notice{
-        color: green;
+        color: rgb(7, 114, 7);
+        padding: 10px;
+        background-color: rgb(230, 248, 230);
+        border: 1px solid rgb(168, 204, 168);
+        border-radius: 0.25rem;
     }
 
 // Drop Downs

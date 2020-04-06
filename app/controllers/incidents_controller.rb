@@ -42,7 +42,7 @@ class IncidentsController < ApplicationController
 
     respond_to do |format|
       if @incident.save
-        format.html { redirect_to @incident, notice: 'Incident was successfully created.' }
+        format.html { redirect_to @incident, success: 'Incident was successfully created.' }
         format.json { render :show, status: :created, location: @incident }
       else
         @grooming_appointment_id = @grooming_appointment.id
@@ -60,7 +60,7 @@ class IncidentsController < ApplicationController
   def update
     respond_to do |format|
       if @incident.update(incident_params)
-        format.html { redirect_to @incident, notice: 'Incident was successfully updated.' }
+        format.html { redirect_to @incident, success: 'Incident was successfully updated.' }
         format.json { render :show, status: :ok, location: @incident }
       else
         format.html { render :edit }
@@ -74,7 +74,7 @@ class IncidentsController < ApplicationController
   def destroy
     @incident.destroy
     respond_to do |format|
-      format.html { redirect_to incidents_url, notice: 'Incident was successfully destroyed.' }
+      format.html { redirect_to incidents_url, success: 'Incident was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

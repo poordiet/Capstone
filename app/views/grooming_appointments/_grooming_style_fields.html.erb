@@ -7,7 +7,7 @@
     <div class="field form-group col-md-6">
         <%= f.label :style_id, 'Style *' %>
         <br>
-        <%= f.collection_select :style_id, Style.all, :id, :style_name %>
+        <%= f.collection_select :style_id, Style.all, :id, :style_name, prompt: "- Select Style -" %>
     </div>
 
 </div>

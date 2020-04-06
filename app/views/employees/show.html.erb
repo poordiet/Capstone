@@ -1,7 +1,12 @@
 <br>
 <div class="container">
 
-             <p id="notice" class="success-notice"><%= notice %></p>
+             <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>">
+                <%= message %>
+            </div>
+            <% end %>
+            
              <p>
                 <%= link_to 'Edit', edit_employee_path(@employee), class:'btn btn-warning btn-lg float-right mr-2' %>
                 <%= link_to 'Back', employees_path, class: 'btn btn-danger btn-lg float-right mr-2'%>

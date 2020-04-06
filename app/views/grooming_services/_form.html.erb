@@ -24,7 +24,7 @@
   <div class=" form-group field col-12">
     <%= form.label :service_id, 'Service Name *' %>
     <br>
-    <%= form.collection_select :service_id, Service.active_services, :id, :service_name %>
+    <%= form.collection_select :service_id, Service.active_services, :id, :service_name, prompt: "- Select Service -" %>
   </div>
 </div>
 
@@ -32,7 +32,7 @@
   <div class="form-group field col-12">
     <%= form.label :employee_id, 'Employee' %>
     <br>
-    <%= form.collection_select :employee_id, Employee.active_employees, :id, :employee_full_name, options = {include_blank: true} %>
+    <%= form.collection_select :employee_id, Employee.active_employees, :id, :employee_full_name, prompt: "- Select Employee -" %>
   </div>
 </div>
 

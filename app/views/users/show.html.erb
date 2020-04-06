@@ -3,16 +3,23 @@
     <div class="row">
         <div class="col-11">
 
-                <p id="notice"><%= notice %></p>
+                <% flash.each do |message_type, message| %>
+                <div class="alert alert-<%= message_type %>">
+                    <%= message %>
+                </div>
+                <% end %>
+                
                 <br>
+                <!-- If the user is not current user, show delete -->
+                <% if !(@user.email == current_user.email) %>
                 <%= link_to 'Delete', @user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-lg btn-danger float-right mr-2' %>
+                <%end%>
                 <%= link_to 'Edit User', edit_user_path(@user), class:'btn btn-warning btn-lg float-right mr-2' %>
                 <%= link_to 'Change Password', edit_password_path(@user), class:'btn btn-secondary btn-lg float-right mr-2' %>
                 <%= link_to 'All Users', users_path, class: 'btn btn-info btn-lg float-right mr-2'%>
 
             <h1> User Profile</h1> 
             <hr>
-
             <p>
             <strong>Employee: </strong>
             <%=@user.employee.emp_first_name%> <%=@user.employee.emp_last_name%>

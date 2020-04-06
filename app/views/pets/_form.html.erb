@@ -64,19 +64,19 @@
         <div class="field form-group col-md-4">
             <%= form.label :spayed_neutered, 'Spayed/Neutered *' %> 
             <br>
-            <%= form.select :spayed_neutered, ['Y', 'N'], class: 'form-control' %>
+            <%= form.select :spayed_neutered, ['Y', 'N'], prompt: "- Select -", class: 'form-control' %>
         </div>
 
         <div class="field form-group col-md-4">
             <%= form.label :pet_treat, 'Pet Treat *' %> 
             <br>
-            <%= form.select :pet_treat, ['Y', 'N'], class: 'form-control' %>
+            <%= form.select :pet_treat, ['Y', 'N'], prompt: "- Select -" ,  class: 'form-control' %>
         </div>
 
         <div class="field form-group col-md-4">
             <%= form.label :pet_gender, 'Pet Gender *' %> 
             <br>
-            <%= form.select :pet_gender, ['M', 'F'], class: 'form-control' %>
+            <%= form.select :pet_gender, ['M', 'F'], prompt: "- Select -", class: 'form-control' %>
         </div>
     </div>
 

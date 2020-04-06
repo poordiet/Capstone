@@ -48,7 +48,7 @@
             <div class="field form-group col-md-2">
                 <%= form.label :state_id, 'State' %>
                 <br>
-                <%= form.collection_select :state_id, State.all, :id, :state_name %>
+                <%= form.collection_select :state_id, State.all, :id, :state_name, selected: 43 %>
             </div>
         </div>
 

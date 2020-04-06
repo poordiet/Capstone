@@ -48,7 +48,7 @@ class PetPhotosController < ApplicationController
 
     respond_to do |format|
       if @pet_photo.save
-        format.html {  redirect_to session[:prev_url], notice: "Pet Photo was successfully created."}
+        format.html {  redirect_to session[:prev_url], success: "Pet Photo was successfully created."}
         #format.html { redirect_to @pet_photo, notice: 'Pet photo was successfully created.' }
         #format.json { render :show, status: :created, location: @pet_photo }
       else
@@ -72,7 +72,7 @@ class PetPhotosController < ApplicationController
 
     respond_to do |format|
       if @pet_photo.update(pet_photo_params)
-        format.html {  redirect_to session[:prev_url], notice: "Pet Photo was successfully updated."}
+        format.html {  redirect_to session[:prev_url], success: "Pet Photo was successfully updated."}
         #format.html { redirect_to @pet_photo, notice: 'Pet photo was successfully updated.' }
         #format.json { render :show, status: :ok, location: @pet_photo }
      else

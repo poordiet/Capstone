@@ -3,7 +3,11 @@
 <div class="container">
 
 <br>
-<p id="notice" class="success-notice"><%= notice %></p>
+ <% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>">
+    <%= message %>
+  </div>
+<% end %>
 
 <%= link_to 'Edit', edit_grooming_appointment_path(@grooming_appointment), class:'btn btn-warning btn-lg float-right mr-2' %>
 <% if current_user.admin == true %><%=link_to 'New Incident', new_incident_path({:pet_name=> @grooming_appointment.pet.pet_name,

@@ -23,7 +23,7 @@
   <div class="form-group field col-12">
     <%= form.label :employee_id, 'Employee * ' %>
     <br>
-    <%= form.collection_select :employee_id, Employee.active_employees, :id, :employee_full_name %>
+    <%= form.collection_select :employee_id, Employee.active_employees, :id, :employee_full_name, prompt: "- Select Employee -" %>
   </div>
   </div>
 

@@ -9,14 +9,14 @@
         <div class="field form-group col-md-6">
             <%= f.label :service_id, 'Service Name *' %>
             <br>
-            <%= f.collection_select :service_id, Service.active_services, :id, :service_name %>
+            <%= f.collection_select :service_id, Service.active_services, :id, :service_name, prompt: "- Select Service -" %>
         </div>
 
 
   <div class="field form-group col-md-6">
     <%= f.label :employee_id, 'Employee' %>
     <br>
-    <%= f.collection_select :employee_id, Employee.active_employees, :id, :employee_full_name , options = {include_blank: true}%>
+    <%= f.collection_select :employee_id, Employee.active_employees, :id, :employee_full_name , prompt: "- Select Employee-"%>
   </div>
 </div>
 

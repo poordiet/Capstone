@@ -7,7 +7,7 @@
     <div class="field form-group">
         <%= f.label :vaccine_id, 'Vaccine *' %>
         <br>
-        <%= f.collection_select :vaccine_id, Vaccine.all, :id, :vaccine_name %>
+        <%= f.collection_select :vaccine_id, Vaccine.all, :id, :vaccine_name, {prompt: "- Select Vaccine -"} %>
     </div>
     </div>
 
@@ -23,7 +23,8 @@
   <div class="form-row">
   <div class="field">
     <%= f.label :duration, 'Duration' %>
-    <%= f.select :duration, [0.5, 1, 2, 3, 4, 5],options = {include_blank: true}, class: 'form-control' %>
+    <br>
+    <%= f.select :duration, [0.5, 1, 2, 3, 4, 5],prompt: "- Select Duration -", class: 'form-control' %>
   </div>
   </div>
   <br>

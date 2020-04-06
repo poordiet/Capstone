@@ -30,7 +30,7 @@ class GroomingStylesController < ApplicationController
 
     respond_to do |format|
       if @grooming_style.save
-        format.html {  redirect_to session.delete(:prev_url), notice: "Grooming Style was successfully created."}
+        format.html {  redirect_to session.delete(:prev_url), success: "Grooming Style was successfully created."}
         #format.html { redirect_to @grooming_style, notice: 'Grooming style was successfully created.' }
         #format.json { render :show, status: :created, location: @grooming_style }
       else
@@ -45,7 +45,7 @@ class GroomingStylesController < ApplicationController
   def update
     respond_to do |format|
       if @grooming_style.update(grooming_style_params)
-        format.html {  redirect_to session.delete(:prev_url), notice: "Grooming Style was successfully created."}
+        format.html {  redirect_to session.delete(:prev_url), success: "Grooming Style was successfully created."}
         #format.html { redirect_to @grooming_style, notice: 'Grooming style was successfully updated.' }
         #format.json { render :show, status: :ok, location: @grooming_style }
       else
@@ -59,7 +59,9 @@ class GroomingStylesController < ApplicationController
   # DELETE /grooming_styles/1.json
   def destroy
     @grooming_style.destroy
-    redirect_back(fallback_location: root_path)
+    respond_to do |format|
+      format.html {redirect_back fallback_location: root_path, success: 'Grooming Style was succesfully deleted'}
+    end
     #respond_to do |format|
       #format.html { redirect_to grooming_styles_url, notice: 'Grooming style was successfully destroyed.' }
       #format.json { head :no_content }
