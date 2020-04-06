@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users, :path=> 'u'
   resources :login
-  resources :users
+  resources :users do
+    member do
+      patch :update_password
+      put :update_password
+    end
+  end
   resources :employee_statuses
   resources :incident_statuses
   resources :pet_statuses
@@ -35,6 +40,8 @@ Rails.application.routes.draw do
   get 'reports/sales_reports'
   get 'reports/vaccine_reports'
   get 'login/index'
+  get 'users/:id/edit_password', to: 'users#edit_password', as: 'edit_password'
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :charts do

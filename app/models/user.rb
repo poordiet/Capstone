@@ -15,4 +15,11 @@ class User < ApplicationRecord
 
   belongs_to :employee, :class_name => 'Employee', :foreign_key => 'employee_id'
 
+
+  # Checks to see if employee already has an account to the application
+   
+
+  # Form Validations
+  # does not work for some reason - validates :admin, presence: true
+  
 end

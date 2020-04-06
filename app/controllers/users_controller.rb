@@ -22,23 +22,37 @@ class UsersController < ApplicationController
   
     # GET /users/new
     def new
+      session[:prev_url] = request.referer
       @user = User.new
+    end
+
+    # GET /users/1/edit_password
+    def edit_password
+      @user = User.find(params[:id])
+      session[:prev_url] = request.referer
     end
   
     # GET /users/1/edit
     def edit
+      session[:prev_url] = request.referer
     end
   
     # POST /users
     # POST /users.json
     def create
       @user = User.new(user_params)
-  
+
       respond_to do |format|
-        if @user.save
+        if @user.employee.user
+          @user.errors.add(:employee , "already has an account")
+          format.html { render :new, notice: 'Employee already has User' }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        elsif @user.save
+          puts 'inside elsif in controller'
           format.html { redirect_to @user, notice: 'User was successfully created.' }
           format.json { render :show, status: :created, location: @user }
         else
+          puts 'inside else in controller'
           format.html { render :new }
           format.json { render json: @user.errors, status: :unprocessable_entity }
         end
@@ -58,6 +72,20 @@ class UsersController < ApplicationController
         end
       end
     end
+
+     # Second update action
+    def update_password
+      @user = User.find(params[:id])
+      respond_to do |format|
+      if @user.update_attributes(user_params)
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit_password }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   
     # DELETE /users/1
     # DELETE /users/1.json
