@@ -51,6 +51,7 @@
         </li>
         </div>
         
+        <% if current_user.admin == true %>
         <div class="col-md">
         <li class="nav-item active">
           <a class="nav-link" href="/employees">Employee</a>
@@ -86,6 +87,7 @@
         </div>
         </li>
         </div>
+        <%end%>
         <!--<div class="col-md">
           <li class="nav-item active">
             <%= link_to '<b>Logout</b>'.html_safe, destroy_user_session_path, method: :delete, 

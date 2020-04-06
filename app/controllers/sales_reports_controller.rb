@@ -1,5 +1,13 @@
 class SalesReportsController < ApplicationController
+    before_action :check_admin
 
+    def check_admin
+      unless current_user.admin == true
+        flash.alert = "You must be an Admin to access this page!"
+        redirect_to root_path
+      end
+    end
+    
     def index
         @pet_vaccinations = PetVaccination.all
         @pets = Pet.all

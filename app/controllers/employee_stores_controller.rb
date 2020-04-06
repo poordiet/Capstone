@@ -1,6 +1,13 @@
 class EmployeeStoresController < ApplicationController
   before_action :set_employee_store, only: [:show, :edit, :update, :destroy]
+  before_action :check_admin
 
+  def check_admin
+    unless current_user.admin == true
+      flash.alert = "You must be an Admin to access this page!"
+      redirect_to root_path
+    end
+  end
   # GET /employee_stores
   # GET /employee_stores.json
   def index
