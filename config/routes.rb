@@ -35,6 +35,14 @@ Rails.application.routes.draw do
   resources :states
   get 'dashboard/index'
   resources :customers
+  get 'reports/current_and_last_year_sales_per_month_report'
+  get 'reports/most_profitable_service_report'
+  get 'reports/lifetime_sales_per_store_report'
+  get 'reports/customers_gained_report'
+  get 'reports/most_profitable_customers'
+  get 'reports/customers_with_most_appointments_report'
+  get 'reports/vaccines_expiring_report'
+  get 'reports/pet_birthdays_report'
   get 'reports/index'
   get 'reports/customer_reports'
   get 'reports/sales_reports'
