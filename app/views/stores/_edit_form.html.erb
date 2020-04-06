@@ -18,34 +18,34 @@
     <br>
     <div class="form-row">
         <div class="field form-group col-md-2">
-            <%= form.label :store_name %>
+            <%= form.label :store_name, "Store Name *" %>
             <%= form.text_field :store_name, class: 'form-control' %>
         </div>
 
         <div class="field form-group col-md-2">
-            <%= form.label :store_address %>
+            <%= form.label :store_address, "Address *" %>
             <%= form.text_field :store_address, class: 'form-control' %>
         </div>
     </div>
     <div class="form-row">
         <div class="field form-group col-md-2">
-            <%= form.label :store_city %>
+            <%= form.label :store_city, "City *" %>
             <%= form.text_field :store_city, class: 'form-control' %>
         </div>
 
         <div class="field form-group col-md-2">
-            <%= form.label :state_id, 'State' %>
+            <%= form.label :state_id, 'State *' %>
             <%= form.collection_select :state_id, State.all, :id, :state_abbreviation %>
         </div>
     </div>
     <div class="form-row">
         <div class="field form-group col-md-2">
-            <%= form.label :store_zip %>
+            <%= form.label :store_zip, "Zip Code *" %>
             <%= form.text_field :store_zip, class: 'form-control' %>
         </div>
 
         <div class="field form-group col-md-2">
-            <%= form.label :store_phone %>
+            <%= form.label :store_phone, "Phone *" %> 
             <%= form.text_field :store_phone, class: 'form-control' %>
         </div>
     </div>

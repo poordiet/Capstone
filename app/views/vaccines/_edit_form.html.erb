@@ -17,12 +17,12 @@
   <br>
   <div class="form-row">
     <div class="field form-group col-md-2">
-      <%= form.label :vaccine_name, 'Vaccine Name' %>
+      <%= form.label :vaccine_name, 'Vaccine Name' %> <span class= 'required'> *</span>
       <%= form.text_field :vaccine_name, class: 'form-control' %>
     </div>
 
     <div class="field form-group col-md-1">
-      <%= form.label :vaccine_required, 'Vaccine Required' %>
+      <%= form.label :vaccine_required, 'Vaccine Required' %> <span class= 'required'> *</span>
       <%= form.select :vaccine_required, ['Y', 'N'] %>
     </div>
   </div>

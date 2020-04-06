@@ -44,7 +44,7 @@ class PetVaccinationsController < ApplicationController
 
     respond_to do |format|
       if @pet_vaccination.save
-        format.html {  redirect_to session.delete(:prev_url), notice: "Pet Vaccine was successfully created."}
+        format.html {  redirect_to session.delete(:prev_url), success: "Pet Vaccine was successfully created."}
         #format.html { redirect_to @pet_vaccination, notice: 'Pet vaccination was successfully created.' }
         #format.json { render :show, status: :created, location: @pet_vaccination }
       else
@@ -62,7 +62,7 @@ class PetVaccinationsController < ApplicationController
 
     respond_to do |format|
       if @pet_vaccination.update(pet_vaccination_params)
-        format.html {  redirect_to session.delete(:prev_url), notice: "Pet Vaccine was successfully updated."}
+        format.html {  redirect_to session.delete(:prev_url), success: "Pet Vaccine was successfully updated."}
         #format.html { redirect_to @pet_vaccination, notice: 'Pet vaccination was successfully updated.' }
         #format.json { render :show, status: :ok, location: @pet_vaccination }
       else
@@ -77,7 +77,7 @@ class PetVaccinationsController < ApplicationController
   def destroy
     @pet_vaccination.destroy
     respond_to do |format|
-      format.html { redirect_to pet_vaccinations_url, notice: 'Pet vaccination was successfully destroyed.' }
+      format.html { redirect_to pet_vaccinations_url, success: 'Pet vaccination was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -1,6 +1,13 @@
 class EmployeeStoresController < ApplicationController
   before_action :set_employee_store, only: [:show, :edit, :update, :destroy]
+  before_action :check_admin
 
+  def check_admin
+    unless current_user.admin == true
+      flash.alert = "You must be an Admin to access this page!"
+      redirect_to root_path
+    end
+  end
   # GET /employee_stores
   # GET /employee_stores.json
   def index
@@ -31,13 +38,13 @@ class EmployeeStoresController < ApplicationController
   
     respond_to do |format|
       if @employee_store.save
-        format.html {  redirect_to session.delete(:prev_url), notice: "Employee Store was successfully created."}
+        format.html {  redirect_to session.delete(:prev_url), success: "Employee Store was successfully created."}
         #format.html { redirect_to @employee_store, notice: 'Employee store was successfully created.' }
         #format.json { render :show, status: :created, location: @employee_store }
       else
         @employee = Employee.find(params[:employee_id])
         format.html { render :new }
-        format.json { render json: @employee_store.errors, status: :unprocessable_entity }
+        format.json { render json: @employee_store.errors, success: :unprocessable_entity }
       end
     end
   end
@@ -47,7 +54,7 @@ class EmployeeStoresController < ApplicationController
   def update
     respond_to do |format|
       if @employee_store.update(employee_store_params)
-        format.html {  redirect_to session.delete(:prev_url), notice: "Employee Store was successfully updated."}
+        format.html {  redirect_to session.delete(:prev_url), success: "Employee Store was successfully updated."}
         #format.html { redirect_to @employee_store, notice: 'Employee store was successfully updated.' }
         #format.json { render :show, status: :ok, location: @employee_store }
       else

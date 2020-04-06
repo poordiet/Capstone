@@ -1,0 +1,38 @@
+
+
+<div class ="container">
+<div class = "login-content">
+<br>
+<br>
+<%= image_tag "peekaboo_login.png", height: '300', class: "center"%>
+<br>
+<p id="notice"><%= notice %></p>
+<p id="alert"><%= alert %></p>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-group">
+    <!--<%= f.label :email %><br />-->
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control tall', placeholder: 'Email' %>
+  </div>
+
+  <div class="form-group">
+    <!--<%= f.label :password %><br />-->
+    <%= f.password_field :password, autocomplete: "current-password", class: 'form-control tall', placeholder: 'Password' %>
+  </div>
+
+<div class="form-group">
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+</div>
+
+  <div class="form-group">
+    <button type="submit" class="btn center btn-login btn-lg">Log In</button>
+  </div>
+<% end %>
+
+<center><%= render "devise/shared/links" %></center>
+</div>
+</div>

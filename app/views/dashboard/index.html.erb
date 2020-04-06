@@ -1,7 +1,12 @@
 
-<div class="container">
 
+<div class="container">
 <br>
+<% flash.each do |type, msg| %>
+  <div class="success-notice">
+    <%= msg %>
+  </div>
+<% end %>
 <hr>
 <br>
 <div class="row"> 

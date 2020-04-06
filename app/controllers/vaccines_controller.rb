@@ -1,6 +1,13 @@
 class VaccinesController < ApplicationController
   before_action :set_vaccine, only: [:show, :edit, :update, :destroy]
+  before_action :check_admin
 
+  def check_admin
+    unless current_user.admin == true
+      flash.alert = "You must be an Admin to access this page!"
+      redirect_to root_path
+    end
+  end
   # GET /vaccines
   # GET /vaccines.json
   def index
@@ -28,7 +35,7 @@ class VaccinesController < ApplicationController
 
     respond_to do |format|
       if @vaccine.save
-        format.html { redirect_to @vaccine, notice: 'Vaccine was successfully created.' }
+        format.html { redirect_to @vaccine, success: 'Vaccine was successfully created.' }
         format.json { render :show, status: :created, location: @vaccine }
       else
         format.html { render :new }
@@ -42,7 +49,7 @@ class VaccinesController < ApplicationController
   def update
     respond_to do |format|
       if @vaccine.update(vaccine_params)
-        format.html { redirect_to @vaccine, notice: 'Vaccine was successfully updated.' }
+        format.html { redirect_to @vaccine, success: 'Vaccine was successfully updated.' }
         format.json { render :show, status: :ok, location: @vaccine }
       else
         format.html { render :edit }
@@ -56,7 +63,7 @@ class VaccinesController < ApplicationController
   def destroy
     @vaccine.destroy
     respond_to do |format|
-      format.html { redirect_to vaccines_url, notice: 'Vaccine was successfully destroyed.' }
+      format.html { redirect_to vaccines_url, success: 'Vaccine was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

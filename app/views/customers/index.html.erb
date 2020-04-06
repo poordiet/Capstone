@@ -1,5 +1,10 @@
-<p id="notice"><%= notice %></p>
+
 <div class="container">
+ <% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %>">
+    <%= message %>
+  </div>
+<% end %>
     <br>
     <h1>Customers</h1>
     <hr>

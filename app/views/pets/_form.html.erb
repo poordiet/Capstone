@@ -32,7 +32,7 @@
 
   <div class="form-row">
         <div class="field form-group col-md-6">
-            <%= form.label :pet_name, 'Pet Name *' %>
+            <%= form.label :pet_name, 'Pet Name *' %> 
             <%= form.text_field :pet_name, class: 'form-control col-md-8' %>
         </div>
 
@@ -41,19 +41,19 @@
        </div>
 
         <div class="field form-group col-md-6">
-            <%= form.label :pet_breed, 'Breed *' %>
+            <%= form.label :pet_breed, 'Breed *' %> 
             <%= form.text_field :pet_breed, class: 'form-control col-md-8' %>
       </div>
     </div>
 
       <div class="form-row">
         <div class="field form-group col-md-6">
-            <%= form.label :pet_color, 'Color *' %>
+            <%= form.label :pet_color, 'Color *' %> 
             <%= form.text_field :pet_color, class: 'form-control col-md-8' %>
         </div>
 
         <div class="field form-group col-md-6">
-            <%= form.label :pet_weight, 'Weight(lbs) *' %>
+            <%= form.label :pet_weight, 'Weight(lbs) *' %> 
             <%= form.text_field :pet_weight, class: 'form-control col-md-8' %>
         </div>
     </div>
@@ -62,21 +62,21 @@
 
     <div class="form-row col-md-12">
         <div class="field form-group col-md-4">
-            <%= form.label :spayed_neutered, 'Spayed/Neutered *' %>
+            <%= form.label :spayed_neutered, 'Spayed/Neutered *' %> 
             <br>
-            <%= form.select :spayed_neutered, ['Y', 'N'], class: 'form-control' %>
+            <%= form.select :spayed_neutered, ['Y', 'N'], prompt: "- Select -", class: 'form-control' %>
         </div>
 
         <div class="field form-group col-md-4">
-            <%= form.label :pet_treat, 'Pet Treat *' %>
+            <%= form.label :pet_treat, 'Pet Treat *' %> 
             <br>
-            <%= form.select :pet_treat, ['Y', 'N'], class: 'form-control' %>
+            <%= form.select :pet_treat, ['Y', 'N'], prompt: "- Select -" ,  class: 'form-control' %>
         </div>
 
         <div class="field form-group col-md-4">
-            <%= form.label :pet_gender, 'Pet Gender *' %>
+            <%= form.label :pet_gender, 'Pet Gender *' %> 
             <br>
-            <%= form.select :pet_gender, ['M', 'F'], class: 'form-control' %>
+            <%= form.select :pet_gender, ['M', 'F'], prompt: "- Select -", class: 'form-control' %>
         </div>
     </div>
 

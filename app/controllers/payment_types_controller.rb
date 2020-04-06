@@ -1,6 +1,13 @@
 class PaymentTypesController < ApplicationController
   before_action :set_payment_type, only: [:show, :edit, :update, :destroy]
+  before_action :check_admin
 
+  def check_admin
+    unless current_user.admin == true
+      flash.alert = "You must be an Admin to access this page!"
+      redirect_to root_path
+    end
+  end
   # GET /payment_types
   # GET /payment_types.json
   def index

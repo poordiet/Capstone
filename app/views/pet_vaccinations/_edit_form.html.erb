@@ -29,7 +29,7 @@
 
   <div class="form-row">
   <div class="field">
-    <%= form.label :vaccine_id, 'Vaccine' %>
+    <%= form.label :vaccine_id, 'Vaccine *' %>
     <br>
     <%= form.collection_select :vaccine_id, Vaccine.all, :id, :vaccine_name %>
   </div>
@@ -50,7 +50,7 @@
   <div class="field">
     <%= form.label :duration, 'Duration (Years)' %>
     <br>
-    <%= form.select :duration, ['0.5', '1.0', '2.0', '3.0', '4.0', '5.0'],options = {include_blank: true, selected: @pet_vaccination.duration}, class: 'form-control' %>
+    <%= form.select :duration, ['0.5', '1.0', '2.0', '3.0', '4.0', '5.0'],prompt: "- Select Duration -", class: 'form-control' %>
 
   </div>
   </div>

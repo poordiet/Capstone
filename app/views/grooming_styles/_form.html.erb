@@ -27,7 +27,7 @@
   <div class=" form-group col-12">
     <%= form.label :style_id, 'Style *' %>
     <br>
-    <%= form.collection_select :style_id, Style.all, :id, :style_name %>
+    <%= form.collection_select :style_id, Style.all, :id, :style_name, prompt: "- Select Style -" %>
   </div>
 </div>
 

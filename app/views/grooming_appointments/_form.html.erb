@@ -116,7 +116,7 @@
   <div class="form-group field col-md-6">
     <%= form.label :vac_current, 'Vaccine Current *' %>
     <br>
-    <%= form.select :vac_current, ['Y', 'N'] %>
+    <%= form.select :vac_current, ['Y', 'N'], prompt: "- Select -" %>
   </div>
   
 
@@ -137,7 +137,7 @@
 <div class=" form-group field col-md-6">
     <%= form.label :payment_type_id, 'Payment Type' %>
     <br>
-    <%= form.collection_select :payment_type_id, PaymentType.all, :id, :payment_type, options = {include_blank: true}  %>
+    <%= form.collection_select :payment_type_id, PaymentType.all, :id, :payment_type, prompt: "- Select Payment Type -"  %>
   </div>
   </div>
 

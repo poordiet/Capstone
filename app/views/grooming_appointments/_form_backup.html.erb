@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :pet_id %>
+    <%= form.label :pet_id, 'Pet' %> <span class= 'required'> *</span>
     <%= form.collection_select :pet_id, Pet.all, :id, :pet_name %>
   </div>
 
   <div class="field">
-    <%= form.label :store_id %>
+    <%= form.label :store_id, 'Store' %> <span class= 'required'> *</span>
     <%= form.collection_select :store_id, Store.all, :id, :store_address %>
   </div>
 
@@ -27,7 +27,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :appt_date, 'Appt Date' %>
+    <%= form.label :appt_date, 'Appt Date' %> <span class= 'required'> *</span>
     <%= form.date_select :appt_date %>
   </div>
 
@@ -52,12 +52,12 @@
   </div>
 
   <div class="field">
-    <%= form.label :vac_current, 'Vaccine Current' %>
+    <%= form.label :vac_current, 'Vaccine Current' %> <span class= 'required'> *</span>
     <%= form.select :vac_current, ['Y', 'N'] %>
   </div>
 
   <div class="field">
-    <%= form.label :vac_current_date, 'Vaccine Date' %>
+    <%= form.label :vac_current_date, 'Vaccine Current Date' %> <span class= 'required'> *</span>
     <%= form.date_select :vac_current_date %>
   </div>
 

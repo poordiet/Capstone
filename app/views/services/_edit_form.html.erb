@@ -17,14 +17,14 @@
   <br>
   <div class="form-row">
     <div class="field form-group col-md-2">
-      <%= form.label :service_status_id, 'Service Status' %>
+      <%= form.label :service_status_id, 'Service Status *' %>
       <%= form.collection_select :service_status_id, ServiceStatus.all, :id, :service_status %>
     </div>
   </div>
 
   <div class="form-row">
     <div class="field form-group col-md-2">
-      <%= form.label :service_name, 'Service Name' %>
+      <%= form.label :service_name, 'Service Name *' %>
       <%= form.text_field :service_name, class: 'form-control' %>
     </div>
   </div>
