@@ -2,11 +2,19 @@
 <div class="container">
   <div class="row">
     <div class="col-11">
-      <p>
-          <%= link_to 'Update', edit_vaccine_path(@vaccine), class:'btn btn-warning btn-lg float-right mr-2' %>
+
+    <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>">
+          <%= message %>
+        </div>
+      <% end %>
+      <br>
+
+          <%= link_to 'Edit', edit_vaccine_path(@vaccine), class:'btn btn-warning btn-lg float-right mr-2' %>
           <%= link_to 'Back', vaccines_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
-      </p>
-      <p id="notice"><%= notice %></p>
+
+      <h1>Vaccine</h1>
+      <hr>
 
       <div class="field form-group col-md-5">
         <p>

@@ -35,7 +35,7 @@ class EmployeeStatusesController < ApplicationController
 
     respond_to do |format|
       if @employee_status.save
-        format.html { redirect_to @employee_status, notice: 'Employee status was successfully created.' }
+        format.html { redirect_to @employee_status, success: 'Employee status was successfully created.' }
         format.json { render :show, status: :created, location: @employee_status }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class EmployeeStatusesController < ApplicationController
   def update
     respond_to do |format|
       if @employee_status.update(employee_status_params)
-        format.html { redirect_to @employee_status, notice: 'Employee status was successfully updated.' }
+        format.html { redirect_to @employee_status, success: 'Employee status was successfully updated.' }
         format.json { render :show, status: :ok, location: @employee_status }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class EmployeeStatusesController < ApplicationController
   def destroy
     @employee_status.destroy
     respond_to do |format|
-      format.html { redirect_to employee_statuses_url, notice: 'Employee status was successfully destroyed.' }
+      format.html { redirect_to employee_statuses_url, success: 'Employee status was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

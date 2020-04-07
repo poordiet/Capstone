@@ -11,8 +11,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, #:registerable,
-         :recoverable, :rememberable, :validatable
-
+         :recoverable, :validatable
+  
   belongs_to :employee, :class_name => 'Employee', :foreign_key => 'employee_id'
 
 
@@ -20,6 +20,7 @@ class User < ApplicationRecord
    
 
   # Form Validations
+  validates :employee, presence: true
   # does not work for some reason - validates :admin, presence: true
   
 end

@@ -1,5 +1,8 @@
 <%= form_with(model: payment_type, local: true) do |form| %>
-  <% if payment_type.errors.any? %>
+ 
+<div class="status-content">
+  <br>
+   <% if payment_type.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(payment_type.errors.count, "error") %> prohibited this payment_type from being saved:</h2>
 
@@ -10,23 +13,20 @@
       </ul>
     </div>
   <% end %>
-<div id="form">
-  <br>
   <h1>New Payment Type</h1>
-  <br>
+  <i>* Indicates Required Fields</i>
+  <hr>
   <div class="form-row">
-  <div class ="field form-group col-md-2">
+  <div class ="field form-group col-md-12">
     <%= form.label :payment_type, 'Payment Type *' %>
     <%= form.text_field :payment_type, class: 'form-control' %>
   </div>
   </div>
-
+  <br>
   <div class="form-row">
-  <div class="field form-group col-md-8">
-    <div id="buttons">
+  <div class="field form-group col-md-12">
       <%= link_to 'Cancel', payment_types_path, class: 'btn btn-danger btn-lg float-left'%>
       <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
-    </div>
   </div>
 </div>
 <% end %>

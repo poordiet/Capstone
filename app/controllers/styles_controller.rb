@@ -22,10 +22,12 @@ class StylesController < ApplicationController
   # GET /styles/new
   def new
     @style = Style.new
+    session[:prev_url]=request.referer
   end
 
   # GET /styles/1/edit
   def edit
+    session[:prev_url]=request.referer
   end
 
   # POST /styles
@@ -35,7 +37,7 @@ class StylesController < ApplicationController
 
     respond_to do |format|
       if @style.save
-        format.html { redirect_to @style, notice: 'Style was successfully created.' }
+        format.html { redirect_to @style, success: 'Style was successfully created.' }
         format.json { render :show, status: :created, location: @style }
       else
         format.html { render :new }
@@ -49,7 +51,7 @@ class StylesController < ApplicationController
   def update
     respond_to do |format|
       if @style.update(style_params)
-        format.html { redirect_to @style, notice: 'Style was successfully updated.' }
+        format.html { redirect_to @style, success: 'Style was successfully updated.' }
         format.json { render :show, status: :ok, location: @style }
       else
         format.html { render :edit }
@@ -63,7 +65,7 @@ class StylesController < ApplicationController
   def destroy
     @style.destroy
     respond_to do |format|
-      format.html { redirect_to styles_url, notice: 'Style was successfully destroyed.' }
+      format.html { redirect_to styles_url, success: 'Style was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -2,18 +2,27 @@
 <div class="container">
   <div class="row">
     <div class="col-11">
+
+    <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>">
+          <%= message %>
+        </div>
+      <% end %>
+      <br>
+
       <p>
           <%= link_to 'Update', edit_payment_type_path(@payment_type), class:'btn btn-warning btn-lg float-right mr-2' %>
           <%= link_to 'Back', payment_types_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
       </p>
-      <p id="notice"><%= notice %></p>
-  <div class="field form-group col-md-5">
+      
+
+  <h1>Payment Type</h1>
+  <hr>
   <strong>Payment Type:</strong>
   <%= @payment_type.payment_type %>
   </div>
 
 
-</div>
 </div>
 </div>
 </div>

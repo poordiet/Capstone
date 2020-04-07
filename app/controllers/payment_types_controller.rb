@@ -35,7 +35,7 @@ class PaymentTypesController < ApplicationController
 
     respond_to do |format|
       if @payment_type.save
-        format.html { redirect_to @payment_type, notice: 'Payment type was successfully created.' }
+        format.html { redirect_to @payment_type, success: 'Payment type was successfully created.' }
         format.json { render :show, status: :created, location: @payment_type }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class PaymentTypesController < ApplicationController
   def update
     respond_to do |format|
       if @payment_type.update(payment_type_params)
-        format.html { redirect_to @payment_type, notice: 'Payment type was successfully updated.' }
+        format.html { redirect_to @payment_type, success: 'Payment type was successfully updated.' }
         format.json { render :show, status: :ok, location: @payment_type }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class PaymentTypesController < ApplicationController
   def destroy
     @payment_type.destroy
     respond_to do |format|
-      format.html { redirect_to payment_types_url, notice: 'Payment type was successfully destroyed.' }
+      format.html { redirect_to payment_types_url, success: 'Payment type was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

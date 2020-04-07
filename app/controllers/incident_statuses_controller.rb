@@ -35,7 +35,7 @@ class IncidentStatusesController < ApplicationController
 
     respond_to do |format|
       if @incident_status.save
-        format.html { redirect_to @incident_status, notice: 'Incident status was successfully created.' }
+        format.html { redirect_to @incident_status, success: 'Incident status was successfully created.' }
         format.json { render :show, status: :created, location: @incident_status }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class IncidentStatusesController < ApplicationController
   def update
     respond_to do |format|
       if @incident_status.update(incident_status_params)
-        format.html { redirect_to @incident_status, notice: 'Incident status was successfully updated.' }
+        format.html { redirect_to @incident_status, success: 'Incident status was successfully updated.' }
         format.json { render :show, status: :ok, location: @incident_status }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class IncidentStatusesController < ApplicationController
   def destroy
     @incident_status.destroy
     respond_to do |format|
-      format.html { redirect_to incident_statuses_url, notice: 'Incident status was successfully destroyed.' }
+      format.html { redirect_to incident_statuses_url, success: 'Incident status was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

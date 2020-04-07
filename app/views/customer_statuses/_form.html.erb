@@ -1,4 +1,8 @@
-<%= form_with(model: customer_status, local: true) do |form| %>
+
+
+<div class="status-content">
+  <br>
+  <%= form_with(model: customer_status, local: true) do |form| %>
   <% if customer_status.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(customer_status.errors.count, "error") %> prohibited this customer_status from being saved:</h2>
@@ -10,30 +14,26 @@
       </ul>
     </div>
   <% end %>
-
-<div id="form">
-  <br>
   <h1>New Customer Status</h1>
-  <br>
+  <i>* Indicates required fields</i>
+  <hr>
   <div class="form-row">
-  <div class ="field form-group col-md-2">
+  <div class ="field form-group col-md-6">
     <%= form.label :status, 'Customer Status *' %>
     <%= form.text_field :status, class: 'form-control' %>
   </div>
  </div>
    <div class="form-row">
-  <div class ="field form-group col-md-4">
+  <div class ="field form-group col-md-12">
     <%= form.label :definition, 'Status Defintion' %>
-    <%= form.text_area :definition, class: 'form-control' %>
+    <%= form.text_area :definition, class: 'form-control', rows: '3' %>
   </div>
   </div>
 
   <div class="form-row">
-  <div class="field form-group col-md-8">
-    <div id="buttons">
+  <div class="field form-group col-md-12">
       <%= link_to 'Cancel', customer_statuses_path, class: 'btn btn-danger btn-lg float-left'%>
       <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
-    </div>
   </div>
 </div>
 <% end %>

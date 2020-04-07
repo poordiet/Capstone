@@ -22,10 +22,12 @@ class ServicesController < ApplicationController
   # GET /services/new
   def new
     @service = Service.new
+    session[:prev_url] = request.referer
   end
 
   # GET /services/1/edit
   def edit
+    session[:prev_url] = request.referer
   end
 
   # POST /services
@@ -35,7 +37,7 @@ class ServicesController < ApplicationController
 
     respond_to do |format|
       if @service.save
-        format.html { redirect_to @service, notice: 'Service was successfully created.' }
+        format.html { redirect_to @service, success: 'Service was successfully created.' }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new }
@@ -49,7 +51,7 @@ class ServicesController < ApplicationController
   def update
     respond_to do |format|
       if @service.update(service_params)
-        format.html { redirect_to @service, notice: 'Service was successfully updated.' }
+        format.html { redirect_to @service, success: 'Service was successfully updated.' }
         format.json { render :show, status: :ok, location: @service }
       else
         format.html { render :edit }
@@ -63,7 +65,7 @@ class ServicesController < ApplicationController
   def destroy
     @service.destroy
     respond_to do |format|
-      format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }
+      format.html { redirect_to services_url, success: 'Service was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
