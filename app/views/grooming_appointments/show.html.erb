@@ -128,7 +128,7 @@
 <div class = "row">
 <div class = "col-12">
 <%= link_to "Add Service", 
-new_grooming_service_path({:id => @grooming_appointment.id}), 
+new_grooming_service_path({:grooming_appointment_id => @grooming_appointment.id}), 
 :class => "btn btn-success float-right mt-4", style: 'margin-bottom: 10px' %>
 
 
@@ -140,7 +140,7 @@ new_grooming_service_path({:id => @grooming_appointment.id}),
       <th>Amount Notes</th>
       <th>Employee</th>
       <th>Edit</th>
-      <th>Remove</th>
+      <% if current_user.admin == true %><th>Remove</th><%end%>
 		</thead>
 		<tbody>
      <% @grooming_appointment.grooming_services.each do |grooming_service| %>
@@ -155,7 +155,7 @@ new_grooming_service_path({:id => @grooming_appointment.id}),
         </td>
         <td><%= link_to "Edit", edit_grooming_service_path(grooming_service), 
         :class => "btn btn-warning btn-block" %></td>
-        <td><%= link_to 'Delete', grooming_service, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-block btn-danger' %></td>
+       <% if current_user.admin == true %> <td><%= link_to 'Delete', grooming_service, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-block btn-danger' %></td><%end%>
 			</tr>
        <% end %>
 		</tbody>
@@ -170,7 +170,7 @@ new_grooming_service_path({:id => @grooming_appointment.id}),
 <div class = "row">
 <div class = "col-12">
 <%= link_to "Add Style", 
-new_grooming_style_path({:id => @grooming_appointment.id}), 
+new_grooming_style_path({:grooming_appointment_id => @grooming_appointment.id}), 
 :class => "btn btn-success float-right mt-4", style: 'margin-bottom: 10px' %>
 
   <table id="example" class="table table-striped table-bordered">
@@ -178,7 +178,7 @@ new_grooming_style_path({:id => @grooming_appointment.id}),
       <th>Style</th>
       <th>Grooming Style Notes</th>
       <th>Edit</th>
-      <th>Remove</th>
+     <%if current_user.admin == true %> <th>Remove</th><%end%>
 		</thead>
 
 		<tbody>
@@ -188,7 +188,7 @@ new_grooming_style_path({:id => @grooming_appointment.id}),
         <td><%= grooming_style.groom_style_notes%></td>
         <td><%= link_to "Edit", edit_grooming_style_path(grooming_style), 
         :class => "btn btn-warning btn-block" %></td>
-        <td><%= link_to 'Delete', grooming_style, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-block btn-danger' %></td>
+        <%if current_user.admin == true %><td><%= link_to 'Delete', grooming_style, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-block btn-danger' %></td><%end%>
 			</tr>
        <% end %>
 		</tbody>

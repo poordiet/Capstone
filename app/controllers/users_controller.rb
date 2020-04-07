@@ -43,16 +43,18 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
 
       respond_to do |format|
-        if @user.employee.user
+       if @user.employee.nil?
+        @user.errors.add(:employee, "must be selected")
+          format.html { render :new, danger: 'Employee already has User' }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+       elsif @user.employee.user
           @user.errors.add(:employee , "already has an account")
           format.html { render :new, danger: 'Employee already has User' }
           format.json { render json: @user.errors, status: :unprocessable_entity }
         elsif @user.save
-          puts 'inside elsif in controller'
           format.html { redirect_to @user, success: 'User was successfully created.' }
           format.json { render :show, status: :created, location: @user }
         else
-          puts 'inside else in controller'
           format.html { render :new }
           format.json { render json: @user.errors, status: :unprocessable_entity }
         end

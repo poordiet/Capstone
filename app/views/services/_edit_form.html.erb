@@ -1,5 +1,9 @@
 <%= form_with(model: service, local: true) do |form| %>
-  <% if service.errors.any? %>
+ 
+
+<div class="status-content">
+  <br>
+ <% if service.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
 
@@ -10,38 +14,35 @@
       </ul>
     </div>
   <% end %>
-
-<div id="form">
-  <br>
   <h1>Edit Service</h1>
-  <br>
+  <i>* Indicates required fields</i>
+  <hr>
   <div class="form-row">
-    <div class="field form-group col-md-2">
+    <div class="field form-group col-md-6">
       <%= form.label :service_status_id, 'Service Status *' %>
+      <br>
       <%= form.collection_select :service_status_id, ServiceStatus.all, :id, :service_status %>
     </div>
   </div>
 
   <div class="form-row">
-    <div class="field form-group col-md-2">
+    <div class="field form-group col-md-6">
       <%= form.label :service_name, 'Service Name *' %>
       <%= form.text_field :service_name, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-row">
-    <div class="field form-group col-md-2">
+    <div class="field form-group col-md-12">
       <%= form.label :service_description, 'Service Description' %>
-      <%= form.text_area :service_description, class: 'form-control' %>
+      <%= form.text_area :service_description, class: 'form-control', rows: '3' %>
     </div>
   </div>
 
   <div class="form-row">
-    <div class="field form-group col-md-6">
-      <div id="buttons">
-        <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+    <div class="field form-group col-md-12">
+        <%= link_to 'Cancel', session[:prev_url], class: 'btn btn-danger btn-lg float-left'%>
         <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
-      </div>
     </div>
   </div>
 </div>

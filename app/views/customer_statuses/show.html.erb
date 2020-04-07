@@ -1,14 +1,22 @@
-<p id="notice"><%= notice %></p>
+
 
 <div class="container">
   <div class="row">
     <div class="col-11">
 
-      <p>
-        <%= link_to 'Update', edit_customer_status_path(@customer_status), class:'btn btn-warning btn-lg float-right mr-2' %>
-        <%= link_to 'Back', customer_statuses_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
-      </p>
+     <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>">
+          <%= message %>
+        </div>
+      <% end %>
+        <br>
 
+
+        <%= link_to 'Edit', edit_customer_status_path(@customer_status), class:'btn btn-warning btn-lg float-right mr-2' %>
+        <%= link_to 'Back', customer_statuses_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+
+      <h1> Customer Status </h1>
+      <hr>
       <p>
         <strong>Status:</strong>
         <%= @customer_status.status %>

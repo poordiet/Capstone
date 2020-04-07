@@ -7,20 +7,34 @@
     <%= msg %>
   </div>
 <% end %>
+<br>
 <hr>
 <br>
+<style>
+
+.borders{
+  border-left: 2px solid #e3e3e3;
+  border-right: 2px solid #e3e3e3;
+}
+
+.font{
+  font-family: 'geneva';
+}
+
+</style>
 <div class="row"> 
     <div class="col-lg-4 info-box">
-        <h2>Sales Overview</h2>
+        <br>
+        <center><h2>Sales Overview</h2>
         <p>
             Today's Sales: <span class="text-primary"> <%= number_to_currency GroomingAppointment.where(:appt_date => Date.today).sum(:appt_total) %></span>
-        </p>
+        </p><center>
     </div>
     <div class="col-lg-4 info-box">
     <% @pie_data = [@customers.where(customer_status_id: 1).count, (3000 - @customers.where(customer_status_id: 1).count)]
        @pie_labels = ["Active Customers", "Goal"] %>
     
-    <canvas id="servicePieChart" width="400" height="200"></canvas>
+    <canvas id="servicePieChart" width="400" height="200" class="borders"></canvas>
     <br>
     <br>
     <script>
@@ -45,16 +59,15 @@
 
     </div>
     <div class="col-lg-4 info-box">
-        <h2>Grooming Overview</h2>
+        <br>
+        <center><h2>Grooming Overview</h2>
         <p>
         Total Groomings Performed Today: <span class="text-primary"> <%= GroomingAppointment.where(:appt_date => Date.today).count(:id) %></span>
-        </p>
+        </p><center>
     </div>
 </div>
-<br>
 <hr>
 <br>
-
 
 <table id="example" class="table table-hover table-bordered">
 		<thead class="thead-dark">

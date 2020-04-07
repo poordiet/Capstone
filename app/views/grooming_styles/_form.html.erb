@@ -1,4 +1,9 @@
 <%= form_with(model: grooming_style, local: true) do |form| %>
+
+
+<br>
+<div class = "grooming-style-content">
+<br>
   <% if grooming_style.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(grooming_style.errors.count, "error") %> prohibited this grooming_style from being saved:</h2>
@@ -10,16 +15,12 @@
       </ul>
     </div>
   <% end %>
-
-<br>
-<div class = "grooming-style-content">
-<br>
 <h1> New Grooming Style</h1>
 <p><i>* Indicates Required Fields</i></p>
 <hr>
 <div class = "row">
   <div class=" form-group col-12">
-    <%= form.hidden_field :grooming_appointment_id, :value => params[:id]%>
+    <%= form.hidden_field :grooming_appointment_id, value: @grooming_appointment_id%>
   </div>
   </div>
 

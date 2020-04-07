@@ -36,7 +36,7 @@ class ServiceStatusesController < ApplicationController
 
     respond_to do |format|
       if @service_status.save
-        format.html { redirect_to @service_status, notice: 'Service status was successfully created.' }
+        format.html { redirect_to @service_status, success: 'Service status was successfully created.' }
         format.json { render :show, status: :created, location: @service_status }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class ServiceStatusesController < ApplicationController
   def update
     respond_to do |format|
       if @service_status.update(service_status_params)
-        format.html { redirect_to @service_status, notice: 'Service status was successfully updated.' }
+        format.html { redirect_to @service_status, success: 'Service status was successfully updated.' }
         format.json { render :show, status: :ok, location: @service_status }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class ServiceStatusesController < ApplicationController
   def destroy
     @service_status.destroy
     respond_to do |format|
-      format.html { redirect_to service_statuses_url, notice: 'Service status was successfully destroyed.' }
+      format.html { redirect_to service_statuses_url, success: 'Service status was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

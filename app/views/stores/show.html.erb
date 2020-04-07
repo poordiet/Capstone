@@ -2,16 +2,22 @@
 <div class="container">
     <div class="row">
         <div class="col-11">
+
+            <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>">
+            <%= message %>
+            </div>
+            <% end %>
+            <br>
             <p>
                 <%= link_to 'Edit', edit_store_path(@store), class:'btn btn-warning btn-lg float-right mr-2' %>
                 <%= link_to 'Back', stores_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
             </p>
 
-            <p id="notice"><%= notice %></p>
-
             <h1>
                 <%= @store.store_name %>
             </h1>
+            <hr>
 
             <p>
                 <strong>Store Address:</strong>
@@ -32,21 +38,24 @@
                 <strong>Store Zip:</strong>
                 <%= @store.store_zip %>
             </p>
-
             <p>
                 <strong>Store Phone:</strong>
                 <%= @store.store_phone %>
             </p>
         </div>
+
+        
+        
+        <div class="container">
         <br>
         <h2>Employees</h2>
-        <br>
-        <div class="container">
+        <hr/>
             <table id="example" class="table table-striped table-bordered" style="width: 1000px;">
-                <thead class="thead-dark">
+                <thead class="thead">
                     <th>Employee Name</th>
                     <th>Employee Email</th>
                     <th>Employee Phone</th>
+                    <th>Show</th>
                 </thead>
                 <tbody>
                     <% @store.employee_stores.each do |employee_store| %>
@@ -57,6 +66,7 @@
                         </td>
                         <td><%= employee_store.employee.emp_email %></td>
                         <td><%= employee_store.employee.emp_primary_phone %></td>
+                        <td><%= link_to 'Show', employee_store.employee, class: 'btn btn-info btn-block' %></td>
                     </tr>
                     <% end %>
                 </tbody>

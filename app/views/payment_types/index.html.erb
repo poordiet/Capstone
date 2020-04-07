@@ -8,6 +8,7 @@
   <table id="example" class="table table-hover table-bordered">
     <thead class="thead-dark">
       <th>Payment Type</th>
+      <th>Show</th>
       <th>Edit</th>
     </thead>
 
@@ -15,6 +16,7 @@
       <% @payment_types.each do |pt| %>
         <tr>
           <td><%= pt.payment_type %></td>
+          <td><%= link_to 'Show', pt, class: 'btn btn-info btn-block' %></td>
           <td><%= link_to 'Edit', edit_payment_type_path(pt), class: 'btn btn-warning btn-block' %></td>
         </tr>
       <% end %>

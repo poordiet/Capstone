@@ -1,4 +1,7 @@
 <%= form_with(model: style, local: true) do |form| %>
+  
+<div class="status-content">
+  <br>
   <% if style.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(style.errors.count, "error") %> prohibited this style from being saved:</h2>
@@ -10,30 +13,28 @@
       </ul>
     </div>
   <% end %>
-<div id="form">
-  <br>
+
   <h1>New Style</h1>
-  <br>
+  <i>* Indicates required fields</i>
+  <hr>
   <div class="form-row">
-    <div class="field form-group col-md-2">
+    <div class="field form-group col-md-6">
       <%= form.label :style_name, 'Style Name *' %> 
       <%= form.text_field :style_name, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-row">
-    <div class="field form-group col-md-4">
+    <div class="field form-group col-md-12">
       <%= form.label :style_description, 'Style Description' %> 
-      <%= form.text_area :style_description, class: 'form-control' %>
+      <%= form.text_area :style_description, class: 'form-control', rows: '3' %>
     </div>
   </div>
 
 <div class="form-row">
-  <div class="field form-group col-md-8">
-    <div id="buttons">
-      <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+  <div class="field form-group col-md-12">
+      <%= link_to 'Cancel', session[:prev_url], class: 'btn btn-danger btn-lg float-left'%>
       <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
-    </div>
   </div>
 </div>
 <% end %>

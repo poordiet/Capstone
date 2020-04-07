@@ -17,7 +17,7 @@
       <% @service_statuses.each do |ss| %>
         <tr>
           <td><%= ss.service_status %></td>
-          <td><%= link_to 'Show', ss, class: 'btn btn-primary btn-block' %></td>
+          <td><%= link_to 'Show', ss, class: 'btn btn-info btn-block' %></td>
           <td><%= link_to 'Edit', edit_service_status_path(ss), class: 'btn btn-warning btn-block' %></td>
         </tr>
       <% end %>

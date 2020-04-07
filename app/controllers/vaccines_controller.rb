@@ -22,10 +22,12 @@ class VaccinesController < ApplicationController
   # GET /vaccines/new
   def new
     @vaccine = Vaccine.new
+    session[:prev_url] = request.referer
   end
 
   # GET /vaccines/1/edit
   def edit
+    session[:prev_url] = request.referer
   end
 
   # POST /vaccines

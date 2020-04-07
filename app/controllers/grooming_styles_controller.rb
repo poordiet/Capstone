@@ -15,6 +15,7 @@ class GroomingStylesController < ApplicationController
   # GET /grooming_styles/new
   def new
     @grooming_style = GroomingStyle.new
+    @grooming_appointment_id = params[:grooming_appointment_id]
     session[:prev_url] = request.referer
   end
 
@@ -27,6 +28,7 @@ class GroomingStylesController < ApplicationController
   # POST /grooming_styles.json
   def create
     @grooming_style = GroomingStyle.new(grooming_style_params)
+    @grooming_appointment_id = @grooming_style.grooming_appointment.id
 
     respond_to do |format|
       if @grooming_style.save

@@ -36,7 +36,7 @@ class CustomerStatusesController < ApplicationController
 
     respond_to do |format|
       if @customer_status.save
-        format.html { redirect_to @customer_status, notice: 'Customer status was successfully created.' }
+        format.html { redirect_to @customer_status, success: 'Customer status was successfully created.' }
         format.json { render :show, status: :created, location: @customer_status }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class CustomerStatusesController < ApplicationController
   def update
     respond_to do |format|
       if @customer_status.update(customer_status_params)
-        format.html { redirect_to @customer_status, notice: 'Customer status was successfully updated.' }
+        format.html { redirect_to @customer_status, success: 'Customer status was successfully updated.' }
         format.json { render :show, status: :ok, location: @customer_status }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class CustomerStatusesController < ApplicationController
   def destroy
     @customer_status.destroy
     respond_to do |format|
-      format.html { redirect_to customer_statuses_url, notice: 'Customer status was successfully destroyed.' }
+      format.html { redirect_to customer_statuses_url, success: 'Customer status was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
