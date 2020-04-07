@@ -39,7 +39,7 @@
 <div class="row">
   <div class="form-group col-6">
     <%= form.label :service_amount, 'Service Amount *' %>
-    <%= form.number_field :service_amount, class: 'form-control' %>
+    <%= form.number_field :service_amount,:step => "0.01", class: 'form-control' %>
   </div>
 </div>
 

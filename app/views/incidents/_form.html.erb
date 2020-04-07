@@ -54,7 +54,7 @@
   <div class="form-row">  
     <div class="field form-group col-md-4">
       <%= form.label :incident_cost, 'Incident Cost' %> 
-      <%= form.number_field :incident_cost, class: 'form-control'%>
+      <%= form.number_field :incident_cost, :step => "0.01", class: 'form-control'%>
   </div>
    </div>
 
