@@ -34,11 +34,19 @@ end
 
 # form validation
 validate :date_given_or_date_expire
+validate :date_given_before_expire
 
 def date_given_or_date_expire
   unless (!date_given.blank? && !duration.blank?) || !date_expire.blank? 
     errors.add(:base, "Specify date given AND duration, or any combination with date expire")
   end
 end
+
+  # Checks to see if the date_given is before date_expire
+  def date_given_before_expire
+    if date_given.present? && date_expire.present? && (date_given > date_expire || date_given == date_expire)
+      errors.add(:date_given, "can't be on or after date expired")
+    end
+  end  
 
 end
