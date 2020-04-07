@@ -1,9 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Service Status:</strong>
-  <%= @service_status.service_status %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-11">
 
-<%= link_to 'Edit', edit_service_status_path(@service_status) %> |
-<%= link_to 'Back', service_statuses_path %>
+      <p>
+        <%= link_to 'Update', edit_service_status_path(@service_status), class:'btn btn-warning btn-lg float-right mr-2' %>
+        <%= link_to 'Back', service_statuses_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+      </p>
+
+      <p>
+        <strong>Status:</strong>
+        <%= @service_status.service_status %>
+      </p>
+    </div>
+  </div>
+</div>

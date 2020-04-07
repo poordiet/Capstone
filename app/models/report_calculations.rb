@@ -36,6 +36,11 @@ class ReportCalculations
         GroomingAppointment.find_by_sql("select date_trunc('month', appt_date) as month, sum(appt_total) as sales from grooming_appointments group by month order by month")
     end
 
+    def self.inactive_employees
+        User.find_by_sql("select emp_first_name, emp_last_name, users.email, users.roles from employees join users on employees.id=users.employee_id where
+        employee_status_id=2")
+    end
+
 
 
 end

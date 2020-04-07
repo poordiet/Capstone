@@ -10,13 +10,41 @@
 <hr>
 <br>
 <div class="row"> 
-    <div class="col-lg-6 info-box">
+    <div class="col-lg-4 info-box">
         <h2>Sales Overview</h2>
         <p>
             Today's Sales: <span class="text-primary"> <%= number_to_currency GroomingAppointment.where(:appt_date => Date.today).sum(:appt_total) %></span>
         </p>
-    </div> 
-    <div class="col-lg-6 info-box">
+    </div>
+    <div class="col-lg-4 info-box">
+    <% @pie_data = [@customers.where(customer_status_id: 1).count, (3000 - @customers.where(customer_status_id: 1).count)]
+       @pie_labels = ["Active Customers", "Goal"] %>
+    
+    <canvas id="servicePieChart" width="400" height="200"></canvas>
+    <br>
+    <br>
+    <script>
+    var array = <%= @pie_data.inspect.html_safe %>
+    var labels = <%= @pie_labels.inspect.html_safe %>
+    var ctx = document.getElementById('servicePieChart').getContext('2d');
+    var pieChart = new Chart(ctx, {
+
+        type:'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: array,
+                backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#ebae34", "#eb345f"]
+            }]
+        },
+      
+        
+    })
+    </script>
+
+
+    </div>
+    <div class="col-lg-4 info-box">
         <h2>Grooming Overview</h2>
         <p>
         Total Groomings Performed Today: <span class="text-primary"> <%= GroomingAppointment.where(:appt_date => Date.today).count(:id) %></span>

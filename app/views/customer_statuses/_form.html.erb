@@ -11,17 +11,29 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.label :status, "Status *" %>
+<div id="form">
+  <br>
+  <h1>New Customer Status</h1>
+  <br>
+  <div class="form-row">
+  <div class ="field form-group col-md-2">
+    <%= form.label :status, 'Customer Status *' %>
     <%= form.text_field :status, class: 'form-control' %>
   </div>
-
-  <div class="form-group">
-    <%= form.label :definition %>
-    <%= form.text_area :definition, class: 'form-control', rows: '3' %>
+ </div>
+   <div class="form-row">
+  <div class ="field form-group col-md-4">
+    <%= form.label :definition, 'Status Defintion' %>
+    <%= form.text_area :definition, class: 'form-control' %>
+  </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-row">
+  <div class="field form-group col-md-8">
+    <div id="buttons">
+      <%= link_to 'Cancel', customer_statuses_path, class: 'btn btn-danger btn-lg float-left'%>
+      <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
+    </div>
   </div>
+</div>
 <% end %>

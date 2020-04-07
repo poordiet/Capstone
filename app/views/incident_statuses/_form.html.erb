@@ -11,17 +11,29 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :status, "Status *" %>
-    <%= form.text_field :status %>
+<div id="form">
+  <br>
+  <h1>New Incident Status</h1>
+  <br>
+  <div class="form-row">
+  <div class ="field form-group col-md-2">
+    <%= form.label :status, 'Incident Status *' %>
+    <%= form.text_field :status, class: 'form-control' %>
+  </div>
+ </div>
+   <div class="form-row">
+  <div class ="field form-group col-md-4">
+    <%= form.label :definition, 'Status Defintion' %>
+    <%= form.text_area :definition, class: 'form-control' %>
+  </div>
   </div>
 
-  <div class="field">
-    <%= form.label :definition %>
-    <%= form.text_field :definition %>
+  <div class="form-row">
+  <div class="field form-group col-md-8">
+    <div id="buttons">
+      <%= link_to 'Cancel', incident_statuses_path, class: 'btn btn-danger btn-lg float-left'%>
+      <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+</div>
 <% end %>

@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   get 'reports/customers_with_most_appointments_report'
   get 'reports/vaccines_expiring_report'
   get 'reports/pet_birthdays_report'
+  get 'reports/user_accounts_report'
   get 'reports/index'
   get 'reports/customer_reports'
   get 'reports/sales_reports'
