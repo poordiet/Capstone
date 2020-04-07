@@ -8,12 +8,14 @@
 	<thead class="thead-dark">
       <th>Employee</th>
       <th>User Email</th>
+      <th>Status</th>
 		</thead>
 		<tbody>
      <% @inactive_employees.each do |emp| %>
 	 <tr>
       <td><%= emp.emp_first_name%> <%= emp.emp_last_name %></td>
       <td><%= emp.email%></td>
+      <td><%= emp.status%></td>
        <% end %>
 		</tbody>
 	</table>

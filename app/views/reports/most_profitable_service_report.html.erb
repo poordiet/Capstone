@@ -47,7 +47,7 @@
      <% @service_totals.each do |service_total| %>
 		<tr>
          <td><%= service_total.service.service_name%></td>
-        <td><%= number_to_currency service_total.sum%></td>
+        <td class="text-right"><%= number_to_currency service_total.sum%></td>
        <% end %>
 		</tbody>
 	</table>
