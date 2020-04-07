@@ -1,5 +1,8 @@
 <%= form_with(model: pet_vaccination, local: true) do |form| %>
-  <% if pet_vaccination.errors.any? %>
+
+<div class="pet-vaccination-content">
+<br>
+ <% if pet_vaccination.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(pet_vaccination.errors.count, "error") %> prohibited this pet_vaccination from being saved:</h2>
 
@@ -10,9 +13,6 @@
       </ul>
     </div>
   <% end %>
-
-<div class="pet-vaccination-content">
-<br>
 <h1>New Pet Vaccination</h1>
 <i>Specify date given AND duration, or any combination with date expire</i>
 <hr>
