@@ -93,7 +93,7 @@
           </div>
           </form>
         </div>
-          <a class="dropdown-item" href="#">Inactive Employees with User Accounts</a>
+          <a class="dropdown-item" href="/reports/user_accounts_report">Inactive Employees with User Accounts</a>
         </div>
           </li>
         </div>
@@ -101,6 +101,18 @@
         <li class="nav-item dropdown active">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" role = "button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Manage</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <form class="accordion" id="statusAccordion">
+             <div>
+              <a class="dropdown-item" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapsFour" href="#">Manage Status</a>
+                <div id="collapseFour" class="collapse px-3" data-parent="#statusAccordion">
+                  <a class="dropdown-item" href="/employee_statuses">Employee Status</a>
+                  <a class="dropdown-item" href="/incident_statuses">Incident Status</a>
+                  <a class="dropdown-item" href="/pet_statuses">Pet Status</a>
+                  <a class="dropdown-item" href="/customer_statuses">Customer Status</a>
+                  <a class="dropdown-item" href="/service_statuses">Service Status</a>
+                </div>
+            </form>
+          </div>
           <a class="dropdown-item" href="/services">Manage Services</a>
           <a class="dropdown-item" href="/styles">Manage Styles</a>
           <a class="dropdown-item" href="/payment_types">Manage Payment Types</a>

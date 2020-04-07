@@ -1,14 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @employee_status.status %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-11">
 
-<p>
-  <strong>Definition:</strong>
-  <%= @employee_status.definition %>
-</p>
+      <p>
+        <%= link_to 'Update', edit_employee_status_path(@employee_status), class:'btn btn-warning btn-lg float-right mr-2' %>
+        <%= link_to 'Back', employee_statuses_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+      </p>
 
-<%= link_to 'Edit', edit_employee_status_path(@employee_status) %> |
-<%= link_to 'Back', employee_statuses_path %>
+      <p>
+        <strong>Status:</strong>
+        <%= @employee_status.status %>
+      </p>
+
+      <p>
+        <strong>Description:</strong>
+        <%= @employee_status.definition %>
+      </p>
+    </div>
+  </div>
+</div>

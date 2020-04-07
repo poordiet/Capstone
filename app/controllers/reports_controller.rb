@@ -95,5 +95,9 @@ class ReportsController < ApplicationController
     def pet_birthdays_report
         @pets = Pet.all
     end
+
+    def user_accounts_report
+        @inactive_employees = ReportCalculations.inactive_employees
+    end
     
 end

@@ -7,6 +7,7 @@ class DashboardController < ApplicationController
       @grooming_appointments = GroomingAppointment.all
       @pets = Pet.all
       @appointments_for_today = DashboardCalculations.appointments_for_today
+      @customers = Customer.all
     end
   
   end

@@ -12,25 +12,23 @@
   <% end %>
 
 
-<div class="container" id="form">
-
-<form>
+ <div id="form">
+  <br>
+  <h1>New Service Status</h1>
+  <br>
   <div class="form-row">
-    <div class="field form-group col-md-4">
+  <div class ="field form-group col-md-2">
     <%= form.label :service_status, 'Service Status *' %>
     <%= form.text_field :service_status, class: 'form-control' %>
   </div>
-  </div>
+ </div>
 
-  <br>
-
-<div class="form-row">
- <div class="actions col-md-4">
- <a class="btn btn-danger btn-lg float-left" href="/service_statuses" role="button">Cancel</a>
-    <button type="submit" class="btn btn-primary btn-lg float-right">Submit</button>
+  <div class="form-row">
+  <div class="field form-group col-md-8">
+    <div id="buttons">
+      <%= link_to 'Cancel', service_statuses_path, class: 'btn btn-danger btn-lg float-left'%>
+      <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
+    </div>
   </div>
-  </div>
-
- </form>
-  </div>
+</div>
 <% end %>
