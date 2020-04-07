@@ -32,7 +32,7 @@
   <div class="form-group col-12">
     <%= form.label :employee_id, 'Employee' %>
     <br>
-    <%= form.collection_select :employee_id, Employee.active_employees, :id, :employee_full_name, prompt: "- Select Employee -" %>
+    <%= form.collection_select :employee_id, Employee.active_employees, :id, :employee_full_name, prompt: "- Select Employee -", include_blank: true %>
   </div>
 </div>
 

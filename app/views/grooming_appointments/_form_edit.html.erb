@@ -91,7 +91,7 @@
 <div class=" form-group field col-md-6">
     <%= form.label :payment_type_id, 'Payment Type' %>
     <br>
-    <%= form.collection_select :payment_type_id, PaymentType.all, :id, :payment_type, options = {include_blank: true}  %>
+    <%= form.collection_select :payment_type_id, PaymentType.all, :id, :payment_type, options = {include_blank: true, prompt: '- Select -'}  %>
   </div>
   </div>
 
