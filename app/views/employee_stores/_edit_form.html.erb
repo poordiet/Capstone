@@ -1,18 +1,19 @@
 <%= form_with(model: employee_store, local: true) do |form| %>
+  
+
+<div class="employee-store-content">
+  <br>
   <% if employee_store.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(employee_store.errors.count, "error") %> prohibited this employee_store from being saved:</h2>
+      <h4><%= pluralize(employee_store.errors.count, "error") %> prohibited this employee store from being saved:</h4>
 
       <ul>
         <% employee_store.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li>• <%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-
-<div class="employee-store-content">
-  <br>
   <h1>Edit Employee Store</h1>
   <p><i>* Indicates Required Fields</i></p>
   <hr>

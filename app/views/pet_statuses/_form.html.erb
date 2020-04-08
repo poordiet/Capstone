@@ -5,11 +5,11 @@
   <br>
     <% if pet_status.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(pet_status.errors.count, "error") %> prohibited this pet_status from being saved:</h2>
+      <h4><%= pluralize(pet_status.errors.count, "error") %> prohibited this pet status from being saved:</h4>
 
       <ul>
         <% pet_status.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li>• <%= message %></li>
         <% end %>
       </ul>
     </div>

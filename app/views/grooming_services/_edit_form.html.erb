@@ -1,18 +1,19 @@
 <%= form_with(model: grooming_service, local: true) do |form| %>
-  <% if grooming_service.errors.any? %>
+  
+
+  <div class = "grooming-service-content">
+<br>
+<% if grooming_service.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(grooming_service.errors.count, "error") %> prohibited this grooming_service from being saved:</h2>
+      <h4><%= pluralize(grooming_service.errors.count, "error") %> prohibited this grooming service from being saved:</h4>
 
       <ul>
         <% grooming_service.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li>• <%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class = "grooming-service-content">
-<br>
 <h1> Edit Grooming Service</h1>
 <p><i>* Indicates Required Fields</i></p>
 <hr>

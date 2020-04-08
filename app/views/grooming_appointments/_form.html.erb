@@ -1,19 +1,19 @@
 
 <%= form_with(model: grooming_appointment, local: true) do |form| %>
-  <% if grooming_appointment.errors.any? %>
+
+
+<div class="content">
+<% if grooming_appointment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(grooming_appointment.errors.count, "error") %> prohibited this grooming_appointment from being saved:</h2>
+      <h4><%= pluralize(grooming_appointment.errors.count, "error") %> prohibited this grooming appointment from being saved:</h4>
 
       <ul>
         <% grooming_appointment.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li>• <%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-
-
-<div class="content">
 
 <!-- Passes pet_id as its own parameter to the controller -->
 <%= hidden_field_tag :pet_id, @pet_id %>
@@ -95,16 +95,21 @@
   <div class="form-row">
     <div class="form-group field col-md-6">
       <%= form.label :appt_date, 'Appointment Date *' %>
-      <br>
-      <%= form.text_field :appt_date, type: 'date', class: 'form-control col-md-8' %>
+     <div class = "block"> <%= form.text_field :appt_date, type: 'date', class: 'form-control col-md-8' %></div>
     </div>
 
-    <div class="form-group field col-md-4 ml-2">
+    <div class="form-group field col-md-4 ml-2 ", id= 'inline' >
       <%= form.label :appt_time, 'Appointment Time *'%>
       <br>
-      <%= form.time_select :appt_time, class: 'form-control', :ampm => true %>
+      <%= form.time_select :appt_time, id: 'inline', class: 'form-control', :ampm => true %>
     </div>
   </div>
+
+  <style>
+      #inline{
+        display:inline;
+      }
+  </style>
 
   <div class="form-row">
     <div class="form-group field col-md-6">
@@ -117,14 +122,13 @@
   <div class="form-row">
   <div class="form-group field col-md-6">
     <%= form.label :vac_current, 'Vaccine Current *' %>
-    <br>
-    <%= form.select :vac_current, ['Y', 'N'], prompt: "- Select -" %>
+    
+   <div class = "block"> <%= form.select :vac_current, ['Y', 'N'], prompt: "- Select -" %> </div>
   </div>
   
 
   <div class="form-group field col-md-6">
     <%= form.label :vac_current_date, 'Vaccine Current Date *' %>
-    <br>
    <%= form.text_field :vac_current_date, type: 'date', class: 'form-control col-md-8' %>
   </div>
   </div>
@@ -138,8 +142,8 @@
 <div class="form-row">
 <div class=" form-group field col-md-6">
     <%= form.label :payment_type_id, 'Payment Type' %>
-    <br>
-    <%= form.collection_select :payment_type_id, PaymentType.all, :id, :payment_type, prompt: "- Select Payment Type -"  %>
+   
+    <div class = "block"><%= form.collection_select :payment_type_id, PaymentType.all, :id, :payment_type, prompt: "- Select Payment Type -"  %></div>
   </div>
   </div>
 

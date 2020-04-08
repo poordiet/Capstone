@@ -4,11 +4,11 @@
 <br>
  <% if pet_vaccination.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(pet_vaccination.errors.count, "error") %> prohibited this pet_vaccination from being saved:</h2>
+      <h4><%= pluralize(pet_vaccination.errors.count, "error") %> prohibited this pet vaccination from being saved:</h4>
 
       <ul>
         <% pet_vaccination.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li>• <%= message %></li>
         <% end %>
       </ul>
     </div>
@@ -30,8 +30,7 @@
   <div class="form-row">
   <div class="field">
     <%= form.label :vaccine_id, 'Vaccine *' %>
-    <br>
-    <%= form.collection_select :vaccine_id, Vaccine.all, :id, :vaccine_name, prompt: "- Select Vaccine -" %>
+   <div class = "block"> <%= form.collection_select :vaccine_id, Vaccine.all, :id, :vaccine_name, prompt: "- Select Vaccine -" %></div>
   </div>
   </div>
 
@@ -49,8 +48,7 @@
   <div class="form-row">
   <div class="field">
     <%= form.label :duration, 'Duration (Years)' %>
-    <br>
-    <%= form.select :duration, ['0.5', '1', '2', '3', '4', '5'],prompt: "- Select Duration -", class: 'form-control' %>
+    <div class = "block"><%= form.select :duration, ['0.5', '1', '2', '3', '4', '5'],prompt: "- Select Duration -", class: 'form-control' %></div>
   </div>
   </div>
   <br>

@@ -4,11 +4,11 @@
   <br>
   <% if style.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(style.errors.count, "error") %> prohibited this style from being saved:</h2>
+      <h4><%= pluralize(style.errors.count, "error") %> prohibited this style from being saved:</h4>
 
       <ul>
         <% style.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li>• <%= message %></li>
         <% end %>
       </ul>
     </div>

@@ -1,18 +1,19 @@
 <%= form_with(model: incident, local: true) do |form| %>
+  
+
+<div class = 'incident-content'>
+  <br>
   <% if incident.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(incident.errors.count, "error") %> prohibited this incident from being saved:</h2>
+      <h4><%= pluralize(incident.errors.count, "error") %> prohibited this incident from being saved:</h4>
 
       <ul>
         <% incident.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li>• <%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-
-<div class = 'incident-content'>
-  <br>
   <h1>Edit Incident</h1>
   <p><i>* Indicates Required Fields</i></p>
   <hr>
@@ -71,7 +72,7 @@
   <br>
   <div class="form-row">
     <div class="field form-group col-md-12">
-        <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg float-left'%>
+        <%= link_to 'Cancel', session[:prev_url], class: 'btn btn-danger btn-lg float-left'%>
         <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
     </div>
   </div>

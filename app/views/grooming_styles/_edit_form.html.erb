@@ -4,21 +4,21 @@
 <br>
 <div class = "grooming-style-content">
 <br>
-<h1> Edit Grooming Style</h1>
-<p><i>* Indicates Required Fields</i></p>
-<hr>
-
 <% if grooming_style.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(grooming_style.errors.count, "error") %> prohibited this grooming_style from being saved:</h2>
+      <h4><%= pluralize(grooming_style.errors.count, "error") %> prohibited this grooming style from being saved:</h4>
 
       <ul>
         <% grooming_style.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li>• <%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
+<h1> Edit Grooming Style</h1>
+<p><i>* Indicates Required Fields</i></p>
+<hr>
+
   <div class="field">
     <%= form.hidden_field :grooming_appointment_id, :value => @grooming_style.grooming_appointment_id%>
   </div>
