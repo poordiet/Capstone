@@ -33,7 +33,7 @@
 
         <div class="field form-group col-md-6">
             <%= f.label :pet_weight, 'Weight *' %>
-            <%= f.text_field :pet_weight, class: 'form-control col-md-8' %>
+            <%= f.number_field :pet_weight, :step => "0.1", class: 'form-control col-md-8' %>
         </div>
     </div>
 

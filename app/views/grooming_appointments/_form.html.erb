@@ -47,6 +47,7 @@
       <th>Date Given</th>
       <th>Duration (Years)</th>
       <th>Date Expire</th>
+      <th>Required</th>
 		</thead>
 
 <style>
@@ -72,6 +73,7 @@
             <%= pet_vaccination.date_expire.strftime("%b %d %Y")%>
             <%end%>
           </td>
+          <td><%=pet_vaccination.vaccine.vaccine_required%></td>
 			</tr>
        <% end %>
 		</tbody>
