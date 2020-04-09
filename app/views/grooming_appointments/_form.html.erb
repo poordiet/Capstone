@@ -150,6 +150,9 @@
 <hr/>
 <h2>Services</h2>
  <div class="form-row">
+   <%= form.fields_for :grooming_services do |grooming_service| %>
+        <%= render 'grooming_service_fields', :f => grooming_service %>
+      <% end %>
     <div class="form-group col-md-12">
     <br>
       <%= link_to_add_association 'Add Service', form, :grooming_services, class: 'btn btn-success btn-sm btn-block float-left mx-auto' %>
@@ -160,6 +163,9 @@
 
 <h2>Styles</h2>
  <div class="form-row">
+  <%= form.fields_for :grooming_styles do |grooming_style| %>
+        <%= render 'grooming_style_fields', :f => grooming_style %>
+      <% end %>
   <div class="form-group col-md-12">
   <br>
     <%= link_to_add_association 'Add Style', form, :grooming_styles, class: 'btn btn-success btn-sm btn-block float-left mx-auto' %>
