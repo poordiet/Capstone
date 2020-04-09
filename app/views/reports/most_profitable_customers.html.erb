@@ -7,13 +7,19 @@
     <table id="example" class="table table-striped table-bordered" style="width: 1000px;">
 	<thead class="thead-dark">
       <th class="text-center">Customer</th>
+      <th class="text-center">Phone Number</th>
+      <th class="text-center">Email</th>
       <th class="text-center">Total Sales</th>
+      <th class="text-center">Show</th>
 		</thead>
 		<tbody>
      <% @customer_sales.each do |customer_sales| %>
 		<tr>
          <td><%= customer_sales.customer %></td>
+        <td><%= customer_sales.customer_primary_phone%>
+        <td><%= customer_sales.customer_email%>
         <td class="text-right"><%= number_to_currency customer_sales.sum%></td>
+          <td width="150px;"><%= link_to 'Show', customer_path(customer_sales.customer_id), class: 'btn btn-info btn-block' %></td>
        <% end %>
 		</tbody>
 	</table>
