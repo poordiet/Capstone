@@ -1,7 +1,8 @@
 <div class="container">
 <br>
 <hr>
- <h2> Sales per Month for <%= Date.today.year %> </h2>  
+ <h2> Sales per Month: <span class="dynamic"><%= Date.today.year %></span> </h2>  
+ <p class="report-date">Date Created: <%=Date.today.to_formatted_s(:long)%></p>
  <hr>
         <br>
         <% @data = []
@@ -100,7 +101,7 @@
 
     <br>
     <hr>
-    <h2> Sales per Month for <%= Date.today.last_year.year %> </h2>  
+    <h2> Sales per Month: <span class="dynamic"><%= Date.today.last_year.year %></span> </h2>  
     <hr>
 <br>
 <% @data = []

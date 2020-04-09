@@ -12,7 +12,8 @@
 
 
     <hr> 
-    <h2>Vaccines Expiring in the Next Three Months</h2>
+    <h2>Vaccines Expiring in the Next Three Months: <span class="dynamic"><%=Date.today.to_formatted_s(:long)%> to <%=(Date.today + 3.months).to_formatted_s(:long)%></span></h2>
+    <p class="report-date">Date Created: <%=Date.today.to_formatted_s(:long)%></p>
     <hr>
 <table id="example" class="table table-striped table-bordered">
 	<thead class="thead-dark">
@@ -20,7 +21,7 @@
       <th>Customer Phone</th>
       <th>Pet</th>
       <th>Vaccine</th>
-      <th>Date Expired</th>
+      <th>Date Expiring</th>
       <th>Show Pet</th>
 		</thead>
 		<tbody>
