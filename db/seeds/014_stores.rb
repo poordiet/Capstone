@@ -1,5 +1,6 @@
 stores = [
-    [43,"Houston Store","13214 W Little York Rd #F","Houston","77041","832-770-4951"]
+    [43,"Houston Store","13214 W Little York Rd #F","Houston","77041","832-770-4951"],
+    [43,"Katy Store","214 Katy Freeway #F","Katy","77069","832-770-4951"]
 ]
 
 
