@@ -9,7 +9,7 @@
             
              <p>
                 <%= link_to 'Edit', edit_employee_path(@employee), class:'btn btn-warning btn-lg float-right mr-2' %>
-                <%= link_to 'Back', employees_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+                <%= link_to 'All Employees', employees_path, class: 'btn btn-secondary btn-lg float-right mr-2'%>
             </p>
             <h1>
                 <%= @employee.emp_first_name %> <%= @employee.emp_last_name %>
@@ -152,6 +152,9 @@
                         <% end %>
                     </tbody>
                 </table>
+
+                 <hr>  
+                <a href="#" class="btn btn-outline-secondary">Back To Top</a>
             </div>
         </div>
     </div>
