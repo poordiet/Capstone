@@ -12,13 +12,14 @@
 <br>
 
 <div class="row"> 
+<% if current_user.admin == true %>
     <div class=" info-box dashboard-card">
         <br>
         <br>
         <br>
         <center><h2>Sales Overview</h2>
         <p>
-            Today's Sales: <span class="text-primary"> <%= number_to_currency GroomingAppointment.where(:appt_date => Date.today).sum(:appt_total) %></span>
+            Today's Sales: <span class="dynamic"> <%= number_to_currency GroomingAppointment.where(:appt_date => Date.today).sum(:appt_total) %></span>
         </p><center>
     </div>
     <div class=" info-box dashboard-card">
@@ -59,13 +60,13 @@
         <br>
         <center><h2>Grooming Overview</h2>
         <p>
-        Total Groomings Performed Today: <span class="text-primary"> <%= GroomingAppointment.where(:appt_date => Date.today).count(:id) %></span>
+        Total Appointments Today: <span class="dynamic"><%= GroomingAppointment.where(:appt_date => Date.today).count(:id) %></span>
         </p><center>
     </div>
 </div>
 <hr>
 <br>
-
+<%end%>
 <table id="example" class="table table-hover table-bordered">
 		<thead class="thead-dark">
     <tr>
