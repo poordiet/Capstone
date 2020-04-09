@@ -1,6 +1,7 @@
 pet_status = [
     ["Alive", "Pet is still alive"],
-    ["Passed", "Pet is no longer with us"]
+    ["Passed", "Pet is no longer with us"],
+    ["High Needs", "Dog requires special attention while groomgin"]
 ]
 
 
