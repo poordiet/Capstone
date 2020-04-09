@@ -1,6 +1,8 @@
 service_statuses =[
     "Active",
-    "Discontinued"
+    "Discontinued",
+    "Trial",
+    "Limited Offer"
 ]
 
 
