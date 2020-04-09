@@ -42,13 +42,21 @@
 	<thead class="thead-dark">
       <th>Service</th>
       <th>Total Sales</th>
+      <th>Percentage of Total Sales</th>
 		</thead>
 		<tbody>
+        <%total = 0%>
      <% @service_totals.each do |service_total| %>
 		<tr>
-         <td><%= service_total.service.service_name%></td>
-        <td class="text-right"><%= number_to_currency service_total.sum%></td>
+        <%total = total + service_total.sum%>
        <% end %>
+         <% @service_totals.each do |service_total| %>
+		<tr>
+        <td><%= service_total.service.service_name%></td>
+        <td class="text-right"><%= number_to_currency service_total.sum%></td>
+        <td class="text-right"><%= '%.1f'  % ((service_total.sum/total) * 100) %> %</td>
+       <% end %>
+       
 		</tbody>
 	</table>
     <br>

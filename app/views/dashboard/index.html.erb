@@ -10,31 +10,24 @@
 <br>
 <hr>
 <br>
-<style>
 
-.borders{
-  border-left: 2px solid #e3e3e3;
-  border-right: 2px solid #e3e3e3;
-}
-
-.font{
-  font-family: 'geneva';
-}
-
-</style>
 <div class="row"> 
-    <div class="col-lg-4 info-box">
+    <div class=" info-box dashboard-card">
         <br>
         <center><h2>Sales Overview</h2>
         <p>
             Today's Sales: <span class="text-primary"> <%= number_to_currency GroomingAppointment.where(:appt_date => Date.today).sum(:appt_total) %></span>
         </p><center>
     </div>
-    <div class="col-lg-4 info-box">
+    <div class=" info-box dashboard-card">
     <% @pie_data = [@customers.where(customer_status_id: 1).count, (3000 - @customers.where(customer_status_id: 1).count)]
        @pie_labels = ["Active Customers", "Goal"] %>
+       <% active_customers = @customers.where(customer_status_id: 1).count
+          goal = (3000 - @customers.where(customer_status_id: 1).count) 
+          percentage = (active_customers.to_f/goal.to_f)*100%>
+       
     
-    <canvas id="servicePieChart" width="400" height="200" class="borders"></canvas>
+    <canvas id="servicePieChart" width="400" height="200"></canvas>
     <br>
     <br>
     <script>
@@ -56,9 +49,9 @@
     })
     </script>
 
-
+     * Percent Complete: <%= '%.0f' % percentage.to_f %> %
     </div>
-    <div class="col-lg-4 info-box">
+    <div class=" info-box dashboard-card">
         <br>
         <center><h2>Grooming Overview</h2>
         <p>
