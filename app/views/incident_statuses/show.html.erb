@@ -3,12 +3,12 @@
 <div class="container">
   <div class="row">
     <div class="col-11">
+     <br>
      <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>">
           <%= message %>
         </div>
       <% end %>
-      <br>
 
       <p>
         <%= link_to 'Edit', edit_incident_status_path(@incident_status), class:'btn btn-warning btn-lg float-right mr-2' %>

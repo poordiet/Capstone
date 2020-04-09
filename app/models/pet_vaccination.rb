@@ -36,6 +36,7 @@ end
 validate :date_given_or_date_expire
 validate :date_given_before_expire
 
+
 def date_given_or_date_expire
   unless (!date_given.blank? && !duration.blank?) || !date_expire.blank? 
     errors.add(:base, "Specify date given AND duration, or any combination with date expire")

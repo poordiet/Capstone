@@ -6,11 +6,11 @@
 <br>
   <% if grooming_style.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(grooming_style.errors.count, "error") %> prohibited this grooming_style from being saved:</h2>
+      <h4><%= pluralize(grooming_style.errors.count, "error") %> prohibited this grooming style from being saved:</h4>
 
       <ul>
         <% grooming_style.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li>• <%= message %></li>
         <% end %>
       </ul>
     </div>

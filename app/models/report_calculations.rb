@@ -37,7 +37,7 @@ class ReportCalculations
     end
 
     def self.inactive_employees
-        User.find_by_sql("select emp_first_name, emp_last_name, users.email, users.roles, status from employees join users on employees.id=users.employee_id join employee_statuses on employees.employee_status_id=employee_statuses.id where
+        User.find_by_sql("select emp_first_name, emp_last_name, emp_primary_phone, users.email, users.roles, status from employees join users on employees.id=users.employee_id join employee_statuses on employees.employee_status_id=employee_statuses.id where
         employee_status_id > 1")
     end
 

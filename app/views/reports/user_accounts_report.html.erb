@@ -7,6 +7,7 @@
     <table id="example" class="table table-striped table-bordered" style="width: 1000px;">
 	<thead class="thead-dark">
       <th>Employee</th>
+      <th>Employee Phone</th>
       <th>User Email</th>
       <th>Status</th>
 		</thead>
@@ -14,6 +15,7 @@
      <% @inactive_employees.each do |emp| %>
 	 <tr>
       <td><%= emp.emp_first_name%> <%= emp.emp_last_name %></td>
+      <td><%= emp.emp_primary_phone%></td>
       <td><%= emp.email%></td>
       <td><%= emp.status%></td>
        <% end %>

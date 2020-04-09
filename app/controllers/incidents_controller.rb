@@ -31,6 +31,7 @@ class IncidentsController < ApplicationController
 
   # GET /incidents/1/edit
   def edit
+    session[:prev_url] = request.referer
   end
 
   # POST /incidents

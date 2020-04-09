@@ -1,18 +1,19 @@
 <%= form_with(model: customer, local: true) do |form| %>
-<% if customer.errors.any? %>
-<div id="error_explanation">
-    <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
 
-    <ul>
-        <% customer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-    </ul>
-</div>
-<% end %>
 
 <div class="customer-content">
     <br>
+    <% if customer.errors.any? %>
+    <div id="error_explanation">
+        <h4><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h4>
+
+        <ul>
+            <% customer.errors.full_messages.each do |message| %>
+            <li>• <%= message %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
     <h1>New Customer</h1>
      <p><i> * Indicates Required Fields</i></p>
     <hr>

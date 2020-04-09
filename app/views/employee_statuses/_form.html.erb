@@ -5,11 +5,11 @@
   <%= form_with(model: employee_status, local: true) do |form| %>
   <% if employee_status.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(employee_status.errors.count, "error") %> prohibited this employee_status from being saved:</h2>
+      <h4><%= pluralize(employee_status.errors.count, "error") %> prohibited this employee status from being saved:</h4>
 
       <ul>
         <% employee_status.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li>• <%= message %></li>
         <% end %>
       </ul>
     </div>

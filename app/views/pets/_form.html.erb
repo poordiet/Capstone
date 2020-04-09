@@ -1,22 +1,24 @@
 <%= form_with(model: pet, local: true) do |form| %>
-  <% if pet.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
-
-      <ul>
-        <% pet.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  
 
   <!-- Passes customer_id as its own parameter to the controller -->
   <%= hidden_field_tag :customer_id, @customer_id %>
 
 
+
 <div class="content">
 <br>
+<% if pet.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h4>
+
+      <ul>
+        <% pet.errors.full_messages.each do |message| %>
+          <li>• <%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 <h1>New Pet</h1>
 <hr>
 <div class="field">
@@ -54,29 +56,34 @@
 
         <div class="field form-group col-md-6">
             <%= form.label :pet_weight, 'Weight(lbs) *' %> 
-            <%= form.text_field :pet_weight, class: 'form-control col-md-8' %>
+            <%= form.number_field :pet_weight, :step => "0.1", class: 'form-control col-md-8' %>
         </div>
     </div>
 
     <br>
 
+    <style>
+    .block{
+      display:block;
+    }
+    </style>
+
     <div class="form-row col-md-12">
         <div class="field form-group col-md-4">
             <%= form.label :spayed_neutered, 'Spayed/Neutered *' %> 
-            <br>
-            <%= form.select :spayed_neutered, ['Y', 'N'], prompt: "- Select -", class: 'form-control' %>
+
+            <div class = "block"><%= form.select :spayed_neutered, ['Y', 'N'], prompt: "- Select -", class: 'form-control' %></div>
         </div>
 
         <div class="field form-group col-md-4">
             <%= form.label :pet_treat, 'Pet Treat *' %> 
-            <br>
-            <%= form.select :pet_treat, ['Y', 'N'], prompt: "- Select -" ,  class: 'form-control' %>
+            <div class = "block"><%= form.select :pet_treat, ['Y', 'N'], prompt: "- Select -" ,  class: 'form-control', id: 'block' %></div>
         </div>
 
         <div class="field form-group col-md-4">
             <%= form.label :pet_gender, 'Pet Gender *' %> 
-            <br>
-            <%= form.select :pet_gender, ['M', 'F'], prompt: "- Select -", class: 'form-control' %>
+           
+            <div class = "block"><%= form.select :pet_gender, ['M', 'F'], prompt: "- Select -", class: 'form-control' %></div>
         </div>
     </div>
 

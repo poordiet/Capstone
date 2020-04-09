@@ -4,11 +4,11 @@
 <br>
  <% if incident_status.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(incident_status.errors.count, "error") %> prohibited this incident_status from being saved:</h2>
+      <h4><%= pluralize(incident_status.errors.count, "error") %> prohibited this incident status from being saved:</h4>
 
       <ul>
         <% incident_status.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li>• <%= message %></li>
         <% end %>
       </ul>
     </div>

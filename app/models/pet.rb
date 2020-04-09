@@ -19,6 +19,7 @@ class Pet < ApplicationRecord
     validates :pet_color, presence: true
     validates :pet_breed, presence: true
     validates :pet_weight, presence: true
+    validate :birthday_no_future
   
     # Calculates Expiration date for Pet Vaccination in the Pet Nested Form
   after_save :calculate_expiration
@@ -30,4 +31,11 @@ class Pet < ApplicationRecord
         pet_vaccination.save
       end
   end
+
+  # Checks to see if the date_obtained is a future date
+  def birthday_no_future
+    if pet_birthdate.present? && pet_birthdate > Date.today
+      errors.add(:pet_birthdate, "can't be in the future")
+    end
+  end  
 end

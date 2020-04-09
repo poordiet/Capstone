@@ -4,11 +4,10 @@
   <br>
    <% if payment_type.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(payment_type.errors.count, "error") %> prohibited this payment_type from being saved:</h2>
-
+      <h4><%= pluralize(payment_type.errors.count, "error") %> prohibited this payment type from being saved:</h4>
       <ul>
         <% payment_type.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li>• <%= message %></li>
         <% end %>
       </ul>
     </div>

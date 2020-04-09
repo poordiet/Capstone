@@ -53,7 +53,7 @@
   <%if @pet.pet_weight.nil?%>
     <%= @pet.pet_weight%>
   <%else%>
-    <%= @pet.pet_weight.to_i %> lbs
+    <%= @pet.pet_weight %> lbs
   <%end%>
 </p>
 
@@ -193,6 +193,7 @@ new_pet_vaccination_path({:pet_id => @pet.id,
       <th>Date Given</th>
       <th>Duration (Years)</th>
       <th>Date Expired</th>
+      <th>Required</th>
       <th>Update</th>
 		</thead>
 		<tbody>
@@ -212,6 +213,7 @@ new_pet_vaccination_path({:pet_id => @pet.id,
         <%=pet_vaccination.date_expire.to_formatted_s(:long)%>
         <%end%> 
         </td>
+        <td><%=pet_vaccination.vaccine.vaccine_required%></td>
         <td><%= link_to "Edit", edit_pet_vaccination_path(pet_vaccination), 
         :class => "btn btn-warning btn-block" %></td>
 			</tr>

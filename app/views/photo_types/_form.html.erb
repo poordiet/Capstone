@@ -1,11 +1,11 @@
 <%= form_with(model: photo_type, local: true) do |form| %>
   <% if photo_type.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(photo_type.errors.count, "error") %> prohibited this photo_type from being saved:</h2>
+      <h4><%= pluralize(photo_type.errors.count, "error") %> prohibited this photo type from being saved:</h4>
 
       <ul>
         <% photo_type.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li>• <%= message %></li>
         <% end %>
       </ul>
     </div>

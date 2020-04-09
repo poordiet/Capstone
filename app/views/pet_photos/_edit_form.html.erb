@@ -1,17 +1,18 @@
 <%= form_with(model: pet_photo, local: true) do |form| %>
-  <% if pet_photo.errors.any? %>
+  
+
+<div class ="content">
+<% if pet_photo.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(pet_photo.errors.count, "error") %> prohibited this pet_photo from being saved:</h2>
+      <h4><%= pluralize(pet_photo.errors.count, "error") %> prohibited this pet photo from being saved:</h4>
 
       <ul>
         <% pet_photo.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li>• <%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-
-<div class ="content">
 
 <h1>Update Pet Photo</h1>
 <p><i>* Indicates Required Fields</i></p>

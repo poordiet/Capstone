@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Capstone</title>
+    <title>Peek-A-Boo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
@@ -105,10 +105,10 @@
              <div>
               <a class="dropdown-item" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapsFour" href="#">Manage Statuses ▿</a>
                 <div id="collapseFour" class="collapse px-3" data-parent="#statusAccordion">
+                  <a class="dropdown-item" href="/customer_statuses">Customer Status</a>
                   <a class="dropdown-item" href="/employee_statuses">Employee Status</a>
                   <a class="dropdown-item" href="/incident_statuses">Incident Status</a>
                   <a class="dropdown-item" href="/pet_statuses">Pet Status</a>
-                  <a class="dropdown-item" href="/customer_statuses">Customer Status</a>
                   <a class="dropdown-item" href="/service_statuses">Service Status</a>
                 </div>
             </form>
