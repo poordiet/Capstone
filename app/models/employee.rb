@@ -13,7 +13,9 @@ class Employee < ApplicationRecord
   
   validates :emp_first_name, presence: true
   validates :emp_last_name, presence: true
-  validates :emp_primary_phone, presence: true
+  validates :emp_primary_phone, presence: true, length: {minimum: 12}
+  validates :emp_secondary_phone, length: {minimum: 12}, allow_blank: true
+  validates :emp_zip, length: { minimum: 5 }, allow_blank: true
   validates :emp_hire_date, presence: true
   validate :date_hired_no_dumb
   validate :no_repeat_employee, :on => :create

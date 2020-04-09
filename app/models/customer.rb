@@ -12,7 +12,9 @@ class Customer < ApplicationRecord
   validates :date_obtained, presence: true
   validates :customer_first_name, presence: true
   validates :customer_last_name, presence: true
-  validates :customer_primary_phone, presence: true
+  validates :customer_primary_phone, presence: true, length: {minimum: 12}
+  validates :customer_secondary_phone, length: {minimum: 12}, allow_blank: true
+  validates :customer_zip, length: { minimum: 5 }, allow_blank: true
   validate :date_obtained_no_future
   validate :no_repeat_customer, :on => :create
 
