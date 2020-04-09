@@ -11,7 +11,8 @@
     <tr>
       <th>Customer</th>
       <th>Pet Name</th>
-      <th>Appointment Date</th>
+      <th>Date</th>
+      <th>Time</th>
       <th>Services</th>
       <th>Store</th>
       <th>Total</th>
@@ -26,10 +27,16 @@
         <td><%= grooming_appointment.pet.customer.customer_first_name %>
         <%= grooming_appointment.pet.customer.customer_last_name %></td>
         <td><%= grooming_appointment.pet.pet_name %></td>
-        <td>  <%if grooming_appointment.appt_date.nil? || grooming_appointment.appt_time.nil?%>
-        <%=  grooming_appointment.appt_date%> <%=  grooming_appointment.appt_time%>
+        <td>  <%if grooming_appointment.appt_date.nil?%>
+        <%=  grooming_appointment.appt_date%>
         <%else%>
-       <%=grooming_appointment.appt_date.to_formatted_s(:long)%> <%= grooming_appointment.appt_time.strftime("%I:%M%p")%>
+       <%=grooming_appointment.appt_date.to_formatted_s(:long)%>
+        <%end%> 
+        </td>
+         <td>  <%if grooming_appointment.appt_time.nil?%>
+          <%=  grooming_appointment.appt_time%>
+          <%else%>
+         <%= grooming_appointment.appt_time.strftime("%I:%M%p")%>
         <%end%> 
         </td>
         <td>
@@ -57,14 +64,25 @@
 
 
 <script type="text/javascript">
-  var dataTable = $('#example').DataTable(
-    /*{
-    "language":{
-      "sLengthMenu": "Num. of Entries Per Page _MENU_",
-      "sSearch": "Search:",
+  var dataTable = $('#example').DataTable( {
+    
 
-    }
-  }*/);
+    "columns": [
+    null,
+    null,
+    {"type": "date"},
+    {"type": "date"},
+    null,
+    null,
+    null,
+    null,
+    null
+    
+  ]
+    
+    
+
+} );
 
   $(document).ready(function() {
    dataTable;

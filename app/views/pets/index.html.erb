@@ -53,7 +53,24 @@
 
 
 <script type="text/javascript">
-  var dataTable = $('#example').DataTable();
+    var dataTable = $('#example').DataTable( {
+    
+
+    "columns": [
+    null,
+    null,
+    null,
+    {"type": "date"},
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+    
+    
+
+} );
 
   $(document).ready(function() {
    dataTable;
