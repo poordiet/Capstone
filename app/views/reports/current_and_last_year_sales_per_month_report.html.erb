@@ -2,6 +2,7 @@
 <br>
 <hr>
  <h2> Sales per Month for <%= Date.today.year %> </h2>  
+ <p class="report-date">Date Created: <%=Date.today.to_formatted_s(:long)%></p>
  <hr>
         <br>
         <% @data = []

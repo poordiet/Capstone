@@ -8,9 +8,11 @@
 <%end%>
 <%end%>
 
+
 <hr> 
- <h2>Pet Birthdays this Month</h2>
- <hr>
+ <h2>Pet Birthdays this Month: <span class="dynamic"><%=Date.today.strftime('%B')%> <%=Date.today.year%></span></h2>
+ <p class="report-date">Date Created: <%=Date.today.to_formatted_s(:long)%></p>
+<hr>
 <!-- Display all the pets with Birthdays this Month-->
 <div class = "container">
 <table id="example" class="table table-striped table-bordered">

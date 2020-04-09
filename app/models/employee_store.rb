@@ -7,11 +7,8 @@ class EmployeeStore < ApplicationRecord
 
    # Validates that a duplicate employee store is not entered
    def no_repeat_employee_store
-    puts ' in def statement'
       self.employee.employee_stores.each do |employee_store|
-        puts ' in for statement'
         if self.store.store_name.upcase == employee_store.store.store_name.upcase
-          puts ' in if statement'
            errors.add(:employee, "is already assigned to that store")
         end
     end
