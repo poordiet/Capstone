@@ -13,9 +13,27 @@ class Employee < ApplicationRecord
   
   validates :emp_first_name, presence: true
   validates :emp_last_name, presence: true
-  validates :emp_primary_phone, presence: true
+  validates :emp_primary_phone, presence: true, length: {minimum: 12}
+  validates :emp_secondary_phone, length: {minimum: 12}, allow_blank: true
+  validates :emp_zip, length: { minimum: 5 }, allow_blank: true
   validates :emp_hire_date, presence: true
   validate :date_hired_no_dumb
+  validate :no_repeat_employee, :on => :create
+
+   # Validates that a duplicate employee is not entered
+   def no_repeat_employee
+    if emp_first_name.present? && emp_last_name.present? && emp_primary_phone.present?
+      Employee.all.each do |employee|
+        if self.emp_first_name.upcase == employee.emp_first_name.upcase &&
+           self.emp_last_name.upcase == employee.emp_last_name.upcase &&
+           self.emp_primary_phone == employee.emp_primary_phone
+
+           errors.add(:employee, "already exists")
+
+        end
+      end
+    end
+  end
 
   # Checks to see if the date_hired occurs before the business started
   def date_hired_no_dumb

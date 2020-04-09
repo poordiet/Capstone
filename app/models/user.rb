@@ -22,5 +22,13 @@ class User < ApplicationRecord
   # Form Validations
   validates :employee, presence: true
   # does not work for some reason - validates :admin, presence: true
+
+  validate :password_complexity
+  
+ def password_complexity
+    if password.present? && !password.match('^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$')
+      errors.add :password, "must contain a minimum of eight characters, at least one uppercase letter, one lowercase letter and one number"
+    end
+ end
   
 end

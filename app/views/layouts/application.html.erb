@@ -24,7 +24,7 @@
             data: {confirm: "Are you sure you want to Log Out?"}, class: 'btn logout' %></div>
 
     <div class="col-md" id="logo">
-      <a class="center" href="/"> <%= image_tag "logo.png", size: "80x75"%> </a>
+      <a class="center" href="/"> <%= image_tag "logo.png", size: "90x85", style: 'border-radius:5px; box-shadow: 0px 5px 20px rgba(187, 187, 187, 0.5);'%> </a>
     </div>
     <div id="navbar">
     <nav class="navbar navbar-expand-lg  sticky-top justify-content-center" >
@@ -93,6 +93,9 @@
           </div>
           </form>
         </div>
+
+          <a class="dropdown-item" href="/reports/grooming_appointment_report">Grooming Appointments for the Week</a>
+
           <a class="dropdown-item" href="/reports/user_accounts_report">Inactive Employees with User Accounts</a>
         </div>
           </li>

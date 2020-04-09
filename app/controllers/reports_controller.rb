@@ -94,10 +94,15 @@ class ReportsController < ApplicationController
 
     def pet_birthdays_report
         @pets = Pet.all
+        @appointments_for_week = ReportCalculations.appointments_for_week
     end
 
     def user_accounts_report
         @inactive_employees = ReportCalculations.inactive_employees
+    end
+
+    def grooming_appointment_report
+        @appointments_for_week = ReportCalculations.appointments_for_week
     end
     
 end

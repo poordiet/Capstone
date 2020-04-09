@@ -114,6 +114,9 @@
 
     <div class= "form-row col-md-12">
     <div id="pet_vaccinations">
+    <%= f.fields_for :pet_vaccinations do |pet_vaccination| %>
+            <%= render 'pet_vaccination_fields', :f => pet_vaccination %>
+     <% end %>
     <div class="pet_vaccines">
         <%= link_to_add_association 'Add Vaccine', f, :pet_vaccinations, class: 'btn btn-info btn-sm float-left mx-auto col-md-12'%>
     </div>

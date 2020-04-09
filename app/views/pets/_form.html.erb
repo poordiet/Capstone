@@ -137,6 +137,9 @@
   <h3>Vaccines</h3>
   <hr>
   <div class="form-row">
+  <%= form.fields_for :pet_vaccinations do |pet_vaccination| %>
+            <%= render 'pet_vaccination_fields', :f => pet_vaccination %>
+  <% end %>
   <div class="form-group col-md-12">
     <%= link_to_add_association 'Add Vaccine', form, :pet_vaccinations, class: 'btn btn-success btn-sm float-left mx-auto col-md-12' %>
   </div>

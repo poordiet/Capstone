@@ -17,7 +17,7 @@
                                             :appt_time => @grooming_appointment.appt_time.strftime("%I:%M%p")}),
                                               class: 'btn btn-success btn-lg float-right mr-2'%><%end%>
 <%= link_to 'Pet Profile', pet_path(@grooming_appointment.pet), class: 'btn btn-info btn-lg float-right mr-2'%>
-<%= link_to 'All Appointments', grooming_appointments_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+<%= link_to 'All Appointments', grooming_appointments_path, class: 'btn btn-secondary btn-lg float-right mr-2'%>
 
 <h1>Appointment Details </h1>
 <hr>
@@ -77,10 +77,6 @@
   <%end%> 
 </p>
 
-<p>
-  <strong>Total:</strong>
-  <%= number_to_currency(@grooming_appointment.appt_total) %>
-</p>
 
 <p>
   <strong>Payment Type:</strong>
@@ -90,6 +86,10 @@
   <%end%> 
 </p>
 
+<p class = "double-line">
+  <strong>Total:</strong>
+  <%= number_to_currency(@grooming_appointment.appt_total) %>
+</p>
 </div>
 </div>
 
@@ -125,6 +125,7 @@
 
 <h2>Services</h2>
 <hr>
+
 <div class = "row">
 <div class = "col-12">
 <%= link_to "Add Service", 
@@ -136,9 +137,9 @@ new_grooming_service_path({:grooming_appointment_id => @grooming_appointment.id}
 <table id="example" class="table table-striped table-bordered">
 		<thead>
       <th>Service</th>
+      <th>Employee</th>
       <th>Amount</th>
       <th>Amount Notes</th>
-      <th>Employee</th>
       <th>Edit</th>
       <% if current_user.admin == true %><th>Remove</th><%end%>
 		</thead>
@@ -146,13 +147,13 @@ new_grooming_service_path({:grooming_appointment_id => @grooming_appointment.id}
      <% @grooming_appointment.grooming_services.each do |grooming_service| %>
 			<tr>
 				<td><%= grooming_service.service.service_name %></td>
-        <td class="text-right"><%= number_to_currency(grooming_service.service_amount)%></td>
-        <td><%= grooming_service.service_amount_notes %></td>
-        <td>
+         <td>
         <%if !grooming_service.employee.nil?%>
         <%= grooming_service.employee.emp_first_name%> <%= grooming_service.employee.emp_last_name%>
         <%end%>
         </td>
+        <td class="text-right"><%= number_to_currency(grooming_service.service_amount)%></td>
+        <td><%= grooming_service.service_amount_notes %></td>
         <td><%= link_to "Edit", edit_grooming_service_path(grooming_service), 
         :class => "btn btn-warning btn-block" %></td>
        <% if current_user.admin == true %> <td><%= link_to 'Delete', grooming_service, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-block btn-danger' %></td><%end%>
@@ -160,6 +161,7 @@ new_grooming_service_path({:grooming_appointment_id => @grooming_appointment.id}
        <% end %>
 		</tbody>
 	</table>
+
   </div>
   </div>
 
@@ -210,7 +212,6 @@ new_grooming_style_path({:grooming_appointment_id => @grooming_appointment.id}),
                                               class: 'btn btn-success float-right', style: 'margin-top:10px'%>
 <table id="incidents" class="table table-striped table-bordered">
   <thead>
-    <th>Grooming Appointment</th>
     <th>Incident Notes</th>
     <th>Incident Cost</th>
     <th>Show</th>
@@ -220,7 +221,6 @@ new_grooming_style_path({:grooming_appointment_id => @grooming_appointment.id}),
   <tbody>
     <% @grooming_appointment.incidents.each do |incident| %>
       <tr>
-        <td><%= incident.grooming_appointment.appt_date.to_formatted_s(:long) %></td>
         <td><%= incident.incident_notes %></td>
         <td class="text-right"><%= number_to_currency(incident.incident_cost) %></td>
         <td><%= link_to 'Show', incident, class: 'btn btn-info btn-block'%></td>
@@ -328,5 +328,8 @@ div.desc {
     </div>
     <%end%>
   <%end%>
+  
 </div>
+<hr>
+<a href="#" class="btn btn-outline-secondary">Back To Top</a>
 </div>

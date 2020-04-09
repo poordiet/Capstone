@@ -98,12 +98,16 @@
         <h2> Pets </h2>
         <hr>
         <div class="form-row">
+        <%= form.fields_for :pets do |pet| %>
+            <%= render 'pet_fields', :f => pet %>
+        <% end %>
             <div class="form-group col-md-12">
                 <%= link_to_add_association 'Add Pet', form, :pets, class: 'btn btn-success btn-sm float-left mx-auto col-md-12' %>
             </div>
         </div>
 
-    
+   
+
     <br>
     <div class = "form-row">
         <div class="form-group col-md-12">
@@ -111,7 +115,8 @@
             <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
         </div>
     </div>
-
+ <br>
+ 
 <% end %>
 </div>
 

@@ -1,8 +1,8 @@
 <div class="container">
 <br>
 <hr>
-<br>
  <h2> Sales per Month for <%= Date.today.year %> </h2>  
+ <hr>
         <br>
         <% @data = []
         @labels = []
@@ -100,9 +100,8 @@
 
     <br>
     <hr>
-    <br>
-
     <h2> Sales per Month for <%= Date.today.last_year.year %> </h2>  
+    <hr>
 <br>
 <% @data = []
 @labels = []
@@ -197,5 +196,7 @@ var myChart = new Chart(ctx, {
     }
 });
 </script>
-
+<hr>
+         <a href="#" class="btn btn-outline-secondary">Back To Top</a>
+<br> 
 </div>

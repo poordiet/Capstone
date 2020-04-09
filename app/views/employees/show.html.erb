@@ -9,7 +9,7 @@
             
              <p>
                 <%= link_to 'Edit', edit_employee_path(@employee), class:'btn btn-warning btn-lg float-right mr-2' %>
-                <%= link_to 'Back', employees_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
+                <%= link_to 'All Employees', employees_path, class: 'btn btn-secondary btn-lg float-right mr-2'%>
             </p>
             <h1>
                 <%= @employee.emp_first_name %> <%= @employee.emp_last_name %>
@@ -119,7 +119,8 @@
                     <thead class="thead">
                         <tr>
                             <th>Service</th>
-                            <th>Grooming Appointment</th>
+                             <th>Appointment Date</th>
+                            <th>Appointment Time</th>
                             <th>Customer</th>
                             <th>Pet</th>
                             <th>Service Amount</th>
@@ -131,10 +132,16 @@
                         <% @employee.grooming_services.each do |grooming_service| %>
                         <tr>
                             <td><%= grooming_service.service.service_name %></td>
-                            <td> <%if grooming_service.grooming_appointment.appt_date.nil? || grooming_service.grooming_appointment.appt_time.nil?%>
-                                 <%=  grooming_service.grooming_appointment.appt_date%> <%=  grooming_service.grooming_appointment.appt_time%>
+                            <td> <%if grooming_service.grooming_appointment.appt_date.nil?%>
+                                 <%=  grooming_service.grooming_appointment.appt_date%>
                                  <%else%>
-                                 <%=grooming_service.grooming_appointment.appt_date.to_formatted_s(:long)%> <%= grooming_service.grooming_appointment.appt_time.strftime("%I:%M%p")%>
+                                 <%=grooming_service.grooming_appointment.appt_date.to_formatted_s(:long)%>
+                                 <%end%> 
+                            </td>
+                             <td> <%if grooming_service.grooming_appointment.appt_time.nil?%>
+                                 <%=  grooming_service.grooming_appointment.appt_time%>
+                                 <%else%>
+                                 <%= grooming_service.grooming_appointment.appt_time.strftime("%I:%M%p")%>
                                  <%end%> 
                             </td>
                             <td><%= grooming_service.grooming_appointment.pet.customer.customer_first_name%> <%= grooming_service.grooming_appointment.pet.customer.customer_last_name%></td>
@@ -145,6 +152,9 @@
                         <% end %>
                     </tbody>
                 </table>
+
+                 <hr>  
+                <a href="#" class="btn btn-outline-secondary">Back To Top</a>
             </div>
         </div>
     </div>
@@ -169,7 +179,22 @@
 
 <br>
 <script type="text/javascript">
-    var dataTable = $('#grooming_services').DataTable();
+   var dataTable = $('#grooming_services').DataTable( {
+    
+
+    "columns": [
+    null,
+    {"type": "date"},
+    {"type": "date"},
+    null,
+    null,
+    null,
+    null  
+  ]
+    
+    
+
+} );
 
     $(document).ready(function() {
         dataTable;

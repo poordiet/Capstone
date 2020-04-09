@@ -1,23 +1,26 @@
 <div class="container">
 <br>
 <hr>
-<br>
-
  <h2>Inactive Employees with User Accounts</h2>
+ <hr> 
     <table id="example" class="table table-striped table-bordered" style="width: 1000px;">
 	<thead class="thead-dark">
-      <th>Employee</th>
+      <th>Employee First Name</th>
+      <th>Employee Last Name</th>
       <th>Employee Phone</th>
       <th>User Email</th>
       <th>Status</th>
+      <th>Show User Account</th>
 		</thead>
 		<tbody>
      <% @inactive_employees.each do |emp| %>
 	 <tr>
-      <td><%= emp.emp_first_name%> <%= emp.emp_last_name %></td>
+      <td><%= emp.emp_first_name%></td>
+      <td><%= emp.emp_last_name%></td>
       <td><%= emp.emp_primary_phone%></td>
       <td><%= emp.email%></td>
       <td><%= emp.status%></td>
+      <td><%= link_to 'Show', emp, class: 'btn btn-info btn-block' %></td>
        <% end %>
 		</tbody>
 	</table>
@@ -26,3 +29,18 @@
     <hr>
     <br>
 </div>
+
+<script type="text/javascript">
+    var dataTable = $('#example').DataTable();
+
+    $(document).ready(function() {
+        dataTable;
+    });
+
+    document.addEventListener("turbolinks:before-cache", function() {
+        if (dataTable !== null) {
+            dataTable.destroy();
+            dataTable = null;
+        }
+    });
+</script>

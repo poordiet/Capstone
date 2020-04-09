@@ -6,7 +6,8 @@
   <hr>
   <table id="example" class="table table-hover table-bordered">
     <thead class="thead-dark">
-      <th>Appointment Date/Time</th>
+      <th>Appointment Date</th>
+      <th>Appointment Time</th>
       <th>Incident Notes</th>
       <th>Incident Cost</th>
       <th>Incident Status</th>
@@ -16,7 +17,8 @@
     <tbody>
       <% @incidents.each do |incident| %>
         <tr>
-          <td><%= incident.grooming_appointment.appt_date.strftime("%b %d %Y") %> <%= incident.grooming_appointment.appt_time.strftime("%I:%M%p") %></td>
+          <td><%= incident.grooming_appointment.appt_date.strftime("%b %d %Y") %></td>
+          <td><%= incident.grooming_appointment.appt_time.strftime("%I:%M%p") %></td>
           <td><%= incident.incident_notes %></td>
           <td class="text-right"><%= number_to_currency(incident.incident_cost) %></td>
           <td><%= incident.incident_status.status %></td>
@@ -32,7 +34,23 @@
 <br>
 
 <script type="text/javascript">
-        var dataTable = $('#example').DataTable();
+        var dataTable = $('#example').DataTable( {
+    
+
+    "columns": [
+    {"type": "date"},
+    {"type": "date"},
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+    
+    
+
+} );
+
 
         $(document).ready(function() {
             dataTable;
