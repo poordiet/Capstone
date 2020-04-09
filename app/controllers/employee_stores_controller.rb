@@ -42,7 +42,7 @@ class EmployeeStoresController < ApplicationController
         #format.html { redirect_to @employee_store, notice: 'Employee store was successfully created.' }
         #format.json { render :show, status: :created, location: @employee_store }
       else
-        @employee = Employee.find(params[:employee_id])
+        @employee = Employee.find(params[:employee_store][:employee_id])
         format.html { render :new }
         format.json { render json: @employee_store.errors, success: :unprocessable_entity }
       end

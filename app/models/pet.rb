@@ -19,7 +19,7 @@ class Pet < ApplicationRecord
     validates :pet_color, presence: true
     validates :pet_breed, presence: true
     validates :pet_weight, presence: true
-    validate :birthday_no_future
+     validate :birthday_no_future
   
     # Calculates Expiration date for Pet Vaccination in the Pet Nested Form
   after_save :calculate_expiration
