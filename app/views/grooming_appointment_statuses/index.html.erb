@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Grooming Appointment Statuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @grooming_appointment_statuses.each do |grooming_appointment_status| %>
+      <tr>
+        <td><%= grooming_appointment_status.status %></td>
+        <td><%= grooming_appointment_status.description %></td>
+        <td><%= link_to 'Show', grooming_appointment_status %></td>
+        <td><%= link_to 'Edit', edit_grooming_appointment_status_path(grooming_appointment_status) %></td>
+        <td><%= link_to 'Destroy', grooming_appointment_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Grooming Appointment Status', new_grooming_appointment_status_path %>

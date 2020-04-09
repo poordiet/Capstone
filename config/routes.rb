@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :grooming_appointment_statuses
   devise_for :users, :path=> 'u'
   resources :login
   resources :users do

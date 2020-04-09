@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @grooming_appointment_status.status %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @grooming_appointment_status.description %>
+</p>
+
+<%= link_to 'Edit', edit_grooming_appointment_status_path(@grooming_appointment_status) %> |
+<%= link_to 'Back', grooming_appointment_statuses_path %>
