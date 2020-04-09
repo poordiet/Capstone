@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_05_200510) do
+ActiveRecord::Schema.define(version: 2020_04_09_215057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,13 @@ ActiveRecord::Schema.define(version: 2020_04_05_200510) do
     t.index ["state_id"], name: "index_employees_on_state_id"
   end
 
+  create_table "grooming_appointment_statuses", force: :cascade do |t|
+    t.string "status"
+    t.string "definition"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "grooming_appointments", force: :cascade do |t|
     t.bigint "pet_id", null: false
     t.bigint "store_id", null: false
@@ -110,6 +117,8 @@ ActiveRecord::Schema.define(version: 2020_04_05_200510) do
     t.date "vac_current_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "grooming_appointment_status_id", null: false
+    t.index ["grooming_appointment_status_id"], name: "index_grooming_appointments_on_grooming_appointment_status_id"
     t.index ["payment_type_id"], name: "index_grooming_appointments_on_payment_type_id"
     t.index ["pet_id"], name: "index_grooming_appointments_on_pet_id"
     t.index ["store_id"], name: "index_grooming_appointments_on_store_id"
@@ -158,6 +167,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_200510) do
 
   create_table "payment_types", force: :cascade do |t|
     t.string "payment_type"
+    t.string "definition"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -224,6 +234,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_200510) do
 
   create_table "service_statuses", force: :cascade do |t|
     t.string "service_status"
+    t.string "definition"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -294,6 +305,7 @@ ActiveRecord::Schema.define(version: 2020_04_05_200510) do
   add_foreign_key "employee_stores", "stores"
   add_foreign_key "employees", "employee_statuses"
   add_foreign_key "employees", "states"
+  add_foreign_key "grooming_appointments", "grooming_appointment_statuses"
   add_foreign_key "grooming_appointments", "payment_types"
   add_foreign_key "grooming_appointments", "pets"
   add_foreign_key "grooming_appointments", "stores"

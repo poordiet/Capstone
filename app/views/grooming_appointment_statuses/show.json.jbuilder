@@ -1,0 +1,1 @@
+json.partial! "grooming_appointment_statuses/grooming_appointment_status", grooming_appointment_status: @grooming_appointment_status

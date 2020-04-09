@@ -1,0 +1,2 @@
+class GroomingAppointmentStatus < ApplicationRecord
+end
