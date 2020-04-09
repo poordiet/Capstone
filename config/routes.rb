@@ -48,6 +48,7 @@ Rails.application.routes.draw do
   get 'reports/customer_reports'
   get 'reports/sales_reports'
   get 'reports/vaccine_reports'
+  get 'reports/grooming_appointment_report'
   get 'login/index'
   get 'users/:id/edit_password', to: 'users#edit_password', as: 'edit_password'
 

@@ -14,6 +14,8 @@
 <div class="row"> 
     <div class=" info-box dashboard-card">
         <br>
+        <br>
+        <br>
         <center><h2>Sales Overview</h2>
         <p>
             Today's Sales: <span class="text-primary"> <%= number_to_currency GroomingAppointment.where(:appt_date => Date.today).sum(:appt_total) %></span>
@@ -53,6 +55,8 @@
     </div>
     <div class=" info-box dashboard-card">
         <br>
+        <br>
+        <br>
         <center><h2>Grooming Overview</h2>
         <p>
         Total Groomings Performed Today: <span class="text-primary"> <%= GroomingAppointment.where(:appt_date => Date.today).count(:id) %></span>
@@ -65,12 +69,13 @@
 <table id="example" class="table table-hover table-bordered">
 		<thead class="thead-dark">
     <tr>
+      <th>Store</th>
+      <th>Appt Time</th>
       <th>Customer</th>
       <th>Customer Phone</th>
       <th>Pet Name</th>
-      <th>Store</th>
-      <th>Appt Date/Time</th>
       <th>Total</th>
+      <th>Show</th>
   
     </tr>
   </thead>
@@ -86,16 +91,18 @@
   <tbody>
     <% @appointments_for_today.each do |grooming_appointment| %>
       <tr> 
+        <td><%= grooming_appointment.store_name %></td>
+        <td><%= grooming_appointment.appt_time.strftime("%I:%M%p")%></td>
         <td><%= grooming_appointment.customer %>
         <td><%= grooming_appointment.customer_primary_phone%></td>
         <td><%= grooming_appointment.pet_name %></td>
-        <td><%= grooming_appointment.store_name %></td>
-        <td><%=  grooming_appointment.appt_date.strftime("%b %d %Y")%> <%= grooming_appointment.appt_time.strftime("%I:%M%p")%></td>
         <td><%= number_to_currency(grooming_appointment.appt_total) %></td>
+        <td><%= link_to 'Show', grooming_appointment, class: 'btn btn-block btn-info' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
 </div>
 
 

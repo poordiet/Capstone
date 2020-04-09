@@ -1,11 +1,19 @@
 <div class="container">
 
 <br>
-<hr> 
-<br>
+
+<!-- Find all pet vaccination expiring in the next 3 months-->
+<% pet_vacc_expire = [ ]%>
+ <% @pet_vaccinations.each do |pet_vaccination| %>
+<% if pet_vaccination.date_expire.present? && pet_vaccination.date_expire >= Date.today && pet_vaccination.date_expire <= Date.today + 3.months%>
+    <% pet_vacc_expire << pet_vaccination %>
+<%end%>
+<%end%>
 
 
+    <hr> 
     <h2>Vaccines Expiring in the Next Three Months</h2>
+    <hr>
 <table id="example" class="table table-striped table-bordered" style="width: 1000px;">
 	<thead class="thead-dark">
       <th>Customer</th>
@@ -13,19 +21,19 @@
       <th>Pet</th>
       <th>Vaccine</th>
       <th>Date Expired</th>
+      <th>Show Pet</th>
 		</thead>
 		<tbody>
-     <% @pet_vaccinations.each do |pet_vaccinations| %>
+     <% pet_vacc_expire.each do |pet_vaccination| %>
 		<tr>
-        <% if pet_vaccinations.date_expire.present? && pet_vaccinations.date_expire >= Date.today && pet_vaccinations.date_expire <= Date.today + 3.months%>
-         <td><%= pet_vaccinations.pet.customer.customer_first_name %>
-            <%= pet_vaccinations.pet.customer.customer_last_name %></td>
-        <td><%= pet_vaccinations.pet.customer.customer_primary_phone %></td>
-        <td><%= pet_vaccinations.pet.pet_name %></td>
-		<td><%= pet_vaccinations.vaccine.vaccine_name %></td>
-        <td><%= pet_vaccinations.date_expire.to_formatted_s(:long) %></td>
+         <td><%= pet_vaccination.pet.customer.customer_first_name %>
+            <%= pet_vaccination.pet.customer.customer_last_name %></td>
+        <td><%= pet_vaccination.pet.customer.customer_primary_phone %></td>
+        <td><%= pet_vaccination.pet.pet_name %></td>
+		<td><%= pet_vaccination.vaccine.vaccine_name %></td>
+        <td><%= pet_vaccination.date_expire.to_formatted_s(:long) %></td>
+         <td><%= link_to 'Show', pet_vaccination.pet, class: 'btn btn-block btn-info'%></td>
 		</tr>
-           <% end %> 
        <% end %>
 		</tbody>
 	</table>
@@ -36,17 +44,16 @@
 </div>
 
 <script type="text/javascript">
-  var dataTable = $('#example').DataTable();
+    var dataTable = $('#example').DataTable();
 
-  $(document).ready(function() {
-   dataTable;
-  });
-  
-  document.addEventListener("turbolinks:before-cache", function() {
-    if (dataTable !== null) {
-    dataTable.destroy();  
-    dataTable = null;
-    }
-  });
+    $(document).ready(function() {
+        dataTable;
+    });
 
+    document.addEventListener("turbolinks:before-cache", function() {
+        if (dataTable !== null) {
+            dataTable.destroy();
+            dataTable = null;
+        }
+    });
 </script>
