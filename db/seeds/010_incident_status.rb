@@ -1,8 +1,8 @@
 incident_status = [
     ["Open",	"Incident is in the process of being resolved"],
     ["Closed", "Incident is resolved"],
-    ["Open-High Rish", "Incident is in the process of being resolved and poses a significant business risk"],
-    ["Requires Follow up", "Incident is resolved, but follow up with parties involved is necessary"]
+    ["Under Litigation", "Incident has gone resulted in a court case"]
+    
 ]
 
 
