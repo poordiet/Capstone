@@ -10,6 +10,7 @@
       <th>Customer Phone</th>
       <th>Pet Name</th>
       <th>Total</th>
+      <th>Status</th>
       <th>Show</th>
   
     </tr>
@@ -30,6 +31,7 @@
         <td><%= grooming_appointment.customer_primary_phone%></td>
         <td><%= grooming_appointment.pet_name %></td>
         <td><%= number_to_currency(grooming_appointment.appt_total) %></td>
+        <td><%= grooming_appointment.status %></td>
         <td><%= link_to 'Show', grooming_appointment, class: 'btn btn-block btn-info' %></td>
       </tr>
     <% end %>

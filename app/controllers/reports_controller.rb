@@ -33,6 +33,7 @@ class ReportsController < ApplicationController
         @customer_sales = ReportCalculations.customer_sales
         @customer_appointments = ReportCalculations.customer_appointments
         @sales_by_month = ReportCalculations.sales_by_month
+        @sales_by_month_by_status = ReportCalculations.sales_by_month_by_status
     end
 
     def customer_reports
@@ -64,6 +65,7 @@ class ReportsController < ApplicationController
 
     def current_and_last_year_sales_per_month_report
         @sales_by_month = ReportCalculations.sales_by_month
+        @sales_by_month_by_status = ReportCalculations.sales_by_month_by_status
     end
 
     def most_profitable_service_report
@@ -104,5 +106,6 @@ class ReportsController < ApplicationController
     def grooming_appointment_report
         @appointments_for_week = ReportCalculations.appointments_for_week
     end
+
     
 end

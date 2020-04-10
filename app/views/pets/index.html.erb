@@ -16,6 +16,7 @@
       <th>Pet Color</th>
       <th>Pet Breed</th>
       <th>Pet Weight (lbs)</th>
+      <th>Pet Status</th>
       <th>Show</th>
       <th>Edit</th>
     </tr>
@@ -41,6 +42,7 @@
         <%else%>
         <%= pet.pet_weight.to_i %>
         <%end%></td>
+        <td><%= pet.pet_status.status%></td>
         <td><%= link_to 'Show', pet, class: 'btn btn-block btn-info'%></td>
         <td><%= link_to 'Edit', edit_pet_path(pet), class: 'btn btn-block btn-warning' %></td>
       </tr>
@@ -61,6 +63,7 @@
     null,
     null,
     {"type": "date"},
+    null,
     null,
     null,
     null,
