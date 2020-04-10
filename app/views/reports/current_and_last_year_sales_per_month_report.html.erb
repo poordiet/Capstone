@@ -1,9 +1,29 @@
 <div class="container">
 <br>
 <hr>
+
  <h2> Sales per Month: <span class="dynamic-color"><%= Date.today.year %></span> </h2>  
  <p class="report-date">Date Created: <%=Date.today.to_formatted_s(:long)%></p>
  <hr>
+  <h5><span class="dynamic-color"> • <%=Date.today.strftime("%B")%>'s</span> Actual (Past) Sales:
+<% @sales_by_month_by_status.each do |sale|%>
+<% if sale.month.year == Date.today.year && sale.month.strftime("%B") == Date.today.strftime("%B") && sale.grooming_appointment_status_id == 2%>
+     <%= number_to_currency(sale.sales)%>
+<%end%>
+<%end%>
+</h5>
+
+ <h5> <span class="dynamic-color"> • <%=Date.today.strftime("%B")%>'s</span> Scheduled (Future) Sales:
+<% @sales_by_month_by_status.each do |sale|%>
+<% if (sale.month.year == Date.today.year && sale.month.strftime("%B") == Date.today.strftime("%B")) &&
+ (sale.grooming_appointment_status_id == 1 || sale.grooming_appointment_status_id == 4 || sale.grooming_appointment_status_id == 5  )%>
+     <%= number_to_currency(sale.sales)%>
+<%end%>
+<%end%>
+</h5>
+
+
+<hr>
         <br>
         <% @data = []
         @labels = []
