@@ -5,6 +5,6 @@ service_statuses =[
 ]
 
 
-service_statuses.each do | status|
-    ServiceStatus.create( service_status: status)
+service_statuses.each do | status, definition|
+    ServiceStatus.create( service_status: status, definition: definition)
 end

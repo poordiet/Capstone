@@ -74,9 +74,9 @@ customers = [
     [43,3,"JR","Folwardczny","5910  Stoney Grove"," "," ","832-752-0315"," "," ","2017-09-12"," "],
     [43,3,"Jo","Harmon","5736 Santa Fe Springs","Houston","77041","832-451-8879","713-464-0271"," ","2020-02-26","Work: 0271"],
     [43,1,"Carolina","Fonseca","4514 Hickory","Houston","77084","713-584-9095"," "," ","2017-12-06"," "],
-    [43,1,"Karen","Forslend","14819 Bluffridge Circle","Houston"," ","817-821-9133"," "," ","2017-08-14"," "],
-    [43,1,"Debora","Forster","6027 Charleston"," "," ","281-387-9085"," "," ","2017-12-21"," "],
-    [43,1,"Maria","Natal","11822 Granite Manor"," "," ","281-660-7801"," "," ","2018-07-02","Moved"],
+    [43,1,"Karen","Forslend","14819 Bluffridge Circle","Houston"," ","817-821-9133"," "," ","2020-02-14"," "],
+    [43,1,"Debora","Forster","6027 Charleston"," "," ","281-387-9085"," "," ","2020-01-21"," "],
+    [43,1,"Maria","Natal","11822 Granite Manor"," "," ","281-660-7801"," "," ","2020-02-02","Moved"],
     [43,1,"Anthony","Harris","13523 Clayton Hill Rd","Houston"," ","346-561-3559","346-701-9322","mrtonysells16@yahoo.com","2019-07-12","Rosie: 9322"],
     [43,1,"Leah","Harrison","7727 Melody Circle","Houston"," ","713-569-7610","713-392-3504","jimbillh@hotmail.com","2017-09-12","Bill: 3504"],
     [43,1,"Bryan","Harry","7814 Crestbrook Manor Ln","Cypress"," ","512-361-8277"," "," ","2018-02-05"," "],
@@ -90,15 +90,15 @@ customers = [
     [43,1,"Kelly","Hardwood","7606 Kite Hill Dr","Houston"," ","832-919-9331"," ","khanwood622@gmail.com","2019-08-12"," "],
     [43,1,"Debra","Hesling","12130 Millstrehm Way","Houston"," ","985-630-3548"," ","debrahasling@bellsouth.net","2017-02-06"," "],
     [43,1,"Mel","Hayuie","5515 Olympiad","Houston","77041","713-446-2113"," "," ","2019-10-10"," "],
-    [43,1,"Meghan","Hazel","7354 Stone Pine Ln","Houston","77041","205-542-2533"," "," ","2018-04-18"," "],
-    [43,1,"Jagtar","Singh Heir","13531 Sundowner Drive","Houston","77041","832-434-4933"," "," ","2017-10-06"," "],
+    [43,1,"Meghan","Hazel","7354 Stone Pine Ln","Houston","77041","205-542-2533"," "," ","2020-03-18"," "],
+    [43,1,"Jagtar","Singh Heir","13531 Sundowner Drive","Houston","77041","832-434-4933"," "," ","2020-03-06"," "],
     [43,1,"Chris","Hekel","12110 Arcodia Bend","Houston"," ","309-648-1815"," ","chrishekel@gmail.com","2019-11-13"," "],
-    [43,1,"Naderi","Anita","6318 Lipps Lane","Houston"," ","713-542-8030"," "," ","2017-08-31"," "],
-    [43,3,"Hannah","Franklin","16030 Kuve Ct","Houston"," ","713-248-4115"," ","hanna-franklin92@yahoo.com","2017-02-12"," "],
-    [43,1,"Dixie","Helton","16006 Acapulco Dr","Jersey Village","77040","713-466-7604","281-796-1198"," ","2019-05-23","281-796-1098 ; Cell: 1198"],
-    [43,1,"Amy","Franklin","5206 Pine Cliff","Houston","77084","832-655-7231"," "," ","2018-01-15"," "],
-    [43,1,"Nicole","Hellyer","14555 Philippine St Apt. 1024"," "," ","215-280-3498"," "," ","2018-08-01"," "],
-    [43,1,"Gordana","Fratoni","5707 Honor Ct","Houston"," ","713-828-9267"," "," ","2017-10-06"," "]
+    [43,1,"Naderi","Anita","6318 Lipps Lane","Houston"," ","713-542-8030"," "," ","2020-02-31"," "],
+    [43,3,"Hannah","Franklin","16030 Kuve Ct","Houston"," ","713-248-4115"," ","hanna-franklin92@yahoo.com","2020-02-12"," "],
+    [43,1,"Dixie","Helton","16006 Acapulco Dr","Jersey Village","77040","713-466-7604","281-796-1198"," ","2020-03-23","281-796-1098 ; Cell: 1198"],
+    [43,1,"Amy","Franklin","5206 Pine Cliff","Houston","77084","832-655-7231"," "," ","2020-01-15"," "],
+    [43,1,"Nicole","Hellyer","14555 Philippine St Apt. 1024"," "," ","215-280-3498"," "," ","2020-02-01"," "],
+    [43,1,"Gordana","Fratoni","5707 Honor Ct","Houston"," ","713-828-9267"," "," ","2020-01-06"," "]
 ]
 
 
