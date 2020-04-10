@@ -8,6 +8,8 @@
     <thead class="thead-dark">
       <th>Appointment Date</th>
       <th>Appointment Time</th>
+      <th>Pet</th>
+      <th>Customer</th>
       <th>Incident Notes</th>
       <th>Incident Cost</th>
       <th>Incident Status</th>
@@ -19,6 +21,9 @@
         <tr>
           <td><%= incident.grooming_appointment.appt_date.strftime("%b %d %Y") %></td>
           <td><%= incident.grooming_appointment.appt_time.strftime("%I:%M%p") %></td>
+          <td><%= incident.grooming_appointment.pet.pet_name %></td>
+          <td><%= incident.grooming_appointment.pet.customer.customer_first_name %>
+           <%= incident.grooming_appointment.pet.customer.customer_last_name %></td>
           <td><%= incident.incident_notes %></td>
           <td class="text-right"><%= number_to_currency(incident.incident_cost) %></td>
           <td><%= incident.incident_status.status %></td>
@@ -40,6 +45,8 @@
     "columns": [
     {"type": "date"},
     {"type": "date"},
+    null,
+    null,
     null,
     null,
     null,
