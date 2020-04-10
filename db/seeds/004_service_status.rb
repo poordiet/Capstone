@@ -1,7 +1,7 @@
 service_statuses =[
     ["Active", "Service is currently offered"],
     ["Discontinued", "Service is no longer offered"],
-    ["Limited", "Service is only offered under certain circumstances"]
+    ["Proposed", "Service could is not currently offered full-time but could be if it is in high deman"]
 ]
 
 

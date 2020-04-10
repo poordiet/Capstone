@@ -9,7 +9,7 @@ class DashboardCalculations
     end
 
     def self.sales_by_day
-        GroomingAppointment.count_by_sql("select sum(appt_total) from grooming_appointments where  appt_date = CURRENT_DATE")
+        GroomingAppointment.count_by_sql("select sum(appt_total) from grooming_appointments where  appt_date = CURRENT_DATE and grooming_appointment_status_id != 3")
     end
 
     def self.appointments_for_today
