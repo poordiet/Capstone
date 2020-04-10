@@ -8,6 +8,7 @@ class DashboardController < ApplicationController
       @pets = Pet.all
       @appointments_for_today = DashboardCalculations.appointments_for_today
       @customers = Customer.all
+      @cancelled_appointments_for_today = DashboardCalculations.cancelled_appointments_for_today
     end
   
   end

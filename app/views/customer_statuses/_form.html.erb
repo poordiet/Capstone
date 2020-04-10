@@ -1,7 +1,5 @@
 
 
-<div class="status-content">
-  <br>
   <%= form_with(model: customer_status, local: true) do |form| %>
   <% if customer_status.errors.any? %>
     <div id="error_explanation">
@@ -14,9 +12,7 @@
       </ul>
     </div>
   <% end %>
-  <h1>New Customer Status</h1>
-  <i>* Indicates required fields</i>
-  <hr>
+  
   <div class="form-row">
   <div class ="field form-group col-md-6">
     <%= form.label :status, 'Customer Status *' %>

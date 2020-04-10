@@ -77,6 +77,6 @@ class ServiceStatusesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def service_status_params
-      params.require(:service_status).permit(:service_status)
+      params.require(:service_status).permit(:service_status, :definition)
     end
 end

@@ -1,14 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-11">
+      <br>
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>">
+          <%= message %>
+        </div>
+      <% end %>
+        <%= link_to 'Edit',  edit_grooming_appointment_status_path(@grooming_appointment_status), class:'btn btn-warning btn-lg float-right mr-2' %>
+        <%= link_to 'Back', grooming_appointment_statuses_path, class: 'btn btn-danger btn-lg float-right mr-2'%>
 
-<p>
-  <strong>Status:</strong>
-  <%= @grooming_appointment_status.status %>
-</p>
+      <h1>Grooming Appointment Status</h1>
+      <hr>
+      <p>
+        <strong>Status:</strong>
+        <%= @grooming_appointment_status.status %>
+      </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @grooming_appointment_status.description %>
-</p>
+      <p>
+        <strong>Description:</strong>
+        <%= @grooming_appointment_status.definition %>
+      </p>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_grooming_appointment_status_path(@grooming_appointment_status) %> |
-<%= link_to 'Back', grooming_appointment_statuses_path %>

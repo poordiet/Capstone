@@ -1,8 +1,7 @@
 
 
 
- <div class="status-content">
-  <br>
+
   <%= form_with(model: service_status, local: true) do |form| %>
   <% if service_status.errors.any? %>
     <div id="error_explanation">
@@ -15,15 +14,20 @@
       </ul>
     </div>
   <% end %>
-  <h1>New Service Status</h1>
-  <i>* Indicates required fields</i>
-  <hr>
   <div class="form-row">
   <div class ="field form-group col-md-12">
     <%= form.label :service_status, 'Service Status *' %>
     <%= form.text_field :service_status, class: 'form-control' %>
   </div>
  </div>
+
+ <div class="form-row">
+  <div class ="field form-group col-md-12">
+    <%= form.label :defintion, 'Status Description' %>
+    <%= form.text_area :definition, class: 'form-control', rows: '3' %>
+  </div>
+ </div>
+
 <br>
   <div class="form-row">
   <div class="field form-group col-md-12">

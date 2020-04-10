@@ -1,6 +1,6 @@
 user = User.new
 user.employee_id = 1
-user.email = 'peekabool@gmail.com'
+user.email = 'peekaboo1@gmail.com'
 user.password = 'Middleout1'
 user.admin = true
 user.save!

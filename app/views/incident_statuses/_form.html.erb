@@ -1,7 +1,6 @@
 <%= form_with(model: incident_status, local: true) do |form| %>
  
-<div class="status-content">
-<br>
+
  <% if incident_status.errors.any? %>
     <div id="error_explanation">
       <h4><%= pluralize(incident_status.errors.count, "error") %> prohibited this incident status from being saved:</h4>
@@ -13,9 +12,7 @@
       </ul>
     </div>
   <% end %>
-  <h1>New Incident Status</h1>
-  <i>* Indicates Required Fields</i>
-  <hr>
+ 
   <div class="form-row">
   <div class ="field form-group col-md-6">
     <%= form.label :status, 'Incident Status *' %>

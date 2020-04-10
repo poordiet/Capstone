@@ -64,6 +64,11 @@
 
 <div class="col-6">
 <p>
+  <strong>Appointment Status:</strong>
+  <%= @grooming_appointment.grooming_appointment_status.status %>
+</p>
+
+<p>
   <strong>Vaccine Current:</strong>
   <%= @grooming_appointment.vac_current %>
 </p>
@@ -109,7 +114,7 @@
 </p>
 
 <p>
-  <strong>Appt Notes:</strong>
+  <strong>Appointment Notes:</strong>
   <%= @grooming_appointment.appt_notes %>
 </p>
 

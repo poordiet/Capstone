@@ -19,7 +19,7 @@
         <br>
         <center><h2>Sales Overview</h2>
         <p>
-            Today's Sales: <span class="dynamic"> <%= number_to_currency GroomingAppointment.where(:appt_date => Date.today).sum(:appt_total) %></span>
+            Today's Sales: <span class="dynamic-color"> <%= number_to_currency GroomingAppointment.where(:appt_date => Date.today).where.not(:grooming_appointment_status_id =>  3).sum(:appt_total) %></span>
         </p><center>
     </div>
     <div class=" info-box dashboard-card">
@@ -47,7 +47,6 @@
                 backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#ebae34", "#eb345f"]
             }]
         },
-      
         
     })
     </script>
@@ -60,7 +59,7 @@
         <br>
         <center><h2>Grooming Overview</h2>
         <p>
-        Total Appointments Today: <span class="dynamic"><%= GroomingAppointment.where(:appt_date => Date.today).count(:id) %></span>
+        Total Appointments Today: <span class="dynamic-color"><%=GroomingAppointment.where(:appt_date => Date.today).where.not(:grooming_appointment_status_id =>  3).count(:id)%></span>
         </p><center>
     </div>
 </div>
@@ -76,7 +75,9 @@
       <th>Customer Phone</th>
       <th>Pet Name</th>
       <th>Total</th>
+      <th>Status</th>
       <th>Show</th>
+      <th>Edit</th>
   
     </tr>
   </thead>
@@ -98,7 +99,47 @@
         <td><%= grooming_appointment.customer_primary_phone%></td>
         <td><%= grooming_appointment.pet_name %></td>
         <td><%= number_to_currency(grooming_appointment.appt_total) %></td>
+        <td><%= grooming_appointment.status%></td>
         <td><%= link_to 'Show', grooming_appointment, class: 'btn btn-block btn-info' %></td>
+        <td><%= link_to 'Edit', edit_grooming_appointment_path(grooming_appointment), class: 'btn btn-block btn-warning' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<hr>
+<br>
+<table id="example" class="table table-hover table-bordered">
+		<thead class="thead-dark">
+    <tr>
+      <th>Store</th>
+      <th>Appt Time</th>
+      <th>Customer</th>
+      <th>Customer Phone</th>
+      <th>Pet Name</th>
+      <th>Total</th>
+      <th>Status</th>
+      <th>Show</th>
+      <th>Edit</th>
+  
+    </tr>
+  </thead>
+
+    <br>
+   <h2>Cancelled Appointments</h2>
+    <br> 
+  <tbody>
+    <% @cancelled_appointments_for_today.each do |grooming_appointment| %>
+      <tr> 
+        <td><%= grooming_appointment.store_name %></td>
+        <td><%= grooming_appointment.appt_time.strftime("%I:%M%p")%></td>
+        <td><%= grooming_appointment.customer %>
+        <td><%= grooming_appointment.customer_primary_phone%></td>
+        <td><%= grooming_appointment.pet_name %></td>
+        <td><%= number_to_currency(grooming_appointment.appt_total) %></td>
+        <td><%= grooming_appointment.status%></td>
+        <td><%= link_to 'Show', grooming_appointment, class: 'btn btn-block btn-info' %></td>
+        <td><%= link_to 'Edit', edit_grooming_appointment_path(grooming_appointment), class: 'btn btn-block btn-warning' %></td>
       </tr>
     <% end %>
   </tbody>

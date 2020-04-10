@@ -33,15 +33,16 @@
 
   <hr/>
 
+   
+  <div class="form-row">
 
+  
   <div class="field form-group col-md-6">
     <%= form.label :grooming_appointment_status_id, 'Status *' %>
     <br>
     <%= form.collection_select :grooming_appointment_status_id, GroomingAppointmentStatus.all, :id, :status%>
    </div>
-   </div>
-   
-  <div class="form-row">
+
   <div class=" form-group field col-md-3">
     <%= form.label :store_id, "Store *" %>
     <br>
@@ -104,6 +105,7 @@
 
     <hr/>
 
+<!--
  <div class="form-row">
     <div class="form-group col-12">
       <h2>Services</h2>
@@ -111,7 +113,7 @@
             <%= render "grooming_service_fields", f: grooming_service %>
           <% end %> 
     </div>
-  </div>
+  </div>-->
 
 
 <h2>Services</h2>
@@ -127,6 +129,7 @@
 
   <hr/>
 
+<!--
    <div class="form-row">
     <div class="form-group col-12">
       <h2>Styles</h2>
@@ -134,7 +137,7 @@
         <%= render "grooming_style_fields", f: grooming_style %>
       <% end %> 
     </div>
-  </div>
+  </div>-->
 
 
 <h2>Styles</h2>

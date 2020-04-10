@@ -1,6 +1,13 @@
 class GroomingAppointmentStatusesController < ApplicationController
   before_action :set_grooming_appointment_status, only: [:show, :edit, :update, :destroy]
-  access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
+  before_action :check_admin
+
+  def check_admin
+    unless current_user.admin == true
+      flash.alert = "You must be an Admin to access this page!"
+      redirect_to root_path
+    end
+  end
 
   # GET /grooming_appointment_statuses
   def index
@@ -25,7 +32,7 @@ class GroomingAppointmentStatusesController < ApplicationController
     @grooming_appointment_status = GroomingAppointmentStatus.new(grooming_appointment_status_params)
 
     if @grooming_appointment_status.save
-      redirect_to @grooming_appointment_status, notice: 'Grooming appointment status was successfully created.'
+      redirect_to @grooming_appointment_status, success: 'Grooming appointment status was successfully created.'
     else
       render :new
     end
@@ -34,7 +41,7 @@ class GroomingAppointmentStatusesController < ApplicationController
   # PATCH/PUT /grooming_appointment_statuses/1
   def update
     if @grooming_appointment_status.update(grooming_appointment_status_params)
-      redirect_to @grooming_appointment_status, notice: 'Grooming appointment status was successfully updated.'
+      redirect_to @grooming_appointment_status, success: 'Grooming appointment status was successfully updated.'
     else
       render :edit
     end
@@ -43,7 +50,7 @@ class GroomingAppointmentStatusesController < ApplicationController
   # DELETE /grooming_appointment_statuses/1
   def destroy
     @grooming_appointment_status.destroy
-    redirect_to grooming_appointment_statuses_url, notice: 'Grooming appointment status was successfully destroyed.'
+    redirect_to grooming_appointment_statuses_url, success: 'Grooming appointment status was successfully destroyed.'
   end
 
   private
@@ -54,6 +61,6 @@ class GroomingAppointmentStatusesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def grooming_appointment_status_params
-      params.require(:grooming_appointment_status).permit(:status, :description)
+      params.require(:grooming_appointment_status).permit(:status, :definition)
     end
 end

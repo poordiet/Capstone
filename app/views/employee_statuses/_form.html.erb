@@ -1,6 +1,5 @@
 
 
-<div class = "status-content">
   <br>
   <%= form_with(model: employee_status, local: true) do |form| %>
   <% if employee_status.errors.any? %>
@@ -14,9 +13,6 @@
       </ul>
     </div>
   <% end %>
-  <h1>New Employee Status</h1>
-  <p><i>* Indicates Required Fields</i></p>
-  <hr>
   <div class="form-row">
   <div class ="field form-group col-md-6">
     <%= form.label :status, 'Employee Status *' %>

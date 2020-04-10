@@ -9,6 +9,7 @@
   <table id="example" class="table table-hover table-bordered">
     <thead class="thead-dark">
       <th>Status Name</th>
+      <th>Description</th>
       <th>Show</th>
       <th>Edit</th>
     </thead>
@@ -17,6 +18,7 @@
       <% @service_statuses.each do |ss| %>
         <tr>
           <td><%= ss.service_status %></td>
+          <td><%= ss.definition%></td>
           <td><%= link_to 'Show', ss, class: 'btn btn-info btn-block' %></td>
           <td><%= link_to 'Edit', edit_service_status_path(ss), class: 'btn btn-warning btn-block' %></td>
         </tr>
