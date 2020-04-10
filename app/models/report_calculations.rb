@@ -25,11 +25,11 @@ class ReportCalculations
     end
 
     def self.customer_sales
-        Customer.find_by_sql("select concat( customer_first_name, ' ', customer_last_name) as customer, customer_primary_phone, customer_email, customers.id as customer_id, sum(appt_total) from grooming_appointments inner join pets on pets.id = grooming_appointments.pet_id inner join customers on pets.customer_id = customers.id where customer_status_id = 1 and  appt_total is not null  group by customer, customer_primary_phone, customer_email, customers.id order by sum desc fetch first 10 rows only")
+        Customer.find_by_sql("select concat( customer_first_name, ' ', customer_last_name) as customer, sum(appt_total) from grooming_appointments inner join pets on pets.id = grooming_appointments.pet_id inner join customers on pets.customer_id = customers.id where customer_status_id = 1 and  appt_total is not null  group by customer order by sum desc fetch first 10 rows only")
     end
 
     def self.customer_appointments
-        Customer.find_by_sql("select concat( customer_first_name, ' ', customer_last_name) as customer, customer_primary_phone, customer_email, customers.id as customer_id, count(grooming_appointments.id) from grooming_appointments inner join pets on pets.id = grooming_appointments.pet_id inner join customers on pets.customer_id = customers.id where customer_status_id = 1 group by customer, customer_primary_phone, customer_email, customers.id order by count desc limit 10")
+        Customer.find_by_sql("select concat( customer_first_name, ' ', customer_last_name) as customer, count(grooming_appointments.id) from grooming_appointments inner join pets on pets.id = grooming_appointments.pet_id inner join customers on pets.customer_id = customers.id where customer_status_id = 1 group by customer order by count desc limit 10")
     end
 
     def self.sales_by_month
@@ -37,12 +37,8 @@ class ReportCalculations
     end
 
     def self.inactive_employees
-        User.find_by_sql("select users.id, emp_first_name, emp_last_name, emp_primary_phone, users.email, users.roles, status from employees join users on employees.id=users.employee_id join employee_statuses on employees.employee_status_id=employee_statuses.id where
+        User.find_by_sql("select emp_first_name, emp_last_name, users.email, users.roles, status from employees join users on employees.id=users.employee_id join employee_statuses on employees.employee_status_id=employee_statuses.id where
         employee_status_id > 1")
-    end
-
-    def self.appointments_for_week
-        GroomingAppointment.find_by_sql("select grooming_appointments.id, concat(customer_first_name, ' ', customer_last_name) as customer, customer_primary_phone, pet_name, store_name, appt_date, appt_time, appt_total from customers join pets on customers.id=pets.customer_id join grooming_appointments on pets.id = grooming_appointments.pet_id join stores on grooming_appointments.store_id = stores.id where appt_date between CURRENT_DATE AND (CURRENT_DATE + interval '7 day') group by grooming_appointments.id, store_name, appt_date, appt_time, customer, customer_primary_phone, pet_name, appt_total order by store_name, appt_date, appt_time;")
     end
 
 
