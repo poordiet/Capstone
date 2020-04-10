@@ -2,7 +2,7 @@ class EmployeeStore < ApplicationRecord
   belongs_to :store
   belongs_to :employee
 
-  #validate :no_repeat_employee_store
+  validate :no_repeat_employee_store
   
 
    # Validates that a duplicate employee store is not entered
