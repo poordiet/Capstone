@@ -76,6 +76,6 @@ class PaymentTypesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def payment_type_params
-      params.require(:payment_type).permit(:payment_type)
+      params.require(:payment_type).permit(:payment_type, :definition)
     end
 end

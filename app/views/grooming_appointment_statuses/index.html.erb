@@ -1,29 +1,45 @@
+
 <p id="notice"><%= notice %></p>
 
-<h1>Grooming Appointment Statuses</h1>
-
-<table>
-  <thead>
-    <tr>
+<div class="container">
+  <br>
+  <h1>Grooming Appointment Statuses</h1>
+  <br>
+  <a class="btn btn-success float-right mt-4" href="grooming_appointment_statuses/new" role="button" aria-pressed="true">New Status</a>
+  <table id="example" class="table table-hover table-bordered">
+    <thead class="thead-dark">
       <th>Status</th>
       <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <th>Show</th>
+      <th>Edit</th>
+    </thead>
 
-  <tbody>
-    <% @grooming_appointment_statuses.each do |grooming_appointment_status| %>
-      <tr>
-        <td><%= grooming_appointment_status.status %></td>
-        <td><%= grooming_appointment_status.description %></td>
-        <td><%= link_to 'Show', grooming_appointment_status %></td>
-        <td><%= link_to 'Edit', edit_grooming_appointment_status_path(grooming_appointment_status) %></td>
-        <td><%= link_to 'Destroy', grooming_appointment_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    <tbody>
+      <% @grooming_appointment_statuses.each do |grooming_appointment_status| %>
+        <tr>
+          <td><%= grooming_appointment_status.status %></td>
+        <td><%= grooming_appointment_status.definition %></td>
+          <td><%= link_to 'Show', grooming_appointment_status, class: 'btn btn-info btn-block' %></td>
+          <td><%= link_to 'Edit', edit_grooming_appointment_status_path(grooming_appointment_status), class: 'btn btn-warning btn-block' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br>
 <br>
 
-<%= link_to 'New Grooming Appointment Status', new_grooming_appointment_status_path %>
+<script type="text/javascript">
+    var dataTable = $('#example').DataTable();
+
+    $(document).ready(function() {
+        dataTable;
+    });
+
+    document.addEventListener("turbolinks:before-cache", function() {
+        if (dataTable !== null) {
+            dataTable.destroy();
+            dataTable = null;
+        }
+    });
+</script>

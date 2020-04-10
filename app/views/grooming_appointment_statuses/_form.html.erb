@@ -1,27 +1,36 @@
-<%= form_with(model: grooming_appointment_status, local: true) do |form| %>
+
+
+  <br>
+  <%= form_with(model: grooming_appointment_status, local: true) do |form| %>
   <% if grooming_appointment_status.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(grooming_appointment_status.errors.count, "error") %> prohibited this grooming_appointment_status from being saved:</h2>
 
       <ul>
         <% grooming_appointment_status.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li>• <%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
+  <div class="form-row">
+  <div class ="field form-group col-md-6">
+    <%= form.label :status, 'Grooming Appointment Status *' %>
+    <%= form.text_field :status, class: 'form-control' %>
+  </div>
+ </div>
+   <div class="form-row">
+  <div class ="field form-group col-md-12">
+    <%= form.label :definition, 'Status Description' %>
+    <%= form.text_area :definition, class: 'form-control', rows: '3' %>
+  </div>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+  <div class="form-row">
+  <div class="field form-group col-md-12">
+      <%= link_to 'Cancel', grooming_appointment_statuses_path, class: 'btn btn-danger btn-lg float-left'%>
+      <button type="submit" class="btn btn-primary btn-lg float-right ">Submit</button>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+</div>
 <% end %>
+

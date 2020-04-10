@@ -16,6 +16,7 @@
       <th>Services</th>
       <th>Store</th>
       <th>Total</th>
+      <th>Status</th>
       <th>Show</th>
       <th>Edit</th>
     </tr>
@@ -50,6 +51,7 @@
         </td>
         <td><%= grooming_appointment.store.store_name %></td>
         <td class="text-right"><%= number_to_currency(grooming_appointment.appt_total) %></td>
+        <td><%= grooming_appointment.grooming_appointment_status.status %></td>
         <td><%= link_to 'Show', grooming_appointment, class: 'btn btn-block btn-info' %></td>
         <td><%= link_to 'Edit', edit_grooming_appointment_path(grooming_appointment), class: 'btn btn-block btn-warning' %></td>
       </tr>
@@ -72,6 +74,7 @@
     null,
     {"type": "date"},
     {"type": "date"},
+    null,
     null,
     null,
     null,
