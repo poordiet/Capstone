@@ -3,7 +3,7 @@
    <!-- Find all the pets with Birthdays this month-->
 <% pets_with_birthdays = [ ]%>
 <% @pets.each do |pet| %>
-<% if pet.pet_birthdate.present? && pet.pet_birthdate.strftime("%m%d") >= Date.today.beginning_of_month.strftime('%m%d') &&  pet.pet_birthdate.strftime("%m%d") <= Date.today.end_of_month.strftime('%m%d')%>
+<% if pet.pet_birthdate.present? && pet.pet_birthdate.strftime("%m%d") >= Date.today.beginning_of_month.strftime('%m%d') &&  pet.pet_birthdate.strftime("%m%d") <= Date.today.end_of_month.strftime('%m%d') && pet.pet_status_id == 1%>
     <% pets_with_birthdays << pet %>
 <%end%>
 <%end%>

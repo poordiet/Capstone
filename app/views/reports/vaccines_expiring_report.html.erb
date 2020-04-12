@@ -5,7 +5,7 @@
 <!-- Find all pet vaccination expiring in the next 3 months-->
 <% pet_vacc_expire = [ ]%>
  <% @pet_vaccinations.each do |pet_vaccination| %>
-<% if pet_vaccination.date_expire.present? && pet_vaccination.date_expire >= Date.today && pet_vaccination.date_expire <= Date.today + 3.months%>
+<% if pet_vaccination.pet.pet_status_id == 1 && pet_vaccination.date_expire.present? && pet_vaccination.date_expire >= Date.today && pet_vaccination.date_expire <= Date.today + 3.months%>
     <% pet_vacc_expire << pet_vaccination %>
 <%end%>
 <%end%>
