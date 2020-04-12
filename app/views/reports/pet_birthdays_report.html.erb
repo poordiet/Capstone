@@ -3,7 +3,7 @@
    <!-- Find all the pets with Birthdays this month-->
 <% pets_with_birthdays = [ ]%>
 <% @pets.each do |pet| %>
-<% if pet.pet_birthdate.present? && pet.pet_birthdate.strftime("%m%d") >= Date.today.beginning_of_month.strftime('%m%d') &&  pet.pet_birthdate.strftime("%m%d") <= Date.today.end_of_month.strftime('%m%d')%>
+<% if pet.pet_birthdate.present? && pet.pet_birthdate.strftime("%m%d") >= Date.today.beginning_of_month.strftime('%m%d') &&  pet.pet_birthdate.strftime("%m%d") <= Date.today.end_of_month.strftime('%m%d') && pet.pet_status_id == 1%>
     <% pets_with_birthdays << pet %>
 <%end%>
 <%end%>
@@ -20,9 +20,10 @@
     <tr>
       <th>Customer</th>
       <th>Customer Phone</th>
+      <th>Customer Email</th>
       <th>Pet</th>
       <th>Birthday</th>
-      <th>Show</th>
+      <th>Show Pet</th>
   
     </tr>
   </thead>
@@ -31,6 +32,7 @@
 	<tr>
       <td><%= pet.customer.customer_first_name %> <%= pet.customer.customer_last_name %></td>
       <td><%= pet.customer.customer_primary_phone %></td>
+      <td><%= pet.customer.customer_email %></td>
       <td><%= pet.pet_name %></td>
       <td><%= pet.pet_birthdate.to_formatted_s(:long)%></td>
        <td><%= link_to 'Show', pet, class: 'btn btn-block btn-info'%></td>
@@ -48,6 +50,7 @@
     
 
     "columns": [
+    null,
     null,
     null,
     null,
