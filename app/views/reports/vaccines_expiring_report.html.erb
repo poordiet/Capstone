@@ -19,6 +19,7 @@
 	<thead class="thead-dark">
       <th>Customer</th>
       <th>Customer Phone</th>
+      <th>Customer Email</th>
       <th>Pet</th>
       <th>Vaccine</th>
       <th>Date Expiring</th>
@@ -30,6 +31,7 @@
          <td><%= pet_vaccination.pet.customer.customer_first_name %>
             <%= pet_vaccination.pet.customer.customer_last_name %></td>
         <td><%= pet_vaccination.pet.customer.customer_primary_phone %></td>
+        <td><%= pet_vaccination.pet.customer.customer_email %></td>
         <td><%= pet_vaccination.pet.pet_name %></td>
 		<td><%= pet_vaccination.vaccine.vaccine_name %></td>
         <td><%= pet_vaccination.date_expire.to_formatted_s(:long) %></td>
@@ -49,6 +51,7 @@
     
 
     "columns": [
+    null,
     null,
     null,
     null,

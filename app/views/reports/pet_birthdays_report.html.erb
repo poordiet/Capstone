@@ -20,6 +20,7 @@
     <tr>
       <th>Customer</th>
       <th>Customer Phone</th>
+      <th>Customer Email</th>
       <th>Pet</th>
       <th>Birthday</th>
       <th>Show Pet</th>
@@ -31,6 +32,7 @@
 	<tr>
       <td><%= pet.customer.customer_first_name %> <%= pet.customer.customer_last_name %></td>
       <td><%= pet.customer.customer_primary_phone %></td>
+      <td><%= pet.customer.customer_email %></td>
       <td><%= pet.pet_name %></td>
       <td><%= pet.pet_birthdate.to_formatted_s(:long)%></td>
        <td><%= link_to 'Show', pet, class: 'btn btn-block btn-info'%></td>
@@ -48,6 +50,7 @@
     
 
     "columns": [
+    null,
     null,
     null,
     null,
